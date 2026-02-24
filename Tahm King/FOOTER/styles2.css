@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.pie-pagina-rosa {
+    background-color: #9e7c7c;
+    color: white;
+    padding-top: 50px;
+    margin-top: 0; 
+}
+
+.contenedor-columnas {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.columna-footer {
+    flex: 1;
+    min-width: 250px;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.titulo-footer {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.columna-footer p {
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.columna-footer .detalle {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #e6e6e6;
+}
+
+.lista-limpia {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-limpia li {
+    margin-bottom: 8px;
+}
+
+.lista-limpia a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.lista-limpia a:hover {
+    color: #ffd700;
+    text-decoration: underline;
+}
+
+.redes-sociales {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.link-social {
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+.link-social:hover {
+    background-color: white;
+    color: #9e7c7c;
+}
+
+.barra-copyright {
+    background-color: rgba(0,0,0,0.2);
+    padding: 15px 40px;
+    font-size: 12px;
+}
