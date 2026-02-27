@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login y Registro con Form</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="tabs">
+            <button type="button" id="tab-login" class="tab active" onclick="cambiarVista('login')">INICIAR SESIÓN</button>
+            <button type="button" id="tab-register" class="tab inactive-dark" onclick="cambiarVista('register')">RESGISTRARSE</button>
+        </div>
+        
+        <div class="form-card">
+            <div class="icon-circle">
+                <div class="user-head"></div>
+                <div class="user-body"></div>
+            </div>
+
+            <form id="auth-form">
+                <div id="grupo-login" class="inputs-group">
+                    <input type="email" class="input-field" placeholder="Email">
+                    <input type="password" class="input-field" placeholder="Contraseña">
+                </div>
+
+                <div id="grupo-register" class="inputs-group hidden">
+                    <input type="text" class="input-field" placeholder="Nombre">
+                    <input type="text" class="input-field" placeholder="Apellido">
+                    <input type="email" class="input-field" placeholder="Email">
+                    <input type="password" class="input-field" placeholder="Contraseña">
+                </div>
+
+                <div class="button-container">
+                    <button type="submit" class="submit-button">ENVIAR</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function cambiarVista(vista) {
+            const loginGroup = document.getElementById('grupo-login');
+            const registerGroup = document.getElementById('grupo-register');
+            const tabLogin = document.getElementById('tab-login');
+            const tabRegister = document.getElementById('tab-register');
+
+            if (vista === 'login') {
+                loginGroup.classList.remove('hidden');
+                registerGroup.classList.add('hidden');
+                tabLogin.className = 'tab active';
+                tabRegister.className = 'tab inactive-dark';
+            } else {
+                loginGroup.classList.add('hidden');
+                registerGroup.classList.remove('hidden');
+                tabLogin.className = 'tab inactive-dark';
+                tabRegister.className = 'tab active';
+            }
+        }
+    </script>
+</body>
+</html>

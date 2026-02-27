@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.seccion-alergenos {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Banner Superior */
+.banner-informativo {
+    display: flex;
+    border: 2px solid #333;
+    margin-bottom: 40px;
+    background-color: #fff;
+}
+
+.caja-texto {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.caja-texto h2 {
+    margin-bottom: 15px;
+    color: #ff2a2a;
+}
+
+.caja-imagen {
+    flex: 1;
+    background-color: #ddd;
+    min-height: 250px;
+}
+
+.caja-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Título Central */
+.titulo-principal {
+    text-align: center;
+    font-size: 32px;
+    letter-spacing: 4px;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+/* Grid de Alérgenos */
+.grid-alergenos {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas como en el dibujo */
+    gap: 30px;
+}
+
+.item-alergeno {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.simbolo {
+    width: 100px;
+    height: 100px;
+    background-color: #e0e0e0;
+    border: 2px solid #333;
+    border-radius: 50%; /* Forma circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.simbolo img {
+    width: 60%;
+    height: auto;
+}
+
+.info-texto {
+    background-color: #e0e0e0;
+    border: 2px solid #333;
+    padding: 15px;
+    flex-grow: 1;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info-texto h3 {
+    margin-bottom: 5px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.info-texto p {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.2;
+}
+
+/* Adaptación para móviles */
+@media (max-width: 768px) {
+    .grid-alergenos {
+        grid-template-columns: 1fr;
+    }
+
+    .banner-informativo {
+        flex-direction: column;
+    }
+}

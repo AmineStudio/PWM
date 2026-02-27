@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros y Ubicaciones</title>
+    <link rel="stylesheet" href="sobreNosotros.css">
+</head>
+<body>
+
+<section class="about-section">
+    <div class="about-grid">
+        <div class="item texto">
+            <h2>Nuestra Historia</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda beatae delectus doloremque dolores error esse ex facilis fugiat illum minus nostrum porro, possimus quasi qui, rem reprehenderit tempore ullam voluptatibus.</p>
+        </div>
+        <div class="item imagen">
+            <img src="https://via.placeholder.com/400x250" alt="Interior del restaurante">
+        </div>
+        <div class="item imagen">
+            <img src="https://via.placeholder.com/400x250" alt="Nuestra cocina">
+        </div>
+        <div class="item texto">
+            <h2>Nuestra Cocina</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aspernatur at beatae ea est et explicabo, illo, incidunt ipsum minus nihil odit pariatur, sequi. Corporis id incidunt minima omnis soluta!</p>
+        </div>
+    </div>
+</section>
+
+<section class="ubicacion-section">
+    <div class="ubicacion-container">
+        <div class="lista-restaurantes">
+            <h3>¿Dónde encontrarnos?</h3>
+            <ul>
+                <li onclick="cambiarMapa('restaurante1')">Restaurante 1</li>
+                <li onclick="cambiarMapa('restaurante2')">Restaurante 2</li>
+                <li onclick="cambiarMapa('restaurante3')">Restaurante 3</li>
+            </ul>
+        </div>
+        <div class="mapa-box">
+            <iframe id="google-map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11231.14440539169!2d-3.703790!3d40.416775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422879cf18e30f%3A0x1da9f658c35b804d!2sPuerta%20del%20Sol!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses"
+                    allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Función para cambiar la ubicación del mapa
+    function cambiarMapa(id) {
+        const mapFrame = document.getElementById('google-map');
+
+        // Aquí pondrías el enlace "src" de "Insertar mapa" de Google Maps para cada local
+        const ubicaciones = {
+            'restaurante1': "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.265!2d-3.703!3d40.416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDI0JzU3LjYiTiAzwrA0MicxMC44Ilc!5e0!3m2!1ses!2ses!4v1700000000001",
+            'restaurante2': "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037!2d-3.71!3d40.42!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDI1JzEyLjAiTiAzwrA0MicsMzYuMCJX!5e0!3m2!1ses!2ses!4v1700000000002",
+            'restaurante3': "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037!2d-3.68!3d40.43!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDI1JzQ4LjAiTiAzwrA0MCcyNC4wIlc!5e0!3m2!1ses!2ses!4v1700000000003"
+        };
+
+        mapFrame.src = ubicaciones[id];
+    }
+</script>
+</body>
+</html>
