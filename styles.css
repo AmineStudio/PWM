@@ -458,3 +458,80 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     .numero-pedido { font-size: 30px; }
     .btn-info { width: 40px; height: 40px; }
 }
+
+/* ================= ESTILOS PÁGINA LOGIN ================= */
+
+/* Contenedor principal que centra la tarjeta y da el fondo rosa */
+.seccion-login-wrapper {
+    background-color: #c5a2a2; /* Tu color rosa original */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Ocupa la pantalla pero deja sitio a header/footer */
+    padding: 40px 0;
+}
+
+/* Ajuste para que la tarjeta no se vea gigante en móviles */
+.main-container {
+    width: 380px;
+    max-width: 90%;
+}
+
+/* --- TUS ESTILOS ORIGINALES (ADAPTADOS) --- */
+.tabs { display: flex; }
+
+.tab {
+    padding: 12px 20px; font-size: 13px; font-weight: bold;
+    text-align: center; cursor: pointer; flex: 1; border: none; outline: none;
+}
+
+.active { background-color: #d9d9d9; color: #000; }
+.inactive-dark { background-color: #8b2525; color: #000; }
+
+.form-card {
+    background-color: #d64641; padding: 40px 35px;
+    display: flex; flex-direction: column; align-items: center;
+    min-height: 380px;
+    border-radius: 0 0 5px 5px; /* Un pequeño borde redondeado abajo */
+}
+
+#auth-form { width: 100%; }
+
+.icon-circle {
+    width: 55px; height: 55px; border: 1.5px solid black; border-radius: 50%;
+    margin: 0 auto 35px auto; position: relative; display: flex;
+    justify-content: center; overflow: hidden; background-color: #c5a2a2;
+}
+
+.user-head {
+    width: 16px; height: 16px; border: 1.5px solid black;
+    border-radius: 50%; position: absolute; top: 10px; background-color: #c5a2a2;
+}
+
+.user-body {
+    width: 32px; height: 20px; border: 1.5px solid black;
+    border-radius: 50%; position: absolute; bottom: -8px; background-color: #c5a2a2;
+}
+
+.inputs-group {
+    width: 100%; display: flex; flex-direction: column; gap: 15px;
+}
+
+.input-field {
+    background-color: #d9d9d9; height: 45px; border: none; padding-left: 15px;
+    font-size: 13px; width: 100%; box-sizing: border-box; outline: none;
+}
+
+.button-container {
+    margin-top: 45px; width: 100%; display: flex; justify-content: center;
+}
+
+.submit-button {
+    background-color: #d9d9d9; padding: 12px 25px; font-size: 13px;
+    font-weight: bold; border: none; cursor: pointer; min-width: 150px;
+    transition: transform 0.2s;
+}
+
+.submit-button:hover { transform: scale(1.05); }
+
+.hidden { display: none; }
