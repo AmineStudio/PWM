@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - Tahm King</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div xlu-include-file="../components/header.html"></div>
+
+<section class="about-section">
+    <div class="about-grid">
+        <div class="item texto">
+            <h2>Nuestra Historia</h2>
+            <p>En Tahm King, la tradición se encuentra con el sabor. Desde 2010, servimos las mejores hamburguesas del reino con ingredientes frescos y una receta secreta que ha pasado de generación en generación.</p>
+        </div>
+        <div class="item imagen">
+            <img src="https://via.placeholder.com/400x250/333/fff?text=Interior+Tahm+King" alt="Interior del restaurante">
+        </div>
+        <div class="item imagen">
+            <img src="https://via.placeholder.com/400x250/333/fff?text=Cocina+Abierta" alt="Nuestra cocina">
+        </div>
+        <div class="item texto">
+            <h2>Nuestra Cocina</h2>
+            <p>Nuestros chefs trabajan con pasión para ofrecerte una experiencia inolvidable. Carne 100% vacuno, pan horneado diariamente y salsas caseras que te harán volver.</p>
+        </div>
+    </div>
+</section>
+
+<section class="ubicacion-section">
+    <div class="ubicacion-container">
+        <div class="lista-restaurantes">
+            <h3>¿Dónde encontrarnos?</h3>
+            <ul>
+                <li onclick="cambiarMapa('centro')">📍 Tahm King Centro</li>
+                <li onclick="cambiarMapa('puerto')">📍 Tahm King Puerto</li>
+                <li onclick="cambiarMapa('sur')">📍 Tahm King Sur</li>
+            </ul>
+        </div>
+        <div class="mapa-box">
+            <iframe id="google-map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3519.986326466812!2d-15.4241!3d28.1235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDA3JzI0LjYiTiAxNcKwMjUnMjYuOCJX!5e0!3m2!1ses!2ses!4v1600000000000!5m2!1ses!2ses"
+                    allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</section>
+
+<div xlu-include-file="../components/footer.html"></div>
+
+<script src="../java/java.js"></script>
+
+<script>
+    // Script específico para los mapas de esta página
+    function cambiarMapa(id) {
+        const mapFrame = document.getElementById('google-map');
+
+        // Aquí están los enlaces "Embed" reales de Google Maps (ejemplos)
+        const ubicaciones = {
+            // Mapa 1
+            'centro': "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3519.986326466812!2d-15.4241!3d28.1235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDA3JzI0LjYiTiAxNcKwMjUnMjYuOCJX!5e0!3m2!1ses!2ses!4v1600000000000",
+
+            // Mapa 2 (Diferente ubicación)
+            'puerto': "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3518.5!2d-15.43!3d28.14!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDA4JzI0LjYiTiAxNcKwMjUnMjYuOCJX!5e0!3m2!1ses!2ses!4v1600000000000",
+
+            // Mapa 3
+            'sur': "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14096.5!2d-15.59!3d27.76!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDQ1JzI0LjYiTiAxNcKwMzUnMjYuOCJX!5e0!3m2!1ses!2ses!4v1600000000000"
+        };
+
+        if(ubicaciones[id]) {
+            mapFrame.src = ubicaciones[id];
+        }
+    }
+</script>
+</body>
+</html>
