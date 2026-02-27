@@ -1,7 +1,3 @@
-/* =========================================
-   TU FUNCIÓN ORIGINAL (EL MOTOR)
-   ========================================= */
-
 async function xLuIncludeFile() {
     let z = document.getElementsByTagName("*");
 
@@ -40,8 +36,7 @@ async function xLuIncludeFile() {
                     a.removeAttribute("xlu-include-file");
                     a.innerHTML = content;
                     z[i].parentNode.replaceChild(a, z[i]);
-                    
-                    // Llamada recursiva para procesar elementos dentro del archivo incluido
+
                     xLuIncludeFile();
                 }
             } catch (error) {
@@ -53,10 +48,6 @@ async function xLuIncludeFile() {
     }
 }
 
-/* =========================================
-   LO QUE HABÍA QUE AÑADIR (EL INTERRUPTOR)
-   ========================================= */
-// Esto le dice al navegador: "Cuando termines de cargar el HTML, ejecuta la función".
 document.addEventListener("DOMContentLoaded", function() {
     xLuIncludeFile();
 });
