@@ -990,3 +990,174 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     text-align: right;
     margin-top: 5px;
 }
+
+/* ================= PÁGINA DE INICIO (MAIN) ================= */
+
+.contenedor-principal {
+    background-color: #dcdcdc;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+/* Filas generales */
+.fila {
+    margin-bottom: 30px;
+    width: 95%;
+    max-width: 1200px; /* Pero no se desmadra en pantallas gigantes */
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px; /* Bordes suaves */
+    overflow: hidden; /* Para que el contenido no se salga de las esquinas */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra elegante */
+}
+
+/* Fila 1: FRASE + BOTÓN */
+.fila-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #e29d9d; /* Rosa salmón */
+    padding: 40px 20px;
+}
+
+/* Fila 2: Dos columnas (Ofertas + Imagen) */
+.fila-2 {
+    display: flex;
+    gap: 0; /* Sin hueco, para que parezca un bloque unido */
+}
+
+.columna-2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    min-height: 250px;
+}
+
+.columna-ofertas {
+    background-color: #d1c0c0; /* Gris rosado */
+}
+
+.columna-imagen {
+    background-color: #b0b0b0; /* Gris más oscuro para contraste */
+    padding: 0;
+}
+
+.placeholder-imagen {
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    background: url('../img/oferta-home.jpg') center/cover no-repeat, linear-gradient(145deg, #a0a0a0, #b8b8b8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Fila 3: TEXTO + VER CARTA */
+.fila-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #e29d9d;
+    padding: 50px 20px;
+}
+
+.texto-main {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Fila 4: Tres columnas (Accesos directos) */
+.fila-4 {
+    display: flex;
+    gap: 20px;
+    background: transparent; /* Fondo transparente para ver el gris de la web */
+    box-shadow: none; /* Sin sombra general */
+}
+
+.columna-3 {
+    flex: 1;
+    background-color: #c6a68e; /* Marrón claro */
+    padding: 30px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 180px;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s;
+}
+
+.columna-3:hover {
+    transform: translateY(-5px); /* Efecto elevación */
+}
+
+.titulo-columna {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* Títulos y botones generales */
+.titulo-main {
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.btn-main {
+    background-color: #fff;
+    color: #e29d9d; /* Texto del color del fondo para invertir */
+    text-decoration: none;
+    padding: 12px 35px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px; /* Botones redondeados */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.btn-main:hover {
+    background-color: #f8f8f8;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    color: #c08080;
+}
+
+/* Botones en fondos oscuros (como la fila 4) */
+.columna-3 .btn-main {
+    color: #c6a68e;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .fila-2, .fila-4 {
+        flex-direction: column;
+    }
+    .columna-3 {
+        margin-bottom: 15px;
+    }
+}
