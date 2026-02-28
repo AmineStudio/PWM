@@ -1,26 +1,31 @@
 <header class="barra-superior-gris">
+
+    <div xlu-include-file="../components/sidebar.html"></div>
+
     <div class="grupo-izquierda">
-        <button class="boton-redondo-menu">
+        <label for="sidebar-active" class="boton-redondo-menu">
             <span>&#9776;</span>
-        </button>
-        <a href="#" class="boton-rectangular-rojo">OFERTAS</a>
+        </label>
+
+        <a href="../pages/ofertas.html" class="boton-rectangular-rojo">OFERTAS</a>
     </div>
 
     <div class="grupo-centro">
-        <a href="#" class="link-logo-wrapper">
+        <a href="../index.html" class="link-logo-wrapper">
             <div class="circulo-logo">
-                <img src="../img/logo.png" alt="Logo" class="imagen-del-logo" onerror="this.style.display='none'">
+                <img src="../img/logo.png" alt="Logo" class="imagen-del-logo">
             </div>
         </a>
     </div>
 
     <div class="grupo-derecha">
         <a href="#" class="boton-rectangular-rojo">PEDIR YA</a>
+
         <div class="contenedor-usuario">
             <div class="etiqueta-puntos-rosa">0 pts.</div>
-            <button class="boton-redondo-usuario">
+            <a href="../pages/login.html" class="boton-redondo-usuario" style="text-decoration:none; color:black;">
                 <span>&#128100;</span>
-            </button>
+            </a>
         </div>
     </div>
 </header>

@@ -2,17 +2,17 @@
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
 body { background-color: #dcdcdc; min-height: 100vh; display: flex; flex-direction: column; }
 
-/* ================= HEADER ================= */
+/* ================= HEADER ORIGINAL TAHM KING ================= */
 .barra-superior-gris {
     background-color: #635f5f;
-    height: 140px; /* AUMENTADO: Antes era 100px */
+    height: 140px;
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Esto mantiene todo centrado verticalmente */
-    padding: 0 30px; /* Un poco más de espacio a los lados */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra debajo del header para profundidad */
+    align-items: center;
+    padding: 0 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     position: relative;
-    z-index: 100;
+    z-index: 100; /* Importante para que no tape al sidebar cuando salga */
 }
 
 .grupo-izquierda, .grupo-derecha {
@@ -25,36 +25,35 @@ body { background-color: #dcdcdc; min-height: 100vh; display: flex; flex-directi
 .grupo-derecha { justify-content: flex-end; }
 .grupo-centro { display: flex; justify-content: center; }
 
-/* --- BOTONES CON ANIMACIÓN --- */
+/* --- BOTONES RECTANGULARES --- */
 .boton-rectangular-rojo {
     background-color: #ff2a2a;
     color: white;
     text-decoration: none;
     padding: 12px 25px;
     font-weight: bold;
-    border-radius: 8px; /* Bordes un poco más redondeados */
-    box-shadow: 0 4px 0 #b30000; /* Efecto 3D botón físico */
-    transition: all 0.2s ease; /* SUAVIZADO DE ANIMACIÓN */
+    border-radius: 8px;
+    box-shadow: 0 4px 0 #b30000;
+    transition: all 0.2s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* Efecto al pasar el ratón (Hover) */
 .boton-rectangular-rojo:hover {
-    background-color: #ff4d4d; /* Rojo más brillante */
-    transform: translateY(-2px); /* Se levanta un poco */
-    box-shadow: 0 6px 0 #b30000; /* La sombra crece */
+    background-color: #ff4d4d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #b30000;
 }
 
-/* Efecto al hacer clic (Active) */
 .boton-rectangular-rojo:active {
-    transform: translateY(2px); /* Se hunde */
+    transform: translateY(2px);
     box-shadow: 0 2px 0 #b30000;
 }
 
-/* Botones Redondos (Menú y Usuario) */
+/* --- BOTONES REDONDOS (Menú y Usuario) --- */
+/* Funciona perfectamente con <label> también */
 .boton-redondo-menu, .boton-redondo-usuario {
-    width: 60px; /* Un poco más grandes */
+    width: 60px;
     height: 60px;
     background-color: #dcdcdc;
     border-radius: 50%;
@@ -64,26 +63,26 @@ body { background-color: #dcdcdc; min-height: 100vh; display: flex; flex-directi
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s; /* Animación simple */
+    transition: transform 0.2s;
 }
 
 .boton-redondo-menu:hover, .boton-redondo-usuario:hover {
-    transform: scale(1.1); /* Se hacen grandes al pasar el ratón */
+    transform: scale(1.1);
     background-color: #fff;
 }
 
 /* --- LOGO --- */
 .link-logo-wrapper {
-    text-decoration: none; /* Quita subrayados del link */
+    text-decoration: none;
     transition: transform 0.3s ease;
 }
 
 .link-logo-wrapper:hover {
-    transform: scale(1.05); /* El logo crece un poquito al pasar el ratón */
+    transform: scale(1.05);
 }
 
 .circulo-logo {
-    width: 110px; /* Logo más grande para el nuevo header */
+    width: 110px;
     height: 110px;
     background-color: #dcdcdc;
     border-radius: 50%;
@@ -100,7 +99,7 @@ body { background-color: #dcdcdc; min-height: 100vh; display: flex; flex-directi
     object-fit: cover;
 }
 
-/* --- PUNTOS --- */
+/* --- PUNTOS Y USUARIO --- */
 .etiqueta-puntos-rosa {
     background-color: #f08c8c;
     color: white;
@@ -115,11 +114,10 @@ body { background-color: #dcdcdc; min-height: 100vh; display: flex; flex-directi
     align-items: center;
 }
 
-/* Asegurar que el botón de usuario esté por encima de la etiqueta rosa */
 .boton-redondo-usuario {
     position: relative;
     z-index: 2;
-    border: 3px solid #635f5f; /* Borde para separarlo visualmente */
+    border: 3px solid #635f5f;
 }
 
 /* ================= Tahm King (TU FORMULARIO) ================= */
@@ -645,3 +643,106 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
         height: 200px; /* Mapa más pequeño en móvil */
     }
 }
+/* ================= SIDEBAR (VERSIÓN SOLO CSS) ================= */
+
+/* 1. Ocultar el checkbox (Nadie debe verlo, pero sigue funcionando) */
+.checkbox-menu-oculto {
+    display: none;
+}
+
+/* 2. Estilo del Menú (Estado inicial: OCULTO) */
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: #3b3030;
+    color: white;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.5);
+
+    /* Lo sacamos de la pantalla hacia la izquierda */
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* 3. LA MAGIA: Cuando el checkbox está marcado... ¡Muestra el menú! */
+#sidebar-active:checked ~ .menu-lateral {
+    transform: translateX(0);
+}
+
+/* 4. El Fondo Oscuro (Overlay) */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1999;
+
+    /* Oculto por defecto */
+    display: none;
+    backdrop-filter: blur(2px);
+}
+
+/* Cuando el checkbox está marcado... ¡Muestra el fondo oscuro! */
+#sidebar-active:checked ~ .sidebar-overlay {
+    display: block;
+}
+
+/* --- ESTILOS VISUALES (Botones y Decoración) --- */
+
+/* Botón Hamburguesa del Header */
+.btn-hamburguesa {
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 15px;
+    color: #333; /* Color de las rayitas */
+    user-select: none; /* Evita que se seleccione el texto al hacer clic */
+}
+
+/* Botón Cerrar (X) dentro del menú */
+.boton-cerrar {
+    background: #dcdcdc;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 24px;
+    color: #000;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s;
+}
+.boton-cerrar:hover { transform: rotate(90deg); }
+
+/* --- Resto de estilos del sidebar (igual que antes) --- */
+.sidebar-header {
+    background-color: #9e7c7c;
+    padding: 30px 25px;
+    display: flex; align-items: center; gap: 20px;
+}
+.sidebar-header h2 { margin: 0; color: white; }
+.sidebar-nav { padding: 20px 0; flex: 1; overflow-y: auto; }
+.sidebar-nav ul { list-style: none; padding: 0; margin: 0; }
+.sidebar-nav a {
+    display: flex; align-items: center; text-decoration: none;
+    color: #e0e0e0; padding: 15px 30px; font-size: 18px; gap: 15px;
+    transition: background 0.2s;
+}
+.sidebar-nav a:hover { background-color: rgba(255,255,255,0.1); color: white; }
+.sidebar-footer { padding: 30px 25px; background-color: #3b3030; }
+.sidebar-social-icons { display: flex; gap: 10px; }
+.social-icon {
+    width: 40px; height: 40px; display: flex; justify-content: center;
+    align-items: center; text-decoration: none; color: white;
+    font-size: 20px; border-radius: 4px;
+}
+.social-icon.insta { background: linear-gradient(45deg, #f09433, #bc1888); }
+.social-icon.x-twitter { background: black; }
+.social-icon.facebook { background: #1877f2; }
