@@ -893,3 +893,100 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
         min-height: auto;
     }
 }
+
+/* ================= PÁGINA CARTA / MENÚ ================= */
+
+/* Contenedor principal para centrar el menú sin romper el header */
+.seccion-carta-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #dcdcdc; /* Tu color de fondo original */
+    min-height: 80vh;
+}
+
+.menu-contenedor {
+    max-width: 1000px;
+    width: 100%;
+    background-color: #e29d9d; /* Rosa palo */
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-radius: 8px; /* Un toque extra */
+}
+
+/* Categorías / Tabs */
+.menu-categorias {
+    display: flex;
+    justify-content: center; /* Centrado */
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 40px;
+    background-color: #D92B2B; /* Rojo intenso */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.categoria-item {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none; /* Quitamos subrayado */
+    padding: 10px 20px;
+    transition: all 0.3s;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.categoria-item:hover {
+    background-color: #a88080;
+    transform: scale(1.05);
+}
+
+/* Grid de productos */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* Item individual */
+.menu-item {
+    background-color: #D92B2B;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Para que el precio quede abajo */
+    gap: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    transition: transform 0.2s;
+    min-height: 150px;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px); /* Efecto flotante al pasar ratón */
+}
+
+.item-nombre {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 5px;
+}
+
+.item-info {
+    font-size: 14px;
+    color: #f0f0f0;
+    line-height: 1.4;
+    flex-grow: 1; /* Ocupa el espacio disponible */
+}
+
+.item-precio {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffeb3b; /* Amarillo */
+    text-align: right;
+    margin-top: 5px;
+}
