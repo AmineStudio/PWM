@@ -746,3 +746,150 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
 .social-icon.insta { background: linear-gradient(45deg, #f09433, #bc1888); }
 .social-icon.x-twitter { background: black; }
 .social-icon.facebook { background: #1877f2; }
+
+/* ================= PÁGINA DE ALÉRGENOS ================= */
+
+.seccion-alergenos {
+    max-width: 1000px;
+    margin: 40px auto; /* Centrado y con margen arriba/abajo */
+    padding: 0 20px;
+}
+
+/* Banner Superior */
+.banner-informativo {
+    display: flex;
+    border: 2px solid #333;
+    margin-bottom: 40px;
+    background-color: #fff;
+    border-radius: 8px; /* Un toque estético extra */
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.caja-texto {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.caja-texto h2 {
+    margin-bottom: 15px;
+    color: #ff2a2a; /* Rojo Tahm King */
+    font-size: 28px;
+}
+
+.caja-imagen {
+    flex: 1;
+    background-color: #ddd;
+    min-height: 250px;
+}
+
+.caja-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Título Central */
+.titulo-principal {
+    text-align: center;
+    font-size: 32px;
+    letter-spacing: 4px;
+    margin-bottom: 40px;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 3px solid #ff2a2a;
+    display: inline-block;
+    padding-bottom: 10px;
+    /* Truco para centrar el borde */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Grid de Alérgenos */
+.grid-alergenos {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas */
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.item-alergeno {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.simbolo {
+    width: 80px; /* Un pelín más pequeños para que queden finos */
+    height: 80px;
+    background-color: #f4f4f4;
+    border: 2px solid #333;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.simbolo img {
+    width: 60%;
+    height: auto;
+}
+
+/* Si no tienes iconos, esto pondrá una letra temporalmente */
+.simbolo span {
+    font-size: 30px;
+    font-weight: bold;
+    color: #555;
+}
+
+.info-texto {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd; /* Borde más suave */
+    border-left: 4px solid #ff2a2a; /* Detalle de diseño */
+    padding: 15px;
+    flex-grow: 1;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.info-texto h3 {
+    margin-bottom: 5px;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.info-texto p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* Adaptación para móviles */
+@media (max-width: 768px) {
+    .grid-alergenos {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+
+    .banner-informativo {
+        flex-direction: column;
+    }
+
+    .caja-imagen {
+        height: 200px; /* Menos altura en móvil */
+        min-height: auto;
+    }
+}
