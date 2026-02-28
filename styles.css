@@ -1161,3 +1161,199 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
         margin-bottom: 15px;
     }
 }
+
+/* ================= PÁGINA DEL CARRITO ================= */
+
+/* Contenedor wrapper para centrar en pantalla */
+.seccion-carrito-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #dcdcdc; /* Fondo gris de la web */
+    min-height: 80vh;
+}
+
+.carrito-contenedor {
+    max-width: 900px; /* Un poco más ancho para que respire */
+    width: 100%;
+    background-color: #e29d9d; /* Rosa palo */
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Título de sección (Opcional, queda bien) */
+.titulo-carrito {
+    text-align: center;
+    color: white;
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Categorías / Tabs */
+.carrito-categorias {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+    background-color: #c6a68e; /* Marrón claro */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.categoria-item {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 8px 15px;
+    transition: all 0.3s;
+    border-radius: 20px; /* Redondeados */
+    text-transform: uppercase;
+}
+
+.categoria-item:hover, .categoria-item.activo {
+    background-color: #a88080; /* Color al pasar ratón */
+    transform: scale(1.1);
+}
+
+/* Lista del carrito (Grid) */
+.carrito-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Adaptable */
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Item del carrito */
+.carrito-item {
+    background-color: #f9f9f9; /* Fondo blanco/gris para contraste */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    border-left: 5px solid #ff2a2a; /* Detalle rojo a la izquierda */
+}
+
+.item-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.item-nombre {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.item-precio {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d32f2f; /* Rojo precio */
+}
+
+.item-detalle {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+    font-style: italic;
+}
+
+/* Contador (+ -) */
+.item-contador {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: auto; /* Empuja el contador al fondo */
+}
+
+.contador-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background-color: #ddd;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.contador-btn:hover {
+    background-color: #ccc;
+}
+
+.contador-numero {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    min-width: 30px;
+    text-align: center;
+}
+
+/* Botones Finales */
+.carrito-acciones {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    border-top: 2px solid rgba(255,255,255,0.3);
+    padding-top: 30px;
+}
+
+.btn-pedido {
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-transform: uppercase;
+}
+
+.btn-finalizar {
+    background-color: #4CAF50; /* Verde éxito */
+    color: white;
+}
+
+.btn-finalizar:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn-cancelar {
+    background-color: #ff5252; /* Rojo error */
+    color: white;
+}
+
+.btn-cancelar:hover {
+    background-color: #ff1744;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Responsive móvil */
+@media (max-width: 600px) {
+    .carrito-acciones {
+        flex-direction: column;
+    }
+    .btn-pedido {
+        width: 100%;
+    }
+}
