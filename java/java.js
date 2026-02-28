@@ -1,5 +1,5 @@
 /* ==============================================
-   JAVA.JS - MOTOR DE TAHM KING
+   JAVA.JS - MOTOR DE TAHM KING (V. FINAL)
    ============================================== */
 
 async function xLuIncludeFile() {
@@ -10,27 +10,31 @@ async function xLuIncludeFile() {
             let a = z[i].cloneNode(false);
             let file = z[i].getAttribute("xlu-include-file");
 
+            // === MAGIA NUEVA: CORRECCIÓN DE CARGA DE ARCHIVOS ===
+            // Si estamos en la carpeta 'pages' y el archivo a cargar NO tiene '../', se lo ponemos.
+            if (window.location.pathname.includes("/pages/") && !file.startsWith("../")) {
+                file = "../" + file;
+            }
+            // ====================================================
+
             try {
                 let response = await fetch(file);
                 if (response.ok) {
                     let content = await response.text();
 
-                    // Inyectamos el contenido
                     a.removeAttribute("xlu-include-file");
                     a.innerHTML = content;
                     z[i].parentNode.replaceChild(a, z[i]);
 
-                    // === CORRECCIÓN DE RUTAS ===
-                    // Si cargamos un componente de navegación (Header o Sidebar), arreglamos sus enlaces
+                    // Si cargamos menús, arreglamos sus enlaces internos
                     if (file.includes("header") || file.includes("sidebar")) {
                         corregirRutas(a);
                     }
 
-                    // Recursividad para componentes anidados
-                    xLuIncludeFile();
+                    xLuIncludeFile(); // Seguimos buscando más componentes
                 }
             } catch (error) {
-                console.error("Error cargando archivo:", error);
+                console.error("Error cargando archivo:", file, error);
             }
             return;
         }
@@ -38,27 +42,19 @@ async function xLuIncludeFile() {
 }
 
 function corregirRutas(elemento) {
-    // 1. Detectamos si estamos dentro de la carpeta 'pages'
-    const estamosEnPages = window.location.pathname.includes("/pages/");
+    if (window.location.pathname.includes("/pages/")) {
+        const elementos = elemento.querySelectorAll('a, img');
+        elementos.forEach(el => {
+            let attr = el.tagName === 'A' ? 'href' : 'src';
+            let ruta = el.getAttribute(attr);
 
-    if (estamosEnPages) {
-        // Buscamos TODOS los enlaces (a) e imágenes (img) dentro del componente
-        const elementosConRuta = elemento.querySelectorAll('a, img');
-
-        elementosConRuta.forEach(el => {
-            let atributo = el.tagName === 'A' ? 'href' : 'src';
-            let ruta = el.getAttribute(atributo);
-
-            // Si la ruta es interna (no empieza por http, # o ../)
             if (ruta && !ruta.startsWith('http') && !ruta.startsWith('#') && !ruta.startsWith('../')) {
-                // Le añadimos "../" para salir de la carpeta pages
-                el.setAttribute(atributo, '../' + ruta);
+                el.setAttribute(attr, '../' + ruta);
             }
         });
     }
 }
 
-// Iniciar al cargar
 document.addEventListener("DOMContentLoaded", function() {
     xLuIncludeFile();
 });
