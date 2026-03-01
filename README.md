@@ -20,9 +20,12 @@ PARTICIPANTES
 - Miguel Alonso Corimanya Rojas
 - Yenedey Morán Delgado
 - Amine Allah Saidani
+
 REQUISITOS
+https://drive.google.com/file/d/17oKcE6HMfED2ey2bkn3Dndxmyq3CbbqA/view?usp=sharing
 
 MOCKUPS Y STORYBOARDS
+https://www.figma.com/design/kF4ygJn73UdTswuVO40XeT/Tahm-King?node-id=0-1&t=WLQGB3KUbspOmnKs-1
 
 TEMPLATES
 
@@ -30,3 +33,9 @@ TECNOLOGÍAS
 - Html
 - Css
 - JavaScript
+- Trello
+- WebStorm
+- Figma
+
+ENLACE AL VÍDEO
+https://drive.google.com/file/d/10qGxGOaZDFu56hU4F1jPzc0TofYN3qTm/view?usp=sharing
