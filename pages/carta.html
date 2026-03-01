@@ -11,52 +11,71 @@
 <div xlu-include-file="../components/header.html"></div>
 
 <main class="seccion-carta-wrapper">
-    <div class="menu-contenedor">
 
-        <div class="menu-categorias">
-            <a href="#" class="categoria-item">ENTRANTES</a>
-            <a href="#" class="categoria-item">HAMBURGUESAS</a>
-            <a href="#" class="categoria-item">HOTDOGS</a>
-            <a href="#" class="categoria-item">BEBIDAS</a>
-            <a href="#" class="categoria-item">POSTRE</a>
-        </div>
+    <div class="menu-categorias">
+        <a href="#" class="categoria-btn activo">ENTRANTES</a>
+        <a href="#" class="categoria-btn">HAMBURGUESAS</a>
+        <a href="#" class="categoria-btn">HOTDOGS</a>
+        <a href="#" class="categoria-btn">BEBIDAS</a>
+        <a href="#" class="categoria-btn">POSTRE</a>
+    </div>
+
+    <div class="menu-contenedor-rosa">
 
         <div class="menu-grid">
 
             <div class="menu-item">
-                <div class="item-nombre">KING BURGER</div>
-                <div class="item-info">Doble carne, queso cheddar, bacon y salsa secreta.</div>
-                <div class="item-precio">12.50€</div>
+                <h3 class="item-nombre">KING BURGER</h3>
+                <div class="imagen-wrapper">
+                    <img src="../img/burger-placeholder.png" alt="Hamburguesa" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3075/3075977.png'">
+                    <span class="item-precio-burbuja">12€</span>
+                </div>
+                <p class="item-info">Doble carne, queso cheddar y bacon.</p>
             </div>
 
             <div class="menu-item">
-                <div class="item-nombre">TAHM FRIES</div>
-                <div class="item-info">Patatas fritas con queso fundido y bacon crujiente.</div>
-                <div class="item-precio">6.90€</div>
+                <h3 class="item-nombre">CHEESE EXPLOSION</h3>
+                <div class="imagen-wrapper">
+                    <img src="../img/burger-placeholder.png" alt="Hamburguesa" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3075/3075977.png'">
+                    <span class="item-precio-burbuja">14€</span>
+                </div>
+                <p class="item-info">Bañada en salsa de queso cheddar.</p>
             </div>
 
             <div class="menu-item">
-                <div class="item-nombre">RIVER DOG</div>
-                <div class="item-info">Hotdog clásico con cebolla caramelizada.</div>
-                <div class="item-precio">5.50€</div>
+                <h3 class="item-nombre">CLASSIC SMASH</h3>
+                <div class="imagen-wrapper">
+                    <img src="../img/burger-placeholder.png" alt="Hamburguesa" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3075/3075977.png'">
+                    <span class="item-precio-burbuja">10€</span>
+                </div>
+                <p class="item-info">Carne smash, pepinillos y salsa.</p>
             </div>
 
             <div class="menu-item">
-                <div class="item-nombre">ABYSSAL WINGS</div>
-                <div class="item-info">Alitas de pollo picantes con salsa barbacoa.</div>
-                <div class="item-precio">8.00€</div>
+                <h3 class="item-nombre">TAHM FRIES</h3>
+                <div class="imagen-wrapper">
+                    <img src="../img/burger-placeholder.png" alt="Fries" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3075/3075977.png'">
+                    <span class="item-precio-burbuja">6€</span>
+                </div>
+                <p class="item-info">Patatas con bacon y queso.</p>
             </div>
 
             <div class="menu-item">
-                <div class="item-nombre">COLA ZERO</div>
-                <div class="item-info">Refresco 500ml.</div>
-                <div class="item-precio">2.50€</div>
+                <h3 class="item-nombre">HOT DOG</h3>
+                <div class="imagen-wrapper">
+                    <img src="../img/burger-placeholder.png" alt="Hotdog" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3075/3075977.png'">
+                    <span class="item-precio-burbuja">8€</span>
+                </div>
+                <p class="item-info">Salchicha XL con cebolla frita.</p>
             </div>
 
             <div class="menu-item">
-                <div class="item-nombre">CHEESECAKE</div>
-                <div class="item-info">Tarta de queso casera con arándanos.</div>
-                <div class="item-precio">4.50€</div>
+                <h3 class="item-nombre">POLLO CRUJIENTE</h3>
+                <div class="imagen-wrapper">
+                    <img src="../img/burger-placeholder.png" alt="Pollo" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3075/3075977.png'">
+                    <span class="item-precio-burbuja">11€</span>
+                </div>
+                <p class="item-info">Pollo rebozado con lechuga.</p>
             </div>
 
         </div>
@@ -64,7 +83,6 @@
 </main>
 
 <div xlu-include-file="../components/footer.html"></div>
-
 <script src="../java/java.js"></script>
 
 </body>

@@ -894,101 +894,129 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     }
 }
 
-/* ================= PÁGINA CARTA / MENÚ ================= */
+/* ================= NUEVO DISEÑO CARTA (TIPO TAHM KING) ================= */
 
-/* Contenedor principal para centrar el menú sin romper el header */
+/* Fondo general de la página (grisáceo) */
 .seccion-carta-wrapper {
-    display: flex;
-    justify-content: center;
+    background-color: #dcdcdc;
     padding: 40px 20px;
-    background-color: #dcdcdc; /* Tu color de fondo original */
-    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
 }
 
-.menu-contenedor {
-    max-width: 1000px;
-    width: 100%;
-    background-color: #e29d9d; /* Rosa palo */
-    padding: 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    border-radius: 8px; /* Un toque extra */
-}
-
-/* Categorías / Tabs */
+/* --- BOTONES DE CATEGORÍAS --- */
 .menu-categorias {
     display: flex;
-    justify-content: center; /* Centrado */
+    justify-content: center;
+    gap: 15px; /* Separación entre botones */
     flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 40px;
-    background-color: #D92B2B; /* Rojo intenso */
-    padding: 20px;
-    border-radius: 8px;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 1000px;
 }
 
-.categoria-item {
+.categoria-btn {
+    background-color: #c00000; /* Rojo oscuro botón */
     color: white;
+    text-decoration: none;
     font-weight: bold;
-    font-size: 16px;
-    text-decoration: none; /* Quitamos subrayado */
-    padding: 10px 20px;
-    transition: all 0.3s;
-    border-radius: 4px;
+    padding: 15px 30px;
+    font-size: 14px;
     text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: transform 0.2s, background-color 0.2s;
+    /* Quitamos bordes redondeados para que sean cuadrados como la foto */
+    border-radius: 2px;
 }
 
-.categoria-item:hover {
-    background-color: #a88080;
-    transform: scale(1.05);
+.categoria-btn:hover, .categoria-btn.activo {
+    background-color: #e60000; /* Un rojo más vivo al pasar el ratón */
+    transform: translateY(-2px);
 }
 
-/* Grid de productos */
+/* --- CONTENEDOR ROSA GRANDE --- */
+.menu-contenedor-rosa {
+    background-color: #ff7f7f; /* El color salmón de tu imagen */
+    padding: 40px;
+    width: 100%;
+    max-width: 1000px;
+    /* Sombra opcional para darle profundidad */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Grid de 3 columnas */
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 25px;
+    /* Forzamos 3 columnas, pero que se adapten en móvil */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px; /* Espacio entre tarjetas */
 }
 
-/* Item individual */
+/* --- TARJETA INDIVIDUAL (ITEM) --- */
 .menu-item {
-    background-color: #D92B2B;
+    background-color: #d34848; /* Rojo ladrillo de la tarjeta */
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Para que el precio quede abajo */
-    gap: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-    border-radius: 8px;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.2s;
-    min-height: 150px;
 }
 
 .menu-item:hover {
-    transform: translateY(-5px); /* Efecto flotante al pasar ratón */
+    transform: scale(1.02);
 }
 
 .item-nombre {
-    font-size: 20px;
-    font-weight: bold;
     color: white;
+    font-size: 22px;
+    margin-bottom: 15px;
     text-transform: uppercase;
-    border-bottom: 1px solid rgba(255,255,255,0.3);
-    padding-bottom: 5px;
+    font-weight: normal; /* Letra fina como en la foto */
 }
 
 .item-info {
-    font-size: 14px;
-    color: #f0f0f0;
-    line-height: 1.4;
-    flex-grow: 1; /* Ocupa el espacio disponible */
+    color: white;
+    font-size: 18px;
+    margin-top: 15px;
 }
 
-.item-precio {
-    font-size: 18px;
+/* --- IMAGEN Y BURBUJA DE PRECIO --- */
+.imagen-wrapper {
+    position: relative; /* Clave para poder posiconar el precio */
+    width: 180px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagen-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3)); /* Sombra a la hamburguesa */
+}
+
+/* La bola marrón del precio */
+.item-precio-burbuja {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #5c1818; /* Marrón oscuro casi negro */
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Círculo perfecto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: bold;
-    color: #ffeb3b; /* Amarillo */
-    text-align: right;
-    margin-top: 5px;
+    font-size: 14px;
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
 /* ================= PÁGINA DE INICIO (MAIN) ================= */
@@ -1356,4 +1384,105 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     .btn-pedido {
         width: 100%;
     }
+}
+
+/* ================= PANTALLA TIPO DE PEDIDO ================= */
+
+/* 1. Fondo de toda la pantalla */
+.fondo-pedido-rosa {
+    background-color: #cbb2b2; /* Color rosa viejo de la imagen */
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.contenedor-tipo-pedido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* 2. Logo Circular */
+.logo-central-circulo {
+    width: 120px;
+    height: 120px;
+    background-color: #d9d9d9; /* Gris claro */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.logo-central-circulo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.texto-logo-alt {
+    font-size: 20px;
+    color: #333;
+}
+
+/* 3. Lista de Opciones */
+.lista-opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Separación entre botones */
+    width: 100%;
+}
+
+.opcion-fila {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Quitar subrayado del enlace */
+    gap: 20px;
+    transition: transform 0.2s;
+}
+
+.opcion-fila:hover {
+    transform: scale(1.05); /* Efecto zoom al pasar ratón */
+}
+
+/* Iconos a la izquierda */
+.icono-blanco {
+    width: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Botones Rectangulares Grises */
+.boton-gris {
+    background-color: #d9d9d9;
+    color: black;
+    font-size: 20px;
+    padding: 15px 0;
+    width: 250px; /* Ancho fijo como en la foto */
+    text-align: center;
+    border-radius: 2px; /* Bordes rectos */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* 4. Botón Cancelar */
+.btn-cancelar-pedido {
+    margin-top: 60px;
+    background-color: #d9d9d9;
+    border: none;
+    padding: 10px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn-cancelar-pedido:hover {
+    background-color: #c0c0c0;
 }
