@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Cómo quieres tu pedido?</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="fondo-pedido-rosa">
+
+<div class="contenedor-tipo-pedido">
+
+    <div class="logo-central-circulo">
+        <img src="../img/logo.png" alt="Logo">
+    </div>
+
+    <div class="lista-opciones">
+
+        <a href="carta.html" class="opcion-fila">
+            <div class="icono-blanco">
+                <svg viewBox="0 0 24 24" width="50" height="50" fill="none" stroke="white" stroke-width="2">
+                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                    <line x1="6" y1="1" x2="6" y2="4"></line>
+                    <line x1="10" y1="1" x2="10" y2="4"></line>
+                    <line x1="14" y1="1" x2="14" y2="4"></line>
+                </svg>
+            </div>
+            <div class="boton-gris">pedir aqui</div>
+        </a>
+
+        <a href="carta.html" class="opcion-fila">
+            <div class="icono-blanco">
+                <svg viewBox="0 0 24 24" width="50" height="50" fill="none" stroke="white" stroke-width="2">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+            </div>
+            <div class="boton-gris">pedir para llevar</div>
+        </a>
+
+        <a href="carta.html" class="opcion-fila">
+            <div class="icono-blanco">
+                <svg viewBox="0 0 24 24" width="50" height="50" fill="none" stroke="white" stroke-width="2">
+                    <circle cx="5.5" cy="17.5" r="2.5"></circle>
+                    <circle cx="18.5" cy="17.5" r="2.5"></circle>
+                    <path d="M15 6h5l3 7v6M5.5 17.5H15M2 17.5h.5M9 17.5h6"></path>
+                    <path d="M12 5L9 2H4v7h5"></path>
+                </svg>
+            </div>
+            <div class="boton-gris">pedir a domicilio</div>
+        </a>
+
+    </div>
+
+    <button class="btn-cancelar-pedido" onclick="window.history.back()">cancelar</button>
+
+</div>
+
+</body>
+</html>
