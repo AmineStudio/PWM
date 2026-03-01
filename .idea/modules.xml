@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/PWM.iml" filepath="$PROJECT_DIR$/.idea/PWM.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/CONTACTO.iml" filepath="$PROJECT_DIR$/.idea/CONTACTO.iml" />
+>>>>>>> 84816d89e87a332e98ec9784a0031d0b021a424f
     </modules>
   </component>
 </project>

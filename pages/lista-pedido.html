@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Compra - Tahm King</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="fondo-lista-pedido">
+
+<div xlu-include-file="../components/header.html"></div>
+
+<main class="tk-page-container">
+
+  <div class="tk-header-icon">
+    <i class="fas fa-shopping-cart" style="color: black;"></i>
+  </div>
+
+  <div class="tk-card tk-cart-sheet">
+    <h1 class="tk-main-title">LISTA DE COMPRA</h1>
+
+    <div class="tk-list-content">
+
+      <div class="tk-row">
+        <span class="nombre-producto">KING BURGER</span>
+        <span class="tk-dots"></span>
+        <span class="precio-producto">12.00€</span>
+        <div class="tk-actions">
+          <i class="far fa-edit icono-accion"></i>
+          <i class="fas fa-times icono-accion rojo"></i>
+        </div>
+      </div>
+
+      <div class="tk-row">
+        <span class="nombre-producto">COLA ZERO</span>
+        <span class="tk-dots"></span>
+        <span class="precio-producto">2.50€</span>
+        <div class="tk-actions">
+          <i class="far fa-edit icono-accion"></i>
+          <i class="fas fa-times icono-accion rojo"></i>
+        </div>
+      </div>
+
+      <div class="tk-row">
+        <span class="nombre-producto">TAHM FRIES</span>
+        <span class="tk-dots"></span>
+        <span class="precio-producto">4.00€</span>
+        <div class="tk-actions">
+          <i class="far fa-edit icono-accion"></i>
+          <i class="fas fa-times icono-accion rojo"></i>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="tk-row tk-total-row">
+      <strong>PRECIO TOTAL</strong>
+      <span class="tk-dots"></span>
+      <strong class="precio-total-final">18.50€</strong>
+    </div>
+  </div>
+
+  <div class="tk-footer-nav">
+
+    <button class="tk-circle-btn tk-danger" onclick="window.history.back()">
+      <i class="fas fa-times" style="color: white;"></i>
+    </button>
+
+    <button class="tk-btn-action" onclick="window.location.href='ticket.html'">
+      FINALIZAR PEDIDO
+    </button>
+
+    <button class="tk-circle-btn tk-info" onclick="window.history.back()">
+      <i class="fas fa-cart-plus"></i>
+    </button>
+  </div>
+
+</main>
+
+<script src="../java/java.js"></script>
+</body>
+</html>
