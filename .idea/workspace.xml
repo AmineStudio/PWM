@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="69323169-4302-4618-a7fd-ac064e37f281" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/Tahm King/ALERGENOS/alergenos.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Tahm King/ALERGENOS/alergenos.html" afterDir="false" />
@@ -11,6 +12,9 @@
       <change afterPath="$PROJECT_DIR$/Tahm King/HISTORIAL/historial.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Tahm King/SOBRE NOSOTROS/sobreNosotros.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Tahm King/SOBRE NOSOTROS/sobreNosotros.html" afterDir="false" />
+=======
+    <list default="true" id="cfb62714-1e7a-46f8-b18f-75efcb09897f" name="Changes" comment="">
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +26,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
+<<<<<<< Updated upstream
   "customColor": "",
   "associatedIndex": 4
 }]]></component>
@@ -29,12 +34,18 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+=======
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="3AFmk1yy5nFCvNh6YPxnADpHD3R" />
+>>>>>>> Stashed changes
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+<<<<<<< Updated upstream
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
@@ -45,6 +56,14 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+=======
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "master",
+    "node.js.selected.package.tslint": "(autodetect)",
+>>>>>>> Stashed changes
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -57,16 +76,39 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< Updated upstream
       <changelist id="69323169-4302-4618-a7fd-ac064e37f281" name="Changes" comment="" />
       <created>1772197357598</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1772197357598</updated>
       <workItem from="1772197359693" duration="878000" />
+=======
+      <changelist id="cfb62714-1e7a-46f8-b18f-75efcb09897f" name="Changes" comment="" />
+      <created>1772196836577</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1772196836577</updated>
+      <workItem from="1772196838704" duration="271000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+<<<<<<< Updated upstream
+=======
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+>>>>>>> Stashed changes
 </project>

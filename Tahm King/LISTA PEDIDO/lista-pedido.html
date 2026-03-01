@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tahm King - Sistema de Pedidos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="lista-pedido.css">
+</head>
+<body>
+
+<section class="tk-page-container">
+    <div class="tk-header-icon">
+        <i class="fas fa-shopping-cart"></i>
+    </div>
+
+    <div class="tk-card tk-cart-sheet">
+        <h1 class="tk-main-title">LISTA DE COMPRA</h1>
+
+        <div class="tk-list-content">
+            <div class="tk-row">
+                <span>Elemento</span>
+                <span class="tk-dots"></span>
+                <span>precio €</span>
+                <div class="tk-actions">
+                    <i class="fas fa-times"></i>
+                    <i class="far fa-edit"></i>
+                </div>
+            </div>
+            <div class="tk-row">
+                <span>Elemento</span>
+                <span class="tk-dots"></span>
+                <span>precio €</span>
+                <div class="tk-actions">
+                    <i class="fas fa-times"></i>
+                    <i class="far fa-edit"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="tk-row tk-total-row">
+            <strong>Precio total</strong>
+            <span class="tk-dots"></span>
+            <strong>precio total €</strong>
+        </div>
+    </div>
+
+    <div class="tk-footer-nav">
+        <button class="tk-circle-btn tk-danger"><i class="fas fa-times"></i></button>
+        <button class="tk-btn-action">Finalizar pedido</button>
+        <button class="tk-circle-btn tk-info"><i class="fas fa-cart-plus"></i></button>
+    </div>
+</section>
+</body>
+</html>
