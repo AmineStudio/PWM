@@ -1190,201 +1190,7 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     }
 }
 
-/* ================= PÁGINA DEL CARRITO ================= */
 
-/* Contenedor wrapper para centrar en pantalla */
-.seccion-carrito-wrapper {
-    display: flex;
-    justify-content: center;
-    padding: 40px 20px;
-    background-color: #dcdcdc; /* Fondo gris de la web */
-    min-height: 80vh;
-}
-
-.carrito-contenedor {
-    max-width: 900px; /* Un poco más ancho para que respire */
-    width: 100%;
-    background-color: #e29d9d; /* Rosa palo */
-    padding: 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Título de sección (Opcional, queda bien) */
-.titulo-carrito {
-    text-align: center;
-    color: white;
-    font-size: 28px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-/* Categorías / Tabs */
-.carrito-categorias {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 30px;
-    background-color: #c6a68e; /* Marrón claro */
-    padding: 20px;
-    border-radius: 8px;
-}
-
-.categoria-item {
-    color: white;
-    font-weight: bold;
-    font-size: 14px;
-    cursor: pointer;
-    padding: 8px 15px;
-    transition: all 0.3s;
-    border-radius: 20px; /* Redondeados */
-    text-transform: uppercase;
-}
-
-.categoria-item:hover, .categoria-item.activo {
-    background-color: #a88080; /* Color al pasar ratón */
-    transform: scale(1.1);
-}
-
-/* Lista del carrito (Grid) */
-.carrito-lista {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Adaptable */
-    gap: 20px;
-    margin-bottom: 30px;
-}
-
-/* Item del carrito */
-.carrito-item {
-    background-color: #f9f9f9; /* Fondo blanco/gris para contraste */
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 15px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    border-left: 5px solid #ff2a2a; /* Detalle rojo a la izquierda */
-}
-
-.item-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-}
-
-.item-nombre {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    text-transform: uppercase;
-}
-
-.item-precio {
-    font-size: 18px;
-    font-weight: bold;
-    color: #d32f2f; /* Rojo precio */
-}
-
-.item-detalle {
-    font-size: 14px;
-    color: #666;
-    line-height: 1.4;
-    font-style: italic;
-}
-
-/* Contador (+ -) */
-.item-contador {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    justify-content: flex-end;
-    margin-top: auto; /* Empuja el contador al fondo */
-}
-
-.contador-btn {
-    width: 32px;
-    height: 32px;
-    border: none;
-    background-color: #ddd;
-    color: #333;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background 0.2s;
-}
-
-.contador-btn:hover {
-    background-color: #ccc;
-}
-
-.contador-numero {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    min-width: 30px;
-    text-align: center;
-}
-
-/* Botones Finales */
-.carrito-acciones {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 20px;
-    border-top: 2px solid rgba(255,255,255,0.3);
-    padding-top: 30px;
-}
-
-.btn-pedido {
-    border: none;
-    padding: 12px 30px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 30px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    text-transform: uppercase;
-}
-
-.btn-finalizar {
-    background-color: #4CAF50; /* Verde éxito */
-    color: white;
-}
-
-.btn-finalizar:hover {
-    background-color: #45a049;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.btn-cancelar {
-    background-color: #ff5252; /* Rojo error */
-    color: white;
-}
-
-.btn-cancelar:hover {
-    background-color: #ff1744;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-/* Responsive móvil */
-@media (max-width: 600px) {
-    .carrito-acciones {
-        flex-direction: column;
-    }
-    .btn-pedido {
-        width: 100%;
-    }
-}
 
 /* ================= PANTALLA TIPO DE PEDIDO ================= */
 
@@ -1717,3 +1523,249 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     padding: 15px 40px;
     border-radius: 4px;
 }
+
+/* ================= PÁGINA TICKET / CONFIRMACIÓN ================= */
+
+/* Usamos una clase específica en el body para no romper el resto de la web */
+.fondo-ticket {
+    background-color: #d9d9d9;
+    min-height: 100vh;
+    display: flex;             /* Centrado vertical y horizontal */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor principal */
+.tk-page-container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Icono Superior (Ajustado para el Ticket) */
+.tk-header-icon-ticket {
+    background-color: #42e3f0; /* Azul cyan */
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    margin-bottom: -55px; /* Se monta encima de la tarjeta */
+    z-index: 2;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    color: #1a1a1a;
+    border: 5px solid #d9d9d9; /* Borde del color del fondo para separar */
+}
+
+/* La Tarjeta Blanca */
+.tk-confirm-sheet {
+    background-color: #fff9f7;
+    width: 100%;
+    border: 3px solid #42e3f0;
+    padding: 80px 40px 40px 40px;
+    text-align: center;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.tk-confirm-body p {
+    font-size: 22px;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.tk-order-id {
+    font-size: 90px;
+    font-weight: 900;
+    font-style: italic;
+    color: #000;
+    margin-top: 10px;
+    font-family: 'Arial Black', Gadget, sans-serif;
+}
+
+/* Botones del pie */
+.tk-footer-nav-ticket {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.tk-btn-rect {
+    background-color: #e62e2e;
+    color: white;
+    border: none;
+    padding: 15px 10px;
+    width: 48%; /* Casi la mitad */
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: normal;
+    transition: background 0.3s ease;
+    border-radius: 4px;
+}
+
+.tk-btn-rect:hover {
+    background-color: #c02525;
+}
+
+/* ================= PÁGINA LISTA DE PEDIDO (TICKET) ================= */
+
+.fondo-lista-pedido {
+    background-color: #dcdcdc; /* Gris de fondo de la web */
+    margin: 0;
+    min-height: 100vh;
+    padding-bottom: 50px;
+}
+
+.tk-page-container {
+    width: 100%;
+    max-width: 500px; /* Ancho máximo del ticket */
+    margin: 0 auto;   /* Centrado horizontal */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+}
+
+/* Icono Azul Redondo Superior */
+.tk-header-icon {
+    background-color: #00d2ff; /* Azul cyan */
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    margin-bottom: -45px; /* Para que se monte encima del ticket */
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border: 4px solid #dcdcdc; /* Borde del color del fondo para separar */
+}
+
+/* El Ticket Blanco */
+.tk-card {
+    background-color: #fffaf8;
+    width: 90%;
+    min-height: 500px;
+    padding: 60px 30px 40px 30px; /* Padding extra arriba por el icono */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.tk-main-title {
+    text-align: center;
+    font-size: 28px;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    font-weight: normal;
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+}
+
+/* Filas del Ticket */
+.tk-list-content {
+    flex-grow: 1;
+}
+
+.tk-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #444;
+}
+
+.nombre-producto {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.precio-producto {
+    font-family: monospace;
+    font-size: 16px;
+}
+
+/* Línea de puntos ..... */
+.tk-dots {
+    flex-grow: 1;
+    border-bottom: 2px dotted #aaa;
+    margin: 0 10px;
+    position: relative;
+    top: -5px;
+}
+
+/* Iconos editar/borrar */
+.tk-actions {
+    display: flex;
+    gap: 12px;
+    margin-left: 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.icono-accion { color: #666; transition: color 0.2s; }
+.icono-accion:hover { color: black; }
+.icono-accion.rojo:hover { color: red; }
+
+/* Fila de Total */
+.tk-total-row {
+    margin-top: 30px;
+    font-size: 20px;
+    border-top: 2px solid #333;
+    padding-top: 15px;
+}
+
+/* Barra de Botones Inferior */
+.tk-footer-nav {
+    display: flex;
+    width: 90%;
+    margin-top: 30px;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.tk-btn-action {
+    background-color: #d32f2f; /* Rojo Tahm King */
+    color: white;
+    border: none;
+    padding: 15px;
+    flex-grow: 1;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.tk-btn-action:hover { background-color: #b71c1c; }
+
+.tk-circle-btn {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+.tk-circle-btn:hover { transform: scale(1.1); }
+
+.tk-danger { background-color: #ff0000; color: white; }
+.tk-info { background-color: #00d2ff; color: white; }
