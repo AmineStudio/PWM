@@ -2,7 +2,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
 body { background-color: #dcdcdc; min-height: 100vh; display: flex; flex-direction: column; }
 
-/* ================= HEADER ORIGINAL TAHM KING ================= */
+/* ================= HEADER ================= */
 .barra-superior-gris {
     background-color: #635f5f;
     height: 140px;
@@ -12,7 +12,7 @@ body { background-color: #dcdcdc; min-height: 100vh; display: flex; flex-directi
     padding: 0 30px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     position: relative;
-    z-index: 100; /* Importante para que no tape al sidebar cuando salga */
+    z-index: 100;
 }
 
 .grupo-izquierda, .grupo-derecha {
@@ -25,7 +25,6 @@ body { background-color: #dcdcdc; min-height: 100vh; display: flex; flex-directi
 .grupo-derecha { justify-content: flex-end; }
 .grupo-centro { display: flex; justify-content: center; }
 
-/* --- BOTONES RECTANGULARES --- */
 .boton-rectangular-rojo {
     background-color: #ff2a2a;
     color: white;
@@ -50,8 +49,6 @@ body { background-color: #dcdcdc; min-height: 100vh; display: flex; flex-directi
     box-shadow: 0 2px 0 #b30000;
 }
 
-/* --- BOTONES REDONDOS (Menú y Usuario) --- */
-/* Funciona perfectamente con <label> también */
 .boton-redondo-menu, .boton-redondo-usuario {
     width: 60px;
     height: 60px;
@@ -71,7 +68,6 @@ body { background-color: #dcdcdc; min-height: 100vh; display: flex; flex-directi
     background-color: #fff;
 }
 
-/* --- LOGO --- */
 .link-logo-wrapper {
     text-decoration: none;
     transition: transform 0.3s ease;
@@ -99,7 +95,6 @@ body { background-color: #dcdcdc; min-height: 100vh; display: flex; flex-directi
     object-fit: cover;
 }
 
-/* --- PUNTOS Y USUARIO --- */
 .etiqueta-puntos-rosa {
     background-color: #f08c8c;
     color: white;
@@ -120,25 +115,21 @@ body { background-color: #dcdcdc; min-height: 100vh; display: flex; flex-directi
     border: 3px solid #635f5f;
 }
 
-/* ================= Tahm King (TU FORMULARIO) ================= */
 .contenedor-contacto { width: 100%; max-width: 800px; margin: 20px auto; background-color: #dcdcdc; padding: 10px; }
 
-/* Header Rosa */
 .header-rosa { background-color: #e29d9d; padding: 20px; text-align: center; margin-bottom: 30px; }
 .header-rosa h2 { color: white; font-weight: normal; font-size: 26px; }
 
-/* Datos */
+
 .fila-datos { display: flex; justify-content: space-between; margin-bottom: 30px; padding: 0 10px; }
 .grupo-dato { display: flex; align-items: center; gap: 10px; }
 .icono-negro { font-size: 24px; font-weight: bold; }
 .caja-rosa { background-color: #e29d9d; color: white; padding: 10px 20px; font-weight: bold; min-width: 180px; text-align: center; }
 
-/* Botones Marrones */
 .fila-botones { display: flex; justify-content: space-between; gap: 15px; margin-bottom: 30px; }
-/* Botones Marrones (Actualizado para parecer clickeable) */
 .boton-marron {
     background-color: #c6a68e;
-    flex: 1; /* Ocupan el mismo ancho */
+    flex: 1;
     height: 160px;
     display: flex;
     flex-direction: column;
@@ -146,28 +137,26 @@ body { background-color: #dcdcdc; min-height: 100vh; display: flex; flex-directi
     align-items: center;
     position: relative;
 
-    /* --- NUEVO: Estilos de interacción --- */
-    text-decoration: none; /* Quita el subrayado de enlace */
-    cursor: pointer; /* Pone la manita del ratón */
+    text-decoration: none;
+    cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
-    border-radius: 4px; /* Un pelín redondeado queda mejor */
+    border-radius: 4px;
 }
 
-/* Efecto al pasar el ratón por encima (Rebote hacia arriba) */
+
 .boton-marron:hover {
-    background-color: #dcb397; /* Se aclara un poco */
-    transform: translateY(-8px); /* Sube hacia arriba */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Sombra suave debajo */
+    background-color: #dcb397;
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* Efecto al hacer clic (Se hunde) */
+
 .boton-marron:active {
-    transform: translateY(2px); /* Baja un poco */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra pequeña */
-    background-color: #b08d75; /* Se oscurece un poco al presionar */
+    transform: translateY(2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #b08d75;
 }
 
-/* Texto del botón (Aseguramos que no cambie de color al ser enlace) */
 .texto-boton {
     color: white;
     margin-top: 20px;
@@ -177,12 +166,10 @@ body { background-color: #dcdcdc; min-height: 100vh; display: flex; flex-directi
 }.texto-boton { color: white; margin-top: 20px; font-size: 16px; }
 .sombra-blanca { position: absolute; top: 60%; width: 50px; height: 10px; background-color: rgba(255,255,255,0.4); border-radius: 50%; }
 
-/* Iconos Botones */
 .icono-verde { width: 60px; height: 60px; background-color: #2e5c3e; border: 3px solid white; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 40px; z-index: 2; }
 .icono-rojo { width: 60px; height: 60px; background-color: #d92b2b; border: 3px solid white; display: flex; justify-content: center; align-items: center; color: white; font-size: 40px; clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%); z-index: 2; }
 .icono-sobre { font-size: 60px; color: white; z-index: 2; line-height: 0.8; text-shadow: 0 2px 5px rgba(0,0,0,0.2); }
 
-/* Formulario y Botón */
 .contenedor-mensaje { background-color: #e29d9d; padding: 15px; margin-bottom: 20px; }
 textarea { width: 100%; height: 150px; background-color: #cbbdc0; border: none; padding: 15px; color: white; font-size: 16px; resize: none; }
 textarea::placeholder { color: rgba(255,255,255,0.7); }
@@ -205,9 +192,8 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
 
 /* ================= PÁGINA DE OFERTAS ================= */
 
-/* Marco principal (Fondo Marrón Rosado) */
 .contenedor-ofertas-marco {
-    background-color: #a47e7c; /* Color de fondo del marco */
+    background-color: #a47e7c;
     padding: 30px;
     width: 95%;
     max-width: 1600px;
@@ -216,7 +202,6 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* Estructura de Filas y Columnas */
 .layout-ofertas {
     display: flex;
     flex-direction: column;
@@ -235,9 +220,8 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     gap: 20px;
 }
 
-/* CAJAS DE OFERTA (GRISES) */
 .caja-oferta {
-    background-color: #dcdcdc; /* Color gris claro de las cajas */
+    background-color: #dcdcdc;
     position: relative;
     display: flex;
     justify-content: center;
@@ -255,26 +239,24 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     background-color: #f0f0f0;
 }
 
-/* --- ALTURAS DE LAS CAJAS --- */
 .oferta-top {
-    height: 250px; /* Caja superior grande */
+    height: 250px;
     font-size: 30px;
 }
 
 .columna-izquierda .caja-oferta {
-    height: 150px; /* Altura para las 3 cajas pequeñas */
+    height: 150px;
 }
 
 .columna-derecha .caja-oferta {
-    height: 235px; /* Altura para las 2 cajas grandes de la derecha */
+    height: 235px;
 }
 
-/* Círculo de Puntos (PTS) */
 .badge-pts {
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: #7d1d1d; /* Rojo oscuro */
+    background-color: #7d1d1d;
     color: white;
     width: 40px;
     height: 40px;
@@ -286,7 +268,6 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     border: 2px solid white;
 }
 
-/* --- BOTÓN DE REGISTRO (BANNER INFERIOR) --- */
 .btn-registro-grande {
     display: block;
     width: 100%;
@@ -309,18 +290,16 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     box-shadow: 0 0 10px rgba(255,255,255,0.4);
 }
 
-/* ================= BOTONES DE ACCIÓN (FINALIZAR/CARRITO/X) ================= */
 .acciones-inferiores {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px; /* Espaciado entre botones */
+    gap: 30px;
     margin: 40px 0;
 }
 
-/* Estilo para los botones circulares (X y Carrito) */
 .btn-circular {
-    width: 60px; /* Tamaño circular */
+    width: 60px;
     height: 60px;
     border-radius: 50%;
     border: none;
@@ -330,21 +309,20 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra para profundidad */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     transition: transform 0.2s;
 }
 
 .rojo-x {
-    background-color: #ff0000; /* Botón de cancelar */
+    background-color: #ff0000;
 }
 
 .azul-carrito {
-    background-color: #00bcd4; /* Botón de carrito */
+    background-color: #00bcd4;
 }
 
-/* Botón Rectangular de Finalizar */
 .btn-finalizar {
-    background-color: #d32f2f; /* Rojo intenso para destacar */
+    background-color: #d32f2f;
     color: white;
     border: none;
     padding: 15px 45px;
@@ -368,7 +346,7 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 60vh; /* Asegura que ocupe espacio aunque haya pocos pedidos */
+    min-height: 60vh;
 }
 
 .contenedor-pedidos {
@@ -376,7 +354,7 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     max-width: 800px;
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Espacio entre tarjetas */
+    gap: 20px;
     margin-bottom: 40px;
 }
 
@@ -388,17 +366,17 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    border-radius: 8px; /* Un toque estético extra */
+    border-radius: 8px;
     transition: transform 0.2s;
 }
 
 .tarjeta-pedido:hover {
-    transform: translateY(-3px); /* Efecto al pasar el ratón */
+    transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 .numero-pedido {
-    font-size: 50px; /* Ajustado un poco */
+    font-size: 50px;
     font-weight: 900;
     color: #000;
     flex: 1;
@@ -406,7 +384,7 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
 }
 
 .info-pedido {
-    flex: 2; /* Le damos más espacio a la info */
+    flex: 2;
     font-family: Arial, sans-serif;
     font-size: 16px;
     line-height: 1.6;
@@ -419,7 +397,6 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     margin: 4px 0;
 }
 
-/* Botón de información (i) */
 .btn-info {
     background-color: #6194f2;
     border: none;
@@ -447,35 +424,33 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     font-style: italic;
 }
 
-/* Ajuste para móviles */
+
 @media (max-width: 600px) {
     .tarjeta-pedido {
-        flex-direction: row; /* Mantenemos fila pero ajustamos tamaños */
+        flex-direction: row;
         padding: 15px;
     }
     .numero-pedido { font-size: 30px; }
     .btn-info { width: 40px; height: 40px; }
 }
 
-/* ================= ESTILOS PÁGINA LOGIN ================= */
+/* ================= PÁGINA LOGIN ================= */
 
-/* Contenedor principal que centra la tarjeta y da el fondo rosa */
+
 .seccion-login-wrapper {
-    background-color: #c5a2a2; /* Tu color rosa original */
+    background-color: #c5a2a2;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 80vh; /* Ocupa la pantalla pero deja sitio a header/footer */
+    min-height: 80vh;
     padding: 40px 0;
 }
 
-/* Ajuste para que la tarjeta no se vea gigante en móviles */
 .main-container {
     width: 380px;
     max-width: 90%;
 }
 
-/* --- TUS ESTILOS ORIGINALES (ADAPTADOS) --- */
 .tabs { display: flex; }
 
 .tab {
@@ -490,7 +465,7 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     background-color: #d64641; padding: 40px 35px;
     display: flex; flex-direction: column; align-items: center;
     min-height: 380px;
-    border-radius: 0 0 5px 5px; /* Un pequeño borde redondeado abajo */
+    border-radius: 0 0 5px 5px;
 }
 
 #auth-form { width: 100%; }
@@ -535,11 +510,10 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
 .hidden { display: none; }
 
 
-/* ================= SOBRE NOSOTROS Y UBICACIONES ================= */
+/* ================= SOBRE NOSOTROS ================= */
 
-/* Sección About (Cuadrícula superior) */
 .about-section {
-    background-color: #f28d8d; /* Color rojizo suave */
+    background-color: #f28d8d;
     padding: 40px;
     margin-bottom: 30px;
 }
@@ -552,7 +526,6 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     margin: 0 auto;
 }
 
-/* Scoped: Solo afecta a los items dentro de about */
 .about-section .item {
     background-color: #d9d9d9;
     padding: 20px;
@@ -573,12 +546,11 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     color: #333;
 }
 
-/* Sección Ubicaciones (Rectángulo inferior) */
 .ubicacion-section {
-    background-color: #ff5f5f; /* Color coral intenso */
+    background-color: #ff5f5f;
     padding: 40px;
     max-width: 900px;
-    margin: 0 auto 40px auto; /* Margen abajo para separarlo del footer */
+    margin: 0 auto 40px auto;
 }
 
 .ubicacion-container {
@@ -593,7 +565,7 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
 .lista-restaurantes h3 {
     font-size: 24px;
     margin-bottom: 20px;
-    color: white; /* Mejor contraste con el fondo rojo */
+    color: white;
 }
 
 .lista-restaurantes ul {
@@ -632,25 +604,12 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     border: none;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .about-grid, .ubicacion-container {
-        grid-template-columns: 1fr;
-        flex-direction: column;
-    }
+/* ================= SIDEBAR ================= */
 
-    .mapa-box {
-        height: 200px; /* Mapa más pequeño en móvil */
-    }
-}
-/* ================= SIDEBAR (VERSIÓN SOLO CSS) ================= */
-
-/* 1. Ocultar el checkbox (Nadie debe verlo, pero sigue funcionando) */
 .checkbox-menu-oculto {
     display: none;
 }
 
-/* 2. Estilo del Menú (Estado inicial: OCULTO) */
 .menu-lateral {
     position: fixed;
     top: 0;
@@ -664,17 +623,14 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     flex-direction: column;
     box-shadow: 4px 0 15px rgba(0,0,0,0.5);
 
-    /* Lo sacamos de la pantalla hacia la izquierda */
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
 }
 
-/* 3. LA MAGIA: Cuando el checkbox está marcado... ¡Muestra el menú! */
 #sidebar-active:checked ~ .menu-lateral {
     transform: translateX(0);
 }
 
-/* 4. El Fondo Oscuro (Overlay) */
 .sidebar-overlay {
     position: fixed;
     top: 0;
@@ -684,28 +640,23 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     background-color: rgba(0,0,0,0.5);
     z-index: 1999;
 
-    /* Oculto por defecto */
     display: none;
     backdrop-filter: blur(2px);
 }
 
-/* Cuando el checkbox está marcado... ¡Muestra el fondo oscuro! */
 #sidebar-active:checked ~ .sidebar-overlay {
     display: block;
 }
 
-/* --- ESTILOS VISUALES (Botones y Decoración) --- */
 
-/* Botón Hamburguesa del Header */
 .btn-hamburguesa {
     font-size: 30px;
     cursor: pointer;
     margin-right: 15px;
-    color: #333; /* Color de las rayitas */
-    user-select: none; /* Evita que se seleccione el texto al hacer clic */
+    color: #333;
+    user-select: none;
 }
 
-/* Botón Cerrar (X) dentro del menú */
 .boton-cerrar {
     background: #dcdcdc;
     width: 45px;
@@ -721,7 +672,6 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
 }
 .boton-cerrar:hover { transform: rotate(90deg); }
 
-/* --- Resto de estilos del sidebar (igual que antes) --- */
 .sidebar-header {
     background-color: #9e7c7c;
     padding: 30px 25px;
@@ -747,21 +697,20 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
 .social-icon.x-twitter { background: black; }
 .social-icon.facebook { background: #1877f2; }
 
-/* ================= PÁGINA DE ALÉRGENOS ================= */
+/* ================= ALÉRGENOS ================= */
 
 .seccion-alergenos {
     max-width: 1000px;
-    margin: 40px auto; /* Centrado y con margen arriba/abajo */
+    margin: 40px auto;
     padding: 0 20px;
 }
 
-/* Banner Superior */
 .banner-informativo {
     display: flex;
     border: 2px solid #333;
     margin-bottom: 40px;
     background-color: #fff;
-    border-radius: 8px; /* Un toque estético extra */
+    border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
@@ -776,7 +725,7 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
 
 .caja-texto h2 {
     margin-bottom: 15px;
-    color: #ff2a2a; /* Rojo Tahm King */
+    color: #ff2a2a;
     font-size: 28px;
 }
 
@@ -792,7 +741,6 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     object-fit: cover;
 }
 
-/* Título Central */
 .titulo-principal {
     text-align: center;
     font-size: 32px;
@@ -803,16 +751,14 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     border-bottom: 3px solid #ff2a2a;
     display: inline-block;
     padding-bottom: 10px;
-    /* Truco para centrar el borde */
     position: relative;
     left: 50%;
     transform: translateX(-50%);
 }
 
-/* Grid de Alérgenos */
 .grid-alergenos {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Dos columnas */
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
     margin-bottom: 60px;
 }
@@ -828,7 +774,7 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
 }
 
 .simbolo {
-    width: 80px; /* Un pelín más pequeños para que queden finos */
+    width: 80px;
     height: 80px;
     background-color: #f4f4f4;
     border: 2px solid #333;
@@ -845,7 +791,6 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     height: auto;
 }
 
-/* Si no tienes iconos, esto pondrá una letra temporalmente */
 .simbolo span {
     font-size: 30px;
     font-weight: bold;
@@ -854,8 +799,8 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
 
 .info-texto {
     background-color: #f9f9f9;
-    border: 1px solid #ddd; /* Borde más suave */
-    border-left: 4px solid #ff2a2a; /* Detalle de diseño */
+    border: 1px solid #ddd;
+    border-left: 4px solid #ff2a2a;
     padding: 15px;
     flex-grow: 1;
     min-height: 100px;
@@ -878,10 +823,9 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     line-height: 1.4;
 }
 
-/* Adaptación para móviles */
 @media (max-width: 768px) {
     .grid-alergenos {
-        grid-template-columns: 1fr; /* Una columna en móvil */
+        grid-template-columns: 1fr;
     }
 
     .banner-informativo {
@@ -889,14 +833,13 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     }
 
     .caja-imagen {
-        height: 200px; /* Menos altura en móvil */
+        height: 200px;
         min-height: auto;
     }
 }
 
-/* ================= NUEVO DISEÑO CARTA (TIPO TAHM KING) ================= */
+/* ================= Carta ================= */
 
-/* Fondo general de la página (grisáceo) */
 .seccion-carta-wrapper {
     background-color: #dcdcdc;
     padding: 40px 20px;
@@ -906,11 +849,10 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     min-height: 100vh;
 }
 
-/* --- BOTONES DE CATEGORÍAS --- */
 .menu-categorias {
     display: flex;
     justify-content: center;
-    gap: 15px; /* Separación entre botones */
+    gap: 15px;
     flex-wrap: wrap;
     margin-bottom: 30px;
     width: 100%;
@@ -918,7 +860,7 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
 }
 
 .categoria-btn {
-    background-color: #c00000; /* Rojo oscuro botón */
+    background-color: #c00000;
     color: white;
     text-decoration: none;
     font-weight: bold;
@@ -927,36 +869,30 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     text-transform: uppercase;
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     transition: transform 0.2s, background-color 0.2s;
-    /* Quitamos bordes redondeados para que sean cuadrados como la foto */
     border-radius: 2px;
 }
 
 .categoria-btn:hover, .categoria-btn.activo {
-    background-color: #e60000; /* Un rojo más vivo al pasar el ratón */
+    background-color: #e60000;
     transform: translateY(-2px);
 }
 
-/* --- CONTENEDOR ROSA GRANDE --- */
 .menu-contenedor-rosa {
-    background-color: #ff7f7f; /* El color salmón de tu imagen */
+    background-color: #ff7f7f;
     padding: 40px;
     width: 100%;
     max-width: 1000px;
-    /* Sombra opcional para darle profundidad */
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* Grid de 3 columnas */
 .menu-grid {
     display: grid;
-    /* Forzamos 3 columnas, pero que se adapten en móvil */
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px; /* Espacio entre tarjetas */
+    gap: 30px;
 }
 
-/* --- TARJETA INDIVIDUAL (ITEM) --- */
 .menu-item {
-    background-color: #d34848; /* Rojo ladrillo de la tarjeta */
+    background-color: #d34848;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -975,7 +911,7 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     font-size: 22px;
     margin-bottom: 15px;
     text-transform: uppercase;
-    font-weight: normal; /* Letra fina como en la foto */
+    font-weight: normal;
 }
 
 .item-info {
@@ -984,9 +920,8 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     margin-top: 15px;
 }
 
-/* --- IMAGEN Y BURBUJA DE PRECIO --- */
 .imagen-wrapper {
-    position: relative; /* Clave para poder posiconar el precio */
+    position: relative;
     width: 180px;
     height: 150px;
     display: flex;
@@ -998,19 +933,18 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3)); /* Sombra a la hamburguesa */
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3));
 }
 
-/* La bola marrón del precio */
 .item-precio-burbuja {
     position: absolute;
     bottom: 0;
     right: 0;
-    background-color: #5c1818; /* Marrón oscuro casi negro */
+    background-color: #5c1818;
     color: white;
     width: 50px;
     height: 50px;
-    border-radius: 50%; /* Círculo perfecto */
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1019,7 +953,7 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     border: 1px solid rgba(255,255,255,0.2);
 }
 
-/* ================= PÁGINA DE INICIO (MAIN) ================= */
+/* ================= INDEX ================= */
 
 .contenedor-principal {
     background-color: #dcdcdc;
@@ -1029,33 +963,30 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     padding: 20px 0;
 }
 
-/* Filas generales */
 .fila {
     margin-bottom: 30px;
     width: 95%;
-    max-width: 1200px; /* Pero no se desmadra en pantallas gigantes */
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 8px; /* Bordes suaves */
-    overflow: hidden; /* Para que el contenido no se salga de las esquinas */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra elegante */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Fila 1: FRASE + BOTÓN */
 .fila-1 {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-color: #e29d9d; /* Rosa salmón */
+    background-color: #e29d9d;
     padding: 40px 20px;
 }
 
-/* Fila 2: Dos columnas (Ofertas + Imagen) */
 .fila-2 {
     display: flex;
-    gap: 0; /* Sin hueco, para que parezca un bloque unido */
+    gap: 0;
 }
 
 .columna-2 {
@@ -1069,11 +1000,11 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
 }
 
 .columna-ofertas {
-    background-color: #d1c0c0; /* Gris rosado */
+    background-color: #d1c0c0;
 }
 
 .columna-imagen {
-    background-color: #b0b0b0; /* Gris más oscuro para contraste */
+    background-color: #b0b0b0;
     padding: 0;
 }
 
@@ -1091,7 +1022,6 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
-/* Fila 3: TEXTO + VER CARTA */
 .fila-3 {
     display: flex;
     flex-direction: column;
@@ -1110,17 +1040,16 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     letter-spacing: 2px;
 }
 
-/* Fila 4: Tres columnas (Accesos directos) */
 .fila-4 {
     display: flex;
     gap: 20px;
-    background: transparent; /* Fondo transparente para ver el gris de la web */
-    box-shadow: none; /* Sin sombra general */
+    background: transparent;
+    box-shadow: none;
 }
 
 .columna-3 {
     flex: 1;
-    background-color: #c6a68e; /* Marrón claro */
+    background-color: #c6a68e;
     padding: 30px 10px;
     display: flex;
     flex-direction: column;
@@ -1134,7 +1063,7 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
 }
 
 .columna-3:hover {
-    transform: translateY(-5px); /* Efecto elevación */
+    transform: translateY(-5px);
 }
 
 .titulo-columna {
@@ -1145,7 +1074,6 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     text-transform: uppercase;
 }
 
-/* Títulos y botones generales */
 .titulo-main {
     font-size: 32px;
     font-weight: 900;
@@ -1156,12 +1084,12 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
 
 .btn-main {
     background-color: #fff;
-    color: #e29d9d; /* Texto del color del fondo para invertir */
+    color: #e29d9d;
     text-decoration: none;
     padding: 12px 35px;
     font-size: 16px;
     font-weight: bold;
-    border-radius: 30px; /* Botones redondeados */
+    border-radius: 30px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: all 0.3s;
     text-transform: uppercase;
@@ -1175,28 +1103,14 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     color: #c08080;
 }
 
-/* Botones en fondos oscuros (como la fila 4) */
 .columna-3 .btn-main {
     color: #c6a68e;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .fila-2, .fila-4 {
-        flex-direction: column;
-    }
-    .columna-3 {
-        margin-bottom: 15px;
-    }
-}
+/* ================= TIPO DE PEDIDO ================= */
 
-
-
-/* ================= PANTALLA TIPO DE PEDIDO ================= */
-
-/* 1. Fondo de toda la pantalla */
 .fondo-pedido-rosa {
-    background-color: #cbb2b2; /* Color rosa viejo de la imagen */
+    background-color: #cbb2b2;
     margin: 0;
     height: 100vh;
     display: flex;
@@ -1213,11 +1127,10 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     max-width: 500px;
 }
 
-/* 2. Logo Circular */
 .logo-central-circulo {
     width: 120px;
     height: 120px;
-    background-color: #d9d9d9; /* Gris claro */
+    background-color: #d9d9d9;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -1238,11 +1151,10 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     color: #333;
 }
 
-/* 3. Lista de Opciones */
 .lista-opciones {
     display: flex;
     flex-direction: column;
-    gap: 30px; /* Separación entre botones */
+    gap: 30px;
     width: 100%;
 }
 
@@ -1250,35 +1162,32 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none; /* Quitar subrayado del enlace */
+    text-decoration: none;
     gap: 20px;
     transition: transform 0.2s;
 }
 
 .opcion-fila:hover {
-    transform: scale(1.05); /* Efecto zoom al pasar ratón */
+    transform: scale(1.05);
 }
 
-/* Iconos a la izquierda */
 .icono-blanco {
     width: 60px;
     display: flex;
     justify-content: center;
 }
 
-/* Botones Rectangulares Grises */
 .boton-gris {
     background-color: #d9d9d9;
     color: black;
     font-size: 20px;
     padding: 15px 0;
-    width: 250px; /* Ancho fijo como en la foto */
+    width: 250px;
     text-align: center;
-    border-radius: 2px; /* Bordes rectos */
+    border-radius: 2px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* 4. Botón Cancelar */
 .btn-cancelar-pedido {
     margin-top: 60px;
     background-color: #d9d9d9;
@@ -1293,12 +1202,12 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     background-color: #c0c0c0;
 }
 
-/* ================= PÁGINA PEDIDO (INTERFAZ ROJA) ================= */
+/* ================= PEDIDO ================= */
 
 .fondo-gris-pedido {
-    background-color: #f4f0f0; /* Color gris suave de fondo */
+    background-color: #f4f0f0;
     margin: 0;
-    padding-bottom: 120px; /* Espacio para que la barra de abajo no tape nada */
+    padding-bottom: 120px;
 }
 
 .contenedor-pedido-activo {
@@ -1308,7 +1217,6 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     align-items: center;
 }
 
-/* --- TABS CATEGORÍAS --- */
 .tabs-categorias {
     display: flex;
     justify-content: center;
@@ -1325,11 +1233,10 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     font-weight: bold;
     font-size: 14px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    border-radius: 2px; /* Bordes casi rectos */
+    border-radius: 2px;
 }
 .tab-btn:hover { background-color: #e60000; }
 
-/* --- GRID DE TARJETAS --- */
 .grid-productos-pedido {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -1338,9 +1245,8 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     max-width: 1000px;
 }
 
-/* TARJETA ROJA */
 .card-producto-roja {
-    background-color: #d34848; /* El rojo característico */
+    background-color: #d34848;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -1375,19 +1281,17 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
 }
 
-/* La X de Agotado */
 .overlay-agotado {
     position: absolute;
     top: -10px;
     font-size: 100px;
-    color: #4a0d0d; /* Rojo muy oscuro, casi negro */
+    color: #4a0d0d;
     font-weight: bold;
     line-height: 1;
     z-index: 2;
     opacity: 0.8;
 }
 
-/* Precio Burbuja */
 .etiqueta-precio {
     position: absolute;
     bottom: 0;
@@ -1404,7 +1308,6 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     border: 1px solid rgba(255,255,255,0.3);
 }
 
-/* --- CONTROLES INFERIORES --- */
 .fila-controles-bottom {
     display: flex;
     width: 100%;
@@ -1412,7 +1315,6 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     height: 45px;
 }
 
-/* Botón Info (Cuadrado rojo oscuro) */
 .btn-info-i {
     background-color: #a31a1a;
     color: white;
@@ -1424,9 +1326,8 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     cursor: pointer;
 }
 
-/* Contador Blanco Largo */
 .contador-blanco {
-    flex: 1; /* Ocupa el resto */
+    flex: 1;
     background-color: white;
     display: flex;
     align-items: center;
@@ -1443,17 +1344,16 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     height: 100%;
 }
 .btn-menos {
-    font-size: 36px; /* El menos a veces se ve pequeño */
-    line-height: 0;  /* Para centrarlo verticalmente */
+    font-size: 36px;
+    line-height: 0;
 }
 
 .numero-cantidad {
     font-size: 24px;
-    color: #ccc; /* Gris claro como en la foto */
+    color: #ccc;
     font-weight: bold;
 }
 
-/* --- EXTRAS: Info texto y Alérgenos --- */
 .texto-info-simple {
     color: white;
     font-size: 18px;
@@ -1475,11 +1375,10 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     justify-content: center;
     font-size: 18px;
 }
-.trigo, .huevo { background-color: #d4af37; color: black; } /* Mostaza */
-.prohibido { background-color: #8b4513; color: white; border: 1px solid black; } /* Marrón */
+.trigo, .huevo { background-color: #d4af37; color: black; }
+.prohibido { background-color: #8b4513; color: white; border: 1px solid black; }
 .leche { background-color: white; color: black; }
 
-/* --- BARRA FLOTANTE INFERIOR --- */
 .barra-acciones-fixed {
     position: fixed;
     bottom: 30px;
@@ -1490,10 +1389,9 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     gap: 20px;
     align-items: center;
     z-index: 100;
-    pointer-events: none; /* Para que el div transparente no bloquee clics */
+    pointer-events: none;
 }
 
-/* Reactivamos clics solo en los botones */
 .barra-acciones-fixed button {
     pointer-events: auto;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
@@ -1517,25 +1415,23 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
 .btn-accion-circular.azul { background-color: #00ccff; }
 
 .btn-accion-largo {
-    background-color: #d32f2f; /* Rojo del botón finalizar */
+    background-color: #d32f2f;
     color: white;
     font-size: 18px;
     padding: 15px 40px;
     border-radius: 4px;
 }
 
-/* ================= PÁGINA TICKET / CONFIRMACIÓN ================= */
+/* ================= Ticket ================= */
 
-/* Usamos una clase específica en el body para no romper el resto de la web */
 .fondo-ticket {
     background-color: #d9d9d9;
     min-height: 100vh;
-    display: flex;             /* Centrado vertical y horizontal */
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Contenedor principal */
 .tk-page-container {
     width: 100%;
     max-width: 500px;
@@ -1545,9 +1441,8 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     padding: 20px;
 }
 
-/* Icono Superior (Ajustado para el Ticket) */
 .tk-header-icon-ticket {
-    background-color: #42e3f0; /* Azul cyan */
+    background-color: #42e3f0;
     width: 110px;
     height: 110px;
     border-radius: 50%;
@@ -1555,14 +1450,13 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     justify-content: center;
     align-items: center;
     font-size: 50px;
-    margin-bottom: -55px; /* Se monta encima de la tarjeta */
+    margin-bottom: -55px;
     z-index: 2;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     color: #1a1a1a;
-    border: 5px solid #d9d9d9; /* Borde del color del fondo para separar */
+    border: 5px solid #d9d9d9;
 }
 
-/* La Tarjeta Blanca */
 .tk-confirm-sheet {
     background-color: #fff9f7;
     width: 100%;
@@ -1592,7 +1486,6 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     font-family: 'Arial Black', Gadget, sans-serif;
 }
 
-/* Botones del pie */
 .tk-footer-nav-ticket {
     display: flex;
     justify-content: space-between;
@@ -1618,10 +1511,10 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     background-color: #c02525;
 }
 
-/* ================= PÁGINA LISTA DE PEDIDO (TICKET) ================= */
+/* ================= Lista Pedido ================= */
 
 .fondo-lista-pedido {
-    background-color: #dcdcdc; /* Gris de fondo de la web */
+    background-color: #dcdcdc;
     margin: 0;
     min-height: 100vh;
     padding-bottom: 50px;
@@ -1629,17 +1522,16 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
 
 .tk-page-container {
     width: 100%;
-    max-width: 500px; /* Ancho máximo del ticket */
-    margin: 0 auto;   /* Centrado horizontal */
+    max-width: 500px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 30px;
 }
 
-/* Icono Azul Redondo Superior */
 .tk-header-icon {
-    background-color: #00d2ff; /* Azul cyan */
+    background-color: #00d2ff;
     width: 90px;
     height: 90px;
     border-radius: 50%;
@@ -1647,18 +1539,17 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     justify-content: center;
     align-items: center;
     font-size: 40px;
-    margin-bottom: -45px; /* Para que se monte encima del ticket */
+    margin-bottom: -45px;
     z-index: 10;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    border: 4px solid #dcdcdc; /* Borde del color del fondo para separar */
+    border: 4px solid #dcdcdc;
 }
 
-/* El Ticket Blanco */
 .tk-card {
     background-color: #fffaf8;
     width: 90%;
     min-height: 500px;
-    padding: 60px 30px 40px 30px; /* Padding extra arriba por el icono */
+    padding: 60px 30px 40px 30px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
@@ -1676,7 +1567,6 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     padding-bottom: 15px;
 }
 
-/* Filas del Ticket */
 .tk-list-content {
     flex-grow: 1;
 }
@@ -1699,7 +1589,6 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     font-size: 16px;
 }
 
-/* Línea de puntos ..... */
 .tk-dots {
     flex-grow: 1;
     border-bottom: 2px dotted #aaa;
@@ -1708,7 +1597,6 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     top: -5px;
 }
 
-/* Iconos editar/borrar */
 .tk-actions {
     display: flex;
     gap: 12px;
@@ -1720,7 +1608,6 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
 .icono-accion:hover { color: black; }
 .icono-accion.rojo:hover { color: red; }
 
-/* Fila de Total */
 .tk-total-row {
     margin-top: 30px;
     font-size: 20px;
@@ -1728,7 +1615,6 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
     padding-top: 15px;
 }
 
-/* Barra de Botones Inferior */
 .tk-footer-nav {
     display: flex;
     width: 90%;
@@ -1739,7 +1625,7 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
 }
 
 .tk-btn-action {
-    background-color: #d32f2f; /* Rojo Tahm King */
+    background-color: #d32f2f;
     color: white;
     border: none;
     padding: 15px;
