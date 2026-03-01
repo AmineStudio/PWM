@@ -27,8 +27,6 @@ https://drive.google.com/file/d/17oKcE6HMfED2ey2bkn3Dndxmyq3CbbqA/view?usp=shari
 MOCKUPS Y STORYBOARDS
 https://www.figma.com/design/kF4ygJn73UdTswuVO40XeT/Tahm-King?node-id=0-1&t=WLQGB3KUbspOmnKs-1
 
-TEMPLATES
-
 TECNOLOGÍAS
 - Html
 - Css
