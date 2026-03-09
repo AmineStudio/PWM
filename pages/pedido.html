@@ -21,66 +21,9 @@
         <a href="#" class="tab-btn">OFERTAS</a>
     </div>
 
-    <div class="grid-productos-pedido">
-
-        <div class="card-producto-roja">
-            <h3 class="prod-titulo">KING BURGER</h3>
-            <div class="prod-img-wrapper">
-                <img src="../img/burger-placeholder.png" alt="Burger" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3075/3075977.png'">
-                <span class="etiqueta-precio">12€</span>
-            </div>
-            <div class="fila-controles-bottom">
-                <button class="btn-info-i">i</button>
-                <div class="contador-blanco">
-                    <button class="btn-mas">+</button>
-                    <span class="numero-cantidad">0</span>
-                    <button class="btn-menos">-</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="card-producto-roja">
-            <h3 class="prod-titulo">CHEESE LOVER</h3>
-            <div class="prod-img-wrapper">
-                <img src="../img/burger-placeholder.png" alt="Burger" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3075/3075977.png'">
-                <span class="etiqueta-precio">14€</span>
-            </div>
-            <div class="texto-info-simple">info</div>
-            <div class="iconos-alergenos">
-                <span class="icono-alerg trigo">&#127806;</span>
-                <span class="icono-alerg huevo">&#129370;</span>
-                <span class="icono-alerg leche">&#129371;</span>
-            </div>
-        </div>
-
-        <div class="card-producto-roja">
-            <h3 class="prod-titulo">TAHM SPECIAL</h3>
-            <div class="prod-img-wrapper">
-                <div class="overlay-agotado">&#10006;</div>
-                <img src="../img/burger-placeholder.png" alt="Burger" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3075/3075977.png'">
-                <span class="etiqueta-precio">15€</span>
-            </div>
-            <div class="texto-info-simple">info</div>
-            <div class="iconos-alergenos">
-                <span class="icono-alerg prohibido">&#128683;</span>
-            </div>
-        </div>
-
-        <div class="card-producto-roja">
-            <h3 class="prod-titulo">FRIES XL</h3>
-            <div class="prod-img-wrapper">
-                <img src="../img/burger-placeholder.png" alt="Fries" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3075/3075977.png'">
-                <span class="etiqueta-precio">6€</span>
-            </div>
-            <div class="fila-controles-bottom">
-                <button class="btn-info-i">i</button>
-                <div class="contador-blanco">
-                    <button class="btn-mas">+</button>
-                    <span class="numero-cantidad">0</span>
-                    <button class="btn-menos">-</button>
-                </div>
-            </div>
-        </div>
+    <div class="grid-productos-pedido" id="grid-pedido">
+        <!-- Los productos se cargan dinámicamente -->
+    </div>
 
     </div>
 </main>
@@ -103,6 +46,12 @@
 <div xlu-include-file="../components/footer.html"></div>
 
 <script src="../java/java.js"></script>
+
+<script src="../java/producto-card.js"></script>
+<script>
+    // Carga todos los productos en modo pedido
+    document.addEventListener('componentesListos', () => cargarProductos('grid-pedido', 'pedido'));
+</script>
 
 </body>
 </html>

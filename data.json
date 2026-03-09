@@ -93,7 +93,7 @@
       "id": 1,
       "nombre": "King Burger",
       "descripcion": "Doble carne, queso cheddar y bacon.",
-      "precio": 12,
+      "precio": 7,
       "categoria_id": 2,
       "alergenos": ["gluten", "lacteos", "huevo"],
       "imagen": "img/burger-placeholder.png",

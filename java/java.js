@@ -39,6 +39,7 @@ async function xLuIncludeFile() {
             return;
         }
     }
+    document.dispatchEvent(new CustomEvent('componentesListos'));
 }
 
 function corregirRutas(elemento) {

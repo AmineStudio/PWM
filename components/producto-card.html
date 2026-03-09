@@ -1,0 +1,31 @@
+<!-- PLANTILLA: Tarjeta para la CARTA -->
+<template id="tpl-carta-item">
+    <div class="menu-item" data-id="">
+        <h3 class="item-nombre"></h3>
+        <div class="imagen-wrapper">
+            <img src="" alt="" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3075/3075977.png'">
+            <span class="item-precio-burbuja"></span>
+        </div>
+        <p class="item-info"></p>
+    </div>
+</template>
+
+<!-- PLANTILLA: Tarjeta para PEDIDO (con contador) -->
+<template id="tpl-pedido-item">
+    <div class="card-producto-roja" data-id="">
+        <h3 class="prod-titulo"></h3>
+        <div class="prod-img-wrapper">
+            <img src="" alt="" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3075/3075977.png'">
+            <span class="etiqueta-precio"></span>
+        </div>
+        <div class="fila-controles-bottom">
+            <button class="btn-info-i">i</button>
+            <div class="contador-blanco">
+                <button class="btn-mas">+</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-menos">-</button>
+            </div>
+        </div>
+        <div class="iconos-alergenos"></div>
+    </div>
+</template>
