@@ -114,7 +114,6 @@ async function cargarProductos(contenedorId, modo = 'carta', categoriaId = null)
         const res = await fetch(getRuta('data.json'));
         const data = await res.json();
 
-        // ✅ Construimos el mapa de alérgenos desde el propio JSON
         const mapaAlergenos = {};
         data.alergenos.forEach(a => {
             mapaAlergenos[a.id] = { icono: a.icono, nombre: a.nombre };
@@ -132,9 +131,19 @@ async function cargarProductos(contenedorId, modo = 'carta', categoriaId = null)
         productos.forEach(p => {
             const card = modo === 'carta'
                 ? crearCartaItem(p)
-                : crearPedidoItem(p, mapaAlergenos); // ✅ pasamos el mapa
+                : crearPedidoItem(p, mapaAlergenos);
             contenedor.appendChild(card);
         });
+
+        // ✅ Sincronizar contadores con el carrito guardado
+        if (modo === 'pedido') {
+            const carritoGuardado = JSON.parse(localStorage.getItem('carrito') || '{}');
+            Object.entries(carritoGuardado).forEach(([id, cantidad]) => {
+                carrito[id] = cantidad;
+                const el = document.getElementById(`qty-${id}`);
+                if (el) el.textContent = cantidad;
+            });
+        }
 
     } catch (e) {
         console.error('Error cargando productos:', e);
@@ -144,6 +153,18 @@ async function cargarProductos(contenedorId, modo = 'carta', categoriaId = null)
 function cambiarCantidad(productoId, delta) {
     if (!carrito[productoId]) carrito[productoId] = 0;
     carrito[productoId] = Math.max(0, carrito[productoId] + delta);
+
+    // ✅ Si llega a 0, lo eliminamos del carrito
+    if (carrito[productoId] === 0) {
+        delete carrito[productoId];
+    }
+
     const el = document.getElementById(`qty-${productoId}`);
-    if (el) el.textContent = carrito[productoId];
+    if (el) el.textContent = carrito[productoId] || 0;
+
+    guardarCarrito();
+}
+
+function guardarCarrito() {
+    localStorage.setItem('carrito', JSON.stringify(carrito));
 }

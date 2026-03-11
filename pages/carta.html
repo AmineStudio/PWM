@@ -13,11 +13,11 @@
 <main class="seccion-carta-wrapper">
 
     <div class="menu-categorias">
-        <a href="#" class="categoria-btn activo">ENTRANTES</a>
-        <a href="#" class="categoria-btn">HAMBURGUESAS</a>
-        <a href="#" class="categoria-btn">HOTDOGS</a>
-        <a href="#" class="categoria-btn">BEBIDAS</a>
-        <a href="#" class="categoria-btn">POSTRE</a>
+        <a href="#" class="categoria-btn activo" data-categoria-id="1">ENTRANTES</a>
+        <a href="#" class="categoria-btn" data-categoria-id="2">HAMBURGUESAS</a>
+        <a href="#" class="categoria-btn" data-categoria-id="3">HOTDOGS</a>
+        <a href="#" class="categoria-btn" data-categoria-id="4">BEBIDAS</a>
+        <a href="#" class="categoria-btn" data-categoria-id="5">POSTRE</a>
     </div>
 
     <div class="menu-contenedor-rosa">
@@ -35,8 +35,25 @@
 
 <script src="../java/producto-card.js"></script>
 <script>
-    // Carga todos los productos en modo carta
-    document.addEventListener('componentesListos', () => cargarProductos('grid-carta', 'carta'));
+    document.addEventListener('componentesListos', () => {
+        // Carga inicial — entrantes
+        cargarProductos('grid-carta', 'carta', 1);
+
+        // Filtro al pulsar categoría
+        document.querySelectorAll('.categoria-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                // Actualiza clase activo
+                document.querySelectorAll('.categoria-btn').forEach(b => b.classList.remove('activo'));
+                btn.classList.add('activo');
+
+                // Filtra productos
+                const categoriaId = parseInt(btn.dataset.categoriaId);
+                cargarProductos('grid-carta', 'carta', categoriaId);
+            });
+        });
+    });
 </script>
 
 </body>

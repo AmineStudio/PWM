@@ -20,44 +20,14 @@
   <div class="tk-card tk-cart-sheet">
     <h1 class="tk-main-title">LISTA DE COMPRA</h1>
 
-    <div class="tk-list-content">
-
-      <div class="tk-row">
-        <span class="nombre-producto">KING BURGER</span>
-        <span class="tk-dots"></span>
-        <span class="precio-producto">12.00€</span>
-        <div class="tk-actions">
-          <i class="far fa-edit icono-accion"></i>
-          <i class="fas fa-times icono-accion rojo"></i>
-        </div>
-      </div>
-
-      <div class="tk-row">
-        <span class="nombre-producto">COLA ZERO</span>
-        <span class="tk-dots"></span>
-        <span class="precio-producto">2.50€</span>
-        <div class="tk-actions">
-          <i class="far fa-edit icono-accion"></i>
-          <i class="fas fa-times icono-accion rojo"></i>
-        </div>
-      </div>
-
-      <div class="tk-row">
-        <span class="nombre-producto">TAHM FRIES</span>
-        <span class="tk-dots"></span>
-        <span class="precio-producto">4.00€</span>
-        <div class="tk-actions">
-          <i class="far fa-edit icono-accion"></i>
-          <i class="fas fa-times icono-accion rojo"></i>
-        </div>
-      </div>
-
+    <div class="tk-list-content" id="lista-productos">
+      <!-- Se carga dinámicamente -->
     </div>
 
     <div class="tk-row tk-total-row">
       <strong>PRECIO TOTAL</strong>
       <span class="tk-dots"></span>
-      <strong class="precio-total-final">18.50€</strong>
+      <strong class="precio-total-final" id="precio-total">0.00€</strong>
     </div>
   </div>
 
@@ -78,6 +48,66 @@
 
 </main>
 
-<script src="../java/java.js"></script>
+<script src="../java/producto-card.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    const carritoGuardado = JSON.parse(localStorage.getItem('carrito') || '{}');
+
+    // Carga productos del JSON para obtener nombres y precios
+    const res = await fetch('../data.json');
+    const data = await res.json();
+
+    const lista = document.getElementById('lista-productos');
+    const totalEl = document.getElementById('precio-total');
+    let total = 0;
+
+    lista.innerHTML = '';
+
+    Object.entries(carritoGuardado).forEach(([id, cantidad]) => {
+      if (cantidad <= 0) return;
+
+      const producto = data.productos.find(p => p.id === parseInt(id));
+      if (!producto) return;
+
+      const subtotal = producto.precio * cantidad;
+      total += subtotal;
+
+      lista.innerHTML += `
+            <div class="tk-row" data-id="${producto.id}">
+                <span class="nombre-producto">${producto.nombre.toUpperCase()} x${cantidad}</span>
+                <span class="tk-dots"></span>
+                <span class="precio-producto">${subtotal.toFixed(2)}€</span>
+                <div class="tk-actions">
+                    <i class="far fa-edit icono-accion" onclick="editarCantidad(${producto.id})"></i>
+                    <i class="fas fa-times icono-accion rojo" onclick="eliminarProducto(${producto.id})"></i>
+                </div>
+            </div>
+        `;
+    });
+
+    if (lista.innerHTML === '') {
+      lista.innerHTML = '<p style="text-align:center; padding:20px;">No hay productos en el carrito.</p>';
+    }
+
+    totalEl.textContent = `${total.toFixed(2)}€`;
+  });
+
+  function eliminarProducto(id) {
+    const carrito = JSON.parse(localStorage.getItem('carrito') || '{}');
+    delete carrito[id];
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    location.reload();
+  }
+
+  function editarCantidad(id) {
+    const nueva = prompt('Nueva cantidad:');
+    if (nueva === null) return;
+    const carrito = JSON.parse(localStorage.getItem('carrito') || '{}');
+    carrito[id] = Math.max(0, parseInt(nueva) || 0);
+    if (carrito[id] === 0) delete carrito[id];
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    location.reload();
+  }
+</script>
 </body>
 </html>

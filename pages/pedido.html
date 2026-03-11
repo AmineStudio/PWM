@@ -13,12 +13,12 @@
 <main class="contenedor-pedido-activo">
 
     <div class="tabs-categorias">
-        <a href="#" class="tab-btn activo">ENTRANTES</a>
-        <a href="#" class="tab-btn">HAMBURGUESAS</a>
-        <a href="#" class="tab-btn">HOTDOGS</a>
-        <a href="#" class="tab-btn">BEBIDAS</a>
-        <a href="#" class="tab-btn">POSTRE</a>
-        <a href="#" class="tab-btn">OFERTAS</a>
+        <a href="#" class="tab-btn activo" data-categoria-id="1">ENTRANTES</a>
+        <a href="#" class="tab-btn" data-categoria-id="2">HAMBURGUESAS</a>
+        <a href="#" class="tab-btn" data-categoria-id="3">HOTDOGS</a>
+        <a href="#" class="tab-btn" data-categoria-id="4">BEBIDAS</a>
+        <a href="#" class="tab-btn" data-categoria-id="5">POSTRE</a>
+        <a href="#" class="tab-btn" data-categoria-id="6">OFERTAS</a>
     </div>
 
     <div class="grid-productos-pedido" id="grid-pedido">
@@ -49,8 +49,23 @@
 
 <script src="../java/producto-card.js"></script>
 <script>
-    // Carga todos los productos en modo pedido
-    document.addEventListener('componentesListos', () => cargarProductos('grid-pedido', 'pedido'));
+    document.addEventListener('componentesListos', () => {
+        // Carga inicial — entrantes
+        cargarProductos('grid-pedido', 'pedido', 1);
+
+        // Filtro al pulsar categoría
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('activo'));
+                btn.classList.add('activo');
+
+                const categoriaId = parseInt(btn.dataset.categoriaId);
+                cargarProductos('grid-pedido', 'pedido', categoriaId);
+            });
+        });
+    });
 </script>
 
 </body>
