@@ -1,15 +1,31 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
-    background-color: #f4f4f4;
+/* ================= VARIABLES TAHM KING ================= */
+:root {
+    --bg-negro: #000000;
+    --rojo-tahm: #ff0000;
+    --gris-fondo: #1A1B1D;
+    --texto-blanco: #ffffff;
+    --texto-gris: #bbbbbb;
 }
 
-.pie-pagina-rosa {
-    background-color: #9e7c7c;
-    color: white;
-    padding-top: 50px;
-    margin-top: 0; 
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--gris-fondo);
+}
+
+/* ================= FOOTER PRINCIPAL ================= */
+.pie-pagina-tahm {
+    background-color: var(--bg-negro);
+    color: var(--texto-blanco);
+    padding-top: 60px;
+    border-top: 3px solid white; /* Línea roja superior */
+    margin-top: 50px;
 }
 
 .contenedor-columnas {
@@ -18,86 +34,124 @@ body {
     align-items: flex-start;
     max-width: 1200px;
     margin: 0 auto;
-    padding-bottom: 40px;
-    flex-wrap: wrap;
+    padding: 0 40px 60px 40px;
+    flex-wrap: wrap; /* Clave para que se acumulen en columnas si hay más info */
+    gap: 40px;
 }
 
 .columna-footer {
     flex: 1;
-    min-width: 250px;
-    padding: 0 20px;
+    min-width: 250px; /* Evita que las columnas sean demasiado estrechas */
     text-align: left;
 }
 
 .titulo-footer {
-    font-size: 18px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
     font-weight: bold;
     text-transform: uppercase;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-    border-bottom: 2px solid rgba(255,255,255,0.3);
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+    color: var(--rojo-tahm);
+    border-bottom: 2px solid rgba(255, 0, 0, 0.3);
     display: inline-block;
     padding-bottom: 5px;
 }
 
+/* Textos de Horario y Párrafos */
 .columna-footer p {
     margin-bottom: 5px;
-    font-weight: bold;
-    font-size: 14px;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--texto-blanco);
 }
 
 .columna-footer .detalle {
     display: block;
     margin-bottom: 15px;
     font-size: 14px;
-    color: #e6e6e6;
+    color: var(--texto-gris);
 }
 
+.promo-texto {
+    font-weight: normal !important;
+    color: var(--texto-gris) !important;
+    margin-bottom: 20px !important;
+}
+
+/* Lista de enlaces Legales */
 .lista-limpia {
     list-style: none;
     padding: 0;
 }
 
 .lista-limpia li {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 .lista-limpia a {
-    color: white;
+    color: var(--texto-blanco);
     text-decoration: none;
     font-size: 14px;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
 }
 
 .lista-limpia a:hover {
-    color: #ffd700;
-    text-decoration: underline;
+    color: var(--rojo-tahm);
+    padding-left: 8px; /* Animación de desplazamiento */
 }
 
+/* Iconos de Redes Sociales */
 .redes-sociales {
     display: flex;
-    gap: 10px;
-    margin-top: 15px;
+    gap: 15px;
+    margin-top: 10px;
 }
 
 .link-social {
-    color: white;
+    color: var(--texto-blanco);
     text-decoration: none;
-    border: 1px solid white;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 12px;
-    text-transform: uppercase;
-    transition: background 0.3s;
+    border: 1px solid var(--rojo-tahm);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .link-social:hover {
-    background-color: white;
-    color: #9e7c7c;
+    background-color: var(--rojo-tahm);
+    color: var(--bg-negro);
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
 }
 
+/* Barra de Copyright Inferior */
 .barra-copyright {
-    background-color: rgba(0,0,0,0.2);
-    padding: 15px 40px;
+    background-color: #080808; /* Negro ultra oscuro */
+    padding: 25px 40px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.barra-copyright p {
     font-size: 12px;
+    color: #555555;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/* Ajustes para Móviles */
+@media (max-width: 768px) {
+    .contenedor-columnas {
+        text-align: center;
+    }
+    .columna-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

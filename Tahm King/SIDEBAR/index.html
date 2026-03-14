@@ -3,73 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú Lateral - Tahm King</title>
+    <title>Diseño Sidebar - Tahm King</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    
-    <style>
-        body { background-color: #f4f4f4; }
-    </style>
 </head>
 <body>
 
-    <aside class="menu-lateral">
-        
-        <header class="sidebar-header">
-            <button class="boton-cerrar" aria-label="Cerrar menú">
-                <span>&#10005;</span> </button>
-            <h2>Menú</h2>
-        </header>
+<aside class="menu-lateral">
+    <header class="sidebar-header">
+        <button class="boton-cerrar">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h2 class="titulo-sidebar">MENÚ</h2>
+    </header>
 
-        <nav class="sidebar-nav">
-            <ul>
-                <li>
-                    <a href="#">
-                        <span class="icono">&#127968;</span> Inicio
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="icono">&#127828;</span> Carta
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="icono">&#128197;</span> Horario
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="icono">&#128222;</span> Contacto
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="icono">&#9203;</span> Historial
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="icono">&#8505;</span> Sobre nosotros
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="icono">&#9888;</span> Alérgenos
-                    </a>
-                </li>
-            </ul>
-        </nav>
+    <nav class="sidebar-nav">
+        <ul>
+            <li><a href="#"><i class="fa-solid fa-house"></i> Inicio</a></li>
+            <li><a href="#"><i class="fa-solid fa-utensils"></i> Carta</a></li>
+            <li><a href="#"><i class="fa-solid fa-clock"></i> Horario</a></li>
+            <li><a href="#"><i class="fa-solid fa-phone"></i> Contacto</a></li>
+            <li><a href="#"><i class="fa-solid fa-history"></i> Historial</a></li>
+            <li><a href="#"><i class="fa-solid fa-circle-info"></i> Sobre nosotros</a></li>
+            <li><a href="#"><i class="fa-solid fa-triangle-exclamation"></i> Alérgenos</a></li>
+        </ul>
+    </nav>
 
-        <footer class="sidebar-footer">
-            <p>Siguenos en:</p>
-            <div class="sidebar-social-icons">
-                <a href="#" class="social-icon insta">&#128247;</a>
-                <a href="#" class="social-icon x-twitter">&#120143;</a>
-                <a href="#" class="social-icon facebook">&#10224;</a>
-            </div>
-        </footer>
-
-    </aside>
-
+    <footer class="sidebar-footer">
+        <p>SÍGUENOS EN:</p>
+        <div class="sidebar-social-icons">
+            <a href="https://instagram.com" target="_blank" class="social-icon">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://x.com" target="_blank" class="social-icon">
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" class="social-icon">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+        </div>
+    </footer>
+</aside>
 </body>
 </html>

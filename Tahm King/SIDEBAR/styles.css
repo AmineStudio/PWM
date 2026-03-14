@@ -1,110 +1,166 @@
-.menu-lateral {
-    position: fixed;       
-    top: 0;
-    left: 0;
-    width: 300px;          
-    height: 100vh;
-    background-color: #3b3030;
-    color: white;
-    z-index: 1000;         
-    display: flex;
-    flex-direction: column;
-    box-shadow: 4px 0 15px rgba(0,0,0,0.5);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* ================= FUENTES Y VARIABLES ================= */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --bg-dark: #1A1B1D;
+    --header-black: #000000;
+    --tahm-red: #ff0000;
+    --text-white: #ffffff;
+    --text-gray: #888888;
 }
 
+/* ================= RESET GLOBAL ================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden; /* Evita que la página entera tenga scroll */
+}
+
+/* ================= ESTRUCTURA SIDEBAR ================= */
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: 0; /* Visible para diseño */
+    width: 300px;
+    height: 100vh;
+    background-color: var(--header-black);
+    color: var(--text-white);
+    display: flex;
+    flex-direction: column; /* Alinea Header, Nav y Footer en vertical */
+    box-shadow: 5px 0 25px rgba(0,0,0,0.8);
+    z-index: 2000;
+}
+
+/* HEADER DEL SIDEBAR */
 .sidebar-header {
-    background-color: #9e7c7c;
-    padding: 30px 25px;
+    padding: 25px;
     display: flex;
     align-items: center;
     gap: 20px;
+    border-bottom: 1px solid rgba(255, 0, 0, 0.2);
 }
 
-.sidebar-header h2 {
-    font-weight: normal;
-    font-size: 32px;
+.titulo-sidebar {
+    font-family: 'Oswald', sans-serif;
+    font-size: 26px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     margin: 0;
-    color: white;
 }
 
 .boton-cerrar {
-    background: #dcdcdc;
+    background: none;
     border: none;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    font-size: 24px;
-    color: #000; 
+    color: var(--tahm-red);
+    font-size: 28px;
     cursor: pointer;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
+/* NAVEGACIÓN (CON SCROLL INTERNO) */
 .sidebar-nav {
+    flex: 1; /* Ocupa el espacio restante y empuja el footer abajo */
+    overflow-y: auto; /* Si los links no caben, sale scroll aquí */
     padding: 20px 0;
-    flex: 1;
-    overflow-y: auto;
+}
+
+/* Estilo de la barra de scroll para que sea roja y fina */
+.sidebar-nav::-webkit-scrollbar {
+    width: 5px;
+}
+.sidebar-nav::-webkit-scrollbar-thumb {
+    background: var(--tahm-red);
+    border-radius: 10px;
 }
 
 .sidebar-nav ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
 .sidebar-nav a {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #e0e0e0;
-    padding: 15px 30px;
-    font-size: 18px;
-    transition: background 0.2s;
-    gap: 15px;
+    color: var(--text-white);
+    padding: 15px 25px;
+    font-size: 17px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+.sidebar-nav a i {
+    color: var(--tahm-red);
+    width: 25px;
+    font-size: 20px;
+    text-align: center;
 }
 
 .sidebar-nav a:hover {
-    background-color: rgba(255,255,255,0.1);
-    color: white;
+    background-color: rgba(255, 0, 0, 0.1);
+    color: var(--tahm-red);
+    padding-left: 35px;
 }
 
-.sidebar-nav .icono {
-    width: 30px;
-    text-align: center;
-    font-size: 20px;
-}
-
+/* FOOTER (SIEMPRE VISIBLE ABAJO) */
 .sidebar-footer {
-    padding: 30px 25px;
-    background-color: #3b3030;
+    padding: 25px;
+    border-top: 1px solid rgba(255, 0, 0, 0.2);
+    background-color: var(--header-black);
 }
 
 .sidebar-footer p {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
     margin-bottom: 15px;
-    font-size: 16px;
-    color: #e0e0e0;
-    margin-top: 0;
+    color: var(--text-gray);
+    letter-spacing: 1px;
 }
 
+/* REDES SOCIALES */
 .sidebar-social-icons {
     display: flex;
-    gap: 10px;
+    gap: 25px;
 }
 
 .social-icon {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-decoration: none;
-    color: white;
-    font-size: 20px;
-    border-radius: 4px;
+    transition: transform 0.3s ease;
 }
 
-.social-icon.insta { background: linear-gradient(45deg, #f09433, #bc1888); }
-.social-icon.x-twitter { background: black; }
-.social-icon.facebook { background: #1877f2; }
+.social-icon i {
+    color: var(--tahm-red);
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+}
+
+.social-icon:hover i {
+    color: var(--text-white);
+    filter: drop-shadow(0 0 5px var(--tahm-red));
+}
+
+/* OVERLAY (Para cuando se use en la web principal) */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1500;
+    display: none;
+}

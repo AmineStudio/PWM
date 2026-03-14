@@ -1,126 +1,111 @@
+/* ================= VARIABLES ================= */
+:root {
+    --bg-dark: #1A1B1D;
+    --header-black: #000000;
+    --tahm-red: #ff0000; /* El rojo para iconos y botones */
+    --text-white: #ffffff;
+}
+
+/* ================= GLOBAL ================= */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
 }
 
 body {
-    background-color: #f4f4f4;
+    background-color: var(--bg-dark);
+    font-family: 'Poppins', sans-serif;
 }
 
-.barra-superior-gris {
-    background-color: #635f5f;
-    
-    height: 200px;                 
-    
-    display: flex;
-    align-items: center;           
-    
-    justify-content: space-between;
-    padding: 0 40px;               
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
-}
-
-.grupo-izquierda, .grupo-derecha {
+/* ================= HEADER ================= */
+.header-main {
+    background-color: var(--header-black);
+    height: 180px;
     display: flex;
     align-items: center;
-    gap: 25px;
-    flex: 1; 
+    justify-content: space-between;
+    padding: 0 60px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
-.grupo-derecha {
-    justify-content: flex-end; 
-}
-
-.grupo-centro {
+.nav-section {
     display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.nav-section.center {
     justify-content: center;
 }
 
-.boton-rectangular-rojo {
-    background-color: #ff2a2a;
-    color: white;
-    text-decoration: none;
-    
-    padding: 18px 40px;       
-    
-    font-size: 20px;          
-    font-weight: bold;
-    
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    letter-spacing: 1px;
-    transition: transform 0.2s;
+.nav-section.right {
+    justify-content: flex-end;
+    gap: 40px;
 }
 
-.boton-rectangular-rojo:hover {
+/* BOTONES DE ICONO (Barras y Usuario) */
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease;
+    padding: 10px;
+}
+
+.icon-btn i {
+    color: white; /* Color rojo para los iconos */
+    font-size: 45px;        /* Tamaño grande para que destaquen */
+}
+
+.icon-btn:hover {
+    transform: scale(1.15);
+}
+
+/* LOGO (Centro) */
+.logo-container {
+    width: 800px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.logo-container:hover {
     transform: scale(1.05);
 }
 
-.boton-redondo-menu, .boton-redondo-usuario {
-    width: 70px;              
-    height: 70px;
-    
-    background-color: #dcdcdc;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    cursor: pointer;
-}
-
-.boton-redondo-menu span, .boton-redondo-usuario span {
-    font-size: 35px;
-}
-
-.circulo-logo {
-    width: 110px;
-    height: 110px;
-    
-    background-color: #dcdcdc;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; 
-    border: 4px solid #504d4d;
-}
-
-.imagen-del-logo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.contenedor-usuario {
-    display: flex;
-    align-items: center;
-    position: relative; 
-}
-
-.etiqueta-puntos-rosa {
-    background-color: #f08c8c; 
-    color: white;
-    
-    padding: 0 20px 0 20px;    
-    height: 45px;              
-    font-size: 18px;           
+/* BOTÓN PEDIR YA */
+.btn-order {
+    background-color: transparent;
+    color: var(--text-white);
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    padding: 12px 30px;
+    font-size: 22px;
     font-weight: bold;
-    
-    display: flex;
-    align-items: center;
-    margin-right: -25px;
-    padding-right: 35px;       
-    z-index: 1;   
-    border-radius: 10px 0 0 10px;
+    border: 2px solid var(--text-white);
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
 }
 
-.boton-redondo-usuario {
-    position: relative;
-    z-index: 2;                
-    border: 2px solid #fff;
+.btn-order:hover {
+    background-color: var(--tahm-red);
+    border-color: var(--tahm-red);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
 }
