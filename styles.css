@@ -1,6 +1,6 @@
 
 /* ================= GLOBAL ================= */
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: "Arial", sans-serif; }
 body { background-color: #dcdcdc; min-height: 100vh; display: flex; flex-direction: column; }
 
 /* ================= HEADER ================= */
@@ -1110,99 +1110,83 @@ textarea::placeholder { color: rgba(255,255,255,0.7); }
 
 /* ================= TIPO DE PEDIDO ================= */
 
-.fondo-pedido-rosa {
-    background-color: #cbb2b2;
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
+/* ==============================================
+   DISEÑO TIPO PEDIDO - TAHM KING PREMIUM
+   ============================================== */
+body.fondo-oscuro-estetico {
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('../img/pediraqui.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #000;
+    margin: 0; min-height: 100vh;
+    display: flex; justify-content: center; align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
 }
 
 .contenedor-tipo-pedido {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 500px;
+    display: flex; flex-direction: column; align-items: center;
+    width: 100%; max-width: 1000px; padding: 20px; z-index: 10;
 }
 
-.logo-central-circulo {
-    width: 120px;
-    height: 120px;
-    background-color: #d9d9d9;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 50px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+.logo-central-oscuro {
+    width: 100px; height: 100px; background-color: #000; border: 2px solid #FF0000;
+    border-radius: 50%; display: flex; justify-content: center; align-items: center;
+    margin-bottom: 20px; box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); overflow: hidden;
 }
 
-.logo-central-circulo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.logo-central-oscuro img { width: 80%; height: 80%; object-fit: contain; }
+
+.textos-cabecera { text-align: center; margin-bottom: 40px; }
+.textos-cabecera h2 { font-size: 26px; letter-spacing: 2px; margin-bottom: 5px; font-weight: 800; text-transform: uppercase; }
+.textos-cabecera p { color: #cccccc; font-size: 16px; margin: 0; }
+
+.lista-opciones-oscuras {
+    display: flex; flex-direction: row; gap: 30px; justify-content: center; flex-wrap: wrap; width: 100%;
 }
 
-.texto-logo-alt {
-    font-size: 20px;
-    color: #333;
+.tarjeta-con-foto {
+    position: relative; overflow: hidden; width: 280px; height: 320px;
+    border: 1px solid #333; border-radius: 12px; text-decoration: none !important;
+    cursor: pointer; transition: all 0.3s ease; background-color: #111;
 }
 
-.lista-opciones {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    width: 100%;
+.tarjeta-opcion-bg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover; background-position: center; z-index: 1; transition: transform 0.5s ease;
 }
 
-.opcion-fila {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    gap: 20px;
-    transition: transform 0.2s;
+.tarjeta-opcion-contenido {
+    position: relative; z-index: 2; padding: 30px 20px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center; width: 100%; height: 100%; box-sizing: border-box;
 }
 
-.opcion-fila:hover {
-    transform: scale(1.05);
+.icono-dorado svg { stroke: #ffffff; transition: stroke 0.3s ease, transform 0.3s ease; margin-bottom: 15px; }
+
+.boton-dorado {
+    background-color: transparent; color: #ffffff; font-size: 18px; font-weight: bold;
+    text-transform: uppercase; letter-spacing: 1px; padding: 10px 20px; border: 2px solid #555555;
+    border-radius: 4px; transition: all 0.3s ease;
 }
 
-.icono-blanco {
-    width: 60px;
-    display: flex;
-    justify-content: center;
+.descripcion-opcion {
+    color: #dddddd !important; font-size: 14px; margin-top: 15px; line-height: 1.4; max-width: 90%; text-decoration: none;
 }
 
-.boton-gris {
-    background-color: #d9d9d9;
-    color: black;
-    font-size: 20px;
-    padding: 15px 0;
-    width: 250px;
-    text-align: center;
-    border-radius: 2px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.tarjeta-con-foto:hover { transform: translateY(-10px); border-color: #FF0000; box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4); }
+.tarjeta-con-foto:hover .tarjeta-opcion-bg { transform: scale(1.1); }
+.tarjeta-con-foto:hover .icono-dorado svg { stroke: #FF0000; transform: scale(1.1); }
+.tarjeta-con-foto:hover .boton-dorado { background-color: #FF0000; color: #ffffff; border-color: #FF0000; }
+
+.btn-cancelar-oscuro {
+    margin-top: 40px; background: transparent; color: #888888; border: none; padding: 10px 30px;
+    font-size: 14px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease;
 }
 
-.btn-cancelar-pedido {
-    margin-top: 60px;
-    background-color: #d9d9d9;
-    border: none;
-    padding: 10px 30px;
-    font-size: 18px;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+.btn-cancelar-oscuro:hover { color: #FF0000; text-decoration: underline; }
 
-.btn-cancelar-pedido:hover {
-    background-color: #c0c0c0;
-}
-
+@media (max-width: 800px) { .lista-opciones-oscuras { flex-direction: column; align-items: center; } }
 /* ================= PEDIDO ================= */
 
 .fondo-gris-pedido {

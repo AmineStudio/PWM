@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="components/producto-card.html — nuevo, contiene los &lt;template&gt; HTML de las tarjetas&#10;java/producto-card.js — nuevo, lee data.json, clona plantillas y gestiona el carrito&#10;java/java.js — añadido dispatchEvent('componentesListos') al terminar de cargar componentes&#10;carta.html y pedido.html — grid vacío + script de producto-card.js + listener componentesListos">
+    <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="redesign tipo_pedido using json">
+      <change afterPath="$PROJECT_DIR$/img/comeraqui.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/domicilio.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/parallevar.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/pediraqui.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/tipo-pedido.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/producto-card.html" beforeDir="false" afterPath="$PROJECT_DIR$/components/producto-card.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/producto-card.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/producto-card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/carta.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/carta.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/lista-pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/lista-pedido.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/pedido.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/tipo_pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/tipo_pedido.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +25,8 @@
       <list>
         <option value="CSS File" />
         <option value="tsconfig.json" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -63,26 +65,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Sprint2&quot;,
-    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.index.html.executor": "Run",
+    "JavaScript Debug.tipo_pedido.html.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "Sprint2",
+    "javascript.preferred.runtime.type.id": "node",
+    "last_opened_file_path": "C:/Users/yenem/OneDrive/Documentos/GitHub/PWM/img",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\yenem\OneDrive\Documentos\GitHub\PWM\img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\amine\WebstormProjects\PWM\Tahm King\CONTACTO" />
       <recent name="C:\Users\amine\WebstormProjects\PWM" />
@@ -91,7 +99,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.31033.133" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.30387.83" />
       </set>
     </attachedChunks>
   </component>
@@ -112,6 +120,7 @@
       <workItem from="1772899175030" duration="2015000" />
       <workItem from="1773155918061" duration="2054000" />
       <workItem from="1773247933731" duration="5926000" />
+      <workItem from="1773495075070" duration="11381000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -169,6 +178,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update" />
     <MESSAGE value="components/producto-card.html — nuevo, contiene los &lt;template&gt; HTML de las tarjetas&#10;java/producto-card.js — nuevo, lee data.json, clona plantillas y gestiona el carrito&#10;java/java.js — añadido dispatchEvent('componentesListos') al terminar de cargar componentes&#10;carta.html y pedido.html — grid vacío + script de producto-card.js + listener componentesListos" />
-    <option name="LAST_COMMIT_MESSAGE" value="components/producto-card.html — nuevo, contiene los &lt;template&gt; HTML de las tarjetas&#10;java/producto-card.js — nuevo, lee data.json, clona plantillas y gestiona el carrito&#10;java/java.js — añadido dispatchEvent('componentesListos') al terminar de cargar componentes&#10;carta.html y pedido.html — grid vacío + script de producto-card.js + listener componentesListos" />
+    <MESSAGE value="redesign tipo_pedido using json" />
+    <option name="LAST_COMMIT_MESSAGE" value="redesign tipo_pedido using json" />
   </component>
 </project>

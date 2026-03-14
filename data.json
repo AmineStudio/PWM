@@ -551,5 +551,28 @@
       "descripcion": "Presente en nuestra salsa César y opciones marinas del menú.",
       "icono": "🐟"
     }
+  ],
+  "tipos_pedido": [
+    {
+      "id": "aqui",
+      "texto": "COMER AQUÍ",
+      "descripcion": "Disfruta de la experiencia Tahm King en nuestro local.",
+      "imagen": "img/comeraqui.jpg",
+      "icono": "<svg>...</svg>"
+    },
+    {
+      "id": "llevar",
+      "texto": "PARA LLEVAR",
+      "descripcion": "Pasa por el local y recógelo sin esperas.",
+      "imagen": "img/parallevar.jpg",
+      "icono": "<svg>...</svg>"
+    },
+    {
+      "id": "domicilio",
+      "texto": "A DOMICILIO",
+      "descripcion": "Te lo llevamos caliente directo a tu puerta.",
+      "imagen": "img/domicilio.jpg",
+      "icono": "<svg>...</svg>"
+    }
   ]
 }
