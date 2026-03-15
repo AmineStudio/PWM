@@ -6,9 +6,9 @@ async function xLuIncludeFile() {
     let z = document.getElementsByTagName("*");
 
     for (let i = 0; i < z.length; i++) {
-        if (z[i].getAttribute("xlu-include-file")) {
+        if (z[i].getAttribute("data-xlu-include-file")) {
             let a = z[i].cloneNode(false);
-            let file = z[i].getAttribute("xlu-include-file");
+            let file = z[i].getAttribute("data-xlu-include-file");
 
             // === MAGIA: CORRECCIÓN DE CARGA DE ARCHIVOS ===
             // Si estamos en la carpeta 'pages' y el archivo a cargar NO tiene '../', se lo ponemos.
@@ -22,7 +22,7 @@ async function xLuIncludeFile() {
                 if (response.ok) {
                     let content = await response.text();
 
-                    a.removeAttribute("xlu-include-file");
+                    a.removeAttribute("data-xlu-include-file");
                     a.innerHTML = content;
                     z[i].parentNode.replaceChild(a, z[i]);
 
@@ -60,3 +60,35 @@ document.addEventListener("DOMContentLoaded", function() {
     xLuIncludeFile();
 });
 
+/* ==============================================
+   LÓGICA DEL SIDEBAR (Se ejecuta al cargar los componentes)
+   ============================================== */
+document.addEventListener('componentesListos', () => {
+    // Buscamos los botones
+    const btnMenu = document.getElementById('btn-menu'); // El del header
+    const sidebar = document.getElementById('mi-sidebar');
+    const overlay = document.getElementById('fondo-sidebar');
+    const btnCerrar = document.getElementById('btn-cerrar-menu'); // El del sidebar
+
+    // Si todo existe, le damos vida
+    if (btnMenu && sidebar && overlay && btnCerrar) {
+
+        // 1. Al hacer clic en las tres rayitas -> ABRIR
+        btnMenu.addEventListener('click', () => {
+            sidebar.classList.add('activo');
+            overlay.classList.add('activo');
+        });
+
+        // Función para cerrar todo
+        const cerrarSidebar = () => {
+            sidebar.classList.remove('activo');
+            overlay.classList.remove('activo');
+        };
+
+        // 2. Al hacer clic en la X -> CERRAR
+        btnCerrar.addEventListener('click', cerrarSidebar);
+
+        // 3. Al hacer clic en el fondo negro fuera del menú -> CERRAR
+        overlay.addEventListener('click', cerrarSidebar);
+    }
+});

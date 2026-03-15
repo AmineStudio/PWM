@@ -540,97 +540,201 @@ body { background-color: #dcdcdc; min-height: 100vh; display: flex; flex-directi
 
 /* ================= SIDEBAR ================= */
 
-.checkbox-menu-oculto {
-    display: none;
-}
-
+/* ================= ESTRUCTURA SIDEBAR ================= */
 .menu-lateral {
     position: fixed;
     top: 0;
-    left: 0;
+    left: -320px; /* <--- CAMBIO: Lo escondemos fuera de la pantalla por la izquierda */
     width: 300px;
     height: 100vh;
-    background-color: #3b3030;
-    color: white;
-    z-index: 2000;
+    background-color: var(--header-black);
+    color: var(--text-white);
     display: flex;
     flex-direction: column;
-    box-shadow: 4px 0 15px rgba(0,0,0,0.5);
-
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
+    box-shadow: 5px 0 25px rgba(0,0,0,0.8);
+    z-index: 2000;
+    transition: left 0.4s ease; /* <--- CAMBIO: Animación suave al abrir */
 }
 
-#sidebar-active:checked ~ .menu-lateral {
-    transform: translateX(0);
+/* <--- CLASE NUEVA: El Javascript añadirá esto para abrir el menú */
+.menu-lateral.activo {
+    left: 0;
 }
 
+/* OVERLAY (Fondo oscuro) */
+.sidebar-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1500;
+    opacity: 0; /* Empezamos invisible */
+    visibility: hidden;
+    transition: all 0.4s ease; /* Animación suave */
+}
+
+/* <--- CLASE NUEVA: El Javascript añadirá esto para mostrar el fondo */
+.sidebar-overlay.activo {
+    opacity: 1;
+    visibility: visible;
+}
+/* ==============================================
+   DISEÑO DEL SIDEBAR (MENÚ LATERAL)
+   ============================================== */
+
+/* Fondo oscuro que aparece detrás */
 .sidebar-overlay {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 1999;
-
-    display: none;
-    backdrop-filter: blur(2px);
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1500;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
 }
 
-#sidebar-active:checked ~ .sidebar-overlay {
-    display: block;
+.sidebar-overlay.activo {
+    opacity: 1;
+    visibility: visible;
 }
 
+/* El menú lateral en sí */
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: -350px; /* Escondido por la izquierda */
+    width: 300px;
+    height: 100vh;
+    background-color: var(--header-black, #000);
+    color: var(--text-white, #fff);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 0 25px rgba(0,0,0,0.8);
+    z-index: 2000;
+    transition: left 0.4s ease;
+}
 
-.btn-hamburguesa {
-    font-size: 30px;
-    cursor: pointer;
-    margin-right: 15px;
-    color: #333;
-    user-select: none;
+.menu-lateral.activo {
+    left: 0; /* Aparece en pantalla */
+}
+
+/* Cabecera del Sidebar */
+.sidebar-header {
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+.titulo-sidebar {
+    font-family: 'Oswald', sans-serif;
+    font-size: 26px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
 }
 
 .boton-cerrar {
-    background: #dcdcdc;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    font-size: 24px;
-    color: #000;
+    background: none;
+    border: none;
+    color: var(--tahm-red, #ff0000);
+    font-size: 28px;
     cursor: pointer;
     display: flex;
-    justify-content: center;
     align-items: center;
-    transition: transform 0.2s;
+    justify-content: center;
+    transition: transform 0.3s ease;
 }
-.boton-cerrar:hover { transform: rotate(90deg); }
 
-.sidebar-header {
-    background-color: #9e7c7c;
-    padding: 30px 25px;
-    display: flex; align-items: center; gap: 20px;
+.boton-cerrar:hover {
+    transform: scale(1.2);
 }
-.sidebar-header h2 { margin: 0; color: white; }
-.sidebar-nav { padding: 20px 0; flex: 1; overflow-y: auto; }
-.sidebar-nav ul { list-style: none; padding: 0; margin: 0; }
+
+/* Navegación (Enlaces) */
+.sidebar-nav {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+.sidebar-nav::-webkit-scrollbar { width: 5px; }
+.sidebar-nav::-webkit-scrollbar-thumb { background: var(--tahm-red, #ff0000); border-radius: 10px; }
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
 .sidebar-nav a {
-    display: flex; align-items: center; text-decoration: none;
-    color: #e0e0e0; padding: 15px 30px; font-size: 18px; gap: 15px;
-    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-white, #fff);
+    padding: 15px 25px;
+    font-size: 17px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    gap: 20px;
+    transition: all 0.3s ease;
 }
-.sidebar-nav a:hover { background-color: rgba(255,255,255,0.1); color: white; }
-.sidebar-footer { padding: 30px 25px; background-color: #3b3030; }
-.sidebar-social-icons { display: flex; gap: 10px; }
-.social-icon {
-    width: 40px; height: 40px; display: flex; justify-content: center;
-    align-items: center; text-decoration: none; color: white;
-    font-size: 20px; border-radius: 4px;
-}
-.social-icon.insta { background: linear-gradient(45deg, #f09433, #bc1888); }
-.social-icon.x-twitter { background: black; }
-.social-icon.facebook { background: #1877f2; }
 
+.sidebar-nav a i {
+    color: var(--tahm-red, #ff0000);
+    width: 25px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.sidebar-nav a:hover {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: var(--tahm-red, #ff0000);
+    padding-left: 35px; /* Efecto de moverse a la derecha */
+}
+
+/* Footer del Sidebar (Redes sociales) */
+.sidebar-footer {
+    padding: 25px;
+    border-top: 1px solid rgba(255, 0, 0, 0.2);
+    background-color: var(--header-black, #000);
+}
+
+.sidebar-footer p {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    margin-bottom: 15px;
+    color: var(--text-gray, #888);
+    letter-spacing: 1px;
+}
+
+.sidebar-social-icons {
+    display: flex;
+    gap: 25px;
+}
+
+.social-icon {
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-icon i {
+    color: var(--tahm-red, #ff0000);
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+}
+
+.social-icon:hover i {
+    color: var(--text-white, #fff);
+    filter: drop-shadow(0 0 5px var(--tahm-red, #ff0000));
+}
 /* ================= ALÉRGENOS ================= */
 
 .seccion-alergenos {

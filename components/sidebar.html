@@ -1,24 +1,42 @@
-<input type="checkbox" id="sidebar-active" class="checkbox-menu-oculto">
+<div class="sidebar-overlay" id="fondo-sidebar"></div>
 
-<aside class="menu-lateral">
+<aside class="menu-lateral" id="mi-sidebar">
     <header class="sidebar-header">
-        <label for="sidebar-active" class="boton-cerrar">
-            <span>&#10005;</span>
-        </label>
-        <h2>Menú</h2>
+        <button class="boton-cerrar" id="btn-cerrar-menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h2 class="titulo-sidebar">MENÚ</h2>
     </header>
 
     <nav class="sidebar-nav">
         <ul>
-            <li><a href="index.html"><span class="icono">&#127968;</span> Inicio</a></li>
-            <li><a href="pages/carta.html"><span class="icono">&#127828;</span> Carta</a></li>
-            <li><a href="pages/ofertas.html"><span class="icono">&#127991;</span> Ofertas</a></li>
-            <li><a href="pages/contacto.html"><span class="icono">&#128222;</span> Contacto</a></li>
-            <li><a href="pages/historial.html"><span class="icono">&#9203;</span> Historial</a></li>
-            <li><a href="pages/nosotros.html"><span class="icono">&#8505;</span> Nosotros</a></li>
-            <li><a href="pages/alergenos.html"><span class="icono">&#9888;</span> Alérgenos</a></li>
-            <li><a href="pages/login.html"><span class="icono">&#128100;</span> Perfil</a></li>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+
+            <li><a href="pages/carta.html"><i class="fa-solid fa-utensils"></i> Carta</a></li>
+
+            <li><a href="pages/ofertas.html"><i class="fa-solid fa-tags"></i> Ofertas</a></li>
+
+            <li><a href="pages/horario.html"><i class="fa-solid fa-clock"></i> Horario</a></li>
+            <li><a href="pages/contacto.html"><i class="fa-solid fa-phone"></i> Contacto</a></li>
+
+            <li><a href="pages/historial.html"><i class="fa-solid fa-history"></i> Historial</a></li>
+            <li><a href="pages/nosotros.html"><i class="fa-solid fa-circle-info"></i> Sobre nosotros</a></li>
+            <li><a href="pages/alergenos.html"><i class="fa-solid fa-triangle-exclamation"></i> Alérgenos</a></li>
         </ul>
     </nav>
+
+    <footer class="sidebar-footer">
+        <p>SÍGUENOS EN:</p>
+        <div class="sidebar-social-icons">
+            <a href="https://instagram.com" target="_blank" class="social-icon">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://tiktok.com" target="_blank" class="social-icon">
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" class="social-icon">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+        </div>
+    </footer>
 </aside>
-<label for="sidebar-active" class="sidebar-overlay"></label>
