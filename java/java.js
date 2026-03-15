@@ -10,7 +10,7 @@ async function xLuIncludeFile() {
             let a = z[i].cloneNode(false);
             let file = z[i].getAttribute("xlu-include-file");
 
-            // === MAGIA NUEVA: CORRECCIÓN DE CARGA DE ARCHIVOS ===
+            // === MAGIA: CORRECCIÓN DE CARGA DE ARCHIVOS ===
             // Si estamos en la carpeta 'pages' y el archivo a cargar NO tiene '../', se lo ponemos.
             if (window.location.pathname.includes("/pages/") && !file.startsWith("../")) {
                 file = "../" + file;
@@ -27,7 +27,7 @@ async function xLuIncludeFile() {
                     z[i].parentNode.replaceChild(a, z[i]);
 
                     // Si cargamos menús, arreglamos sus enlaces internos
-                    if (file.includes("header") || file.includes("sidebar")) {
+                    if (file.includes("header") || file.includes("sidebar") || file.includes("footer")) {
                         corregirRutas(a);
                     }
 
@@ -59,3 +59,4 @@ function corregirRutas(elemento) {
 document.addEventListener("DOMContentLoaded", function() {
     xLuIncludeFile();
 });
+

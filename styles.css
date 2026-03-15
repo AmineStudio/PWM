@@ -4,180 +4,113 @@
 body { background-color: #dcdcdc; min-height: 100vh; display: flex; flex-direction: column; }
 
 /* ================= HEADER ================= */
-.barra-superior-gris {
-    background-color: #635f5f;
-    height: 140px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 30px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    position: relative;
-    z-index: 100;
+/* ================= VARIABLES GLOBALES (Añade a las que ya tengas) ================= */
+:root {
+    --bg-dark: #1A1B1D;
+    --header-black: #000000;
+    --tahm-red: #ff0000;
+    --text-white: #ffffff;
 }
 
-.grupo-izquierda, .grupo-derecha {
+/* ================= HEADER MINIMALISTA PREMIUM ================= */
+.header-main {
+    background-color: var(--header-black);
+    height: 180px; /* Header alto y premium */
     display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: space-between;
+    padding: 0 60px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.nav-section {
+    display: flex;
+    align-items: center;
     flex: 1;
 }
 
-.grupo-derecha { justify-content: flex-end; }
-.grupo-centro { display: flex; justify-content: center; }
-
-.boton-rectangular-rojo {
-    background-color: #ff2a2a;
-    color: white;
-    text-decoration: none;
-    padding: 12px 25px;
-    font-weight: bold;
-    border-radius: 8px;
-    box-shadow: 0 4px 0 #b30000;
-    transition: all 0.2s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.nav-section.center {
+    justify-content: center;
 }
 
-.boton-rectangular-rojo:hover {
-    background-color: #ff4d4d;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 0 #b30000;
+.nav-section.right {
+    justify-content: flex-end;
+    gap: 40px;
 }
 
-.boton-rectangular-rojo:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px 0 #b30000;
-}
-
-.boton-redondo-menu, .boton-redondo-usuario {
-    width: 60px;
-    height: 60px;
-    background-color: #dcdcdc;
-    border-radius: 50%;
+/* BOTONES DE ICONO (Barras y Usuario) */
+.icon-btn {
+    background: none;
     border: none;
-    font-size: 28px;
     cursor: pointer;
     display: flex;
-    align-items: center;
     justify-content: center;
-    transition: transform 0.2s;
+    align-items: center;
+    transition: transform 0.2s ease;
+    padding: 10px;
 }
 
-.boton-redondo-menu:hover, .boton-redondo-usuario:hover {
-    transform: scale(1.1);
-    background-color: #fff;
+.icon-btn i {
+    color: var(--text-white);
+    font-size: 45px;
 }
 
-.link-logo-wrapper {
-    text-decoration: none;
+.icon-btn:hover {
+    transform: scale(1.15);
+    color: var(--tahm-red); /* Efecto hover rojo en los iconos */
+}
+
+/* LOGO (Centro) */
+.logo-container {
+    width: 300px; /* AJUSTADO: 800px era enorme y podía romper pantallas pequeñas */
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: transform 0.3s ease;
 }
 
-.link-logo-wrapper:hover {
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.logo-container:hover {
     transform: scale(1.05);
 }
 
-.circulo-logo {
-    width: 110px;
-    height: 110px;
-    background-color: #dcdcdc;
-    border-radius: 50%;
-    border: 4px solid #504d4d;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.imagen-del-logo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.etiqueta-puntos-rosa {
-    background-color: #f08c8c;
-    color: white;
-    padding: 10px 25px 10px 15px;
-    font-weight: bold;
-    border-radius: 10px 0 0 10px;
-    margin-right: -20px;
-}
-
-.contenedor-usuario {
-    display: flex;
-    align-items: center;
-}
-
-.boton-redondo-usuario {
-    position: relative;
-    z-index: 2;
-    border: 3px solid #635f5f;
-}
-
-.contenedor-contacto { width: 100%; max-width: 800px; margin: 20px auto; background-color: #dcdcdc; padding: 10px; }
-
-.header-rosa { background-color: #e29d9d; padding: 20px; text-align: center; margin-bottom: 30px; }
-.header-rosa h2 { color: white; font-weight: normal; font-size: 26px; }
-
-
-.fila-datos { display: flex; justify-content: space-between; margin-bottom: 30px; padding: 0 10px; }
-.grupo-dato { display: flex; align-items: center; gap: 10px; }
-.icono-negro { font-size: 24px; font-weight: bold; }
-.caja-rosa { background-color: #e29d9d; color: white; padding: 10px 20px; font-weight: bold; min-width: 180px; text-align: center; }
-
-.fila-botones { display: flex; justify-content: space-between; gap: 15px; margin-bottom: 30px; }
-.boton-marron {
-    background-color: #c6a68e;
-    flex: 1;
-    height: 160px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-
+/* BOTÓN PEDIR YA */
+.btn-order {
+    background-color: transparent;
+    color: var(--text-white);
     text-decoration: none;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
-    border-radius: 4px;
-}
-
-
-.boton-marron:hover {
-    background-color: #dcb397;
-    transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-
-.boton-marron:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    background-color: #b08d75;
-}
-
-.texto-boton {
-    color: white;
-    margin-top: 20px;
-    font-size: 16px;
+    font-family: 'Oswald', sans-serif;
+    padding: 12px 30px;
+    font-size: 22px;
     font-weight: bold;
+    border: 2px solid var(--text-white);
+    border-radius: 5px;
     text-transform: uppercase;
-}.texto-boton { color: white; margin-top: 20px; font-size: 16px; }
-.sombra-blanca { position: absolute; top: 60%; width: 50px; height: 10px; background-color: rgba(255,255,255,0.4); border-radius: 50%; }
+    transition: all 0.3s ease;
+}
 
-.icono-verde { width: 60px; height: 60px; background-color: #2e5c3e; border: 3px solid white; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 40px; z-index: 2; }
-.icono-rojo { width: 60px; height: 60px; background-color: #d92b2b; border: 3px solid white; display: flex; justify-content: center; align-items: center; color: white; font-size: 40px; clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%); z-index: 2; }
-.icono-sobre { font-size: 60px; color: white; z-index: 2; line-height: 0.8; text-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+.btn-order:hover {
+    background-color: var(--tahm-red);
+    border-color: var(--tahm-red);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+}
 
-.contenedor-mensaje { background-color: #e29d9d; padding: 15px; margin-bottom: 20px; }
-textarea { width: 100%; height: 150px; background-color: #cbbdc0; border: none; padding: 15px; color: white; font-size: 16px; resize: none; }
-textarea::placeholder { color: rgba(255,255,255,0.7); }
-.contenedor-submit { display: flex; justify-content: flex-end; }
-.btn-enviar { background-color: #9fd16a; border: none; padding: 12px 40px; color: white; font-size: 16px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 10px; }
-.avion { font-size: 18px; transform: rotate(-45deg); }
-
+/* Responsividad básica para el header */
+@media (max-width: 800px) {
+    .header-main { height: auto; padding: 20px; flex-wrap: wrap; }
+    .nav-section.center { order: -1; width: 100%; margin-bottom: 20px; flex: unset; }
+    .logo-container { height: 100px; }
+}
 /* ================= FOOTER ================= */
 .pie-pagina-rosa { background-color: #a47e7c; color: white; padding-top: 40px; margin-top: auto; }
 .contenedor-columnas { display: flex; justify-content: space-around; padding-bottom: 30px; flex-wrap: wrap; }

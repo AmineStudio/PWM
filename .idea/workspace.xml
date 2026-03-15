@@ -4,14 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="redesign tipo_pedido using json">
-      <change afterPath="$PROJECT_DIR$/img/comeraqui.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/domicilio.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/parallevar.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/pediraqui.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/tipo-pedido.js" afterDir="false" />
+    <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="foto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/components/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/java.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/java.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/alergenos.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/alergenos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/carta.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/carta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/contacto.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/contacto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/historial.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/historial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/nosotros.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/nosotros.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ofertas.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/ofertas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/pedido.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/tipo_pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/tipo_pedido.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
     </list>
@@ -65,28 +69,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JavaScript Debug.index.html.executor": "Run",
-    "JavaScript Debug.tipo_pedido.html.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "Sprint2",
-    "javascript.preferred.runtime.type.id": "node",
-    "last_opened_file_path": "C:/Users/yenem/OneDrive/Documentos/GitHub/PWM/img",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.tipo_pedido.html.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Sprint2&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/yenem/OneDrive/Documentos/GitHub/PWM/img&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\yenem\OneDrive\Documentos\GitHub\PWM\img" />
@@ -120,7 +124,8 @@
       <workItem from="1772899175030" duration="2015000" />
       <workItem from="1773155918061" duration="2054000" />
       <workItem from="1773247933731" duration="5926000" />
-      <workItem from="1773495075070" duration="11381000" />
+      <workItem from="1773495075070" duration="14006000" />
+      <workItem from="1773573835081" duration="1572000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -146,7 +151,23 @@
       <option name="project" value="LOCAL" />
       <updated>1773092660538</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="redesign tipo_pedido using json">
+      <option name="closed" value="true" />
+      <created>1773510496320</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1773510496320</updated>
+    </task>
+    <task id="LOCAL-00005" summary="foto">
+      <option name="closed" value="true" />
+      <created>1773510637643</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1773510637643</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +200,7 @@
     <MESSAGE value="update" />
     <MESSAGE value="components/producto-card.html — nuevo, contiene los &lt;template&gt; HTML de las tarjetas&#10;java/producto-card.js — nuevo, lee data.json, clona plantillas y gestiona el carrito&#10;java/java.js — añadido dispatchEvent('componentesListos') al terminar de cargar componentes&#10;carta.html y pedido.html — grid vacío + script de producto-card.js + listener componentesListos" />
     <MESSAGE value="redesign tipo_pedido using json" />
-    <option name="LAST_COMMIT_MESSAGE" value="redesign tipo_pedido using json" />
+    <MESSAGE value="foto" />
+    <option name="LAST_COMMIT_MESSAGE" value="foto" />
   </component>
 </project>
