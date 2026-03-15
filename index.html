@@ -3,57 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Tahm King - Inicio</title>
+
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 
 <body>
 
+<!-- HEADER -->
 <div data-xlu-include-file="components/header.html"></div>
 <div data-xlu-include-file="components/sidebar.html"></div>
+
 <main class="contenedor-principal">
 
     <div class="fila fila-1">
-        <h2 class="titulo-main">¿TIENES HAMBRE?</h2>
-        <a href="pages/tipo_pedido.html" class="btn-main">PIDE YA</a>
+        <h2 class="titulo-main">TAHM KING</h2>
+        <h3 class="sub-titulo">Disfruta de nuestros mejores sabores</h3>
+
+        <a href="pages/tipo_pedido.html" class="btn-main">
+            PIDE YA
+        </a>
     </div>
+
+    <!-- MÁS POPULARES -->
 
     <div class="fila fila-2">
-        <div class="columna-2 columna-ofertas">
-            <h2 class="titulo-main">OFERTAS DE LA SEMANA</h2>
-            <a href="pages/ofertas.html" class="btn-main">VER TODAS</a>
-        </div>
-        <div class="columna-2 columna-imagen">
-            <div class="placeholder-imagen">¡DESCUENTOS IRRESISTIBLES!</div>
+
+        <h3 class="mas-populares">MÁS POPULARES</h3>
+
+        <div class="slider-container">
+
+            <button class="slider-btn prev">&#10094;</button>
+
+            <div class="slider-track">
+
+                <div class="card">
+                    <img src="img/h6.webp">
+                    <p>THE CLASSIC</p>
+                </div>
+
+                <div class="card">
+                    <img src="img/e1.webp">
+                    <p>LOADED FRIES</p>
+                </div>
+
+                <div class="card">
+                    <img src="img/helado.webp">
+                    <p>MEGA SHAKE</p>
+                </div>
+
+                <div class="card">
+                    <img src="img/e1.webp">
+                    <p>LOREM IPSUM</p>
+                </div>
+
+                <div class="card">
+                    <img src="img/h6.webp">
+                    <p>LOREM IPSUM</p>
+                </div>
+
+                <div class="card">
+                    <img src="img/helado.webp">
+                    <p>LOREM IPSUM</p>
+                </div>
+
+                <div class="card">
+                    <img src="img/h6.webp">
+                    <p>LOREM IPSUM</p>
+                </div>
+
+            </div>
+
+            <button class="slider-btn next">&#10095;</button>
+
         </div>
     </div>
+
+    <!-- NUEVOS COMBOS -->
 
     <div class="fila fila-3">
-        <p class="texto-main">¿TIENES HAMBRE? DESCUBRE NUESTROS PLATOS</p>
-        <a href="pages/carta.html" class="btn-main">EXPLORAR CARTA</a>
+
+        <p class="texto-main">¡NUEVOS COMBOS!</p>
+
+        <a href="pages/carta.html" class="btn-main">
+            EXPLORAR CARTA
+        </a>
+
     </div>
 
+    <!-- BLOQUES -->
+
     <div class="fila fila-4">
+
         <div class="columna-3">
             <span class="titulo-columna">GANA PUNTOS</span>
             <a href="pages/login.html" class="btn-main">LOGIN / REGISTRO</a>
         </div>
+
         <div class="columna-3">
             <span class="titulo-columna">DÓNDE ESTAMOS</span>
             <a href="pages/nosotros.html" class="btn-main">VER MAPA</a>
         </div>
+
         <div class="columna-3">
             <span class="titulo-columna">SOBRE NOSOTROS</span>
             <a href="pages/nosotros.html" class="btn-main">CONÓCENOS</a>
         </div>
+
     </div>
 
 </main>
 
+<!-- FOOTER -->
 <div data-xlu-include-file="components/footer.html"></div>
 
+<!-- MOTOR DE COMPONENTES -->
 <script src="java/java.js"></script>
+
+<!-- SLIDER -->
+<script src="java/slider.js"></script>
 
 </body>
 </html>

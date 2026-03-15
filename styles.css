@@ -1,7 +1,7 @@
 
 /* ================= GLOBAL ================= */
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Arial", sans-serif; }
-body { background-color: #dcdcdc; min-height: 100vh; display: flex; flex-direction: column; }
+body { background-color: #121212; min-height: 100vh; display: flex; flex-direction: column; }
 
 /* ================= HEADER ================= */
 /* ================= VARIABLES GLOBALES (Añade a las que ya tengas) ================= */
@@ -112,165 +112,140 @@ body { background-color: #dcdcdc; min-height: 100vh; display: flex; flex-directi
     .logo-container { height: 100px; }
 }
 /* ================= FOOTER ================= */
-.pie-pagina-rosa { background-color: #a47e7c; color: white; padding-top: 40px; margin-top: auto; }
-.contenedor-columnas { display: flex; justify-content: space-around; padding-bottom: 30px; flex-wrap: wrap; }
-.columna-footer { padding: 10px; min-width: 200px; }
-.titulo-footer { border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 5px; margin-bottom: 15px; font-size: 18px; }
-.detalle { display: block; color: #e0e0e0; margin-bottom: 10px; font-size: 14px; }
-.lista-limpia { list-style: none; padding: 0; }
-.lista-limpia li { margin-bottom: 8px; }
-.lista-limpia a { color: white; text-decoration: none; font-size: 14px; }
-.redes-sociales { display: flex; gap: 10px; margin-top: 10px; }
-.link-social { color: white; border: 1px solid white; padding: 5px 10px; border-radius: 15px; text-decoration: none; font-size: 12px; }
-.barra-copyright { background-color: rgba(0,0,0,0.2); text-align: center; padding: 15px; font-size: 12px; }
+/* ==============================================
+   FOOTER TAHM KING (CÓDIGO BLINDADO ANTI-ERRORES)
+   ============================================== */
 
-/* ================= PÁGINA DE OFERTAS ================= */
-
-.contenedor-ofertas-marco {
-    background-color: #a47e7c;
-    padding: 30px;
-    width: 95%;
-    max-width: 1600px;
-    margin: 20px auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+.pie-pagina-tahm {
+    background-color: #000000;
+    color: #ffffff;
+    padding-top: 60px;
+    border-top: 3px solid white;
+    margin-top: 50px;
 }
 
-.layout-ofertas {
+.pie-pagina-tahm .contenedor-columnas {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px 60px 40px;
+    flex-wrap: wrap;
+    gap: 40px;
 }
 
-.columnas-ofertas {
-    display: flex;
-    gap: 20px;
-}
-
-.columna-izquierda, .columna-derecha {
+.pie-pagina-tahm .columna-footer {
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    min-width: 250px;
+    text-align: left;
 }
 
-.caja-oferta {
-    background-color: #dcdcdc;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    color: black;
-    border-radius: 4px;
-    font-size: 22px;
-    transition: transform 0.2s;
-    cursor: pointer;
-}
-
-.caja-oferta:hover {
-    transform: scale(1.01);
-    background-color: #f0f0f0;
-}
-
-.oferta-top {
-    height: 250px;
-    font-size: 30px;
-}
-
-.columna-izquierda .caja-oferta {
-    height: 150px;
-}
-
-.columna-derecha .caja-oferta {
-    height: 235px;
-}
-
-.badge-pts {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #7d1d1d;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid white;
-}
-
-.btn-registro-grande {
-    display: block;
-    width: 100%;
-    background-color: #dcdcdc;
-    margin-top: 25px;
-    padding: 20px;
-    text-align: center;
-    font-weight: bold;
-    color: black;
-    font-size: 18px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s;
-    text-transform: uppercase;
-}
-
-.btn-registro-grande:hover {
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(255,255,255,0.4);
-}
-
-.acciones-inferiores {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    margin: 40px 0;
-}
-
-.btn-circular {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: none;
-    color: white;
-    font-size: 28px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: transform 0.2s;
-}
-
-.rojo-x {
-    background-color: #ff0000;
-}
-
-.azul-carrito {
-    background-color: #00bcd4;
-}
-
-.btn-finalizar {
-    background-color: #d32f2f;
-    color: white;
-    border: none;
-    padding: 15px 45px;
+.pie-pagina-tahm .titulo-footer {
+    font-family: 'Oswald', sans-serif;
     font-size: 20px;
     font-weight: bold;
-    cursor: pointer;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: all 0.2s;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+    color: #ff0000; /* Rojo Tahm King */
+    border-bottom: 2px solid rgba(255, 0, 0, 0.3);
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
-.btn-circular:hover, .btn-finalizar:hover {
-    transform: scale(1.1);
-    filter: brightness(1.1);
+.pie-pagina-tahm .columna-footer p {
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #ffffff;
+}
+
+.pie-pagina-tahm .detalle {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #bbbbbb;
+}
+
+.pie-pagina-tahm .promo-texto {
+    font-weight: normal !important;
+    color: #bbbbbb !important;
+    margin-bottom: 20px !important;
+}
+
+.pie-pagina-tahm .lista-limpia {
+    list-style: none;
+    padding: 0;
+}
+
+.pie-pagina-tahm .lista-limpia li {
+    margin-bottom: 12px;
+}
+
+.pie-pagina-tahm .lista-limpia a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.pie-pagina-tahm .lista-limpia a:hover {
+    color: #ff0000;
+    padding-left: 8px;
+}
+
+.pie-pagina-tahm .redes-sociales {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.pie-pagina-tahm .link-social {
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid #ff0000;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pie-pagina-tahm .link-social:hover {
+    background-color: #ff0000;
+    color: #000000;
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+.pie-pagina-tahm .barra-copyright {
+    background-color: #080808;
+    padding: 25px 40px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pie-pagina-tahm .barra-copyright p {
+    font-size: 12px;
+    color: #555555;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/* Ajustes para Móviles del Footer */
+@media (max-width: 768px) {
+    .pie-pagina-tahm .contenedor-columnas {
+        text-align: center;
+    }
+    .pie-pagina-tahm .columna-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 /* ================= PÁGINA DE HISTORIAL ================= */
@@ -993,156 +968,232 @@ body { background-color: #dcdcdc; min-height: 100vh; display: flex; flex-directi
 
 /* ================= INDEX ================= */
 
-.contenedor-principal {
-    background-color: #dcdcdc;
-    min-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    padding: 20px 0;
+/* ================= INDEX ================= */
+
+.contenedor-principal{
+    background-color:#121212;
+    padding:20px;
 }
 
-.fila {
-    margin-bottom: 30px;
-    width: 95%;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+/* FILAS */
+
+.fila{
+    margin-bottom:30px;
+    width:95%;
+    max-width:1200px;
+    margin-left:auto;
+    margin-right:auto;
+    border-radius:20px;
+    overflow:hidden;
 }
 
-.fila-1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: #e29d9d;
-    padding: 40px 20px;
+/* ================= HERO ================= */
+
+.fila-1{
+    position:relative;
+    height:450px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+    padding-left:5%;
+
+    background-image:url("img/hamburguesaInicio.png");
+    background-size:cover;
+    background-position:60% center;
+
+    color:white;
 }
 
-.fila-2 {
-    display: flex;
-    gap: 0;
+.titulo-main{
+    font-size:70px;
+    font-family:"Bauhaus 93";
+    font-weight:900;
+    margin-bottom:10px;
 }
 
-.columna-2 {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px;
-    min-height: 250px;
+.sub-titulo{
+    font-size:22px;
+    margin-bottom:20px;
 }
 
-.columna-ofertas {
-    background-color: #d1c0c0;
+/* ================= BOTONES ================= */
+
+.btn-main{
+    background-color:#e62e2e;
+    color:white;
+    text-decoration:none;
+    padding:12px 35px;
+    font-size:16px;
+    font-weight:bold;
+    border-radius:20px;
+    transition:all .3s;
+    text-transform:uppercase;
 }
 
-.columna-imagen {
-    background-color: #b0b0b0;
-    padding: 0;
+.btn-main:hover{
+    background-color:black;
+    transform:scale(1.05);
 }
 
-.placeholder-imagen {
-    width: 100%;
-    height: 100%;
-    min-height: 250px;
-    background: url('../img/oferta-home.jpg') center/cover no-repeat, linear-gradient(145deg, #a0a0a0, #b8b8b8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-    font-size: 24px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+/* ================= MÁS POPULARES ================= */
+
+.mas-populares{
+    color:white;
+    margin:20px;
+    font-size:22px;
 }
 
-.fila-3 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background-color: #e29d9d;
-    padding: 50px 20px;
+/* CONTENEDOR */
+
+.slider-container{
+    position:relative;
+    width:100%;
+    overflow:hidden;
+    margin-top:20px;
 }
 
-.texto-main {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 25px;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+/* TRACK */
+
+.slider-track{
+    display:flex;
+    gap:20px;
+    transition:transform .5s ease;
+    align-items:center;
 }
 
-.fila-4 {
-    display: flex;
-    gap: 20px;
-    background: transparent;
-    box-shadow: none;
+/* CARD */
+
+.card{
+    min-width:260px;
+    flex-shrink:0;
+    background:#1f1f1f;
+    border-radius:12px;
+    overflow:hidden;
+    text-align:center;
+    transition:transform .3s ease, box-shadow .3s ease;
 }
 
-.columna-3 {
-    flex: 1;
-    background-color: #c6a68e;
-    padding: 30px 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    min-height: 180px;
-    justify-content: center;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    transition: transform 0.2s;
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 20px rgba(0,0,0,.4);
 }
 
-.columna-3:hover {
-    transform: translateY(-5px);
+/* IMAGEN */
+
+.card img{
+    width:100%;
+    height:170px;
+    object-fit:cover;
 }
 
-.titulo-columna {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 15px;
-    text-transform: uppercase;
+/* TEXTO */
+
+.card p{
+    color:white;
+    font-weight:bold;
+    padding:12px;
+    letter-spacing:1px;
+    font-size:14px;
 }
 
-.titulo-main {
-    font-size: 32px;
-    font-weight: 900;
-    margin-bottom: 20px;
-    color: white;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+/* BOTONES SLIDER */
+
+.slider-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:none;
+    background:black;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    z-index:5;
+    transition:all .3s ease;
 }
 
-.btn-main {
-    background-color: #fff;
-    color: #e29d9d;
-    text-decoration: none;
-    padding: 12px 35px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 30px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: all 0.3s;
-    text-transform: uppercase;
-    display: inline-block;
+.slider-btn:hover{
+    background:#e62e2e;
+    transform:translateY(-50%) scale(1.1);
 }
 
-.btn-main:hover {
-    background-color: #f8f8f8;
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-    color: #c08080;
+.slider-btn.prev{
+    left:10px;
 }
 
-.columna-3 .btn-main {
-    color: #c6a68e;
+.slider-btn.next{
+    right:10px;
+}
+
+.slider-btn:disabled{
+    opacity:.3;
+    cursor:not-allowed;
+}
+
+/* ================= SEGUNDA HERO ================= */
+
+.fila-3{
+    position:relative;
+    height:450px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-end;
+    padding-right:5%;
+
+    background-image:url("img/hamburguesaInicio.png");
+    background-size:cover;
+    background-position:40% center;
+
+    color:white;
+    text-align:right;
+}
+
+.texto-main{
+    font-size:50px;
+    font-weight:bold;
+    margin-bottom:25px;
+    text-transform:uppercase;
+}
+
+/* ================= BLOQUES ================= */
+
+.fila-4{
+    display:flex;
+    justify-content:space-around;
+    align-items:stretch;
+    background-color:#121212;
+    padding:40px 20px;
+    gap:20px;
+}
+
+.columna-3{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:30px;
+    background-color:#1A1B1D;
+    border:1px solid #e0e0e0;
+    border-radius:8px;
+    text-align:center;
+    transition:transform .3s ease;
+}
+
+.columna-3:hover{
+    transform:translateY(-5px);
+}
+
+.titulo-columna{
+    font-size:1.2rem;
+    color:white;
+    margin-bottom:20px;
+    letter-spacing:1px;
+    text-transform:uppercase;
 }
 
 /* ================= TIPO DE PEDIDO ================= */
@@ -1678,3 +1729,60 @@ body.fondo-oscuro-estetico {
 .tk-danger { background-color: #ff0000; color: white; }
 .tk-info { background-color: #00d2ff; color: white; }
 
+/* ==========================================================================
+   RWD - SPRINT 2: ADAPTACIÓN A 3 DISPOSITIVOS (DESKTOP, TABLET, MÓVIL)
+   ========================================================================== */
+
+/* 1. VARIANTE GRANDE (DESKTOP) > 1024px
+   El diseño base que ya tenemos programado arriba funciona como desktop.
+   No hace falta añadir nada extra aquí. */
+
+
+/* 2. VARIANTE MEDIA (TABLET) - Entre 768px y 1024px */
+@media (max-width: 1024px) {
+    /* Header: Reducimos márgenes y el logo para que no choque con los botones */
+    .header-main { padding: 0 30px; height: 140px; }
+    .logo-container { width: 220px; }
+    .btn-order { font-size: 18px; padding: 10px 20px; }
+    .nav-section.right { gap: 20px; }
+
+    /* Footer: Pasamos de 3 a 2 columnas arriba y 1 abajo para aprovechar el espacio */
+    .pie-pagina-tahm .contenedor-columnas { gap: 30px; }
+    .pie-pagina-tahm .columna-footer { min-width: 40%; } /* Fuerza 2 columnas */
+}
+
+
+/* 3. VARIANTE PEQUEÑA (MÓVIL) - Menos de 768px */
+@media (max-width: 768px) {
+    /* Header: Rompemos la fila. El logo arriba, y los botones abajo */
+    .header-main {
+        height: auto;
+        padding: 15px 20px;
+        flex-wrap: wrap;
+    }
+    .nav-section.center {
+        order: -1; /* Mueve el logo arriba del todo */
+        width: 100%;
+        margin-bottom: 15px;
+        flex: unset;
+    }
+    .logo-container { height: 90px; width: 100%; }
+    .icon-btn i { font-size: 35px; } /* Iconos un pelín más pequeños */
+
+    /* Sidebar: Ocupa toda la pantalla en móviles para que no se vea el fondo y sea más táctil */
+    .menu-lateral {
+        width: 100vw;
+        left: -100vw; /* Lo escondemos del todo */
+    }
+
+    /* Footer: Todo apilado en 1 sola columna y centrado */
+    .pie-pagina-tahm { padding-top: 40px; margin-top: 30px; }
+    .pie-pagina-tahm .contenedor-columnas {
+        text-align: center;
+        padding: 0 20px 40px 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .pie-pagina-tahm .columna-footer { width: 100%; align-items: center; }
+    .pie-pagina-tahm .redes-sociales { justify-content: center; }
+}
