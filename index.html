@@ -8,96 +8,110 @@
 
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <div data-xlu-include-file="components/header.html"></div>
 <div data-xlu-include-file="components/sidebar.html"></div>
 
 <main class="contenedor-principal">
 
     <div class="fila fila-1">
-        <h2 class="titulo-main">TAHM KING</h2>
-        <h3 class="sub-titulo">Disfruta de nuestros mejores sabores</h3>
-
-        <a href="pages/tipo_pedido.html" class="btn-main">
-            PIDE YA
-        </a>
-    </div>
-
-    <!-- MÁS POPULARES -->
-
-    <div class="fila fila-2">
-
-        <h3 class="mas-populares">MÁS POPULARES</h3>
-
-        <div class="slider-container">
-
-            <button class="slider-btn prev">&#10094;</button>
-
-            <div class="slider-track">
-
-                <div class="card">
-                    <img src="img/h6.webp">
-                    <p>THE CLASSIC</p>
-                </div>
-
-                <div class="card">
-                    <img src="img/e1.webp">
-                    <p>LOADED FRIES</p>
-                </div>
-
-                <div class="card">
-                    <img src="img/helado.webp">
-                    <p>MEGA SHAKE</p>
-                </div>
-
-                <div class="card">
-                    <img src="img/e1.webp">
-                    <p>LOREM IPSUM</p>
-                </div>
-
-                <div class="card">
-                    <img src="img/h6.webp">
-                    <p>LOREM IPSUM</p>
-                </div>
-
-                <div class="card">
-                    <img src="img/helado.webp">
-                    <p>LOREM IPSUM</p>
-                </div>
-
-                <div class="card">
-                    <img src="img/h6.webp">
-                    <p>LOREM IPSUM</p>
-                </div>
-
+        <div class="swiper swiper-hero" id="hero-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="img/inicio/hamburguesaInicio.png"></div>
+                <div class="swiper-slide"><img src="img/inicio/nachosInicio.png"></div>
+                <div class="swiper-slide"><img src="img/inicio/perritoInicio.png"></div>
+                <div class="swiper-slide"><img src="img/inicio/batidoInicio.png"></div>
             </div>
 
-            <button class="slider-btn next">&#10095;</button>
-
+            <div class="overlay-fijo">
+                <h2 class="titulo-main">TAHM <span>KING</span></h2>
+                <h3 class="sub-titulo">Disfruta de nuestros mejores sabores</h3>
+                <a href="pages/tipo_pedido.html" class="btn-main">PIDE YA</a>
+            </div>
         </div>
     </div>
 
-    <!-- NUEVOS COMBOS -->
+    <div class="fila fila-2">
+        <h3 class="mas-populares">MÁS POPULARES</h3>
 
-    <div class="fila fila-3">
+        <div class="swiper swiper-productos" id="productos-slider">
+            <div class="swiper-wrapper">
 
-        <p class="texto-main">¡NUEVOS COMBOS!</p>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <img src="img/hamburguesas/h6.webp">
+                        <p>THE CLASSIC</p>
+                    </div>
+                </div>
 
-        <a href="pages/carta.html" class="btn-main">
-            EXPLORAR CARTA
-        </a>
+                <div class="swiper-slide">
+                    <div class="card">
+                        <img src="img/perritos/p2.webp">
+                        <p>LOREM IPSUM</p>
+                    </div>
+                </div>
 
+                <div class="swiper-slide">
+                    <div class="card">
+                        <img src="img/bebidas/b3.webp">
+                        <p>MEGA SHAKE</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="card">
+                        <img src="img/entrantes/e1.webp">
+                        <p>LOREM IPSUM</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="card">
+                        <img src="img/hamburguesas/h3.webp">
+                        <p>LOREM IPSUM</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="card">
+                        <img src="img/postres/helado.webp">
+                        <p>LOREM IPSUM</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="card">
+                        <img src="img/hamburguesas/h2.jpeg">
+                        <p>LOREM IPSUM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next slider-btn"></div>
+            <div class="swiper-button-prev slider-btn"></div>
+        </div>
     </div>
 
-    <!-- BLOQUES -->
+    <div class="fila fila-3">
+        <div class="swiper swiper-hero" id="combos-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="img/inicio/hamburguesaInicio.png"></div>
+                <div class="swiper-slide"><img src="img/inicio/perritoCarta.png"></div>
+                <div class="swiper-slide"><img src="img/inicio/hamburguesaCarta.png"></div>
+            </div>
+
+            <div class="overlay-fijo">
+                <p class="texto-main">¡NUEVOS <span>COMBOS!</span></p>
+                <a href="pages/carta.html" class="btn-main">EXPLORAR CARTA</a>
+            </div>
+        </div>
+    </div>
 
     <div class="fila fila-4">
-
         <div class="columna-3">
             <span class="titulo-columna">GANA PUNTOS</span>
             <a href="pages/login.html" class="btn-main">LOGIN / REGISTRO</a>
@@ -112,19 +126,11 @@
             <span class="titulo-columna">SOBRE NOSOTROS</span>
             <a href="pages/nosotros.html" class="btn-main">CONÓCENOS</a>
         </div>
-
     </div>
 
 </main>
-
-<!-- FOOTER -->
 <div data-xlu-include-file="components/footer.html"></div>
-
-<!-- MOTOR DE COMPONENTES -->
 <script src="java/java.js"></script>
-
-<!-- SLIDER -->
-<script src="java/slider.js"></script>
-
+<script src="java/slides.js"></script>
 </body>
 </html>

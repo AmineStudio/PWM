@@ -5,8 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="corregir problema de rutas del sidebar">
+      <change afterPath="$PROJECT_DIR$/img/inicio/batidoInicio.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/inicio/hamburguesaCarta.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/inicio/nachosInicio.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/inicio/perritoCarta.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/inicio/perritoInicio.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/slides.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/components/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/components/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/comeraqui.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/pedir/comeraqui.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/domicilio.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/pedir/domicilio.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/e1.webp" beforeDir="false" afterPath="$PROJECT_DIR$/img/entrantes/e1.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/h6.webp" beforeDir="false" afterPath="$PROJECT_DIR$/img/hamburguesas/h6.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/hamburguesaInicio.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/inicio/hamburguesaInicio.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/helado.webp" beforeDir="false" afterPath="$PROJECT_DIR$/img/postres/helado.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/parallevar.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/pedir/parallevar.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/pediraqui.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/pedir/pediraqui.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/slider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +72,9 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="3A7hIrl6vZTxC0BahC8YZLM55Aj" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -86,14 +107,17 @@
       <recent name="C:\Users\yenem\OneDrive\Documentos\GitHub\PWM\img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\amine\WebstormProjects\PWM\Tahm King\CONTACTO" />
-      <recent name="C:\Users\amine\WebstormProjects\PWM" />
+      <recent name="C:\Users\corim\Documents\GitHub\PWM\img\inicio" />
+      <recent name="C:\Users\corim\Documents\GitHub\PWM\img\pedir" />
+      <recent name="C:\Users\corim\Documents\GitHub\PWM\img\postres" />
+      <recent name="C:\Users\corim\Documents\GitHub\PWM\img\entrantes" />
+      <recent name="C:\Users\corim\Documents\GitHub\PWM\img\hamburguesas" />
     </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.30387.83" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.31033.133" />
       </set>
     </attachedChunks>
   </component>
@@ -116,6 +140,8 @@
       <workItem from="1773247933731" duration="5926000" />
       <workItem from="1773495075070" duration="14006000" />
       <workItem from="1773573835081" duration="8361000" />
+      <workItem from="1773703170551" duration="679000" />
+      <workItem from="1773924230752" duration="11613000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />

@@ -1,6 +1,6 @@
 
 /* ================= GLOBAL ================= */
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: "Arial", sans-serif; }
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: "Bauhaus 93", sans-serif; }
 body { background-color: #121212; min-height: 100vh; display: flex; flex-direction: column; }
 
 /* ================= HEADER ================= */
@@ -966,78 +966,343 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
     border: 1px solid rgba(255,255,255,0.2);
 }
 
-/* ================= INDEX ================= */
+/* ==========================================================================
+   INDEX TAHM KING - DISEÑO PREMIUM (IMAGEN ANCHO COMPLETO)
+   ========================================================================== */
 
-/* ================= INDEX ================= */
-
-.contenedor-principal{
-    background-color:#121212;
-    padding:20px;
+.contenedor-principal {
+    background-color: #121212;
+    padding: 20px 0;
 }
 
-/* FILAS */
-
-.fila{
-    margin-bottom:30px;
-    width:95%;
-    max-width:1200px;
-    margin-left:auto;
-    margin-right:auto;
-    border-radius:20px;
-    overflow:hidden;
+/* ESTRUCTURA BASE DE FILAS */
+.fila {
+    margin-bottom: 50px;
+    width: 95%;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
 }
 
-/* ================= HERO ================= */
+/* ==============================================
+   FILAS 1 Y 3: HERO SLIDERS (ANCHO COMPLETO)
+   ============================================== */
 
-.fila-1{
-    position:relative;
-    height:450px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:flex-start;
-    padding-left:5%;
-
-    background-image:url("img/hamburguesaInicio.png");
-    background-size:cover;
-    background-position:60% center;
-
-    color:white;
+.fila-1, .fila-3 {
+    height: 500px;
+    background-color: #000;
 }
 
-.titulo-main{
-    font-size:70px;
-    font-family:"Bauhaus 93";
-    font-weight:900;
-    margin-bottom:10px;
+.swiper-hero {
+    width: 100%;
+    height: 100%;
 }
 
-.sub-titulo{
-    font-size:22px;
-    margin-bottom:20px;
+/* FILA 1: Imagen ocupa todo pero se alinea a la derecha (80%) */
+.fila-1 .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* Ocupa todo el ancho y alto */
+    object-position: 80% center; /* Desplaza el foco de la foto a la derecha */
 }
 
-/* ================= BOTONES ================= */
-
-.btn-main{
-    background-color:#e62e2e;
-    color:white;
-    text-decoration:none;
-    padding:12px 35px;
-    font-size:16px;
-    font-weight:bold;
-    border-radius:20px;
-    transition:all .3s;
-    text-transform:uppercase;
+/* FILA 3: Imagen ocupa todo pero se alinea a la izquierda (20%) */
+.fila-3 .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 20% center; /* Desplaza el foco de la foto a la izquierda */
 }
 
-.btn-main:hover{
-    background-color:black;
-    transform:scale(1.05);
+/* Capa de texto fija */
+.overlay-fijo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 7%;
+    pointer-events: none;
 }
 
+/* FILA 1: Texto Izquierda + Degradado para legibilidad */
+.fila-1 .overlay-fijo {
+    align-items: flex-start;
+    text-align: left;
+    background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%);
+}
+
+/* FILA 3: Texto Derecha + Degradado para legibilidad */
+.fila-3 .overlay-fijo {
+    align-items: flex-end;
+    text-align: right;
+    background: linear-gradient(to left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%);
+}
+
+.overlay-fijo * {
+    pointer-events: auto;
+}
+
+.titulo-main {
+    font-size: clamp(40px, 8vw, 80px);
+    font-family: "Bauhaus 93", sans-serif;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.titulo-main span {
+    color: #ff0000;
+}
+
+.sub-titulo {
+    font-size: 20px;
+    color: #eee;
+    margin-bottom: 30px;
+    max-width: 450px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.texto-main {
+    font-size: clamp(30px, 5vw, 55px);
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+/* ==============================================
+   FILA 2: MÁS POPULARES
+   ============================================== */
+/* ==============================================
+   FILA 2: MÁS POPULARES (IMAGEN TOTAL - SIN PADDING)
+   ============================================== */
+
+.mas-populares {
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    padding-left: 15px;
+    border-left: 5px solid #ff0000;
+}
+
+.swiper-productos {
+    padding: 10px 10px 50px 10px;
+    overflow: visible;
+}
+
+.swiper-productos .card {
+    background: #1A1B1D;
+    border-radius: 15px;
+    overflow: hidden; /* Esto es clave para que la imagen no se salga de las esquinas redondeadas */
+    transition: all 0.3s ease;
+    border: 1px solid #333;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.swiper-productos .card:hover {
+    transform: translateY(-10px);
+    border-color: #ff0000;
+    box-shadow: 0 10px 25px rgba(255, 0, 0, 0.3);
+}
+
+/* IMAGEN OCUPANDO TODO EL ANCHO */
+.swiper-productos .card img {
+    width: 100%;
+    height: 250px;       /* Ajusta esta altura a tu gusto */
+    object-fit: cover;    /* Hace que la imagen llene el recuadro sin dejar huecos */
+    padding: 0;          /* Eliminado el padding por completo */
+    margin: 0;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.swiper-productos .card:hover img {
+    transform: scale(1.05); /* Zoom sutil al hacer hover */
+}
+
+/* TEXTO DEBAJO DE LA IMAGEN */
+.swiper-productos .card p {
+    color: #fff;
+    padding: 15px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 15px;
+    margin: 0;
+    background: #1A1B1D; /* Mismo color que la card */
+    border-top: 1px solid #333; /* Separación sutil entre foto y texto */
+}
+/* Botones Swiper Elegantes */
+.swiper-button-next, .swiper-button-prev {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(8px);
+    border-radius: 50%;
+    width: 50px !important;
+    height: 50px !important;
+    color: #fff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    outline: none !important;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 18px !important;
+}
+
+/* ==============================================
+   FILA 4: BLOQUES DE INFORMACIÓN
+   ============================================== */
+
+.fila-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.columna-3 {
+    background-color: #1A1B1D;
+    border: 1px solid #333;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: 0.3s;
+}
+
+.columna-3:hover {
+    border-color: #ff0000;
+    background-color: #1f1f1f;
+}
+
+.titulo-columna {
+    color: #fff;
+    font-size: 1.2rem;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* ================= BOTONES GLOBALES ================= */
+
+.btn-main {
+    display: inline-block;
+    background-color: #ff0000;
+    color: #fff !important;
+    text-decoration: none;
+    padding: 12px 35px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: 0.3s;
+    text-transform: uppercase;
+    border: 2px solid #ff0000;
+
+    /* FIX: Botón no se estira */
+    width: fit-content;
+    min-width: 180px;
+    text-align: center;
+}
+
+.btn-main:hover {
+    background-color: transparent;
+    color: #ff0000 !important;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .fila-1, .fila-3 { height: 400px; }
+    .fila-1 .swiper-slide img, .fila-3 .swiper-slide img {
+        object-position: center;
+        opacity: 0.7;
+    }
+    .overlay-fijo {
+        align-items: center !important;
+        text-align: center !important;
+        background: rgba(0,0,0,0.6) !important;
+    }
+}
 /* ================= MÁS POPULARES ================= */
+.fila-1 .slider-container,
+.fila-3 .slider-container {
+    width: 100%;
+    height: 450px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 0;
+    border-radius: 20px;
+}
+.fila-1 .slider-track,
+.fila-3 .slider-track {
+    display: flex;
+    gap: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+/* Cards: Forzamos que CADA UNA sea del tamaño total del contenedor */
+.fila-1 .card,
+.fila-3 .card {
+    min-width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    background: #000;
+    flex-shrink: 0;
+}
+
+.fila-1 .card img,
+.fila-3 .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* El texto que flota encima */
+.overlay-fijo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 5%;
+    background: rgba(0, 0, 0, 0.3); /* Capa oscura para leer mejor */
+    pointer-events: none; /* No bloquea el click */
+}
+
+.overlay-fijo * {
+    pointer-events: auto; /* Los botones dentro sí funcionan */
+}
+
+/* Especial para Fila 3: Texto a la derecha */
+.fila-3 .overlay-fijo {
+    align-items: flex-end;
+    text-align: right;
+    padding-right: 5%;
+}
 .mas-populares{
     color:white;
     margin:20px;
@@ -1062,8 +1327,7 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
     align-items:center;
 }
 
-/* CARD */
-
+.text-right { align-items: flex-end; text-align: right; }
 .card{
     min-width:260px;
     flex-shrink:0;
@@ -1142,12 +1406,6 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
     flex-direction:column;
     justify-content:center;
     align-items:flex-end;
-    padding-right:5%;
-
-    background-image:url("img/hamburguesaInicio.png");
-    background-size:cover;
-    background-position:40% center;
-
     color:white;
     text-align:right;
 }
@@ -1774,8 +2032,6 @@ body.fondo-oscuro-estetico {
         width: 100vw;
         left: -100vw; /* Lo escondemos del todo */
     }
-
-    /* Footer: Todo apilado en 1 sola columna y centrado */
     .pie-pagina-tahm { padding-top: 40px; margin-top: 30px; }
     .pie-pagina-tahm .contenedor-columnas {
         text-align: center;
