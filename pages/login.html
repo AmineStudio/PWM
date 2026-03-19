@@ -3,73 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login y Registro - Tahm King</title>
+
+    <title>Login - Tahm King</title>
+
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
-<body>
-
-<div data-xlu-include-file="../components/header.html"></div>
-<div data-xlu-include-file="../components/sidebar.html"></div>
-<section class="seccion-login-wrapper">
-
-    <div class="main-container">
-        <div class="tabs">
-            <button type="button" id="tab-login" class="tab active" onclick="cambiarVista('login')">INICIAR SESIÓN</button>
-            <button type="button" id="tab-register" class="tab inactive-dark" onclick="cambiarVista('register')">REGISTRARSE</button>
-        </div>
-
-        <div class="form-card">
-            <div class="icon-circle">
-                <div class="user-head"></div>
-                <div class="user-body"></div>
+<body class="login-body">
+<div class="container" id="container">
+    <div class="form-container sign-up">
+        <form>
+            <h1>Créate una cuenta</h1>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
             </div>
-
-            <form id="auth-form" action="../index.html"> <div id="grupo-login" class="inputs-group">
-                <input type="email" class="input-field" placeholder="Email" required>
-                <input type="password" class="input-field" placeholder="Contraseña" required>
+            <span>o usa tu correo para registrarte</span>
+            <input type="text" placeholder="Nombre">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Contraseña">
+            <button type="button">Regístrate</button>
+        </form>
+    </div>
+    <div class="form-container sign-in">
+        <form>
+            <h1>Inicia Sesión</h1>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
             </div>
-
-                <div id="grupo-register" class="inputs-group hidden">
-                    <input type="text" class="input-field" placeholder="Nombre">
-                    <input type="text" class="input-field" placeholder="Apellido">
-                    <input type="email" class="input-field" placeholder="Email">
-                    <input type="password" class="input-field" placeholder="Contraseña">
-                </div>
-
-                <div class="button-container">
-                    <button type="submit" class="submit-button">ENVIAR</button>
-                </div>
-            </form>
+            <span>o usa tu correo y contraseña</span>
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Contraseña">
+            <a href="#">¿Has olvidado la contraseña?</a>
+            <button type="button">Inicia sesión</button>
+        </form>
+    </div>
+    <div class="toggle-container">
+        <div class="toggle">
+            <div class="toggle-panel toggle-left">
+                <h1>¡Bienvenido!</h1>
+                <p>Introduce tus datos y disfruta de todas las ventajas</p>
+                <button class="hidden" id="login">Inicia Sesión</button>
+            </div>
+            <div class="toggle-panel toggle-right">
+                <h1>¡Únete a Tahm King!</h1>
+                <p>Regístrate y te regalamos 50 Tahm Coins</p>
+                <button class="hidden" id="register">Regístrate</button>
+            </div>
         </div>
     </div>
 
-</section>
-
-<div xlu-include-file="../components/footer.html"></div>
-
-<script src="../java/java.js"></script>
-
-<script>
-    // Script específico solo para esta página (tabs)
-    function cambiarVista(vista) {
-        const loginGroup = document.getElementById('grupo-login');
-        const registerGroup = document.getElementById('grupo-register');
-        const tabLogin = document.getElementById('tab-login');
-        const tabRegister = document.getElementById('tab-register');
-
-        if (vista === 'login') {
-            loginGroup.classList.remove('hidden');
-            registerGroup.classList.add('hidden');
-            tabLogin.className = 'tab active';
-            tabRegister.className = 'tab inactive-dark';
-        } else {
-            loginGroup.classList.add('hidden');
-            registerGroup.classList.remove('hidden');
-            tabLogin.className = 'tab inactive-dark';
-            tabRegister.className = 'tab active';
-        }
-    }
-</script>
-
+</div>
+<script src="../java/login.js"></script>
 </body>
 </html>

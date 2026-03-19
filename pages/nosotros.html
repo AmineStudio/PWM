@@ -5,74 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Nosotros - Tahm King</title>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../css/nosotros.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-<div data-xlu-include-file="../components/header.html"></div>
-<div data-xlu-include-file="../components/sidebar.html"></div>
+<div data-xlu-include-file="components/header.html"></div>
+<div data-xlu-include-file="components/sidebar.html"></div>
 <section class="about-section">
     <div class="about-grid">
         <div class="item texto">
-            <h2>Nuestra Historia</h2>
-            <p>En Tahm King, la tradición se encuentra con el sabor. Desde 2010, servimos las mejores hamburguesas del reino con ingredientes frescos y una receta secreta que ha pasado de generación en generación.</p>
+            <h2 class="titulo-tahm">Nuestra Historia</h2>
+            <p>
+                En Tahm King, la tradición se encuentra con el sabor.
+                Desde 2010 ofrecemos hamburguesas únicas con ingredientes frescos.
+            </p>
         </div>
         <div class="item imagen">
-            <img src="https://via.placeholder.com/400x250/333/fff?text=Interior+Tahm+King" alt="Interior del restaurante">
+            <img src="../img/nosotros/restauranteNosotros.png">
         </div>
         <div class="item imagen">
-            <img src="https://via.placeholder.com/400x250/333/fff?text=Cocina+Abierta" alt="Nuestra cocina">
+            <img src="../img/nosotros/parrillaNosotros.png">
         </div>
         <div class="item texto">
-            <h2>Nuestra Cocina</h2>
-            <p>Nuestros chefs trabajan con pasión para ofrecerte una experiencia inolvidable. Carne 100% vacuno, pan horneado diariamente y salsas caseras que te harán volver.</p>
+            <h2 class="titulo-tahm">Nuestra Cocina</h2>
+            <p>
+                Carne 100% vacuno, pan diario y salsas caseras.
+                Una experiencia que te hará volver.
+            </p>
         </div>
     </div>
 </section>
-
 <section class="ubicacion-section">
     <div class="ubicacion-container">
         <div class="lista-restaurantes">
-            <h3>¿Dónde encontrarnos?</h3>
+            <h3 class="titulo-tahm">¿Dónde encontrarnos?</h3>
             <ul>
-                <li onclick="cambiarMapa('centro')">📍 Tahm King Centro</li>
-                <li onclick="cambiarMapa('puerto')">📍 Tahm King Puerto</li>
-                <li onclick="cambiarMapa('sur')">📍 Tahm King Sur</li>
+                <li data-map="centro">📍 Tahm King Centro</li>
+                <li data-map="puerto">📍 Tahm King Puerto</li>
+                <li data-map="sur">📍 Tahm King Sur</li>
             </ul>
         </div>
         <div class="mapa-box">
-            <iframe id="google-map"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3519.986326466812!2d-15.4241!3d28.1235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDA3JzI0LjYiTiAxNcKwMjUnMjYuOCJX!5e0!3m2!1ses!2ses!4v1600000000000!5m2!1ses!2ses"
-                    allowfullscreen="" loading="lazy"></iframe>
+            <iframe id="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1307.7970983629743!2d-15.421504208204123!3d27.99288953930184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc4097ee49f35cdb%3A0x948271f53f03b986!2sC.%20Ruiz%20Mu%C3%B1iz%2C%206%2C%2035200%20Telde%2C%20Las%20Palmas!5e1!3m2!1ses!2ses!4v1773951038703!5m2!1ses!2ses"
+                    width="600"
+                    height="450"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy">
+            </iframe>
         </div>
     </div>
 </section>
-
-<div data-xlu-include-file="../components/footer.html"></div>
-
+<div data-xlu-include-file="components/footer.html"></div>
 <script src="../java/java.js"></script>
-
-<script>
-    // Script específico para los mapas de esta página
-    function cambiarMapa(id) {
-        const mapFrame = document.getElementById('google-map');
-
-        // Aquí están los enlaces "Embed" reales de Google Maps (ejemplos)
-        const ubicaciones = {
-            // Mapa 1
-            'centro': "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3519.986326466812!2d-15.4241!3d28.1235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDA3JzI0LjYiTiAxNcKwMjUnMjYuOCJX!5e0!3m2!1ses!2ses!4v1600000000000",
-
-            // Mapa 2 (Diferente ubicación)
-            'puerto': "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3518.5!2d-15.43!3d28.14!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDA4JzI0LjYiTiAxNcKwMjUnMjYuOCJX!5e0!3m2!1ses!2ses!4v1600000000000",
-
-            // Mapa 3
-            'sur': "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14096.5!2d-15.59!3d27.76!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDQ1JzI0LjYiTiAxNcKwMzUnMjYuOCJX!5e0!3m2!1ses!2ses!4v1600000000000"
-        };
-
-        if(ubicaciones[id]) {
-            mapFrame.src = ubicaciones[id];
-        }
-    }
-</script>
+<script src="../java/nosotros.js"></script>
 </body>
 </html>
