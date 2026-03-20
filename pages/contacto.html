@@ -2,69 +2,94 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <title>Contacto | Tahm King</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Tahm King</title>
 
     <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <script src="../java/java.js" defer></script>
 </head>
 <body>
 
 <div data-xlu-include-file="../components/header.html"></div>
+
 <div data-xlu-include-file="../components/sidebar.html"></div>
 
-<section class="contenedor-contacto">
-    <div class="header-rosa"><h2>CONTACTA CON NOSOTROS</h2></div>
+<main class="contacto-container">
 
-    <div class="fila-datos">
-        <div class="grupo-dato">
-            <span class="icono-negro">&#128222;</span>
-            <div class="caja-rosa">TELEFONO DEL LOCAL</div>
+    <section class="contacto-hero">
+        <div class="overlay-hero">
+            <h1>CONTACTA CON NOSOTROS</h1>
+            <p>¿En qué podemos ayudarte?</p>
         </div>
-        <div class="grupo-dato">
-            <span class="icono-negro">@</span>
-            <div class="caja-rosa">CORREO DEL LOCAL</div>
+    </section>
+
+    <section class="contacto-grid">
+
+        <div class="contacto-lateral">
+            <div class="contacto-info-box">
+                <h3>Información de contacto</h3>
+                <p><i class="fa-solid fa-phone"></i> +34 620 68 33 25</p>
+                <p><i class="fa-solid fa-at"></i> contacto@tahmking.com</p>
+                <p><i class="fa-solid fa-location-dot"></i> Calle Blackrider 67, Metropolis</p>
+            </div>
+
+            <h3 class="titulo-opciones">¿Cuál es el motivo de tu mensaje?</h3>
+            <div class="contacto-opciones">
+                <div class="card-contacto activa" data-tipo="duda">
+                    <div class="card-inner">
+                        <img src="../img/contacto/dudas.png" alt="Dudas">
+                    </div>
+                    <p>Duda</p>
+                </div>
+
+                <div class="card-contacto" data-tipo="reclamacion">
+                    <div class="card-inner">
+                        <img src="../img/contacto/reclamacion.png" alt="Reclamación">
+                    </div>
+                    <p>Reclamación</p>
+                </div>
+
+                <div class="card-contacto" data-tipo="sugerencia">
+                    <div class="card-inner">
+                        <img src="../img/contacto/sugerencia.png" alt="Sugerencia">
+                    </div>
+                    <p>Sugerencia</p>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div class="fila-botones">
+        <div class="contacto-formulario-wrapper">
+            <h3>Envíanos un mensaje</h3>
+            <form class="contacto-form" onsubmit="event.preventDefault();">
+                <div class="grupo-input">
+                    <label>Nombre completo</label>
+                    <input type="text" placeholder="Ej: Juan Daniel" required>
+                </div>
 
-        <a href="#" class="boton-marron">
-            <div class="icono-verde">?</div>
-            <div class="sombra-blanca"></div>
-            <p class="texto-boton">Dudas</p>
-        </a>
+                <div class="grupo-input">
+                    <label>Correo electrónico</label>
+                    <input type="email" placeholder="Ej: thenijani@gmail.com" required>
+                </div>
 
-        <a href="#" class="boton-marron">
-            <div class="icono-rojo">!</div>
-            <div class="sombra-blanca"></div>
-            <p class="texto-boton">Reclamación</p>
-        </a>
+                <div class="grupo-input">
+                    <label>Tu mensaje</label>
+                    <textarea placeholder="Escribe tu duda..." required></textarea>
+                </div>
 
-        <a href="#" class="boton-marron">
-            <div class="icono-sobre">&#9993;</div>
-            <div class="sombra-blanca"></div>
-            <p class="texto-boton">Sugerencia</p>
-        </a>
+                <button type="submit" class="btn-tahm">
+                    ENVIAR MENSAJE
+                </button>
+            </form>
+        </div>
 
-    </div>
+    </section>
 
-    <div class="contenedor-mensaje">
-        <textarea placeholder="TEXTO DEL CLIENTE"></textarea>
-    </div>
-
-    <div class="contenedor-submit">
-        <button class="btn-enviar">
-            <span class="avion">&#10148;</span> ENVIAR
-        </button>
-    </div>
-</section>
-
+</main>
 
 <div data-xlu-include-file="../components/footer.html"></div>
-
-
-<script src="../java/java.js"></script>
 
 </body>
 </html>

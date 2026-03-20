@@ -2069,6 +2069,260 @@ body.fondo-oscuro-estetico {
 .tk-danger { background-color: #ff0000; color: white; }
 .tk-info { background-color: #00d2ff; color: white; }
 
+
+/* =========================
+   CONTACTO PAGE - TAHM KING
+========================= */
+
+.contacto-container {
+    background: #0b0b0b;
+    color: #fff;
+    min-height: 100vh;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* HERO (Adaptado a vuestros banners) */
+.contacto-hero {
+    height: 250px;
+    background: url('../img/contacto-bg.jpg') center/cover no-repeat;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.overlay-hero {
+    background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(120, 0, 0, 0.4) 100%);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 50px;
+}
+
+.overlay-hero h1 {
+    font-size: 38px;
+    letter-spacing: 2px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.overlay-hero p {
+    margin-top: 8px;
+    opacity: 0.8;
+    font-size: 18px;
+}
+
+/* GRID PRINCIPAL (Dos columnas) */
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 60px;
+}
+
+/* COLUMNA IZQUIERDA */
+.contacto-info-box {
+    background: #141414;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    border: 1px solid #222;
+}
+
+.contacto-info-box h3 {
+    margin-bottom: 20px;
+    color: #ff0000;
+    font-size: 20px;
+}
+
+.contacto-info-box p {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #ccc;
+    font-size: 16px;
+}
+
+.contacto-info-box i {
+    color: #ff0000;
+    font-size: 20px;
+    width: 25px;
+    text-align: center;
+}
+
+.titulo-opciones {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+/* TARJETAS OPCIONES (Estilo "Más Populares") */
+.contacto-opciones {
+    display: flex;
+    gap: 15px;
+}
+
+.card-contacto {
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.card-inner {
+    background: #141414;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #222;
+    transition: all 0.3s ease;
+}
+
+.card-inner img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    filter: brightness(0.8) grayscale(100%);
+    transition: all 0.3s ease;
+}
+
+.card-contacto p {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #888;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+/* HOVER Y ACTIVA */
+.card-contacto:hover .card-inner {
+    border-color: #555;
+}
+
+.card-contacto.activa .card-inner {
+    border-color: #ff0000;
+    background: rgba(255, 0, 0, 0.05);
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
+}
+
+.card-contacto.activa .card-inner img {
+    filter: brightness(1) grayscale(0%);
+    transform: scale(1.1);
+}
+
+.card-contacto.activa p {
+    color: #ff0000;
+}
+
+/* COLUMNA DERECHA: FORMULARIO */
+.contacto-formulario-wrapper {
+    background: #141414;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #222;
+}
+
+.contacto-formulario-wrapper h3 {
+    margin-bottom: 25px;
+    font-size: 24px;
+    border-bottom: 2px solid #222;
+    padding-bottom: 15px;
+}
+
+.contacto-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.grupo-input label {
+    font-size: 14px;
+    color: #aaa;
+    font-weight: bold;
+}
+
+.grupo-input input,
+.grupo-input textarea {
+    background: #0b0b0b;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+}
+
+.grupo-input textarea {
+    height: 150px;
+    resize: none;
+}
+
+.grupo-input input:focus,
+.grupo-input textarea:focus {
+    outline: none;
+    border-color: #ff0000;
+}
+
+/* BOTÓN TAHM KING (Reemplaza el verde) */
+.btn-tahm {
+    background: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 30px; /* Estilo píldora como en el inicio */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+.btn-tahm:hover {
+    background: #cc0000;
+    transform: translateY(-2px);
+}
+
+.btn-tahm:active {
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .contacto-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .overlay-hero {
+        padding-left: 20px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .overlay-hero h1 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 500px) {
+    .contacto-opciones {
+        flex-direction: column;
+    }
+}
 /* ==========================================================================
    RWD - SPRINT 2: ADAPTACIÓN A 3 DISPOSITIVOS (DESKTOP, TABLET, MÓVIL)
    ========================================================================== */

@@ -92,3 +92,36 @@ document.addEventListener('componentesListos', () => {
         overlay.addEventListener('click', cerrarSidebar);
     }
 });
+
+document.addEventListener('componentesListos', () => {
+
+    const cards = document.querySelectorAll('.card-contacto');
+    const textarea = document.querySelector('.contacto-form textarea');
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+
+            // Quitar selección previa
+            cards.forEach(c => c.classList.remove('activa'));
+
+            // Activar la actual
+            card.classList.add('activa');
+
+            // Auto rellenar mensaje
+            const tipo = card.dataset.tipo;
+
+            if (textarea) {
+                if (tipo === "duda") {
+                    textarea.placeholder = "Escribe tu duda...";
+                }
+                if (tipo === "reclamacion") {
+                    textarea.placeholder = "Describe tu problema...";
+                }
+                if (tipo === "sugerencia") {
+                    textarea.placeholder = "Cuéntanos tu idea...";
+                }
+            }
+        });
+    });
+
+});
