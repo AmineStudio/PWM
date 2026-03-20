@@ -1,15 +1,19 @@
-// ================= CANTIDAD =================
-document.addEventListener("click", e => {
+document.addEventListener("DOMContentLoaded", () => {
 
-    if(e.target.classList.contains("plus") || e.target.classList.contains("minus")){
-        const control = e.target.closest(".qty-control");
-        const qtyEl = control.querySelector(".qty");
-        let qty = parseInt(qtyEl.textContent);
+    // Esperar a que se cargue el include (muy importante)
+    setTimeout(() => {
 
-        if(e.target.classList.contains("plus")) qty++;
-        if(e.target.classList.contains("minus") && qty > 0) qty--;
+        const template = document.getElementById("qty-template");
 
-        qtyEl.textContent = qty;
-    }
+        document.querySelectorAll(".menu-item").forEach(item => {
+            const info = item.querySelector(".item-info");
+
+            if (info && template) {
+                const clone = template.content.cloneNode(true);
+                info.appendChild(clone);
+            }
+        });
+
+    }, 300); // pequeño delay para asegurar que carta.html ya cargó
 
 });

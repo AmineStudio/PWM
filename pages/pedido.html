@@ -11,39 +11,33 @@
     <script src="../java/java.js" defer></script>
     <script src="../java/pedidos.js" defer></script>
 </head>
-
 <body class="menu-page">
-
-<!-- HEADER -->
-<div data-xlu-include-file="components/header.html"></div>
-
-<!-- SIDEBAR -->
-<div data-xlu-include-file="components/sidebar.html"></div>
-
 <!-- BOTONES FLOTANTES -->
 <div class="pedido-actions">
-    <button class="action-btn cancel">
+    <a href="../index.html" class="action-btn cancel">
         <i class="fa-solid fa-xmark"></i> Cancelar
-    </button>
-
-    <button class="action-btn cart">
+    </a>
+    <a href="lista_pedido.html" class="action-btn cart">
         <i class="fa-solid fa-cart-shopping"></i> Carrito
-    </button>
+    </a>
 
-    <button class="action-btn finish">
+    <a href="ticket.html" class="action-btn finish">
         <i class="fa-solid fa-check"></i> Finalizar
-    </button>
+    </a>
 </div>
-
 <!-- CONTENIDO -->
 <main class="catalogo-main">
-    <div class="carta-wrapper">
+    <div class="carta-wrapper pedido-mode">
         <div data-xlu-include-file="components/carta.html"></div>
     </div>
 </main>
-
-<!-- FOOTER -->
-<div data-xlu-include-file="components/footer.html"></div>
-
+<!-- TEMPLATE CONTROL DE CANTIDAD -->
+<template id="qty-template">
+    <div class="qty-control">
+        <button class="qty-btn minus">-</button>
+        <span class="qty">0</span>
+        <button class="qty-btn plus">+</button>
+    </div>
+</template>
 </body>
 </html>
