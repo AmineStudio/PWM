@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="corregir problema de rutas del sidebar">
-      <change afterPath="$PROJECT_DIR$/img/nosotros/parrillaNosotros.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/nosotros/restauranteNosotros.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/nosotros.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/carta.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/catalogo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/components/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/nosotros.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/nosotros.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/carta.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,8 +22,8 @@
       <list>
         <option value="CSS File" />
         <option value="tsconfig.json" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -72,6 +68,9 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JavaScript Debug.carta.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.carta1.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.catalogo.html.executor&quot;: &quot;Run&quot;,
     &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
     &quot;JavaScript Debug.sidebar.html.executor&quot;: &quot;Run&quot;,
     &quot;JavaScript Debug.tipo_pedido.html.executor&quot;: &quot;Run&quot;,
@@ -107,7 +106,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.31033.133" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.30387.83" />
       </set>
     </attachedChunks>
   </component>
@@ -132,6 +131,10 @@
       <workItem from="1773573835081" duration="8361000" />
       <workItem from="1773703170551" duration="679000" />
       <workItem from="1773924230752" duration="19583000" />
+      <workItem from="1773954021773" duration="29000" />
+      <workItem from="1773954059502" duration="2063000" />
+      <workItem from="1774006329728" duration="2079000" />
+      <workItem from="1774008444970" duration="597000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />

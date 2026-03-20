@@ -1017,117 +1017,172 @@ body{
 
 /* ================= Carta ================= */
 
-.seccion-carta-wrapper {
-    background-color: #dcdcdc;
-    padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+/* =========================================================
+   CARTA TEMPLATE
+   ========================================================= */
+
+/* Fondo general del área de carta */
+.menu-page{
+    background: radial-gradient(circle at 20% 10%, #1a1a1a 0%, #0e0e0e 60%, #0a0a0a 100%);
+    font-family: "Bauhaus 93", sans-serif;
+    color: #fff;
 }
 
-.menu-categorias {
+/* ================= CATEGORÍAS ================= */
+.menu-categories{
+    width: 1100px;
+    max-width: 95%;
+    margin: 0 auto 40px;
+    background: linear-gradient(90deg, #b30000, #d91f1f);
     display: flex;
     justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-    width: 100%;
-    max-width: 1000px;
+    gap: 50px;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.45);
 }
 
-.categoria-btn {
-    background-color: #c00000;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 15px 30px;
-    font-size: 14px;
-    text-transform: uppercase;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    transition: transform 0.2s, background-color 0.2s;
-    border-radius: 2px;
-}
-
-.categoria-btn:hover, .categoria-btn.activo {
-    background-color: #e60000;
-    transform: translateY(-2px);
-}
-
-.menu-contenedor-rosa {
-    background-color: #ff7f7f;
-    padding: 40px;
-    width: 100%;
-    max-width: 1000px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.menu-item {
-    background-color: #d34848;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
-}
-
-.menu-item:hover {
-    transform: scale(1.02);
-}
-
-.item-nombre {
-    color: white;
-    font-size: 22px;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    font-weight: normal;
-}
-
-.item-info {
-    color: white;
-    font-size: 18px;
-    margin-top: 15px;
-}
-
-.imagen-wrapper {
+.cat-btn{
+    background: none;
+    border: none;
+    color: #ffffffcc;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    padding: 8px 6px;
+    transition: all .25s ease;
     position: relative;
-    width: 180px;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.imagen-wrapper img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3));
+.cat-btn:hover{
+    color: #ffffff;
 }
 
-.item-precio-burbuja {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: #5c1818;
-    color: white;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+.cat-btn.active{
+    color: #fff;
+}
+
+.cat-btn.active::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:100%;
+    height:3px;
+    background:#fff;
+    border-radius:2px;
+}
+
+/* ================= LISTA ================= */
+.menu-list{
+    width: 1100px;
+    max-width: 95%;
+    margin: 0 auto 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+/* ================= ITEM ================= */
+.menu-item{
+    background: linear-gradient(180deg, #111 0%, #0c0c0c 100%);
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-weight: bold;
+    padding: 24px 30px;
+    gap: 30px;
+    border-radius: 10px;
+    border: 1px solid #b30000;
+    box-shadow:
+            0 10px 25px rgba(0,0,0,.55),
+            inset 0 0 0 1px rgba(255,42,42,.08);
+    transition: all .25s ease;
+}
+
+.menu-item:hover{
+    transform: translateY(-4px);
+    box-shadow:
+            0 14px 30px rgba(0,0,0,.7),
+            0 0 18px rgba(255,42,42,.25),
+            inset 0 0 0 1px rgba(255,42,42,.18);
+    border-color: #ff2a2a;
+}
+
+/* ================= IMAGEN ================= */
+.item-img{
+    width: 150px;
+    height: auto;
+    filter: drop-shadow(0 8px 12px rgba(0,0,0,.6));
+}
+
+/* ================= INFO ================= */
+.item-info{
+    flex: 1;
+}
+
+.item-title{
+    font-size: 28px;
+    margin-bottom: 6px;
+    color: #ffffff;
+    letter-spacing: .5px;
+}
+
+.item-desc{
     font-size: 14px;
-    border: 1px solid rgba(255,255,255,0.2);
+    color: #cfcfcf;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+/* ================= TAGS ================= */
+.item-tags{
+    display: flex;
+    gap: 12px;
+}
+
+.tag{
+    width: 24px;
+    height: 24px;
+    background: radial-gradient(circle at 30% 30%, #ff3b3b, #7a0000);
+    border-radius: 50%;
+    box-shadow:
+            0 0 10px rgba(255,42,42,.35),
+            inset 0 0 6px rgba(0,0,0,.5);
+}
+
+/* ================= PRECIO ================= */
+.item-price{
+    text-align: right;
+    min-width: 140px;
+}
+
+.price{
+    font-size: 22px;
+    font-weight: bold;
+    color: #ff2a2a;
+    display: block;
+}
+/* ================= Catalogo ================= */
+/* =========================================================
+   PÁGINA CATÁLOGO (usa header + sidebar + footer + carta)
+   ========================================================= */
+
+.catalogo-main{
+    background:
+            radial-gradient(circle at 15% 10%, #1a1a1a 0%, #111 55%, #0c0c0c 100%);
+    min-height: 100vh;
+    padding: 80px 0 80px; /* espacio para header fijo */
+}
+
+/* Centra el template carta dentro del layout */
+.carta-wrapper{
+    width: 1200px;
+    max-width: 95%;
+    margin: 0 auto;
+}
+
+/* Scroll suave tipo app */
+html{
+    scroll-behavior: smooth;
 }
 
 /* ==========================================================================
