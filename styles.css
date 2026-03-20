@@ -1752,224 +1752,85 @@ body.fondo-oscuro-estetico {
 .btn-cancelar-oscuro:hover { color: #FF0000; text-decoration: underline; }
 
 @media (max-width: 800px) { .lista-opciones-oscuras { flex-direction: column; align-items: center; } }
-/* ================= PEDIDO ================= */
-
-.fondo-gris-pedido {
-    background-color: #f4f0f0;
-    margin: 0;
-    padding-bottom: 120px;
+/* ==================== Pedido ========================== */
+/* ================= CANTIDAD PRODUCTOS ================= */
+.qty-control{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:14px 0;
 }
 
-.contenedor-pedido-activo {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.qty-btn{
+    width:32px;
+    height:32px;
+    border-radius:6px;
+    border:none;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    background:#1f1f1f;
+    color:#fff;
+    border:1px solid #ff2a2a;
+    transition:.2s;
 }
 
-.tabs-categorias {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 30px;
+.qty-btn:hover{
+    background:#ff2a2a;
 }
 
-.tab-btn {
-    background-color: #c00000;
-    color: white;
-    text-decoration: none;
-    padding: 12px 25px;
-    font-weight: bold;
-    font-size: 14px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    border-radius: 2px;
-}
-.tab-btn:hover { background-color: #e60000; }
-
-.grid-productos-pedido {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 25px;
-    width: 100%;
-    max-width: 1000px;
+.qty{
+    min-width:24px;
+    text-align:center;
+    font-weight:bold;
+    font-size:16px;
 }
 
-.card-producto-roja {
-    background-color: #d34848;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+/* ================= ACCIONES PEDIDO ================= */
+.pedido-actions{
+    position:fixed;
+    right:30px;
+    bottom:30px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    z-index:999;
 }
 
-.prod-titulo {
-    color: white;
-    text-transform: uppercase;
-    font-weight: normal;
-    font-size: 20px;
-    margin-bottom: 15px;
-    text-align: center;
+.action-btn{
+    padding:14px 18px;
+    border-radius:10px;
+    border:none;
+    font-weight:bold;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    box-shadow:0 8px 20px rgba(0,0,0,.4);
+    transition:.25s;
 }
 
-.prod-img-wrapper {
-    position: relative;
-    width: 180px;
-    height: 140px;
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Colores Tahm */
+.action-btn.cancel{
+    background:#2a2a2a;
+    color:#fff;
+    border:1px solid #666;
 }
 
-.prod-img-wrapper img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
+.action-btn.cart{
+    background:#1f1f1f;
+    color:#fff;
+    border:1px solid #ff2a2a;
 }
 
-.overlay-agotado {
-    position: absolute;
-    top: -10px;
-    font-size: 100px;
-    color: #4a0d0d;
-    font-weight: bold;
-    line-height: 1;
-    z-index: 2;
-    opacity: 0.8;
+.action-btn.finish{
+    background:#ff2a2a;
+    color:#fff;
 }
 
-.etiqueta-precio {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: #5c1818;
-    color: white;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    border: 1px solid rgba(255,255,255,0.3);
-}
-
-.fila-controles-bottom {
-    display: flex;
-    width: 100%;
-    gap: 10px;
-    height: 45px;
-}
-
-.btn-info-i {
-    background-color: #a31a1a;
-    color: white;
-    border: none;
-    width: 45px;
-    font-size: 20px;
-    font-weight: bold;
-    font-family: serif;
-    cursor: pointer;
-}
-
-.contador-blanco {
-    flex: 1;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.btn-mas, .btn-menos {
-    background: none;
-    border: none;
-    font-size: 28px;
-    font-weight: bold;
-    width: 50px;
-    cursor: pointer;
-    height: 100%;
-}
-.btn-menos {
-    font-size: 36px;
-    line-height: 0;
-}
-
-.numero-cantidad {
-    font-size: 24px;
-    color: #ccc;
-    font-weight: bold;
-}
-
-.texto-info-simple {
-    color: white;
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.iconos-alergenos {
-    display: flex;
-    gap: 8px;
-    margin-top: 5px;
-}
-
-.icono-alerg {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-}
-.trigo, .huevo { background-color: #d4af37; color: black; }
-.prohibido { background-color: #8b4513; color: white; border: 1px solid black; }
-.leche { background-color: white; color: black; }
-
-.barra-acciones-fixed {
-    position: fixed;
-    bottom: 30px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    align-items: center;
-    z-index: 100;
-    pointer-events: none;
-}
-
-.barra-acciones-fixed button {
-    pointer-events: auto;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    cursor: pointer;
-    border: none;
-    transition: transform 0.2s;
-}
-.barra-acciones-fixed button:hover { transform: scale(1.05); }
-
-.btn-accion-circular {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: white;
-}
-.btn-accion-circular.rojo { background-color: #ff0000; font-weight: bold; }
-.btn-accion-circular.azul { background-color: #00ccff; }
-
-.btn-accion-largo {
-    background-color: #d32f2f;
-    color: white;
-    font-size: 18px;
-    padding: 15px 40px;
-    border-radius: 4px;
+.action-btn:hover{
+    transform:translateY(-3px);
+    filter:brightness(1.1);
 }
 
 /* ================= Ticket ================= */
