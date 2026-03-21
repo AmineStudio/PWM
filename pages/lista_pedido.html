@@ -12,42 +12,31 @@
 <div data-xlu-include-file="../components/header.html"></div>
 <div data-xlu-include-file="../components/sidebar.html"></div>
 <main class="tk-page-container">
-
-  <div class="tk-header-icon">
-    <i class="fas fa-shopping-cart" style="color: black;"></i>
+  <div class="tk-header-icon-elegant">
+    <i class="fa-solid fa-cart-shopping"></i>
   </div>
 
-  <div class="tk-card tk-cart-sheet">
-    <h1 class="tk-main-title">LISTA DE COMPRA</h1>
+  <div class="tk-card-elegant">
+    <h1 class="tk-main-title-elegant">Lista de compra</h1>
 
     <div class="tk-list-content" id="lista-productos">
-      <!-- Se carga dinámicamente -->
     </div>
 
-    <div class="tk-row tk-total-row">
-      <strong>PRECIO TOTAL</strong>
-      <span class="tk-dots"></span>
-      <strong class="precio-total-final" id="precio-total">0.00€</strong>
+    <div class="tk-divider"></div>
+
+    <div class="tk-total-section">
+      <div class="tk-row-total">
+        <span class="total-label">TOTAL A PAGAR</span>
+        <span class="total-amount" id="precio-total">0.00€</span>
+      </div>
     </div>
   </div>
 
-  <div class="tk-footer-nav">
-
-    <button class="tk-circle-btn tk-danger" onclick="window.history.back()">
-      <i class="fas fa-times" style="color: white;"></i>
-    </button>
-
-    <button class="tk-btn-action" onclick="window.location.href='ticket.html'">
-      FINALIZAR PEDIDO
-    </button>
-
-    <button class="tk-circle-btn tk-info" onclick="window.history.back()">
-      <i class="fas fa-cart-plus"></i>
-    </button>
+  <div class="tk-footer-nav-elegant">
+    <button class="btn-secondary" onclick="window.history.back()">VOLVER</button>
+    <button class="btn-primary" onclick="window.location.href='ticket.html'">CONFIRMAR PEDIDO</button>
   </div>
-
 </main>
-
 <script src="../java/producto-card.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', async () => {

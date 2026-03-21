@@ -1852,240 +1852,332 @@ body.fondo-oscuro-estetico {
 }
 
 /* ================= Ticket ================= */
+/* ================================================= */
+/* ESTILO ELEGANTE - CONFIRMACIÓN (TAHM KING)       */
+/* ================================================= */
 
-.fondo-ticket {
-    background-color: #d9d9d9;
-    min-height: 100vh;
+.fondo-ticket-elegante {
+    background-color: #f4f4f4;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
 }
 
 .tk-page-container {
     width: 100%;
-    max-width: 500px;
+    max-width: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
 }
 
-.tk-header-icon-ticket {
-    background-color: #42e3f0;
-    width: 110px;
-    height: 110px;
+/* Icono Superior Minimalista */
+.tk-header-icon-elegant {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 50px;
-    margin-bottom: -55px;
+    font-size: 18px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     z-index: 2;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    color: #1a1a1a;
-    border: 5px solid #d9d9d9;
 }
 
-.tk-confirm-sheet {
-    background-color: #fff9f7;
+/* Tarjeta de Confirmación */
+.tk-card-elegant {
+    background-color: #ffffff;
     width: 100%;
-    border: 3px solid #42e3f0;
-    padding: 80px 40px 40px 40px;
+    box-sizing: border-box;
+    padding: 60px 40px;
     text-align: center;
-    min-height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 4px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    border-top: 6px solid #1a1a1a;
+    border-radius: 2px;
 }
 
-.tk-confirm-body p {
-    font-size: 22px;
+.tk-thanks-title {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
     color: #1a1a1a;
-    margin-bottom: 10px;
+    font-weight: 300;
+    margin-bottom: 20px;
 }
 
-.tk-order-id {
-    font-size: 90px;
-    font-weight: 900;
-    font-style: italic;
-    color: #000;
+.tk-divider-thin {
+    width: 40px;
+    height: 1px;
+    background-color: #eeeeee;
+    margin: 20px auto;
+}
+
+.tk-msg-small {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: #999999;
+    margin-bottom: 5px;
+}
+
+/* El ID del pedido resaltado */
+.tk-order-id-display {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 10px 0;
+    letter-spacing: -2px;
+}
+
+.tk-msg-footer {
+    font-size: 0.8rem;
+    color: #666666;
+    line-height: 1.5;
     margin-top: 10px;
-    font-family: 'Arial Black', Gadget, sans-serif;
 }
 
-.tk-footer-nav-ticket {
+/* Navegación Inferior */
+.tk-footer-nav-elegant {
     display: flex;
-    justify-content: space-between;
     width: 100%;
-    margin-top: 30px;
-    gap: 20px;
+    gap: 12px;
+    margin-top: 25px;
 }
 
-.tk-btn-rect {
-    background-color: #e62e2e;
-    color: white;
-    border: none;
-    padding: 15px 10px;
-    width: 48%; /* Casi la mitad */
-    font-size: 15px;
+.btn-secondary {
+    flex: 1;
+    background-color: #ffffff;
+    color: #666666;
+    border: 1px solid #dddddd;
+    padding: 16px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     cursor: pointer;
-    font-weight: normal;
-    transition: background 0.3s ease;
-    border-radius: 4px;
+    transition: all 0.2s ease;
 }
 
-.tk-btn-rect:hover {
-    background-color: #c02525;
+.btn-secondary:hover {
+    background-color: #f9f9f9;
+    color: #1a1a1a;
+    border-color: #999999;
 }
 
+.btn-primary {
+    flex: 2;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: none;
+    padding: 16px;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #333333;
+}
 /* ================= Lista Pedido ================= */
+/* ================================================= */
+/* ESTILO ELEGANTE - LISTA DE COMPRA (TAHM KING)    */
+/* ================================================= */
 
+/* --- Base del sitio --- */
 .fondo-lista-pedido {
-    background-color: #dcdcdc;
+    background-color: #f4f4f4; /* Gris claro de fondo */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
+    padding: 0;
     min-height: 100vh;
-    padding-bottom: 50px;
 }
 
+/* --- Contenedor Principal --- */
 .tk-page-container {
-    width: 100%;
-    max-width: 500px;
+    max-width: 450px;
     margin: 0 auto;
+    padding: 60px 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding-top: 30px;
+    align-items: center; /* Centra el icono y la tarjeta */
 }
 
-.tk-header-icon {
-    background-color: #00d2ff;
-    width: 90px;
-    height: 90px;
+/* --- Icono Circular Superior --- */
+.tk-header-icon-elegant {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 40px;
-    margin-bottom: -45px;
-    z-index: 10;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    border: 4px solid #dcdcdc;
+    font-size: 20px;
+    margin-bottom: 30px; /* Separación generosa */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 2;
 }
 
-.tk-card {
-    background-color: #fffaf8;
-    width: 90%;
-    min-height: 500px;
-    padding: 60px 30px 40px 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
+/* --- Tarjeta Principal (Ticket) --- */
+.tk-card-elegant {
+    background-color: #ffffff;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 50px 40px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    border-top: 6px solid #1a1a1a;
     position: relative;
 }
 
-.tk-main-title {
+.tk-main-title-elegant {
     text-align: center;
-    font-size: 28px;
-    letter-spacing: 2px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #1a1a1a;
     margin-bottom: 40px;
-    font-weight: normal;
-    color: #333;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 15px;
+    font-weight: 300;
 }
 
+/* --- Filas de Productos --- */
 .tk-list-content {
-    flex-grow: 1;
+    margin-bottom: 30px;
 }
 
 .tk-row {
     display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    font-size: 16px;
-    color: #444;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 18px;
 }
 
 .nombre-producto {
-    font-weight: bold;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: #555555;
     text-transform: uppercase;
 }
 
 .precio-producto {
-    font-family: monospace;
-    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    font-size: 0.95rem;
 }
 
 .tk-dots {
     flex-grow: 1;
-    border-bottom: 2px dotted #aaa;
+    border-bottom: 1px solid #eeeeee;
     margin: 0 10px;
-    position: relative;
-    top: -5px;
 }
 
+/* --- Sección Total con Puntos --- */
+.tk-divider {
+    border-top: 1px solid #eeeeee;
+    margin: 25px 0;
+}
+
+.tk-row-total {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.total-label {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: #999999;
+    font-weight: bold;
+}
+
+.tk-dots-total {
+    flex-grow: 1;
+    border-bottom: 2px dotted #cccccc;
+    margin: 0 12px;
+    position: relative;
+    top: -4px;
+}
+
+.total-amount {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    letter-spacing: -1px;
+}
+
+/* --- Navegación Inferior (Botones) --- */
+.tk-footer-nav-elegant {
+    display: flex;
+    width: 100%; /* Misma anchura que la tarjeta */
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.btn-secondary {
+    flex: 1;
+    background-color: #ffffff;
+    color: #666666;
+    border: 1px solid #dddddd;
+    padding: 16px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+    border-color: red;
+    color: red;
+}
+
+.btn-primary {
+    flex: 2;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: none;
+    padding: 16px;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #ff0000;
+    color: black;
+}
+
+/* Iconos de acción (Editar/Eliminar) */
 .tk-actions {
     display: flex;
-    gap: 12px;
-    margin-left: 15px;
-    font-size: 16px;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+.icono-accion {
+    font-size: 0.8rem;
+    color: #bbbbbb;
     cursor: pointer;
-}
-.icono-accion { color: #666; transition: color 0.2s; }
-.icono-accion:hover { color: black; }
-.icono-accion.rojo:hover { color: red; }
-
-.tk-total-row {
-    margin-top: 30px;
-    font-size: 20px;
-    border-top: 2px solid #333;
-    padding-top: 15px;
+    transition: color 0.2s;
 }
 
-.tk-footer-nav {
-    display: flex;
-    width: 90%;
-    margin-top: 30px;
-    gap: 15px;
-    align-items: center;
-    justify-content: center;
+.icono-accion:hover {
+    color: #1a1a1a;
 }
 
-.tk-btn-action {
-    background-color: #d32f2f;
-    color: white;
-    border: none;
-    padding: 15px;
-    flex-grow: 1;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    text-transform: uppercase;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+.icono-accion.rojo:hover {
+    color: #d32f2f;
 }
-.tk-btn-action:hover { background-color: #b71c1c; }
-
-.tk-circle-btn {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
-}
-.tk-circle-btn:hover { transform: scale(1.1); }
-
-.tk-danger { background-color: #ff0000; color: white; }
-.tk-info { background-color: #00d2ff; color: white; }
-
-
 /* =========================
    CONTACTO PAGE - TAHM KING
 ========================= */
