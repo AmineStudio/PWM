@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="template carta.html creada, catalogo.html resideñada">
-      <change afterPath="$PROJECT_DIR$/img/contacto/dudas.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/contacto/reclamacion.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/contacto/sugerencia.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/java.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/java.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/contacto.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/contacto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/alergenos.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/alergenos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/historial.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/historial.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,7 +105,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.30387.83" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.31033.133" />
       </set>
     </attachedChunks>
   </component>
@@ -139,6 +136,7 @@
       <workItem from="1774008444970" duration="2122000" />
       <workItem from="1774010968114" duration="2095000" />
       <workItem from="1774023674861" duration="2613000" />
+      <workItem from="1774098146235" duration="3760000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
