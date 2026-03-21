@@ -1695,79 +1695,209 @@ html{
    DISEÑO TIPO PEDIDO - TAHM KING PREMIUM
    ============================================== */
 body.fondo-oscuro-estetico {
-    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('../img/pediraqui.jpg');
+    /* Fondo general actualizado */
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('img/pedir/pediraqui.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     background-color: #000;
-    margin: 0; min-height: 100vh;
-    display: flex; justify-content: center; align-items: center;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #ffffff;
 }
 
 .contenedor-tipo-pedido {
-    display: flex; flex-direction: column; align-items: center;
-    width: 100%; max-width: 1000px; padding: 20px; z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    padding: 20px;
+    z-index: 10;
 }
 
 .logo-central-oscuro {
-    width: 100px; height: 100px; background-color: #000; border: 2px solid #FF0000;
-    border-radius: 50%; display: flex; justify-content: center; align-items: center;
-    margin-bottom: 20px; box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); overflow: hidden;
+    width: 100px;
+    height: 100px;
+    background-color: #000;
+    border: 2px solid #FF0000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+    overflow: hidden;
 }
 
-.logo-central-oscuro img { width: 80%; height: 80%; object-fit: contain; }
+.logo-central-oscuro img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
 
-.textos-cabecera { text-align: center; margin-bottom: 40px; }
-.textos-cabecera h2 { font-size: 26px; letter-spacing: 2px; margin-bottom: 5px; font-weight: 800; text-transform: uppercase; }
-.textos-cabecera p { color: #cccccc; font-size: 16px; margin: 0; }
+.textos-cabecera {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.textos-cabecera h2 {
+    font-size: 26px;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.textos-cabecera p {
+    color: #cccccc;
+    font-size: 16px;
+    margin: 0;
+}
 
 .lista-opciones-oscuras {
-    display: flex; flex-direction: row; gap: 30px; justify-content: center; flex-wrap: wrap; width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .tarjeta-con-foto {
-    position: relative; overflow: hidden; width: 280px; height: 320px;
-    border: 1px solid #333; border-radius: 12px; text-decoration: none !important;
-    cursor: pointer; transition: all 0.3s ease; background-color: #111;
+    position: relative;
+    overflow: hidden;
+    width: 280px;
+    height: 320px;
+    border: 1px solid #333;
+    border-radius: 12px;
+    text-decoration: none !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #111;
 }
 
 .tarjeta-opcion-bg {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background-size: cover; background-position: center; z-index: 1; transition: transform 0.5s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    transition: transform 0.5s ease;
+    opacity: 0.6; /* Un poco de opacidad para que el texto sea legible */
+}
+
+/* --- ASIGNACIÓN DE IMÁGENES ESPECÍFICAS --- */
+
+/* Si tus tarjetas en el JS tienen estas clases o IDs: */
+.opcion-comer-aqui .tarjeta-opcion-bg {
+    background-image: url("/img/pedir/comeraqui.jpg");
+}
+
+.opcion-para-llevar .tarjeta-opcion-bg {
+    background-image: url("/img/pedir/parallevar.jpg");
+}
+
+.opcion-domicilio .tarjeta-opcion-bg {
+    background-image: url("/img/pedir/domicilio.jpg");
 }
 
 .tarjeta-opcion-contenido {
-    position: relative; z-index: 2; padding: 30px 20px; display: flex; flex-direction: column;
-    align-items: center; justify-content: center; text-align: center; width: 100%; height: 100%; box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
 }
 
-.icono-dorado svg { stroke: #ffffff; transition: stroke 0.3s ease, transform 0.3s ease; margin-bottom: 15px; }
+.icono-dorado svg {
+    stroke: #ffffff;
+    transition: stroke 0.3s ease, transform 0.3s ease;
+    margin-bottom: 15px;
+}
 
 .boton-dorado {
-    background-color: transparent; color: #ffffff; font-size: 18px; font-weight: bold;
-    text-transform: uppercase; letter-spacing: 1px; padding: 10px 20px; border: 2px solid #555555;
-    border-radius: 4px; transition: all 0.3s ease;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border: 2px solid #555555;
+    border-radius: 4px;
+    transition: all 0.3s ease;
 }
 
 .descripcion-opcion {
-    color: #dddddd !important; font-size: 14px; margin-top: 15px; line-height: 1.4; max-width: 90%; text-decoration: none;
+    color: #dddddd !important;
+    font-size: 14px;
+    margin-top: 15px;
+    line-height: 1.4;
+    max-width: 90%;
+    text-decoration: none;
 }
 
-.tarjeta-con-foto:hover { transform: translateY(-10px); border-color: #FF0000; box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4); }
-.tarjeta-con-foto:hover .tarjeta-opcion-bg { transform: scale(1.1); }
-.tarjeta-con-foto:hover .icono-dorado svg { stroke: #FF0000; transform: scale(1.1); }
-.tarjeta-con-foto:hover .boton-dorado { background-color: #FF0000; color: #ffffff; border-color: #FF0000; }
+.tarjeta-con-foto:hover {
+    transform: translateY(-10px);
+    border-color: #FF0000;
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
+}
+
+.tarjeta-con-foto:hover .tarjeta-opcion-bg {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.tarjeta-con-foto:hover .icono-dorado svg {
+    stroke: #FF0000;
+    transform: scale(1.1);
+}
+
+.tarjeta-con-foto:hover .boton-dorado {
+    background-color: #FF0000;
+    color: #ffffff;
+    border-color: #FF0000;
+}
 
 .btn-cancelar-oscuro {
-    margin-top: 40px; background: transparent; color: #888888; border: none; padding: 10px 30px;
-    font-size: 14px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease;
+    margin-top: 40px;
+    background: transparent;
+    color: #888888;
+    border: none;
+    padding: 10px 30px;
+    font-size: 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
 }
 
-.btn-cancelar-oscuro:hover { color: #FF0000; text-decoration: underline; }
+.btn-cancelar-oscuro:hover {
+    color: #FF0000;
+    text-decoration: underline;
+}
 
-@media (max-width: 800px) { .lista-opciones-oscuras { flex-direction: column; align-items: center; } }
+@media (max-width: 800px) {
+    .lista-opciones-oscuras {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 /* ==================== Pedido ========================== */
 /* ================= CANTIDAD PRODUCTOS ================= */
 .qty-control{

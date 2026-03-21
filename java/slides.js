@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
         loop: true,
         speed: 600,
         autoplay: {
-            delay: 5000,
+            delay: 4000,
             disableOnInteraction: false,
         },
     });
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         autoplay: false,
     });
     setTimeout(() => {
-        swiper3.params.autoplay.delay = 5000;
+        swiper3.params.autoplay.delay = 4000;
         swiper3.params.autoplay.reverseDirection = true;
         swiper3.autoplay.start();
     }, 3000);
