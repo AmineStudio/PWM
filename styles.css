@@ -64,7 +64,7 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
 
 /* LOGO (Centro) */
 .logo-container {
-    width: 300px; /* AJUSTADO: 800px era enorme y podía romper pantallas pequeñas */
+    width: 300px;
     height: 150px;
     display: flex;
     justify-content: center;
@@ -104,11 +104,87 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
     box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
 }
 
-/* Responsividad básica para el header */
-@media (max-width: 800px) {
-    .header-main { height: auto; padding: 20px; flex-wrap: wrap; }
-    .nav-section.center { order: -1; width: 100%; margin-bottom: 20px; flex: unset; }
-    .logo-container { height: 100px; }
+/* ==============================================
+   RESPONSIVO: TABLETS Y MÓVILES
+   ============================================== */
+
+/* --- TABLETS (Hasta 1024px) --- */
+@media (max-width: 1024px) {
+    .header-main {
+        height: 120px; /* Reducimos la altura */
+        padding: 0 30px;
+    }
+
+    .logo-container {
+        width: 200px;
+        height: 100px;
+    }
+
+    .icon-btn i {
+        font-size: 35px; /* Iconos un poco más pequeños */
+    }
+
+    .btn-order {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+
+    .nav-section.right {
+        gap: 20px;
+    }
+}
+
+/* --- MÓVILES (Hasta 768px) --- */
+@media (max-width: 768px) {
+    .header-main {
+        height: 80px; /* Header compacto para no comerse la pantalla */
+        padding: 0 15px;
+    }
+
+    .logo-container {
+        width: 130px;
+        height: 60px;
+    }
+
+    .icon-btn i {
+        font-size: 26px; /* Iconos adaptados al dedo */
+    }
+
+    /* En móvil, el botón "PEDIR YA" tiene que ser más pequeño para caber junto al icono */
+    .btn-order {
+        font-size: 14px;
+        padding: 8px 15px;
+        border-width: 1px; /* Borde más fino para que no se vea tosco en móvil */
+    }
+
+    .nav-section.right {
+        gap: 15px;
+    }
+}
+
+/* --- MÓVILES PEQUEÑOS (Hasta 480px) --- */
+@media (max-width: 480px) {
+    .header-main {
+        height: 70px;
+        padding: 0 10px;
+    }
+
+    .logo-container {
+        width: 110px;
+    }
+
+    .icon-btn i {
+        font-size: 24px;
+    }
+
+    .btn-order {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .nav-section.right {
+        gap: 10px;
+    }
 }
 /* ================= FOOTER ================= */
 /* ==============================================
