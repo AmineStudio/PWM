@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="responsive login e index" />
+    <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="header responsive">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -132,7 +135,8 @@
       <workItem from="1774010968114" duration="2095000" />
       <workItem from="1774023674861" duration="2613000" />
       <workItem from="1774098146235" duration="7510000" />
-      <workItem from="1774189061278" duration="3342000" />
+      <workItem from="1774189061278" duration="3646000" />
+      <workItem from="1774196534280" duration="4535000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -206,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774192827450</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="header responsive">
+      <option name="closed" value="true" />
+      <created>1774193732967</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1774193732967</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,6 +257,7 @@
     <MESSAGE value="corregir problema de rutas del sidebar" />
     <MESSAGE value="template carta.html creada, catalogo.html resideñada" />
     <MESSAGE value="responsive login e index" />
-    <option name="LAST_COMMIT_MESSAGE" value="responsive login e index" />
+    <MESSAGE value="header responsive" />
+    <option name="LAST_COMMIT_MESSAGE" value="header responsive" />
   </component>
 </project>
