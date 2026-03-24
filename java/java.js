@@ -125,3 +125,78 @@ document.addEventListener('componentesListos', () => {
     });
 
 });
+
+document.addEventListener('componentesListos', async () => {
+    const navCats = document.getElementById('nav-categorias');
+    const lista = document.getElementById('lista-productos');
+
+    if (!navCats || !lista) return;
+
+    if (typeof cargarProductos === 'undefined') return;
+
+    const esPedido = !!document.querySelector('.pedido-mode');
+    const modo = esPedido ? 'pedido' : 'carta';
+    const base = window.location.pathname.includes('/pages/') ? '../' : '';
+
+    const res = await fetch(base + 'data.json');
+    const data = await res.json();
+    const categorias = data.categorias.sort((a, b) => a.orden - b.orden);
+
+    categorias.forEach((cat, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'cat-btn' + (i === 0 ? ' active' : '');
+        btn.textContent = cat.nombre;
+        btn.addEventListener('click', () => {
+            navCats.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            cargarProductos('lista-productos', modo, cat.id);
+        });
+        navCats.appendChild(btn);
+    });
+
+    if (categorias.length > 0) {
+        cargarProductos('lista-productos', modo, categorias[0].id);
+    }
+});
+
+
+window.addEventListener('pageshow', () => {
+    const carritoGuardado = JSON.parse(localStorage.getItem('carrito') || '{}');
+    document.querySelectorAll('[id^="qty-"]').forEach(el => {
+        const id = el.id.replace('qty-', '');
+        el.textContent = carritoGuardado[id] || 0;
+    });
+});
+
+// mensaje de bienvenida y el logout en el header
+
+document.addEventListener('componentesListos', () => {
+    const usuario = JSON.parse(localStorage.getItem('usuario') || 'null');
+    const btnUser = document.getElementById('btn-user');
+
+    if (!btnUser) return;
+
+    if (usuario) {
+        // Cambiar icono de usuario por nombre + logout
+        btnUser.innerHTML = `<span style="color:#fff;font-size:14px;letter-spacing:1px;">${usuario.nombre.split(' ')[0].toUpperCase()}</span>`;
+        btnUser.href = '#';
+        btnUser.title = `Sesión iniciada como ${usuario.nombre}`;
+
+        // Botón logout
+        const btnLogout = document.createElement('a');
+        btnLogout.className = 'icon-btn';
+        btnLogout.href = '#';
+        btnLogout.title = 'Cerrar sesión';
+        btnLogout.innerHTML = '<i class="fa-solid fa-right-from-bracket" style="color:#ff2a2a;font-size:24px;"></i>';
+        btnLogout.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('usuario');
+            window.location.reload();
+        });
+
+        btnUser.parentNode.insertBefore(btnLogout, btnUser.nextSibling);
+
+    } else {
+        btnUser.href = 'pages/login.html';
+    }
+});

@@ -5,8 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="header responsive">
+      <change afterPath="$PROJECT_DIR$/java/panel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/panel.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/carta.html" beforeDir="false" afterPath="$PROJECT_DIR$/components/carta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/producto-card.html" beforeDir="false" afterPath="$PROJECT_DIR$/components/producto-card.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/java.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/java.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/producto-card.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/producto-card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/catalogo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/catalogo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/pedido.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +114,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.30387.83" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.31033.133" />
       </set>
     </attachedChunks>
   </component>
@@ -137,6 +148,7 @@
       <workItem from="1774098146235" duration="7510000" />
       <workItem from="1774189061278" duration="3646000" />
       <workItem from="1774196534280" duration="4535000" />
+      <workItem from="1774358086772" duration="7920000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />

@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-    <script src="../java/java.js" defer></script>
-    <script src="../java/pedidos.js" defer></script>
 </head>
 <body class="menu-page">
 <!-- BOTONES FLOTANTES -->
@@ -28,7 +26,7 @@
 <!-- CONTENIDO -->
 <main class="catalogo-main">
     <div class="carta-wrapper pedido-mode">
-        <div data-xlu-include-file="components/carta.html"></div>
+        <div data-xlu-include-file="../components/carta.html"></div>
     </div>
 </main>
 <!-- TEMPLATE CONTROL DE CANTIDAD -->
@@ -39,5 +37,8 @@
         <button class="qty-btn plus">+</button>
     </div>
 </template>
+
+<script src="../java/producto-card.js" defer></script>
+<script src="../java/java.js" defer></script>
 </body>
 </html>

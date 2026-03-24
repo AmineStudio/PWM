@@ -44,7 +44,7 @@ function crearCartaItem(producto) {
     card.querySelector('.item-precio-burbuja').textContent = `${producto.precio}€`;
 
     const img = card.querySelector('img');
-    img.src = getRuta('img/burger-placeholder.png');
+    img.src = getRuta(producto.imagen || 'img/burger-placeholder.png')
     img.alt = producto.nombre;
 
     return card;
@@ -56,37 +56,32 @@ function crearCartaItem(producto) {
 function crearPedidoItem(producto, mapaAlergenos) {
     const tpl = document.getElementById('tpl-pedido-item');
     const clone = tpl.content.cloneNode(true);
-    const card = clone.querySelector('.card-producto-roja');
+    const card = clone.querySelector('.menu-item');
 
     card.dataset.id = producto.id;
-    card.querySelector('.prod-titulo').textContent = producto.nombre.toUpperCase();
-    card.querySelector('.etiqueta-precio').textContent = `${producto.precio}€`;
+    card.querySelector('.item-nombre').textContent = producto.nombre.toUpperCase();
+    card.querySelector('.item-info-desc').textContent = producto.descripcion;
+    card.querySelector('.item-precio-burbuja').textContent = `${producto.precio}€`;
 
     const img = card.querySelector('img');
-    img.src = getRuta('img/burger-placeholder.png');
+    img.src = getRuta(producto.imagen || 'img/burger-placeholder.png');
     img.alt = producto.nombre;
 
-    // ✅ Alérgenos leídos desde el JSON
+    // Alérgenos
     const divAlerg = card.querySelector('.iconos-alergenos');
-    divAlerg.innerHTML = producto.alergenos
-        .map(id => {
-            const alerg = mapaAlergenos[id];
-            if (!alerg) return '';
-            return `<span class="icono-alerg" title="${alerg.nombre}">${alerg.icono}</span>`;
-        })
-        .join('');
+    divAlerg.innerHTML = (producto.alergenos || []).map(id => {
+        const alerg = mapaAlergenos[id];
+        if (!alerg) return '';
+        return `<span class="icono-alerg" title="${alerg.nombre}">${alerg.icono}</span>`;
+    }).join('');
 
-    // Producto no disponible
+    // Agotado
     if (!producto.disponible) {
-        const wrapper = card.querySelector('.prod-img-wrapper');
-        const overlay = document.createElement('div');
-        overlay.className = 'overlay-agotado';
-        overlay.innerHTML = '&#10006;';
-        wrapper.prepend(overlay);
-        card.querySelector('.contador-blanco').style.display = 'none';
+        card.querySelector('.qty-control').style.display = 'none';
+        card.style.opacity = '0.5';
     }
 
-    // Eventos del contador
+    // Contador
     const btnMas = card.querySelector('.btn-mas');
     const btnMenos = card.querySelector('.btn-menos');
     const qty = card.querySelector('.numero-cantidad');
@@ -95,11 +90,76 @@ function crearPedidoItem(producto, mapaAlergenos) {
     btnMas.addEventListener('click', () => cambiarCantidad(producto.id, 1));
     btnMenos.addEventListener('click', () => cambiarCantidad(producto.id, -1));
 
-    card.querySelector('.btn-info-i')
-        .addEventListener('click', () => console.log('Info:', producto));
+    return card;
+}
+
+function crearPanelItem(producto, mapaAlergenos, categoriaId, productos, datos) {
+    const tpl = document.getElementById('tpl-carta-item');
+    const clone = tpl.content.cloneNode(true);
+    const card = clone.querySelector('.menu-item');
+
+    card.dataset.id = producto.id;
+    card.style.opacity = producto.disponible ? '1' : '0.5';
+
+    const img = card.querySelector('img');
+    img.src = getRuta(producto.imagen || 'img/burger-placeholder.png');
+    img.alt = producto.nombre;
+
+    const infoDiv = card.querySelector('.item-info');
+    infoDiv.innerHTML = `
+        <input class="panel-input" value="${producto.nombre}"
+               style="background:none;border:none;border-bottom:1px solid #666;color:#fff;font-size:20px;width:100%;margin-bottom:8px;font-family:inherit;">
+        <input class="panel-input-desc" value="${producto.descripcion}"
+               style="background:none;border:none;border-bottom:1px solid #444;color:#ccc;font-size:14px;width:100%;margin-bottom:8px;font-family:inherit;">
+        <div style="display:flex;align-items:center;gap:6px;">
+            <input class="panel-input-precio" value="${producto.precio}" type="number" step="0.01"
+                   style="background:none;border:none;border-bottom:1px solid #444;color:#ff2a2a;font-size:16px;width:70px;font-family:inherit;">
+            <span style="color:#ff2a2a;">€</span>
+        </div>
+    `;
+
+    const priceDiv = card.querySelector('.item-price');
+    priceDiv.style.cssText = 'display:flex;flex-direction:column;gap:8px;align-items:flex-end;min-width:160px;';
+    priceDiv.innerHTML = `
+        <button class="btn-guardar btn-main" style="font-size:12px;padding:8px 16px;width:100%;">
+            <i class="fa-solid fa-floppy-disk"></i> GUARDAR
+        </button>
+        <button class="btn-disponible action-btn ${producto.disponible ? 'cart' : 'cancel'}" style="font-size:12px;padding:8px 16px;width:100%;">
+            <i class="fa-solid fa-${producto.disponible ? 'eye' : 'eye-slash'}"></i>
+            ${producto.disponible ? 'DISPONIBLE' : 'NO DISPONIBLE'}
+        </button>
+        <button class="btn-eliminar action-btn cancel" style="font-size:12px;padding:8px 16px;width:100%;">
+            <i class="fa-solid fa-trash"></i> ELIMINAR
+        </button>
+    `;
+
+    priceDiv.querySelector('.btn-guardar').addEventListener('click', () => {
+        const prod = productos.find(x => x.id === producto.id);
+        prod.nombre      = infoDiv.querySelector('.panel-input').value.trim();
+        prod.descripcion = infoDiv.querySelector('.panel-input-desc').value.trim();
+        prod.precio      = parseFloat(infoDiv.querySelector('.panel-input-precio').value);
+        guardarDatos(datos);
+        alert('Cambios guardados.');
+    });
+
+    priceDiv.querySelector('.btn-disponible').addEventListener('click', () => {
+        const prod = productos.find(x => x.id === producto.id);
+        prod.disponible = !prod.disponible;
+        guardarDatos(datos);
+        cargarProductos('lista-productos', 'panel', categoriaId);
+    });
+
+    priceDiv.querySelector('.btn-eliminar').addEventListener('click', () => {
+        if (!confirm(`¿Eliminar "${producto.nombre}"?`)) return;
+        const idx = productos.findIndex(x => x.id === producto.id);
+        productos.splice(idx, 1);
+        guardarDatos(datos);
+        cargarProductos('lista-productos', 'panel', categoriaId);
+    });
 
     return card;
 }
+
 
 /**
  * Carga productos desde data.json y los renderiza
@@ -111,16 +171,32 @@ async function cargarProductos(contenedorId, modo = 'carta', categoriaId = null)
     try {
         await cargarComponenteProducto();
 
-        const res = await fetch(getRuta('data.json'));
-        const data = await res.json();
+        // 1. Intentamos leer de la memoria del navegador (localStorage)
+        let datosRaw = localStorage.getItem('productos_panel');
+        let datos;
 
+        if (datosRaw) {
+            // Si existen datos, los usamos
+            datos = JSON.parse(datosRaw);
+        } else {
+            // 2. SI NO HAY NADA (Caso del cliente nuevo):
+            // Vamos a buscar el archivo data.json original
+            const res = await fetch(getRuta('data.json'));
+            datos = await res.json();
+
+            // Lo guardamos en localStorage para que a partir de ahora
+            // la web use esta "copia" que el panel podrá editar
+            localStorage.setItem('productos_panel', JSON.stringify(datos));
+        }
+
+        // --- A partir de aquí el código sigue igual para dibujar la carta ---
         const mapaAlergenos = {};
-        data.alergenos.forEach(a => {
+        datos.alergenos.forEach(a => {
             mapaAlergenos[a.id] = { icono: a.icono, nombre: a.nombre };
         });
 
-        let productos = data.productos;
-        if (categoriaId !== null) {
+        let productos = datos.productos;
+        if (categoriaId) {
             productos = productos.filter(p => p.categoria_id === categoriaId);
         }
 
@@ -129,42 +205,82 @@ async function cargarProductos(contenedorId, modo = 'carta', categoriaId = null)
 
         contenedor.innerHTML = '';
         productos.forEach(p => {
-            const card = modo === 'carta'
-                ? crearCartaItem(p)
-                : crearPedidoItem(p, mapaAlergenos);
+            const card = (modo === 'carta') ? crearCartaItem(p) : crearPedidoItem(p, mapaAlergenos);
             contenedor.appendChild(card);
         });
-
-        // ✅ Sincronizar contadores con el carrito guardado
-        if (modo === 'pedido') {
-            const carritoGuardado = JSON.parse(localStorage.getItem('carrito') || '{}');
-            Object.entries(carritoGuardado).forEach(([id, cantidad]) => {
-                carrito[id] = cantidad;
-                const el = document.getElementById(`qty-${id}`);
-                if (el) el.textContent = cantidad;
-            });
-        }
+        // --------------------------------------------------------------------
 
     } catch (e) {
         console.error('Error cargando productos:', e);
     }
 }
 
+
+
 function cambiarCantidad(productoId, delta) {
-    if (!carrito[productoId]) carrito[productoId] = 0;
-    carrito[productoId] = Math.max(0, carrito[productoId] + delta);
+    // Convertimos el ID a String para que coincida siempre,
+    // ya venga del JSON (número corto) o del Panel (Date.now() largo)
+    const id = String(productoId);
+
+    if (!carrito[id]) carrito[id] = 0;
+    carrito[id] = Math.max(0, carrito[id] + delta);
 
     // ✅ Si llega a 0, lo eliminamos del carrito
-    if (carrito[productoId] === 0) {
-        delete carrito[productoId];
+    if (carrito[id] === 0) {
+        delete carrito[id];
     }
 
-    const el = document.getElementById(`qty-${productoId}`);
-    if (el) el.textContent = carrito[productoId] || 0;
+    // Actualizar el número en el contador de la tarjeta
+    const el = document.getElementById(`qty-${id}`);
+    if (el) el.textContent = carrito[id] || 0;
 
     guardarCarrito();
+
+    // LANZAMOS UN AVISO: "El carrito ha cambiado"
+    // Esto permitirá que la lista de pedidos se actualice sola
+    document.dispatchEvent(new CustomEvent('carritoActualizado'));
 }
 
 function guardarCarrito() {
     localStorage.setItem('carrito', JSON.stringify(carrito));
+}
+
+function guardarCarrito() {
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+}
+
+
+document.addEventListener('carritoActualizado', () => {
+    renderizarResumenPedido();
+});
+
+function renderizarResumenPedido() {
+    const contenedor = document.getElementById('lista-resumen-pedidos'); // Asegúrate de que este ID sea el de tu HTML
+    if (!contenedor) return;
+
+    const carritoActual = JSON.parse(localStorage.getItem('carrito') || '{}');
+    const datos = JSON.parse(localStorage.getItem('productos_panel')); // Usamos nuestros datos compartidos
+
+    contenedor.innerHTML = ''; // Limpiamos para redibujar
+
+    let total = 0;
+
+    Object.entries(carritoActual).forEach(([id, cantidad]) => {
+        // Buscamos el producto en nuestros datos (comparando como String)
+        const producto = datos.productos.find(p => String(p.id) === id);
+
+        if (producto) {
+            const subtotal = producto.precio * cantidad;
+            total += subtotal;
+
+
+            contenedor.innerHTML += `
+                <div class="resumen-item">
+                    <span>${producto.nombre} x${cantidad}</span>
+                    <span>${subtotal.toFixed(2)}€</span>
+                </div>`;
+        }
+    });
+
+
 }
