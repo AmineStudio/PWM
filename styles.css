@@ -1386,20 +1386,20 @@ body {
     .overlay-banner p { font-size: 15px; }
 }
 /* ================= Carta ================= */
-
 /* =========================================================
-   CARTA TEMPLATE
+   CARTA TEMPLATE - BASE (ORDENADOR)
    ========================================================= */
 
 /* Fondo general del área de carta */
-.menu-page{
+.menu-page {
     background: radial-gradient(circle at 20% 10%, #1a1a1a 0%, #0e0e0e 60%, #0a0a0a 100%);
     font-family: "Bauhaus 93", sans-serif;
     color: #fff;
+    padding: 40px 0; /* Un poco de aire por arriba y abajo */
 }
 
 /* ================= CATEGORÍAS ================= */
-.menu-categories{
+.menu-categories {
     width: 1100px;
     max-width: 95%;
     margin: 0 auto 40px;
@@ -1412,7 +1412,7 @@ body {
     box-shadow: 0 8px 24px rgba(0,0,0,.45);
 }
 
-.cat-btn{
+.cat-btn {
     background: none;
     border: none;
     color: #ffffffcc;
@@ -1422,29 +1422,30 @@ body {
     padding: 8px 6px;
     transition: all .25s ease;
     position: relative;
+    white-space: nowrap; /* Evita que el texto del botón se rompa en dos líneas */
 }
 
-.cat-btn:hover{
+.cat-btn:hover {
     color: #ffffff;
 }
 
-.cat-btn.active{
+.cat-btn.active {
     color: #fff;
 }
 
-.cat-btn.active::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-8px;
-    width:100%;
-    height:3px;
-    background:#fff;
-    border-radius:2px;
+.cat-btn.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
 }
 
 /* ================= LISTA ================= */
-.menu-list{
+.menu-list {
     width: 1100px;
     max-width: 95%;
     margin: 0 auto 60px;
@@ -1454,7 +1455,7 @@ body {
 }
 
 /* ================= ITEM ================= */
-.menu-item{
+.menu-item {
     background: linear-gradient(180deg, #111 0%, #0c0c0c 100%);
     display: flex;
     align-items: center;
@@ -1468,7 +1469,7 @@ body {
     transition: all .25s ease;
 }
 
-.menu-item:hover{
+.menu-item:hover {
     transform: translateY(-4px);
     box-shadow:
             0 14px 30px rgba(0,0,0,.7),
@@ -1478,38 +1479,44 @@ body {
 }
 
 /* ================= IMAGEN ================= */
-.item-img{
+.item-img {
     width: 150px;
     height: auto;
     filter: drop-shadow(0 8px 12px rgba(0,0,0,.6));
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover .item-img {
+    transform: scale(1.05); /* Pequeño zoom al pasar el ratón */
 }
 
 /* ================= INFO ================= */
-.item-info{
+.item-info {
     flex: 1;
 }
 
-.item-title{
+.item-title {
     font-size: 28px;
     margin-bottom: 6px;
     color: #ffffff;
     letter-spacing: .5px;
 }
 
-.item-desc{
+.item-desc {
     font-size: 14px;
     color: #cfcfcf;
     line-height: 1.5;
     margin-bottom: 16px;
+    font-family: Arial, sans-serif; /* Fuente legible para descripciones */
 }
 
 /* ================= TAGS ================= */
-.item-tags{
+.item-tags {
     display: flex;
     gap: 12px;
 }
 
-.tag{
+.tag {
     width: 24px;
     height: 24px;
     background: radial-gradient(circle at 30% 30%, #ff3b3b, #7a0000);
@@ -1520,16 +1527,116 @@ body {
 }
 
 /* ================= PRECIO ================= */
-.item-price{
+.item-price {
     text-align: right;
     min-width: 140px;
 }
 
-.price{
+.price {
     font-size: 22px;
     font-weight: bold;
     color: #ff2a2a;
     display: block;
+}
+
+/* ==============================================
+   RESPONSIVO: TABLETS Y MÓVILES
+   ============================================== */
+
+/* --- TABLETS (Hasta 1024px) --- */
+@media (max-width: 1024px) {
+    .menu-categories {
+        gap: 20px;
+        padding: 15px 20px;
+    }
+
+    .menu-item {
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .item-img {
+        width: 120px;
+    }
+
+    .item-title {
+        font-size: 24px;
+    }
+
+    .item-price {
+        min-width: 100px;
+    }
+}
+
+/* --- MÓVILES (Hasta 768px) --- */
+@media (max-width: 768px) {
+    /* Hacemos que la barra de categorías sea deslizable con el dedo */
+    .menu-categories {
+        justify-content: flex-start; /* Alineamos al principio para que se note que hay scroll */
+        overflow-x: auto;
+        padding: 15px;
+        gap: 25px;
+        border-radius: 0; /* En móvil queda mejor de borde a borde */
+        max-width: 100%;
+
+        /* Ocultar barra de scroll para que quede limpio como una app */
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .menu-categories::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Convertimos la tarjeta horizontal en vertical */
+    .menu-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .item-img {
+        width: 180px; /* Hacemos la hamburguesa/producto más grande para que sea el prota */
+        margin: 0 auto;
+    }
+
+    .item-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .item-tags {
+        justify-content: center;
+    }
+
+    .item-price {
+        text-align: center;
+        margin-top: 5px;
+    }
+}
+
+/* --- MÓVILES PEQUEÑOS (Hasta 480px) --- */
+@media (max-width: 480px) {
+    .menu-item {
+        padding: 25px 15px;
+    }
+
+    .item-img {
+        width: 150px;
+    }
+
+    .item-title {
+        font-size: 22px;
+    }
+
+    .item-desc {
+        font-size: 13px;
+    }
+
+    .price {
+        font-size: 24px; /* Hacemos el precio un pelín más grande para que llame a comprar */
+    }
 }
 /* ================= Catalogo ================= */
 /* =========================================================
