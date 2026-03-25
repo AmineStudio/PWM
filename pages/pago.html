@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pago | Tahm King</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <script src="../java/java.js" defer></script>
+</head>
+<body class="body-pago">
+
+<main class="seccion-pago">
+    <div class="pago-container">
+
+        <div class="pago-icono-top">
+            <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+
+        <div class="pago-caja">
+            <form class="pago-formulario" onsubmit="event.preventDefault();">
+
+                <input type="text" placeholder="NOMBRE COMPLETO" required>
+                <input type="text" placeholder="DIRECCIÓN DE ENVÍO" required>
+                <input type="text" placeholder="NÚMERO DE TARJETA" maxlength="19" required>
+
+                <div class="pago-fila-doble">
+                    <input type="text" placeholder="CADUCIDAD (MM/AA)" maxlength="5" required>
+                    <input type="text" placeholder="CÓDIGO CVC" maxlength="3" required>
+                </div>
+
+                <div class="pago-resumen">
+                    <div class="pago-metodos">
+                        <i class="fa-brands fa-cc-visa" style="color: #1a1f71;"></i>
+                        <i class="fa-brands fa-cc-mastercard" style="color: #eb001b;"></i>
+                        <i class="fa-brands fa-cc-paypal" style="color: #00457c;"></i>
+                        <span class="etiqueta-transfer">PAGO POR TRANSFERENCIA</span>
+                    </div>
+
+                    <div class="pago-precio-box">
+                        <span class="titulo-precio">PRECIO</span>
+                        <span class="total-precio">12.00€</span>
+                    </div>
+                </div>
+
+                <div class="pago-botones">
+                    <button type="button" class="btn-cancelar" onclick="window.history.back();">CANCELAR</button>
+                    <button type="submit" class="btn-pagar" onclick="window.location.href='ticket.html'">PAGAR</button>
+
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</main>
+
+</body>
+</html>

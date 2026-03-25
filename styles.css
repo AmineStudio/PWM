@@ -2904,6 +2904,373 @@ body.fondo-oscuro-estetico {
         flex-direction: column;
     }
 }
+
+/* ==============================================
+   PÁGINA DE PAGO (CHECKOUT) - TAHM KING
+   ============================================== */
+.seccion-pago {
+    background-color: #f5f5f5; /* Fondo claro del carrito */
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.pago-container {
+    width: 100%;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Círculo negro con el carrito */
+.pago-icono-top {
+    background-color: #111;
+    color: #fff;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    margin-bottom: -35px; /* Para que pise la caja blanca */
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Caja del formulario */
+.pago-caja {
+    background-color: #fff;
+    width: 100%;
+    padding: 60px 40px 40px 40px; /* Padding extra arriba por el icono */
+    border-top: 5px solid #111; /* Borde estilo lista de compra */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.pago-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Inputs del formulario */
+.pago-formulario input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ddd;
+    background-color: #fafafa;
+    font-family: 'Oswald', Arial, sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #111;
+    font-weight: bold;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.pago-formulario input::placeholder {
+    color: #999;
+}
+
+.pago-formulario input:focus {
+    border-color: #111;
+    background-color: #fff;
+}
+
+/* Fila para Caducidad y CVC */
+.pago-fila-doble {
+    display: flex;
+    gap: 15px;
+}
+
+.pago-fila-doble input {
+    flex: 1;
+}
+
+/* Resumen (Logos y Precio) */
+.pago-resumen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.pago-metodos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    max-width: 60%;
+}
+
+.pago-metodos i {
+    font-size: 32px;
+    background: #fff;
+}
+
+.etiqueta-transfer {
+    font-size: 9px;
+    border: 1px solid #333;
+    padding: 3px 6px;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.pago-precio-box {
+    text-align: right;
+}
+
+.titulo-precio {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.total-precio {
+    display: block;
+    font-family: 'Bauhaus 93', 'Oswald', sans-serif;
+    font-size: 28px;
+    color: #111;
+    line-height: 1;
+}
+
+/* Botones Cancelar y Pagar */
+.pago-botones {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-cancelar, .btn-pagar {
+    flex: 1;
+    padding: 15px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s ease;
+}
+
+.btn-cancelar {
+    background-color: #fff;
+    color: #111;
+    border: 2px solid #111;
+}
+
+.btn-cancelar:hover {
+    background-color: #f0f0f0;
+}
+
+.btn-pagar {
+    background-color: #ff0000; /* El verde lo cambiamos por el rojo Tahm */
+    color: #fff;
+    border: 2px solid #ff0000;
+}
+
+.btn-pagar:hover {
+    background-color: #cc0000;
+    border-color: #cc0000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255,0,0,0.3);
+}
+
+/* ==============================================
+   RESPONSIVO: TABLETS Y MÓVILES
+   ============================================== */
+@media (max-width: 600px) {
+    .pago-caja {
+        padding: 50px 20px 30px 20px;
+    }
+
+    .pago-resumen {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .pago-metodos {
+        justify-content: center;
+        max-width: 100%;
+    }
+
+    .pago-precio-box {
+        text-align: center;
+        background-color: #f9f9f9;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .pago-botones {
+        flex-direction: column-reverse; /* El botón PAGAR arriba en móviles */
+        gap: 10px;
+    }
+}
+/* ==============================================
+   PÁGINA DE DOMICILIO (VERSIÓN XL) - TAHM KING
+   ============================================== */
+
+/* Centramos todo el contenido en la pantalla */
+.body-domicilio {
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.seccion-domicilio {
+    width: 100%;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor mucho más ancho */
+.domicilio-container-xl {
+    width: 100%;
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px; /* Separación generosa entre el banner y la caja */
+}
+
+/* Banner superior estético e independiente */
+.domicilio-banner-top {
+    background-color: #111;
+    color: #fff;
+    width: 100%;
+    padding: 35px 40px;
+    border-radius: 12px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 26px; /* Letra grande y legible */
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    border: 3px solid #ff0000; /* Borde rojo que grita Tahm King */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Separación entre el icono y el texto */
+}
+
+.domicilio-banner-top i {
+    font-size: 50px;
+    color: #ff0000;
+}
+
+/* Caja del formulario XL */
+.domicilio-caja-xl {
+    background-color: #fff;
+    width: 100%;
+    padding: 50px 60px; /* Mucho más espacio interior */
+    border-top: 8px solid #111; /* Borde superior ultra grueso */
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.domicilio-formulario-xl {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Más aire entre los campos */
+}
+
+/* Inputs Gigantes */
+.domicilio-formulario-xl input {
+    width: 100%;
+    padding: 20px 25px;
+    border: 2px solid #ddd;
+    background-color: #fafafa;
+    font-family: 'Oswald', Arial, sans-serif;
+    font-size: 18px; /* Letra más grande al escribir */
+    text-transform: uppercase;
+    color: #111;
+    font-weight: bold;
+    outline: none;
+    transition: 0.3s ease;
+    border-radius: 6px;
+}
+
+.domicilio-formulario-xl input::placeholder {
+    color: #999;
+}
+
+.domicilio-formulario-xl input:focus {
+    border-color: #111;
+    background-color: #fff;
+    box-shadow: 0 0 12px rgba(0,0,0,0.05);
+}
+
+/* Botón de enviar Gigante */
+.btn-enviar-domicilio-xl {
+    background-color: #111;
+    color: #fff;
+    border: 2px solid #111;
+    padding: 22px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px; /* Super visible */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 15px;
+    border-radius: 6px;
+}
+
+.btn-enviar-domicilio-xl:hover {
+    background-color: #ff0000;
+    border-color: #ff0000;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(255,0,0,0.3);
+}
+
+/* ==============================================
+   RESPONSIVO: MÓVILES
+   ============================================== */
+@media (max-width: 768px) {
+    .domicilio-container-xl {
+        gap: 20px;
+    }
+
+    .domicilio-banner-top {
+        font-size: 20px;
+        padding: 25px 20px;
+    }
+
+    .domicilio-banner-top i {
+        font-size: 40px;
+    }
+
+    .domicilio-caja-xl {
+        padding: 35px 20px;
+    }
+
+    .domicilio-formulario-xl input {
+        font-size: 16px;
+        padding: 15px 20px;
+    }
+
+    .btn-enviar-domicilio-xl {
+        font-size: 18px;
+        padding: 18px;
+    }
+}
 /* ==========================================================================
    RWD - SPRINT 2: ADAPTACIÓN A 3 DISPOSITIVOS (DESKTOP, TABLET, MÓVIL)
    ========================================================================== */

@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="&#10;&#10;formulario de login y registrarse (mas logout)&#10;&#10;anadir el panel de trabajador para poder manegar carta&#10;&#10;logica para guardar nuevos productos y ofertas (falta eliminar)" />
+    <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="&#10;&#10;formulario de login y registrarse (mas logout)&#10;&#10;anadir el panel de trabajador para poder manegar carta&#10;&#10;logica para guardar nuevos productos y ofertas (falta eliminar)">
+      <change afterPath="$PROJECT_DIR$/documents/Politica de Privacidad.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/documents/Terminos de Uso.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/domicilio.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/pago.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/components/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/lista_pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/lista_pedido.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,8 +24,8 @@
       <list>
         <option value="CSS File" />
         <option value="tsconfig.json" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -58,49 +67,52 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;JavaScript Debug.carta.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.carta1.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.catalogo.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.pedido.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.sidebar.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.tipo_pedido.html.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Sprint2&quot;,
-    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/yenem/OneDrive/Documentos/GitHub/PWM/img&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.carta.html.executor": "Run",
+    "JavaScript Debug.carta1.html.executor": "Run",
+    "JavaScript Debug.catalogo.html.executor": "Run",
+    "JavaScript Debug.domicilio.html.executor": "Run",
+    "JavaScript Debug.index.html.executor": "Run",
+    "JavaScript Debug.lista_pedido.html.executor": "Run",
+    "JavaScript Debug.pedido.html.executor": "Run",
+    "JavaScript Debug.sidebar.html.executor": "Run",
+    "JavaScript Debug.tipo_pedido.html.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "Sprint2",
+    "javascript.preferred.runtime.type.id": "node",
+    "last_opened_file_path": "C:/Users/yenem/OneDrive/Documentos/GitHub/PWM/documents",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\yenem\OneDrive\Documentos\GitHub\PWM\documents" />
       <recent name="C:\Users\yenem\OneDrive\Documentos\GitHub\PWM\img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\yenem\OneDrive\Documentos\GitHub\PWM\documents" />
       <recent name="C:\Users\yenem\OneDrive\Documentos\GitHub\PWM\img\contacto" />
       <recent name="C:\Users\yenem\OneDrive\Documentos\GitHub\PWM\img" />
       <recent name="C:\Users\corim\Documents\GitHub\PWM\img\nosotros" />
       <recent name="C:\Users\corim\Documents\GitHub\PWM\img\inicio" />
-      <recent name="C:\Users\corim\Documents\GitHub\PWM\img\pedir" />
     </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.31033.133" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.30387.83" />
       </set>
     </attachedChunks>
   </component>
@@ -135,6 +147,7 @@
       <workItem from="1774189061278" duration="3646000" />
       <workItem from="1774196534280" duration="4535000" />
       <workItem from="1774358086772" duration="8428000" />
+      <workItem from="1774457405176" duration="7642000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
