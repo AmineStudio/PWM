@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="../styles.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <script src="../java/java.js" defer></script>
+    <script src="../java/producto-card.js" defer></script>
+    <script src="../java/pago.js" defer></script>
 </head>
 <body class="body-pago">
 
@@ -21,7 +22,7 @@
         </div>
 
         <div class="pago-caja">
-            <form class="pago-formulario" onsubmit="event.preventDefault();">
+            <form id="form-pago" class="pago-formulario">
 
                 <input type="text" placeholder="NOMBRE COMPLETO" required>
                 <input type="text" placeholder="DIRECCIÓN DE ENVÍO" required>
@@ -42,14 +43,13 @@
 
                     <div class="pago-precio-box">
                         <span class="titulo-precio">PRECIO</span>
-                        <span class="total-precio">12.00€</span>
+                        <span class="total-precio">0.00€</span>
                     </div>
                 </div>
 
                 <div class="pago-botones">
-                    <button type="button" class="btn-cancelar" onclick="window.history.back();">CANCELAR</button>
-                    <button type="submit" class="btn-pagar" onclick="window.location.href='ticket.html'">PAGAR</button>
-
+                    <button type="button" class="btn-cancelar">CANCELAR</button>
+                    <button type="submit" class="btn-pagar">PAGAR</button>
                 </div>
 
             </form>

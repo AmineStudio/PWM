@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="&#10;&#10;formulario de login y registrarse (mas logout)&#10;&#10;anadir el panel de trabajador para poder manegar carta&#10;&#10;logica para guardar nuevos productos y ofertas (falta eliminar)">
-      <change afterPath="$PROJECT_DIR$/documents/Politica de Privacidad.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/documents/Terminos de Uso.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/domicilio.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/pago.html" afterDir="false" />
+    <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="Footer con documentos reales. Pagina de pago creada (falta implementar el precio real). Pagina a domicilio creada (falta redirecionarla después del botón &quot;a domicilio&quot; en tipo_pedido).">
+      <change afterPath="$PROJECT_DIR$/java/historial.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/pago.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/ticket.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/components/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/lista_pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/lista_pedido.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/producto-card.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/producto-card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/historial.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/historial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/pago.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/pago.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ticket.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/ticket.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +24,8 @@
       <list>
         <option value="CSS File" />
         <option value="tsconfig.json" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -76,7 +76,9 @@
     "JavaScript Debug.domicilio.html.executor": "Run",
     "JavaScript Debug.index.html.executor": "Run",
     "JavaScript Debug.lista_pedido.html.executor": "Run",
+    "JavaScript Debug.pago.html.executor": "Run",
     "JavaScript Debug.pedido.html.executor": "Run",
+    "JavaScript Debug.producto-card.html.executor": "Run",
     "JavaScript Debug.sidebar.html.executor": "Run",
     "JavaScript Debug.tipo_pedido.html.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
@@ -147,7 +149,9 @@
       <workItem from="1774189061278" duration="3646000" />
       <workItem from="1774196534280" duration="4535000" />
       <workItem from="1774358086772" duration="8428000" />
-      <workItem from="1774457405176" duration="7642000" />
+      <workItem from="1774457405176" duration="7929000" />
+      <workItem from="1774523880051" duration="671000" />
+      <workItem from="1774605094908" duration="3830000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -237,7 +241,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774366484677</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Footer con documentos reales. Pagina de pago creada (falta implementar el precio real). Pagina a domicilio creada (falta redirecionarla después del botón &quot;a domicilio&quot; en tipo_pedido).">
+      <option name="closed" value="true" />
+      <created>1774470295208</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1774470295208</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,6 +290,7 @@
     <MESSAGE value="responsive login e index" />
     <MESSAGE value="header responsive" />
     <MESSAGE value="&#10;&#10;formulario de login y registrarse (mas logout)&#10;&#10;anadir el panel de trabajador para poder manegar carta&#10;&#10;logica para guardar nuevos productos y ofertas (falta eliminar)" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;&#10;formulario de login y registrarse (mas logout)&#10;&#10;anadir el panel de trabajador para poder manegar carta&#10;&#10;logica para guardar nuevos productos y ofertas (falta eliminar)" />
+    <MESSAGE value="Footer con documentos reales. Pagina de pago creada (falta implementar el precio real). Pagina a domicilio creada (falta redirecionarla después del botón &quot;a domicilio&quot; en tipo_pedido)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Footer con documentos reales. Pagina de pago creada (falta implementar el precio real). Pagina a domicilio creada (falta redirecionarla después del botón &quot;a domicilio&quot; en tipo_pedido)." />
   </component>
 </project>

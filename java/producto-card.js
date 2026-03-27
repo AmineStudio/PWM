@@ -284,3 +284,102 @@ function renderizarResumenPedido() {
 
 
 }
+
+// Añadir al final de producto-card.js
+
+function vaciarCarrito() {
+    // Vaciamos el objeto en memoria
+    for (let key in carrito) delete carrito[key];
+    // Lo borramos de localStorage
+    localStorage.removeItem('carrito');
+
+    // Reseteamos los contadores visuales a 0
+    document.querySelectorAll('.numero-cantidad').forEach(el => el.textContent = '0');
+
+    // Avisamos a la interfaz de que el carrito está vacío
+    document.dispatchEvent(new CustomEvent('carritoActualizado'));
+}
+
+function finalizarPedido() {
+    const carritoActual = JSON.parse(localStorage.getItem('carrito') || '{}');
+    if (Object.keys(carritoActual).length === 0) {
+        alert("El carrito está vacío. Añade algún producto antes de pagar.");
+        return false;
+    }
+
+    // Obtenemos el usuario (puede ser null si es un invitado sin registrar)
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
+
+    // Calcular el total y recopilar productos
+    let totalPedido = 0;
+    const datos = JSON.parse(localStorage.getItem('productos_panel'));
+    const productosComprados = [];
+
+    Object.entries(carritoActual).forEach(([id, cantidad]) => {
+        const producto = datos.productos.find(p => String(p.id) === id);
+        if (producto) {
+            totalPedido += producto.precio * cantidad;
+            productosComprados.push({
+                producto_id: producto.id,
+                nombre: producto.nombre,
+                cantidad: cantidad,
+                precio_unitario: producto.precio
+            });
+        }
+    });
+
+    // Generar un ID único del 1 al 100
+    let nuevoId;
+    do {
+        nuevoId = Math.floor(Math.random() * 100) + 1;
+        // Comprobamos que no se repita el ID en los pedidos actuales
+    } while (datos.pedidos && datos.pedidos.some(p => p.id === nuevoId));
+
+    // Crear el objeto del pedido general
+    // Si no hay usuario, le asignamos el id "invitado"
+    const nuevoPedido = {
+        id: nuevoId,
+        usuario_id: usuario ? usuario.id : "invitado",
+        fecha: new Date().toISOString().split('T')[0], // Formato YYYY-MM-DD
+        estado: "preparando",
+        total: parseFloat(totalPedido.toFixed(2)),
+        productos: productosComprados
+    };
+
+    // 1. Guardar el pedido en la lista GENERAL del restaurante (siempre)
+    if (!datos.pedidos) datos.pedidos = [];
+    datos.pedidos.push(nuevoPedido);
+
+    // 2. Guardar en el historial PERSONAL y dar puntos (SOLO SI ESTÁ REGISTRADO)
+    if (usuario) {
+        const usuariosArr = datos.usuarios || [];
+        const userIndex = usuariosArr.findIndex(u => u.id === usuario.id);
+
+        if(userIndex !== -1) {
+            // Asegurarnos de que el array de pedidos existe
+            if (!usuariosArr[userIndex].pedidos) usuariosArr[userIndex].pedidos = [];
+
+            // Añadir al historial
+            usuariosArr[userIndex].pedidos.push(nuevoPedido.id);
+
+            // Sumar puntos por la compra (1 punto por euro)
+            usuariosArr[userIndex].puntos = (usuariosArr[userIndex].puntos || 0) + Math.floor(totalPedido);
+
+            // Actualizamos el usuario en la sesión actual para que la web lo refleje al instante
+            usuario.puntos = usuariosArr[userIndex].puntos;
+            usuario.pedidos = usuariosArr[userIndex].pedidos;
+            localStorage.setItem('usuario', JSON.stringify(usuario));
+        }
+    }
+
+    // Guardar los datos maestros actualizados
+    localStorage.setItem('productos_panel', JSON.stringify(datos));
+
+    alert(`¡Pedido realizado con éxito! Tu número de pedido es el #${nuevoPedido.id}`);
+
+    // VACIAR EL CARRITO AL TERMINAR
+    vaciarCarrito();
+
+    localStorage.setItem('ultimo_pedido', nuevoId);
+    return true; // Todo ha ido perfecto, permite ir a ticket.html
+}
