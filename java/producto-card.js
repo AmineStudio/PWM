@@ -238,7 +238,9 @@ async function cargarProductos(contenedorId, modo = 'carta', categoriaId = null)
             } else if (modo === 'pedido') {
                 card = crearPedidoItem(p, mapaAlergenos);
             } else if (modo === 'panel') {
-                card = crearPanelItem(p, mapaAlergenos, categoriaId, productos, datos);
+                // ✅ FIX: pasamos datos.productos (array COMPLETO), no el filtrado por categoría.
+                // Así el splice en ELIMINAR y el find en GUARDAR/OCULTAR operan sobre la lista real.
+                card = crearPanelItem(p, mapaAlergenos, categoriaId, datos.productos, datos);
             }
             if (card) contenedor.appendChild(card);
         });
@@ -416,4 +418,78 @@ function finalizarPedido() {
 
     localStorage.setItem('ultimo_pedido', nuevoId);
     return true; // Todo ha ido perfecto, permite ir a ticket.html
+}
+
+// Función para sincronizar el carrito entre pestañas/páginas
+function sincronizarCarrito() {
+    const carritoGuardado = JSON.parse(localStorage.getItem('carrito') || '{}');
+
+    // Actualizar los contadores visuales en la página actual
+    Object.keys(carritoGuardado).forEach(id => {
+        const qtyElement = document.getElementById(`qty-${id}`);
+        if (qtyElement) {
+            qtyElement.textContent = carritoGuardado[id];
+        }
+    });
+
+    // Limpiar contadores de productos que ya no están en el carrito
+    document.querySelectorAll('[id^="qty-"]').forEach(el => {
+        const id = el.id.replace('qty-', '');
+        if (!carritoGuardado[id]) {
+            el.textContent = '0';
+        }
+    });
+}
+
+// Escuchar cambios en localStorage (para sincronizar entre pestañas)
+window.addEventListener('storage', (e) => {
+    if (e.key === 'carrito') {
+        sincronizarCarrito();
+        // Actualizar el objeto carrito en memoria
+        const nuevoCarrito = JSON.parse(e.newValue || '{}');
+        // Limpiar carrito actual
+        for (let key in carrito) delete carrito[key];
+        // Copiar nuevo carrito
+        Object.assign(carrito, nuevoCarrito);
+
+        // Disparar evento de actualización
+        document.dispatchEvent(new CustomEvent('carritoActualizado'));
+    }
+});
+
+// Escuchar evento personalizado para actualizar la lista de pedidos
+document.addEventListener('carritoActualizado', () => {
+    renderizarResumenPedido();
+    sincronizarCarrito();
+});
+
+// Modificar la función cambiarCantidad para asegurar que los IDs se manejan como strings
+function cambiarCantidad(productoId, delta) {
+    // Convertimos el ID a String para que coincida siempre
+    const id = String(productoId);
+
+    // Obtener carrito actual
+    let carritoActual = JSON.parse(localStorage.getItem('carrito') || '{}');
+
+    if (!carritoActual[id]) carritoActual[id] = 0;
+    carritoActual[id] = Math.max(0, carritoActual[id] + delta);
+
+    // Si llega a 0, lo eliminamos del carrito
+    if (carritoActual[id] === 0) {
+        delete carritoActual[id];
+    }
+
+    // Guardar en localStorage
+    localStorage.setItem('carrito', JSON.stringify(carritoActual));
+
+    // Actualizar el objeto carrito en memoria
+    for (let key in carrito) delete carrito[key];
+    Object.assign(carrito, carritoActual);
+
+    // Actualizar el número en el contador de la tarjeta
+    const el = document.getElementById(`qty-${id}`);
+    if (el) el.textContent = carritoActual[id] || 0;
+
+    // Disparar evento de actualización
+    document.dispatchEvent(new CustomEvent('carritoActualizado'));
 }

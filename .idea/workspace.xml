@@ -6,10 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="Logica del historial implementada guardando los pedidos en ella. Errores del carrito solucionados.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/historial.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/historial.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/java.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/java.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/panel.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/panel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/producto-card.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/producto-card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/panel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/lista_pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/lista_pedido.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Sprint2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -64,37 +65,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JavaScript Debug.carta.html.executor": "Run",
-    "JavaScript Debug.carta1.html.executor": "Run",
-    "JavaScript Debug.catalogo.html.executor": "Run",
-    "JavaScript Debug.domicilio.html.executor": "Run",
-    "JavaScript Debug.index.html.executor": "Run",
-    "JavaScript Debug.lista_pedido.html.executor": "Run",
-    "JavaScript Debug.pago.html.executor": "Run",
-    "JavaScript Debug.pedido.html.executor": "Run",
-    "JavaScript Debug.producto-card.html.executor": "Run",
-    "JavaScript Debug.sidebar.html.executor": "Run",
-    "JavaScript Debug.tipo_pedido.html.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "Sprint2",
-    "javascript.preferred.runtime.type.id": "node",
-    "last_opened_file_path": "C:/Users/yenem/OneDrive/Documentos/GitHub/PWM/documents",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JavaScript Debug.carta.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.carta1.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.catalogo.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.domicilio.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.lista_pedido.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.pago.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.pedido.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.producto-card.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.sidebar.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.tipo_pedido.html.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Sprint2&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/yenem/OneDrive/Documentos/GitHub/PWM/documents&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\yenem\OneDrive\Documentos\GitHub\PWM\documents" />

@@ -55,7 +55,7 @@
     Object.entries(carritoGuardado).forEach(([id, cantidad]) => {
       if (cantidad <= 0) return;
 
-      const producto = data.productos.find(p => p.id === parseInt(id));
+      const producto = data.productos.find(p => String(p.id) === String(id));
       if (!producto) return;
 
       const subtotal = producto.precio * cantidad;
@@ -83,7 +83,7 @@
 
   function eliminarProducto(id) {
     const carrito = JSON.parse(localStorage.getItem('carrito') || '{}');
-    delete carrito[id];
+    delete carrito[String(id)];
     localStorage.setItem('carrito', JSON.stringify(carrito));
     location.reload();
   }

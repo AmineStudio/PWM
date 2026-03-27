@@ -17,13 +17,34 @@ document.addEventListener('DOMContentLoaded', () => {
         misPedidos = datosDB.pedidos.filter(p => p.usuario_id === usuario.id);
     }
 
+    // Mostrar los puntos del usuario arriba del historial
+    let puntosHTML = '';
+    if (usuario.puntos !== undefined) {
+        puntosHTML = `
+            <div class="puntos-usuario" style="background: linear-gradient(135deg, #ff2a2a, #b30000); border-radius: 15px; padding: 20px; margin-bottom: 30px; text-align: center;">
+                <i class="fa-solid fa-star" style="font-size: 32px; color: #ffcc00; margin-bottom: 10px; display: block;"></i>
+                <h3 style="color: #fff; margin: 0 0 5px 0;">TUS PUNTOS</h3>
+                <p style="font-size: 48px; font-weight: bold; color: #ffcc00; margin: 10px 0;">${usuario.puntos}</p>
+                <p style="color: #fff; margin: 0; font-size: 14px;">¡Acumula puntos y cánjealos por productos exclusivos!</p>
+            </div>
+        `;
+    }
+
     if (misPedidos.length === 0) {
-        contenedor.innerHTML = '<h3 style="color:#ccc; text-align:center; padding: 50px 0;">Aún no tienes pedidos. ¡Anímate a pedir algo de la carta!</h3>';
+        contenedor.innerHTML = puntosHTML + '<h3 style="color:#ccc; text-align:center; padding: 50px 0;">Aún no tienes pedidos. ¡Anímate a pedir algo de la carta!</h3>';
         return;
     }
 
     misPedidos.reverse();
-    contenedor.innerHTML = '';
+
+    // Añadir los puntos antes de los pedidos
+    let pedidosHTML = puntosHTML;
+
+    // Añadir título de historial
+    pedidosHTML += '<h2 style="color:#fff; text-align:center; margin-bottom: 30px;">HISTORIAL DE PEDIDOS</h2>';
+
+    // Añadir contenedor para los pedidos
+    pedidosHTML += '<div class="pedidos-lista">';
 
     misPedidos.forEach(pedido => {
         let colorEstado = 'orange';
@@ -36,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const fechaArray = pedido.fecha.split('-');
         const fechaES = fechaArray.length === 3 ? `${fechaArray[2]}/${fechaArray[1]}/${fechaArray[0]}` : pedido.fecha;
 
-        const htmlPedido = `
+        pedidosHTML += `
         <div class="tarjeta-pedido">
             <div class="numero-pedido">#${pedido.id}</div>
             <div class="info-pedido">
@@ -47,7 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <button class="btn-info"><span>i</span></button>
         </div>
         `;
-
-        contenedor.innerHTML += htmlPedido;
     });
+
+    pedidosHTML += '</div>';
+
+    contenedor.innerHTML = pedidosHTML;
 });

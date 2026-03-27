@@ -182,6 +182,16 @@ document.addEventListener('componentesListos', () => {
 
     if (!btnUser) return;
 
+    // Función para obtener la ruta correcta del login
+    function getRutaLogin() {
+        // Si estamos en la carpeta pages/, necesitamos subir un nivel
+        if (window.location.pathname.includes('/pages/')) {
+            return '../pages/login.html';
+        }
+        // Si estamos en la raíz, la ruta es directa
+        return 'pages/login.html';
+    }
+
     if (usuario) {
         // Cambiar icono de usuario por nombre + logout
         btnUser.innerHTML = `<span style="color:#fff;font-size:14px;letter-spacing:1px;">${usuario.nombre.split(' ')[0].toUpperCase()}</span>`;
@@ -203,6 +213,7 @@ document.addEventListener('componentesListos', () => {
         btnUser.parentNode.insertBefore(btnLogout, btnUser.nextSibling);
 
     } else {
-        btnUser.href = 'pages/login.html';
+        // Usar la ruta corregida según la página actual
+        btnUser.href = getRutaLogin();
     }
 });

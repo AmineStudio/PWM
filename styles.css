@@ -3291,6 +3291,7 @@ body.fondo-oscuro-estetico {
     /* Footer: Pasamos de 3 a 2 columnas arriba y 1 abajo para aprovechar el espacio */
     .pie-pagina-tahm .contenedor-columnas { gap: 30px; }
     .pie-pagina-tahm .columna-footer { min-width: 40%; } /* Fuerza 2 columnas */
+
 }
 
 
@@ -3325,4 +3326,22 @@ body.fondo-oscuro-estetico {
     }
     .pie-pagina-tahm .columna-footer { width: 100%; align-items: center; }
     .pie-pagina-tahm .redes-sociales { justify-content: center; }
+
+    /* Menu categorias*/
+    .menu-categories {
+        gap: 12px;
+        padding: 15px 20px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+        overflow-x: visible;
+        border-radius: 12px;
+    }
+
+    .cat-btn {
+        font-size: 13px;
+        padding: 8px 16px;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
 }
