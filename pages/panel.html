@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel - Tahm King</title>
+    <title>Panel de Administración - Tahm King</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script src="../java/java.js"></script>
-    <script src="../java/producto-card.js"></script>
-    <script src="../java/panel.js"></script>
-</head>
-<body class="menu-page">
 
-<div data-xlu-include-file="../components/header.html"></div>
-<div data-xlu-include-file="../components/sidebar.html"></div>
+    <script src="../java/java.js" defer></script>
+    <script src="../java/producto-card.js" defer></script>
+    <script src="../java/panel.js" defer></script>
+</head>
+<body class="menu-page" style="background-color: #000; padding-top: 20px;">
 
 <main class="catalogo-main">
     <div class="carta-wrapper panel-mode">
 
-        <div style="display:flex;gap:12px;margin-bottom:30px;">
-            <button class="cat-btn active" data-tab="productos">Productos</button>
-            <button class="cat-btn" data-tab="ofertas">Ofertas</button>
+        <h1 style="color: #fff; text-align: center; margin-bottom: 30px; font-family: 'Oswald', sans-serif; letter-spacing: 2px;">
+            <i class="fa-solid fa-gear" style="color: #ff0000;"></i> PANEL DE TRABAJADOR
+        </h1>
+
+        <div style="display:flex;gap:12px;margin-bottom:30px; flex-wrap: wrap;">
+            <button class="cat-btn active" data-tab="productos">Productos y Ofertas</button>
             <button class="cat-btn" data-tab="nuevo">Añadir producto</button>
             <button class="cat-btn" data-tab="nueva-oferta">Añadir oferta</button>
-            <button class="cat-btn cancel action-btn" id="btn-logout" style="margin-left:auto;">
+            <button class="cat-btn cancel action-btn" id="btn-logout" style="margin-left:auto; background-color: #ff2a2a; color: white;">
                 <i class="fa-solid fa-right-from-bracket"></i> SALIR
             </button>
         </div>
@@ -32,36 +33,14 @@
             <div data-xlu-include-file="../components/carta.html"></div>
         </div>
 
-        <div id="tab-ofertas" style="display:none;">
-            <div id="lista-ofertas" class="menu-list"></div>
-        </div>
-
-
-
         <div id="tab-nueva-oferta" style="display:none;">
             <div style="max-width:600px;">
                 <h2 style="color:#fff;margin-bottom:24px;">Añadir nueva oferta</h2>
                 <div style="display:flex;flex-direction:column;gap:16px;">
-                    <div>
-                        <label style="color:#ccc;font-size:13px;display:block;margin-bottom:6px;">Nombre</label>
-                        <input id="oferta-nombre" type="text" placeholder="Nombre de la oferta"
-                               style="width:100%;background:#1a1a1a;border:1px solid #444;color:#fff;padding:10px;border-radius:6px;font-family:inherit;">
-                    </div>
-                    <div>
-                        <label style="color:#ccc;font-size:13px;display:block;margin-bottom:6px;">Descripción</label>
-                        <input id="oferta-desc" type="text" placeholder="Descripción breve"
-                               style="width:100%;background:#1a1a1a;border:1px solid #444;color:#fff;padding:10px;border-radius:6px;font-family:inherit;">
-                    </div>
-                    <div>
-                        <label style="color:#ccc;font-size:13px;display:block;margin-bottom:6px;">Precio (€)</label>
-                        <input id="oferta-precio" type="number" step="0.01" placeholder="0.00"
-                               style="width:100%;background:#1a1a1a;border:1px solid #444;color:#fff;padding:10px;border-radius:6px;font-family:inherit;">
-                    </div>
-                    <div>
-                        <label style="color:#ccc;font-size:13px;display:block;margin-bottom:6px;">Imagen (ruta)</label>
-                        <input id="oferta-imagen" type="text" placeholder="img/oferta-home.jpg"
-                               style="width:100%;background:#1a1a1a;border:1px solid #444;color:#fff;padding:10px;border-radius:6px;font-family:inherit;">
-                    </div>
+                    <div><input id="oferta-nombre" type="text" placeholder="Nombre de la oferta" style="width:100%;background:#1a1a1a;border:1px solid #444;color:#fff;padding:10px;border-radius:6px;"></div>
+                    <div><input id="oferta-desc" type="text" placeholder="Descripción breve" style="width:100%;background:#1a1a1a;border:1px solid #444;color:#fff;padding:10px;border-radius:6px;"></div>
+                    <div><input id="oferta-precio" type="number" step="0.01" placeholder="Precio (€)" style="width:100%;background:#1a1a1a;border:1px solid #444;color:#fff;padding:10px;border-radius:6px;"></div>
+                    <div><input id="oferta-imagen" type="text" placeholder="img/oferta-home.jpg" style="width:100%;background:#1a1a1a;border:1px solid #444;color:#fff;padding:10px;border-radius:6px;"></div>
                     <button class="btn-main" id="btn-anadir-oferta" style="margin-top:8px;">AÑADIR OFERTA</button>
                 </div>
             </div>
@@ -71,39 +50,14 @@
             <div style="max-width:600px;">
                 <h2 style="color:#fff;margin-bottom:24px;">Añadir nuevo producto</h2>
                 <div style="display:flex;flex-direction:column;gap:16px;">
-                    <div>
-                        <label style="color:#ccc;font-size:13px;display:block;margin-bottom:6px;">Nombre</label>
-                        <input id="new-nombre" type="text" placeholder="Nombre del producto"
-                               style="width:100%;background:#1a1a1a;border:1px solid #444;color:#fff;padding:10px;border-radius:6px;font-family:inherit;">
-                    </div>
-                    <div>
-                        <label style="color:#ccc;font-size:13px;display:block;margin-bottom:6px;">Descripción</label>
-                        <input id="new-desc" type="text" placeholder="Ingredientes o descripción breve"
-                               style="width:100%;background:#1a1a1a;border:1px solid #444;color:#fff;padding:10px;border-radius:6px;font-family:inherit;">
-                    </div>
+                    <div><input id="new-nombre" type="text" placeholder="Nombre del producto" style="width:100%;background:#1a1a1a;border:1px solid #444;color:#fff;padding:10px;border-radius:6px;"></div>
+                    <div><input id="new-desc" type="text" placeholder="Descripción" style="width:100%;background:#1a1a1a;border:1px solid #444;color:#fff;padding:10px;border-radius:6px;"></div>
                     <div style="display:flex; gap:16px;">
-                        <div style="flex:1;">
-                            <label style="color:#ccc;font-size:13px;display:block;margin-bottom:6px;">Precio (€)</label>
-                            <input id="new-precio" type="number" step="0.01" placeholder="0.00"
-                                   style="width:100%;background:#1a1a1a;border:1px solid #444;color:#fff;padding:10px;border-radius:6px;font-family:inherit;">
-                        </div>
-                        <div style="flex:1;">
-                            <label style="color:#ccc;font-size:13px;display:block;margin-bottom:6px;">Categoría</label>
-                            <select id="new-categoria"
-                                    style="width:100%;background:#1a1a1a;border:1px solid #444;color:#fff;padding:10px;border-radius:6px;font-family:inherit;cursor:pointer;">
-                            </select>
-                        </div>
+                        <div style="flex:1;"><input id="new-precio" type="number" step="0.01" placeholder="Precio (€)" style="width:100%;background:#1a1a1a;border:1px solid #444;color:#fff;padding:10px;border-radius:6px;"></div>
+                        <div style="flex:1;"><select id="new-categoria" style="width:100%;background:#1a1a1a;border:1px solid #444;color:#fff;padding:10px;border-radius:6px;"></select></div>
                     </div>
-                    <div>
-                        <label style="color:#ccc;font-size:13px;display:block;margin-bottom:6px;">Alérgenos</label>
-                        <div id="new-alergenos" style="display:flex;flex-wrap:wrap;gap:12px;background:#1a1a1a;border:1px solid #444;padding:10px;border-radius:6px;">
-                        </div>
-                    </div>
-                    <div>
-                        <label style="color:#ccc;font-size:13px;display:block;margin-bottom:6px;">Imagen (ruta)</label>
-                        <input id="new-imagen" type="text" placeholder="img/burger-placeholder.png"
-                               style="width:100%;background:#1a1a1a;border:1px solid #444;color:#fff;padding:10px;border-radius:6px;font-family:inherit;">
-                    </div>
+                    <div><label style="color:#ccc;font-size:13px;">Alérgenos</label><div id="new-alergenos" style="display:flex;flex-wrap:wrap;gap:12px;background:#1a1a1a;border:1px solid #444;padding:10px;border-radius:6px;"></div></div>
+                    <div><input id="new-imagen" type="text" placeholder="img/burger-placeholder.png" style="width:100%;background:#1a1a1a;border:1px solid #444;color:#fff;padding:10px;border-radius:6px;"></div>
                     <button class="btn-main" id="btn-anadir" style="margin-top:8px;">AÑADIR PRODUCTO</button>
                 </div>
             </div>
@@ -111,8 +65,6 @@
 
     </div>
 </main>
-
-<div data-xlu-include-file="../components/footer.html"></div>
 
 </body>
 </html>

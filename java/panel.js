@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('btn-logout').addEventListener('click', (e) => {
         e.preventDefault();
         localStorage.removeItem('trabajador');
-        window.location.href = 'login.html';
+        localStorage.removeItem('usuario');
+        window.location.href = '../index.html';
     });
 
     // ── Tabs ─────────────────────────────────────────────────────
@@ -38,84 +39,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         localStorage.setItem('productos_panel', JSON.stringify(datos));
     }
 
-    // ── Render ofertas ────────────────────────────────────────────
-    function renderOfertas() {
-        const datos = getDatos();
-        if (!datos) return;
-
-        const lista = document.getElementById('lista-ofertas');
-        lista.innerHTML = '';
-
-        const ofertas = datos.productos.filter(p => p.categoria_id === 6);
-
-        if (ofertas.length === 0) {
-            lista.innerHTML = '<p style="color:#ccc;text-align:center;padding:40px;">Sin ofertas.</p>';
-            return;
-        }
-
-        ofertas.forEach(p => {
-            const item = document.createElement('article');
-            item.className = 'menu-item';
-            item.style.opacity = p.disponible ? '1' : '0.5';
-
-            item.innerHTML = `
-                <img src="../${p.imagen || 'img/burger-placeholder.png'}" class="item-img" alt="${p.nombre}"
-                     onerror="this.src='https://cdn-icons-png.flaticon.com/512/3075/3075977.png'">
-                <div class="item-info">
-                    <input class="panel-input" value="${p.nombre}"
-                           style="background:none;border:none;border-bottom:1px solid #666;color:#fff;font-size:20px;width:100%;margin-bottom:8px;font-family:inherit;">
-                    <input class="panel-input-desc" value="${p.descripcion}"
-                           style="background:none;border:none;border-bottom:1px solid #444;color:#ccc;font-size:14px;width:100%;margin-bottom:8px;font-family:inherit;">
-                    <div style="display:flex;align-items:center;gap:6px;">
-                        <input class="panel-input-precio" value="${p.precio}" type="number" step="0.01"
-                               style="background:none;border:none;border-bottom:1px solid #444;color:#ff2a2a;font-size:16px;width:70px;font-family:inherit;">
-                        <span style="color:#ff2a2a;">€</span>
-                    </div>
-                </div>
-                <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;min-width:160px;">
-                    <button class="btn-guardar btn-main" style="font-size:12px;padding:8px 16px;width:100%;">
-                        <i class="fa-solid fa-floppy-disk"></i> GUARDAR
-                    </button>
-                    <button class="btn-disponible action-btn ${p.disponible ? 'cart' : 'cancel'}" style="font-size:12px;padding:8px 16px;width:100%;">
-                        <i class="fa-solid fa-${p.disponible ? 'eye' : 'eye-slash'}"></i>
-                        ${p.disponible ? 'DISPONIBLE' : 'NO DISPONIBLE'}
-                    </button>
-                    <button class="btn-eliminar action-btn cancel" style="font-size:12px;padding:8px 16px;width:100%;">
-                        <i class="fa-solid fa-trash"></i> ELIMINAR
-                    </button>
-                </div>
-            `;
-
-            item.querySelector('.btn-guardar').addEventListener('click', () => {
-                const d    = getDatos();
-                const prod = d.productos.find(x => x.id === p.id);
-                prod.nombre      = item.querySelector('.panel-input').value.trim();
-                prod.descripcion = item.querySelector('.panel-input-desc').value.trim();
-                prod.precio      = parseFloat(item.querySelector('.panel-input-precio').value);
-                guardarDatos(d);
-                alert('Cambios guardados.');
-            });
-
-            item.querySelector('.btn-disponible').addEventListener('click', () => {
-                const d    = getDatos();
-                const prod = d.productos.find(x => x.id === p.id);
-                prod.disponible = !prod.disponible;
-                guardarDatos(d);
-                renderOfertas();
-            });
-
-            item.querySelector('.btn-eliminar').addEventListener('click', () => {
-                if (!confirm(`¿Eliminar "${p.nombre}"?`)) return;
-                const d   = getDatos();
-                const idx = d.productos.findIndex(x => x.id === p.id);
-                d.productos.splice(idx, 1);
-                guardarDatos(d);
-                renderOfertas();
-            });
-
-            lista.appendChild(item);
-        });
-    }
 
     // ── Formulario nueva oferta ───────────────────────────────────
     document.addEventListener('componentesListos', () => {

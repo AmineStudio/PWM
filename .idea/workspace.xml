@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="Footer con documentos reales. Pagina de pago creada (falta implementar el precio real). Pagina a domicilio creada (falta redirecionarla después del botón &quot;a domicilio&quot; en tipo_pedido).">
-      <change afterPath="$PROJECT_DIR$/java/historial.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/pago.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/ticket.js" afterDir="false" />
+    <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="Logica del historial implementada guardando los pedidos en ella. Errores del carrito solucionados.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/java.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/java.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/panel.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/panel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/producto-card.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/producto-card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/historial.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/historial.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/pago.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/pago.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/ticket.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/ticket.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/panel.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +148,7 @@
       <workItem from="1774358086772" duration="8428000" />
       <workItem from="1774457405176" duration="7929000" />
       <workItem from="1774523880051" duration="671000" />
-      <workItem from="1774605094908" duration="3830000" />
+      <workItem from="1774605094908" duration="7193000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -249,7 +246,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774470295208</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Logica del historial implementada guardando los pedidos en ella. Errores del carrito solucionados.">
+      <option name="closed" value="true" />
+      <created>1774609123632</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1774609123632</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,6 +296,7 @@
     <MESSAGE value="header responsive" />
     <MESSAGE value="&#10;&#10;formulario de login y registrarse (mas logout)&#10;&#10;anadir el panel de trabajador para poder manegar carta&#10;&#10;logica para guardar nuevos productos y ofertas (falta eliminar)" />
     <MESSAGE value="Footer con documentos reales. Pagina de pago creada (falta implementar el precio real). Pagina a domicilio creada (falta redirecionarla después del botón &quot;a domicilio&quot; en tipo_pedido)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Footer con documentos reales. Pagina de pago creada (falta implementar el precio real). Pagina a domicilio creada (falta redirecionarla después del botón &quot;a domicilio&quot; en tipo_pedido)." />
+    <MESSAGE value="Logica del historial implementada guardando los pedidos en ella. Errores del carrito solucionados." />
+    <option name="LAST_COMMIT_MESSAGE" value="Logica del historial implementada guardando los pedidos en ella. Errores del carrito solucionados." />
   </component>
 </project>

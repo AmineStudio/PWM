@@ -131,11 +131,17 @@ document.addEventListener('componentesListos', async () => {
     const lista = document.getElementById('lista-productos');
 
     if (!navCats || !lista) return;
-
     if (typeof cargarProductos === 'undefined') return;
 
+    // === AQUÍ ESTÁ LA MAGIA QUE DETECTA EL PANEL ===
     const esPedido = !!document.querySelector('.pedido-mode');
-    const modo = esPedido ? 'pedido' : 'carta';
+    const esPanel = !!document.querySelector('.panel-mode');
+
+    let modo = 'carta'; // Por defecto pinta la carta normal
+    if (esPedido) modo = 'pedido'; // Si es la página de pedidos
+    if (esPanel) modo = 'panel';   // Si es el panel del trabajador
+    // ===============================================
+
     const base = window.location.pathname.includes('/pages/') ? '../' : '';
 
     const res = await fetch(base + 'data.json');

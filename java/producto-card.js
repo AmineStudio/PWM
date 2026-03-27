@@ -39,13 +39,21 @@ function crearCartaItem(producto) {
     const card = clone.querySelector('.menu-item');
 
     card.dataset.id = producto.id;
-    card.querySelector('.item-nombre').textContent = producto.nombre.toUpperCase();
-    card.querySelector('.item-info').textContent = producto.descripcion;
-    card.querySelector('.item-precio-burbuja').textContent = `${producto.precio}€`;
+
+    const titulo = card.querySelector('.item-nombre');
+    if (titulo) titulo.textContent = producto.nombre.toUpperCase();
+
+    const desc = card.querySelector('.item-info-desc');
+    if (desc) desc.textContent = producto.descripcion;
+
+    const precio = card.querySelector('.item-precio-burbuja');
+    if (precio) precio.textContent = producto.precio + '€';
 
     const img = card.querySelector('img');
-    img.src = getRuta(producto.imagen || 'img/burger-placeholder.png')
-    img.alt = producto.nombre;
+    if (img) {
+        img.src = getRuta(producto.imagen || 'img/burger-placeholder.png');
+        img.alt = producto.nombre;
+    }
 
     return card;
 }
@@ -105,56 +113,75 @@ function crearPanelItem(producto, mapaAlergenos, categoriaId, productos, datos) 
     img.src = getRuta(producto.imagen || 'img/burger-placeholder.png');
     img.alt = producto.nombre;
 
+    // Convertimos el array de alérgenos en un texto (ej: "gluten, lacteos")
+    const alergenosStr = (producto.alergenos || []).join(', ');
+
     const infoDiv = card.querySelector('.item-info');
     infoDiv.innerHTML = `
-        <input class="panel-input" value="${producto.nombre}"
-               style="background:none;border:none;border-bottom:1px solid #666;color:#fff;font-size:20px;width:100%;margin-bottom:8px;font-family:inherit;">
-        <input class="panel-input-desc" value="${producto.descripcion}"
-               style="background:none;border:none;border-bottom:1px solid #444;color:#ccc;font-size:14px;width:100%;margin-bottom:8px;font-family:inherit;">
-        <div style="display:flex;align-items:center;gap:6px;">
-            <input class="panel-input-precio" value="${producto.precio}" type="number" step="0.01"
-                   style="background:none;border:none;border-bottom:1px solid #444;color:#ff2a2a;font-size:16px;width:70px;font-family:inherit;">
-            <span style="color:#ff2a2a;">€</span>
+        <input class="panel-input" value="${producto.nombre}" placeholder="Nombre"
+               style="background:none;border:none;border-bottom:1px solid #666;color:#fff;font-size:18px;width:100%;margin-bottom:4px;font-family:inherit;font-weight:bold;">
+        
+        <input class="panel-input-desc" value="${producto.descripcion}" placeholder="Descripción"
+               style="background:none;border:none;border-bottom:1px solid #444;color:#ccc;font-size:12px;width:100%;margin-bottom:4px;font-family:inherit;">
+               
+        <input class="panel-input-alergenos" value="${alergenosStr}" placeholder="Alérgenos (ej: gluten, lacteos)"
+               style="background:none;border:none;border-bottom:1px solid #444;color:#ffaa00;font-size:12px;width:100%;margin-bottom:4px;font-family:inherit;">
+               
+        <div style="display:flex;align-items:center;gap:10px;margin-top:5px;">
+            <div>
+                <input class="panel-input-precio" value="${producto.precio}" type="number" step="0.01"
+                       style="background:none;border:none;border-bottom:1px solid #444;color:#ff2a2a;font-size:14px;width:60px;font-family:inherit;">
+                <span style="color:#ff2a2a;">€</span>
+            </div>
+            <div>
+                <input class="panel-input-puntos" value="${producto.puntos_requeridos || 0}" type="number"
+                       style="background:none;border:none;border-bottom:1px solid #444;color:#00ffff;font-size:14px;width:50px;font-family:inherit;">
+                <span style="color:#00ffff;font-size:12px;">Pts</span>
+            </div>
         </div>
     `;
 
     const priceDiv = card.querySelector('.item-price');
-    priceDiv.style.cssText = 'display:flex;flex-direction:column;gap:8px;align-items:flex-end;min-width:160px;';
+    priceDiv.style.cssText = 'display:flex;flex-direction:column;gap:5px;align-items:flex-end;min-width:140px;';
     priceDiv.innerHTML = `
-        <button class="btn-guardar btn-main" style="font-size:12px;padding:8px 16px;width:100%;">
-            <i class="fa-solid fa-floppy-disk"></i> GUARDAR
+        <button class="btn-guardar btn-main" style="font-size:11px;padding:6px 12px;width:100%;">GUARDAR</button>
+        <button class="btn-disponible action-btn ${producto.disponible ? 'cart' : 'cancel'}" style="font-size:11px;padding:6px 12px;width:100%;">
+            ${producto.disponible ? 'OCULTAR' : 'MOSTRAR'}
         </button>
-        <button class="btn-disponible action-btn ${producto.disponible ? 'cart' : 'cancel'}" style="font-size:12px;padding:8px 16px;width:100%;">
-            <i class="fa-solid fa-${producto.disponible ? 'eye' : 'eye-slash'}"></i>
-            ${producto.disponible ? 'DISPONIBLE' : 'NO DISPONIBLE'}
-        </button>
-        <button class="btn-eliminar action-btn cancel" style="font-size:12px;padding:8px 16px;width:100%;">
-            <i class="fa-solid fa-trash"></i> ELIMINAR
-        </button>
+        <button class="btn-eliminar action-btn cancel" style="font-size:11px;padding:6px 12px;width:100%; background-color:#ff2a2a; color:white;">ELIMINAR</button>
     `;
 
+    // Botón GUARDAR
     priceDiv.querySelector('.btn-guardar').addEventListener('click', () => {
         const prod = productos.find(x => x.id === producto.id);
-        prod.nombre      = infoDiv.querySelector('.panel-input').value.trim();
+        prod.nombre = infoDiv.querySelector('.panel-input').value.trim();
         prod.descripcion = infoDiv.querySelector('.panel-input-desc').value.trim();
-        prod.precio      = parseFloat(infoDiv.querySelector('.panel-input-precio').value);
-        guardarDatos(datos);
-        alert('Cambios guardados.');
+        prod.precio = parseFloat(infoDiv.querySelector('.panel-input-precio').value);
+        prod.puntos_requeridos = parseInt(infoDiv.querySelector('.panel-input-puntos').value) || 0;
+
+        // Limpiamos los alérgenos para guardarlos como array
+        const alergenosInput = infoDiv.querySelector('.panel-input-alergenos').value;
+        prod.alergenos = alergenosInput.split(',').map(s => s.trim().toLowerCase()).filter(s => s !== '');
+
+        localStorage.setItem('productos_panel', JSON.stringify(datos));
+        alert('✅ Cambios guardados correctamente.');
     });
 
+    // Botón OCULTAR/MOSTRAR
     priceDiv.querySelector('.btn-disponible').addEventListener('click', () => {
         const prod = productos.find(x => x.id === producto.id);
         prod.disponible = !prod.disponible;
-        guardarDatos(datos);
-        cargarProductos('lista-productos', 'panel', categoriaId);
+        localStorage.setItem('productos_panel', JSON.stringify(datos));
+        cargarProductos('lista-productos', 'panel', categoriaId); // Recargamos
     });
 
+    // Botón ELIMINAR
     priceDiv.querySelector('.btn-eliminar').addEventListener('click', () => {
-        if (!confirm(`¿Eliminar "${producto.nombre}"?`)) return;
+        if (!confirm(`¿Estás seguro de que quieres eliminar "${producto.nombre}" de la base de datos?`)) return;
         const idx = productos.findIndex(x => x.id === producto.id);
         productos.splice(idx, 1);
-        guardarDatos(datos);
-        cargarProductos('lista-productos', 'panel', categoriaId);
+        localStorage.setItem('productos_panel', JSON.stringify(datos));
+        cargarProductos('lista-productos', 'panel', categoriaId); // Recargamos
     });
 
     return card;
@@ -205,8 +232,15 @@ async function cargarProductos(contenedorId, modo = 'carta', categoriaId = null)
 
         contenedor.innerHTML = '';
         productos.forEach(p => {
-            const card = (modo === 'carta') ? crearCartaItem(p) : crearPedidoItem(p, mapaAlergenos);
-            contenedor.appendChild(card);
+            let card;
+            if (modo === 'carta') {
+                card = crearCartaItem(p);
+            } else if (modo === 'pedido') {
+                card = crearPedidoItem(p, mapaAlergenos);
+            } else if (modo === 'panel') {
+                card = crearPanelItem(p, mapaAlergenos, categoriaId, productos, datos);
+            }
+            if (card) contenedor.appendChild(card);
         });
         // --------------------------------------------------------------------
 
