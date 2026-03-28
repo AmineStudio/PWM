@@ -15,6 +15,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (datosDB.pedidos) {
         misPedidos = datosDB.pedidos.filter(p => p.usuario_id === usuario.id);
+        // --- MOTOR DE ESTADOS AUTOMÁTICO ---
+        const ahora = Date.now();
+        let hayCambios = false;
+
+        misPedidos.forEach(pedido => {
+            // Solo calculamos si el pedido no está entregado ni cancelado
+            if (pedido.estado === 'preparando' || pedido.estado === 'en camino' || pedido.estado === 'listo') {
+
+                // Calculamos cuántos segundos han pasado desde que se creó el pedido
+                const tiempoPasado = (ahora - (pedido.timestamp || ahora)) / 1000;
+
+                if (tiempoPasado >= 30) {
+                    // A los 30 segundos, siempre se entrega
+                    pedido.estado = 'entregado';
+                    hayCambios = true;
+                } else if (tiempoPasado >= 15 && pedido.estado === 'preparando') {
+                    // A los 15 segundos, depende de si es a domicilio o en local
+                    pedido.estado = (pedido.tipo === 'domicilio') ? 'en camino' : 'listo';
+                    hayCambios = true;
+                }
+            }
+        });
+
+        // Si algún estado cambió, lo guardamos en la base de datos
+        if (hayCambios) {
+            localStorage.setItem('productos_panel', JSON.stringify(datosDB));
+        }
+        // ------------------------------------
     }
 
     // Mostrar los puntos del usuario arriba del historial
@@ -53,7 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (pedido.estado.toLowerCase() === 'entregado') colorEstado = 'green';
         if (pedido.estado.toLowerCase() === 'cancelado') colorEstado = '#ff2a2a';
         if (pedido.estado.toLowerCase() === 'preparando') colorEstado = '#ffcc00';
-
+        if (pedido.estado.toLowerCase() === 'en camino') colorEstado = '#00ffff'; // Azulito
+        if (pedido.estado.toLowerCase() === 'listo') colorEstado = '#ff00ff'; // Magenta o el que más te guste
         const fechaArray = pedido.fecha.split('-');
         const fechaES = fechaArray.length === 3 ? `${fechaArray[2]}/${fechaArray[1]}/${fechaArray[0]}` : pedido.fecha;
 
@@ -73,4 +102,12 @@ document.addEventListener('DOMContentLoaded', () => {
     pedidosHTML += '</div>';
 
     contenedor.innerHTML = pedidosHTML;
+
+    // Refrescar la pantalla silenciosamente cada 5 segundos para animar los pedidos
+    setTimeout(() => {
+        const tienePendientes = misPedidos.some(p => p.estado !== 'entregado' && p.estado !== 'cancelado');
+        if (tienePendientes) {
+            window.location.reload();
+        }
+    }, 10000);
 });

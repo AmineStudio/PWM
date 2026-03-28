@@ -47,7 +47,13 @@ function crearCartaItem(producto) {
     if (desc) desc.textContent = producto.descripcion;
 
     const precio = card.querySelector('.item-precio-burbuja');
-    if (precio) precio.textContent = producto.precio + '€';
+    if (precio) {
+        // Si el producto vale puntos (más de 0), mostramos el texto. Si no, solo el precio en €.
+        let textoPuntos = (producto.puntos_requeridos > 0)
+            ? `<br><span style="font-size:12px; color:#00ffff; text-shadow: 1px 1px 2px #000;">o ${producto.puntos_requeridos} pts</span>`
+            : '';
+        precio.innerHTML = `${producto.precio}€ ${textoPuntos}`;
+    }
 
     const img = card.querySelector('img');
     if (img) {
@@ -69,7 +75,13 @@ function crearPedidoItem(producto, mapaAlergenos) {
     card.dataset.id = producto.id;
     card.querySelector('.item-nombre').textContent = producto.nombre.toUpperCase();
     card.querySelector('.item-info-desc').textContent = producto.descripcion;
-    card.querySelector('.item-precio-burbuja').textContent = `${producto.precio}€`;
+    const precio = card.querySelector('.item-precio-burbuja');
+    if (precio) {
+        let textoPuntos = (producto.puntos_requeridos > 0)
+            ? '<br><span style="font-size:12px; color:#00ffff; text-shadow: 1px 1px 2px #000;">o ' + producto.puntos_requeridos + ' pts</span>'
+            : '';
+        precio.innerHTML = producto.precio + '€ ' + textoPuntos;
+    }
 
     const img = card.querySelector('img');
     img.src = getRuta(producto.imagen || 'img/burger-placeholder.png');
@@ -343,18 +355,19 @@ function finalizarPedido() {
         return false;
     }
 
-    // Obtenemos el usuario (puede ser null si es un invitado sin registrar)
     const usuario = JSON.parse(localStorage.getItem('usuario'));
-
-    // Calcular el total y recopilar productos
-    let totalPedido = 0;
     const datos = JSON.parse(localStorage.getItem('productos_panel'));
+
+    let totalPedido = 0;
+    let totalPuntosRequeridos = 0; // NUEVO: Calculamos cuánto cuesta en puntos
     const productosComprados = [];
 
     Object.entries(carritoActual).forEach(([id, cantidad]) => {
         const producto = datos.productos.find(p => String(p.id) === id);
         if (producto) {
             totalPedido += producto.precio * cantidad;
+            totalPuntosRequeridos += (producto.puntos_requeridos || 0) * cantidad;
+
             productosComprados.push({
                 producto_id: producto.id,
                 nombre: producto.nombre,
@@ -364,60 +377,79 @@ function finalizarPedido() {
         }
     });
 
-    // Generar un ID único del 1 al 100
-    let nuevoId;
-    do {
-        nuevoId = Math.floor(Math.random() * 100) + 1;
-        // Comprobamos que no se repita el ID en los pedidos actuales
-    } while (datos.pedidos && datos.pedidos.some(p => p.id === nuevoId));
+    // === NUEVA LÓGICA DE PAGO CON PUNTOS ===
+    let pagadoConPuntos = false;
 
-    // Crear el objeto del pedido general
-    // Si no hay usuario, le asignamos el id "invitado"
+    // Si el usuario está logueado, el carrito vale puntos, y tiene puntos suficientes...
+    if (usuario && totalPuntosRequeridos > 0 && usuario.puntos >= totalPuntosRequeridos) {
+        const quierePagar = confirm(`¡Enhorabuena! Tienes ${usuario.puntos} puntos.\n\nEste pedido te cuesta ${totalPedido.toFixed(2)}€ o ${totalPuntosRequeridos} puntos.\n\n¿Quieres usar tus puntos para que te salga GRATIS?`);
+
+        if (quierePagar) {
+            pagadoConPuntos = true;
+            totalPedido = 0; // ¡El pedido le sale a 0€!
+        }
+    } else if (usuario && totalPuntosRequeridos > 0 && usuario.puntos < totalPuntosRequeridos) {
+        // Le recordamos sutilmente que le faltan puntos
+        console.log(`Te faltan ${totalPuntosRequeridos - usuario.puntos} puntos para que esto sea gratis.`);
+    }
+    // =======================================
+
+    let nuevoId;
+    do { nuevoId = Math.floor(Math.random() * 100) + 1; }
+    while (datos.pedidos && datos.pedidos.some(p => p.id === nuevoId));
+
+    // Cogemos el tipo de pedido (si no hay, por defecto es domicilio)
+    const tipoPedido = localStorage.getItem('tipo_pedido') || 'domicilio';
+
     const nuevoPedido = {
         id: nuevoId,
         usuario_id: usuario ? usuario.id : "invitado",
-        fecha: new Date().toISOString().split('T')[0], // Formato YYYY-MM-DD
+        fecha: new Date().toISOString().split('T')[0],
+        timestamp: Date.now(), // <-- NUEVO: Guardamos el milisegundo exacto del pedido
+        tipo: tipoPedido,      // <-- NUEVO: Guardamos qué tipo eligió
         estado: "preparando",
         total: parseFloat(totalPedido.toFixed(2)),
+        pagado_con_puntos: pagadoConPuntos,
         productos: productosComprados
     };
 
-    // 1. Guardar el pedido en la lista GENERAL del restaurante (siempre)
     if (!datos.pedidos) datos.pedidos = [];
     datos.pedidos.push(nuevoPedido);
 
-    // 2. Guardar en el historial PERSONAL y dar puntos (SOLO SI ESTÁ REGISTRADO)
     if (usuario) {
         const usuariosArr = datos.usuarios || [];
         const userIndex = usuariosArr.findIndex(u => u.id === usuario.id);
 
         if(userIndex !== -1) {
-            // Asegurarnos de que el array de pedidos existe
             if (!usuariosArr[userIndex].pedidos) usuariosArr[userIndex].pedidos = [];
-
-            // Añadir al historial
             usuariosArr[userIndex].pedidos.push(nuevoPedido.id);
 
-            // Sumar puntos por la compra (1 punto por euro)
-            usuariosArr[userIndex].puntos = (usuariosArr[userIndex].puntos || 0) + Math.floor(totalPedido);
+            // APLICAMOS LA SUBIDA O BAJADA DE PUNTOS
+            if (pagadoConPuntos) {
+                // Si pagó con puntos, se los restamos
+                usuariosArr[userIndex].puntos -= totalPuntosRequeridos;
+            } else {
+                // Si pagó con euros, gana puntos (x10)
+                usuariosArr[userIndex].puntos = (usuariosArr[userIndex].puntos || 0) + Math.floor(totalPedido * 10);
+            }
 
-            // Actualizamos el usuario en la sesión actual para que la web lo refleje al instante
             usuario.puntos = usuariosArr[userIndex].puntos;
             usuario.pedidos = usuariosArr[userIndex].pedidos;
             localStorage.setItem('usuario', JSON.stringify(usuario));
         }
     }
 
-    // Guardar los datos maestros actualizados
     localStorage.setItem('productos_panel', JSON.stringify(datos));
 
-    alert(`¡Pedido realizado con éxito! Tu número de pedido es el #${nuevoPedido.id}`);
+    if (pagadoConPuntos) {
+        alert(`¡MAGIA! Has pagado con tus puntos. Tu número de pedido es el #${nuevoPedido.id}`);
+    } else {
+        alert(`¡Pedido realizado con éxito! Tu número de pedido es el #${nuevoPedido.id}`);
+    }
 
-    // VACIAR EL CARRITO AL TERMINAR
     vaciarCarrito();
-
     localStorage.setItem('ultimo_pedido', nuevoId);
-    return true; // Todo ha ido perfecto, permite ir a ticket.html
+    return true;
 }
 
 // Función para sincronizar el carrito entre pestañas/páginas
