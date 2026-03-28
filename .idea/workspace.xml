@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="Logica del historial implementada guardando los pedidos en ella. Errores del carrito solucionados.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/historial.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/historial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/java.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/java.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/producto-card.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/producto-card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/lista_pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/lista_pedido.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,6 +148,7 @@
       <workItem from="1774457405176" duration="7929000" />
       <workItem from="1774523880051" duration="671000" />
       <workItem from="1774605094908" duration="7193000" />
+      <workItem from="1774696406398" duration="5019000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />

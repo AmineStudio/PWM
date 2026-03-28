@@ -195,22 +195,49 @@ document.addEventListener('componentesListos', () => {
     if (usuario) {
         // Cambiar icono de usuario por nombre + logout
         btnUser.innerHTML = `<span style="color:#fff;font-size:14px;letter-spacing:1px;">${usuario.nombre.split(' ')[0].toUpperCase()}</span>`;
+        // --- MENÚ FLOTANTE DEL PERFIL ANIMADO ---
+        btnUser.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            let menu = document.getElementById('menu-perfil-flotante');
+
+            if (!menu) {
+                menu = document.createElement('div');
+                menu.id = 'menu-perfil-flotante';
+                menu.style.cssText = 'position:absolute; top:70px; right:20px; background:#111; border:2px solid #ff2a2a; border-radius:10px; padding:20px; z-index:9999; box-shadow: 0 10px 20px rgba(0,0,0,0.8); text-align:center; min-width:180px;';
+
+                const misPuntos = usuario.puntos || 0;
+                const rutaHistorial = window.location.pathname.includes('/pages/') ? 'historial.html' : 'pages/historial.html';
+
+                // LA MAGIA DE LAS ANIMACIONES
+                const estilosAnimacion = '<style>' +
+                    '.btn-hist-flotante { background:#ff2a2a; color:#fff; display:block; padding:10px; text-decoration:none; border-radius:5px; margin-bottom:10px; font-weight:bold; transition:all 0.3s ease; }' +
+                    '.btn-hist-flotante:hover { background:#cc0000; transform:scale(1.05); box-shadow:0 4px 10px rgba(255,42,42,0.4); }' +
+                    '.btn-cerrar-flotante { background:none; border:none; color:#ccc; cursor:pointer; text-decoration:none; font-size:14px; width:100%; transition:all 0.3s ease; }' +
+                    '.btn-cerrar-flotante:hover { color:#ff2a2a; transform:scale(1.05); }' +
+                    '</style>';
+
+                menu.innerHTML = estilosAnimacion +
+                    '<h4 style="color:#fff; margin:0 0 5px 0; text-transform:uppercase;">' + usuario.nombre + '</h4>' +
+                    '<p style="color:#ffcc00; font-size:22px; margin:0 0 15px 0; font-weight:bold;">💎 ' + misPuntos + ' pts</p>' +
+                    '<hr style="border-color:#333; margin-bottom:15px;">' +
+                    '<a href="' + rutaHistorial + '" class="btn-hist-flotante">Ver Historial</a>' +
+                    '<button id="btn-cerrar-sesion-flotante" class="btn-cerrar-flotante">Cerrar Sesión</button>';
+
+                btnUser.parentElement.style.position = 'relative';
+                btnUser.parentElement.appendChild(menu);
+
+                document.getElementById('btn-cerrar-sesion-flotante').addEventListener('click', function() {
+                    localStorage.removeItem('usuario');
+                    window.location.reload();
+                });
+            } else {
+                menu.style.display = (menu.style.display === 'none') ? 'block' : 'none';
+            }
+        });
         btnUser.href = '#';
         btnUser.title = `Sesión iniciada como ${usuario.nombre}`;
 
-        // Botón logout
-        const btnLogout = document.createElement('a');
-        btnLogout.className = 'icon-btn';
-        btnLogout.href = '#';
-        btnLogout.title = 'Cerrar sesión';
-        btnLogout.innerHTML = '<i class="fa-solid fa-right-from-bracket" style="color:#ff2a2a;font-size:24px;"></i>';
-        btnLogout.addEventListener('click', (e) => {
-            e.preventDefault();
-            localStorage.removeItem('usuario');
-            window.location.reload();
-        });
-
-        btnUser.parentNode.insertBefore(btnLogout, btnUser.nextSibling);
 
     } else {
         // Usar la ruta corregida según la página actual
