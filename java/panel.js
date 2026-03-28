@@ -98,9 +98,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         const divAlergenos = document.getElementById('new-alergenos');
         if (divAlergenos && divAlergenos.children.length === 0) {
             datos.alergenos.forEach(a => {
+                // Ajustamos la ruta por si el panel está en /pages/
+                let rutaImg = a.icono;
+                if (window.location.pathname.includes('/pages/') && rutaImg.startsWith('img/')) {
+                    rutaImg = '../' + rutaImg;
+                }
+
                 const label = document.createElement('label');
-                label.style.cssText = 'color:#fff;display:flex;align-items:center;gap:6px;cursor:pointer;';
-                label.innerHTML = `<input type="checkbox" value="${a.id}"> ${a.icono} ${a.nombre}`;
+                label.style.cssText = 'color:#fff;display:flex;align-items:center;gap:8px;cursor:pointer;margin-bottom:8px;';
+                label.innerHTML = `
+                    <input type="checkbox" value="${a.id}"> 
+                    <img src="${rutaImg}" alt="${a.nombre}" style="width: 24px; height: 24px; object-fit: contain;">
+                    <span>${a.nombre}</span>
+                `;
                 divAlergenos.appendChild(label);
             });
         }

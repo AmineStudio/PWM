@@ -2,8 +2,6 @@
    PRODUCTO-CARD.JS - Componente reutilizable de producto
    ============================================== */
 
-const carrito = {};
-
 // Ajusta rutas según si estamos en /pages/ o raíz
 function getRuta(archivo) {
     return window.location.pathname.includes('/pages/')
@@ -14,26 +12,23 @@ function getRuta(archivo) {
 /**
  * Carga el componente HTML de plantillas (una sola vez)
  */
-
 async function cargarComponenteProducto() {
-    // Evitar cargar dos veces
     if (document.getElementById('tpl-carta-item')) return;
 
     const res = await fetch(getRuta('components/producto-card.html'));
     const html = await res.text();
 
-    // ✅ Crear un contenedor dedicado fuera del flujo del DOM
     const div = document.createElement('div');
     div.id = 'producto-templates';
-    div.setAttribute('hidden', '');  // más limpio que display:none
+    div.setAttribute('hidden', '');
     div.innerHTML = html;
-    document.documentElement.appendChild(div); // ✅ se añade al <html>, no al <body>
+    document.documentElement.appendChild(div);
 }
 
 /**
  * Rellena una tarjeta de CARTA clonando la plantilla
  */
-function crearCartaItem(producto) {
+function crearCartaItem(producto, mapaAlergenos) {
     const tpl = document.getElementById('tpl-carta-item');
     const clone = tpl.content.cloneNode(true);
     const card = clone.querySelector('.menu-item');
@@ -48,7 +43,6 @@ function crearCartaItem(producto) {
 
     const precio = card.querySelector('.item-precio-burbuja');
     if (precio) {
-        // Si el producto vale puntos (más de 0), mostramos el texto. Si no, solo el precio en €.
         let textoPuntos = (producto.puntos_requeridos > 0)
             ? `<br><span style="font-size:12px; color:#00ffff; text-shadow: 1px 1px 2px #000;">o ${producto.puntos_requeridos} pts</span>`
             : '';
@@ -60,6 +54,41 @@ function crearCartaItem(producto) {
         img.src = getRuta(producto.imagen || 'img/burger-placeholder.png');
         img.alt = producto.nombre;
     }
+
+    // --- MAGIA: Creación inteligente de alérgenos ---
+    // Si el producto tiene alérgenos, los dibujamos aunque el HTML no tenga el div preparado
+    if (producto.alergenos && producto.alergenos.length > 0 && mapaAlergenos) {
+        const infoDiv = card.querySelector('.item-info');
+        if (infoDiv) {
+            let divAlerg = card.querySelector('.iconos-alergenos');
+
+            // Si el hueco no existe en el HTML, lo creamos con JS
+            if (!divAlerg) {
+                divAlerg = document.createElement('div');
+                divAlerg.className = 'iconos-alergenos';
+                infoDiv.appendChild(divAlerg);
+            } else {
+                infoDiv.appendChild(divAlerg); // Si existe, nos aseguramos de que esté bajo la info
+            }
+
+            // Forzamos fila horizontal y tamaño
+            divAlerg.style.cssText = 'display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; margin-top: 10px; gap: 10px;';
+
+            let alergenosHTML = '';
+            producto.alergenos.forEach(idAl => {
+                const alerg = mapaAlergenos[idAl];
+                if (alerg) {
+                    let rutaImg = alerg.icono;
+                    if (window.location.pathname.includes('/pages/') && rutaImg.startsWith('img/')) {
+                        rutaImg = '../' + rutaImg;
+                    }
+                    alergenosHTML += `<img src="${rutaImg}" title="${alerg.nombre}" alt="${alerg.nombre}" class="icono-alerg-mini" style="width: 40px; height: 40px; object-fit: contain; vertical-align: middle;">`;
+                }
+            });
+            divAlerg.innerHTML = alergenosHTML;
+        }
+    }
+    // ------------------------------------------------------------------
 
     return card;
 }
@@ -87,21 +116,41 @@ function crearPedidoItem(producto, mapaAlergenos) {
     img.src = getRuta(producto.imagen || 'img/burger-placeholder.png');
     img.alt = producto.nombre;
 
-    // Alérgenos
-    const divAlerg = card.querySelector('.iconos-alergenos');
-    divAlerg.innerHTML = (producto.alergenos || []).map(id => {
-        const alerg = mapaAlergenos[id];
-        if (!alerg) return '';
-        return `<span class="icono-alerg" title="${alerg.nombre}">${alerg.icono}</span>`;
-    }).join('');
+    // --- MAGIA: Creación inteligente de alérgenos ---
+    if (producto.alergenos && producto.alergenos.length > 0 && mapaAlergenos) {
+        const infoDiv = card.querySelector('.item-info');
+        if (infoDiv) {
+            let divAlerg = card.querySelector('.iconos-alergenos');
+            if (!divAlerg) {
+                divAlerg = document.createElement('div');
+                divAlerg.className = 'iconos-alergenos';
+                infoDiv.appendChild(divAlerg);
+            } else {
+                infoDiv.appendChild(divAlerg);
+            }
 
-    // Agotado
+            divAlerg.style.cssText = 'display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; margin-top: 10px; gap: 10px;';
+
+            let alergenosHTML = '';
+            producto.alergenos.forEach(idAl => {
+                const alerg = mapaAlergenos[idAl];
+                if (alerg) {
+                    let rutaImg = alerg.icono;
+                    if (window.location.pathname.includes('/pages/') && rutaImg.startsWith('img/')) {
+                        rutaImg = '../' + rutaImg;
+                    }
+                    alergenosHTML += `<img src="${rutaImg}" title="${alerg.nombre}" alt="${alerg.nombre}" class="icono-alerg-mini" style="width: 40px; height: 40px; object-fit: contain; vertical-align: middle;">`;
+                }
+            });
+            divAlerg.innerHTML = alergenosHTML;
+        }
+    }
+
     if (!producto.disponible) {
         card.querySelector('.qty-control').style.display = 'none';
         card.style.opacity = '0.5';
     }
 
-    // Contador
     const btnMas = card.querySelector('.btn-mas');
     const btnMenos = card.querySelector('.btn-menos');
     const qty = card.querySelector('.numero-cantidad');
@@ -125,7 +174,6 @@ function crearPanelItem(producto, mapaAlergenos, categoriaId, productos, datos) 
     img.src = getRuta(producto.imagen || 'img/burger-placeholder.png');
     img.alt = producto.nombre;
 
-    // Convertimos el array de alérgenos en un texto (ej: "gluten, lacteos")
     const alergenosStr = (producto.alergenos || []).join(', ');
 
     const infoDiv = card.querySelector('.item-info');
@@ -161,43 +209,32 @@ function crearPanelItem(producto, mapaAlergenos, categoriaId, productos, datos) 
             </div>
         </div>
     `;
-    // --- LÓGICA DEL BOTÓN CAMBIAR FOTO ---
+
     const btnImg = infoDiv.querySelector('.btn-cambiar-img');
     const fileInput = infoDiv.querySelector('.input-file-img');
     const hiddenImgInput = infoDiv.querySelector('.panel-input-img');
     const nombreArchivoSpan = infoDiv.querySelector('.nombre-archivo-img');
 
-    // Efecto visual al pasar el ratón
     btnImg.onmouseover = () => btnImg.style.background = '#555';
     btnImg.onmouseout = () => btnImg.style.background = '#333';
 
-    // Al hacer clic en el botón visible, hacemos clic en el input invisible
     btnImg.addEventListener('click', () => fileInput.click());
 
-    // Cuando el usuario elige una foto de su PC...
     fileInput.addEventListener('change', (e) => {
         const file = e.target.files[0];
         if (file) {
             nombreArchivoSpan.textContent = "Cargando...";
-
-            // Usamos FileReader para convertir la foto a texto Base64
             const reader = new FileReader();
             reader.onload = function(event) {
                 const base64String = event.target.result;
-
-                // 1. Cambiamos la previsualización de la tarjeta al momento
                 img.src = base64String;
-
-                // 2. Guardamos el texto largo en el input oculto para que el botón GUARDAR lo coja
                 hiddenImgInput.value = base64String;
-
-                // 3. Avisamos de que está lista
                 nombreArchivoSpan.textContent = file.name;
             };
             reader.readAsDataURL(file);
         }
     });
-    // -------------------------------------
+
     const priceDiv = card.querySelector('.item-price');
     priceDiv.style.cssText = 'display:flex;flex-direction:column;gap:5px;align-items:flex-end;min-width:140px;';
     priceDiv.innerHTML = `
@@ -208,7 +245,6 @@ function crearPanelItem(producto, mapaAlergenos, categoriaId, productos, datos) 
         <button class="btn-eliminar action-btn cancel" style="font-size:11px;padding:6px 12px;width:100%; background-color:#ff2a2a; color:white;">ELIMINAR</button>
     `;
 
-    // Botón GUARDAR
     priceDiv.querySelector('.btn-guardar').addEventListener('click', () => {
         const prod = productos.find(x => x.id === producto.id);
 
@@ -216,73 +252,49 @@ function crearPanelItem(producto, mapaAlergenos, categoriaId, productos, datos) 
         prod.descripcion = infoDiv.querySelector('.panel-input-desc').value.trim();
         prod.precio = parseFloat(infoDiv.querySelector('.panel-input-precio').value);
         prod.puntos_requeridos = parseInt(infoDiv.querySelector('.panel-input-puntos').value) || 0;
-
-        // 1. Guardamos la nueva ruta de la imagen
         prod.imagen = infoDiv.querySelector('.panel-input-img').value.trim();
 
-        // 2. Limpiamos los alérgenos para guardarlos como array
         const alergenosInput = infoDiv.querySelector('.panel-input-alergenos').value;
         prod.alergenos = alergenosInput.split(',').map(s => s.trim().toLowerCase()).filter(s => s !== '');
 
-        // 3. Guardamos en la base de datos local
         localStorage.setItem('productos_panel', JSON.stringify(datos));
-
-        // 4. ¡Magia! Actualizamos la foto en la pantalla al instante para que el trabajador vea el cambio
         card.querySelector('img').src = getRuta(prod.imagen || 'img/burger-placeholder.png');
-
         alert('Cambios guardados correctamente.');
     });
 
-    // Botón OCULTAR/MOSTRAR
     priceDiv.querySelector('.btn-disponible').addEventListener('click', () => {
         const prod = productos.find(x => x.id === producto.id);
         prod.disponible = !prod.disponible;
         localStorage.setItem('productos_panel', JSON.stringify(datos));
-        cargarProductos('lista-productos', 'panel', categoriaId); // Recargamos
+        cargarProductos('lista-productos', 'panel', categoriaId);
     });
 
-    // Botón ELIMINAR
     priceDiv.querySelector('.btn-eliminar').addEventListener('click', () => {
         if (!confirm(`¿Estás seguro de que quieres eliminar "${producto.nombre}" de la base de datos?`)) return;
         const idx = productos.findIndex(x => x.id === producto.id);
         productos.splice(idx, 1);
         localStorage.setItem('productos_panel', JSON.stringify(datos));
-        cargarProductos('lista-productos', 'panel', categoriaId); // Recargamos
+        cargarProductos('lista-productos', 'panel', categoriaId);
     });
 
     return card;
 }
 
-
-/**
- * Carga productos desde data.json y los renderiza
- * @param {string} contenedorId - ID del contenedor donde pintar
- * @param {string} modo - 'carta' o 'pedido'
- * @param {number|null} categoriaId - null = todos
- */
 async function cargarProductos(contenedorId, modo = 'carta', categoriaId = null) {
     try {
         await cargarComponenteProducto();
 
-        // 1. Intentamos leer de la memoria del navegador (localStorage)
         let datosRaw = localStorage.getItem('productos_panel');
         let datos;
 
         if (datosRaw) {
-            // Si existen datos, los usamos
             datos = JSON.parse(datosRaw);
         } else {
-            // 2. SI NO HAY NADA (Caso del cliente nuevo):
-            // Vamos a buscar el archivo data.json original
             const res = await fetch(getRuta('data.json'));
             datos = await res.json();
-
-            // Lo guardamos en localStorage para que a partir de ahora
-            // la web use esta "copia" que el panel podrá editar
             localStorage.setItem('productos_panel', JSON.stringify(datos));
         }
 
-        // --- A partir de aquí el código sigue igual para dibujar la carta ---
         const mapaAlergenos = {};
         datos.alergenos.forEach(a => {
             mapaAlergenos[a.id] = { icono: a.icono, nombre: a.nombre };
@@ -300,81 +312,73 @@ async function cargarProductos(contenedorId, modo = 'carta', categoriaId = null)
         productos.forEach(p => {
             let card;
             if (modo === 'carta') {
-                card = crearCartaItem(p);
+                card = crearCartaItem(p, mapaAlergenos);
             } else if (modo === 'pedido') {
                 card = crearPedidoItem(p, mapaAlergenos);
             } else if (modo === 'panel') {
-                // ✅ FIX: pasamos datos.productos (array COMPLETO), no el filtrado por categoría.
-                // Así el splice en ELIMINAR y el find en GUARDAR/OCULTAR operan sobre la lista real.
                 card = crearPanelItem(p, mapaAlergenos, categoriaId, datos.productos, datos);
             }
             if (card) contenedor.appendChild(card);
         });
-        // --------------------------------------------------------------------
 
     } catch (e) {
         console.error('Error cargando productos:', e);
     }
 }
 
+function sincronizarCarrito() {
+    const carritoGuardado = JSON.parse(localStorage.getItem('carrito') || '{}');
 
+    Object.keys(carritoGuardado).forEach(id => {
+        const qtyElement = document.getElementById(`qty-${id}`);
+        if (qtyElement) {
+            qtyElement.textContent = carritoGuardado[id];
+        }
+    });
+
+    document.querySelectorAll('[id^="qty-"]').forEach(el => {
+        const id = el.id.replace('qty-', '');
+        if (!carritoGuardado[id]) {
+            el.textContent = '0';
+        }
+    });
+}
 
 function cambiarCantidad(productoId, delta) {
-    // Convertimos el ID a String para que coincida siempre,
-    // ya venga del JSON (número corto) o del Panel (Date.now() largo)
     const id = String(productoId);
+    let carritoActual = JSON.parse(localStorage.getItem('carrito') || '{}');
 
-    if (!carrito[id]) carrito[id] = 0;
-    carrito[id] = Math.max(0, carrito[id] + delta);
+    if (!carritoActual[id]) carritoActual[id] = 0;
+    carritoActual[id] = Math.max(0, carritoActual[id] + delta);
 
-    // ✅ Si llega a 0, lo eliminamos del carrito
-    if (carrito[id] === 0) {
-        delete carrito[id];
+    if (carritoActual[id] === 0) {
+        delete carritoActual[id];
     }
 
-    // Actualizar el número en el contador de la tarjeta
+    localStorage.setItem('carrito', JSON.stringify(carritoActual));
+
     const el = document.getElementById(`qty-${id}`);
-    if (el) el.textContent = carrito[id] || 0;
+    if (el) el.textContent = carritoActual[id] || 0;
 
-    guardarCarrito();
-
-    // LANZAMOS UN AVISO: "El carrito ha cambiado"
-    // Esto permitirá que la lista de pedidos se actualice sola
     document.dispatchEvent(new CustomEvent('carritoActualizado'));
 }
 
-function guardarCarrito() {
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-}
-
-function guardarCarrito() {
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-}
-
-
-document.addEventListener('carritoActualizado', () => {
-    renderizarResumenPedido();
-});
-
 function renderizarResumenPedido() {
-    const contenedor = document.getElementById('lista-resumen-pedidos'); // Asegúrate de que este ID sea el de tu HTML
+    const contenedor = document.getElementById('lista-resumen-pedidos');
     if (!contenedor) return;
 
     const carritoActual = JSON.parse(localStorage.getItem('carrito') || '{}');
-    const datos = JSON.parse(localStorage.getItem('productos_panel')); // Usamos nuestros datos compartidos
+    const datos = JSON.parse(localStorage.getItem('productos_panel'));
 
-    contenedor.innerHTML = ''; // Limpiamos para redibujar
-
+    contenedor.innerHTML = '';
     let total = 0;
 
     Object.entries(carritoActual).forEach(([id, cantidad]) => {
-        // Buscamos el producto en nuestros datos (comparando como String)
         const producto = datos.productos.find(p => String(p.id) === id);
 
         if (producto) {
             const subtotal = producto.precio * cantidad;
             total += subtotal;
-
 
             contenedor.innerHTML += `
                 <div class="resumen-item">
@@ -383,22 +387,11 @@ function renderizarResumenPedido() {
                 </div>`;
         }
     });
-
-
 }
 
-// Añadir al final de producto-card.js
-
 function vaciarCarrito() {
-    // Vaciamos el objeto en memoria
-    for (let key in carrito) delete carrito[key];
-    // Lo borramos de localStorage
     localStorage.removeItem('carrito');
-
-    // Reseteamos los contadores visuales a 0
     document.querySelectorAll('.numero-cantidad').forEach(el => el.textContent = '0');
-
-    // Avisamos a la interfaz de que el carrito está vacío
     document.dispatchEvent(new CustomEvent('carritoActualizado'));
 }
 
@@ -413,7 +406,7 @@ function finalizarPedido() {
     const datos = JSON.parse(localStorage.getItem('productos_panel'));
 
     let totalPedido = 0;
-    let totalPuntosRequeridos = 0; // NUEVO: Calculamos cuánto cuesta en puntos
+    let totalPuntosRequeridos = 0;
     const productosComprados = [];
 
     Object.entries(carritoActual).forEach(([id, cantidad]) => {
@@ -431,36 +424,31 @@ function finalizarPedido() {
         }
     });
 
-    // === NUEVA LÓGICA DE PAGO CON PUNTOS ===
     let pagadoConPuntos = false;
 
-    // Si el usuario está logueado, el carrito vale puntos, y tiene puntos suficientes...
     if (usuario && totalPuntosRequeridos > 0 && usuario.puntos >= totalPuntosRequeridos) {
         const quierePagar = confirm(`¡Enhorabuena! Tienes ${usuario.puntos} puntos.\n\nEste pedido te cuesta ${totalPedido.toFixed(2)}€ o ${totalPuntosRequeridos} puntos.\n\n¿Quieres usar tus puntos para que te salga GRATIS?`);
 
         if (quierePagar) {
             pagadoConPuntos = true;
-            totalPedido = 0; // ¡El pedido le sale a 0€!
+            totalPedido = 0;
         }
     } else if (usuario && totalPuntosRequeridos > 0 && usuario.puntos < totalPuntosRequeridos) {
-        // Le recordamos sutilmente que le faltan puntos
         console.log(`Te faltan ${totalPuntosRequeridos - usuario.puntos} puntos para que esto sea gratis.`);
     }
-    // =======================================
 
     let nuevoId;
     do { nuevoId = Math.floor(Math.random() * 100) + 1; }
     while (datos.pedidos && datos.pedidos.some(p => p.id === nuevoId));
 
-    // Cogemos el tipo de pedido (si no hay, por defecto es domicilio)
     const tipoPedido = localStorage.getItem('tipo_pedido') || 'domicilio';
 
     const nuevoPedido = {
         id: nuevoId,
         usuario_id: usuario ? usuario.id : "invitado",
         fecha: new Date().toISOString().split('T')[0],
-        timestamp: Date.now(), // <-- NUEVO: Guardamos el milisegundo exacto del pedido
-        tipo: tipoPedido,      // <-- NUEVO: Guardamos qué tipo eligió
+        timestamp: Date.now(),
+        tipo: tipoPedido,
         estado: "preparando",
         total: parseFloat(totalPedido.toFixed(2)),
         pagado_con_puntos: pagadoConPuntos,
@@ -478,12 +466,9 @@ function finalizarPedido() {
             if (!usuariosArr[userIndex].pedidos) usuariosArr[userIndex].pedidos = [];
             usuariosArr[userIndex].pedidos.push(nuevoPedido.id);
 
-            // APLICAMOS LA SUBIDA O BAJADA DE PUNTOS
             if (pagadoConPuntos) {
-                // Si pagó con puntos, se los restamos
                 usuariosArr[userIndex].puntos -= totalPuntosRequeridos;
             } else {
-                // Si pagó con euros, gana puntos (x10)
                 usuariosArr[userIndex].puntos = (usuariosArr[userIndex].puntos || 0) + Math.floor(totalPedido * 10);
             }
 
@@ -506,76 +491,38 @@ function finalizarPedido() {
     return true;
 }
 
-// Función para sincronizar el carrito entre pestañas/páginas
-function sincronizarCarrito() {
-    const carritoGuardado = JSON.parse(localStorage.getItem('carrito') || '{}');
-
-    // Actualizar los contadores visuales en la página actual
-    Object.keys(carritoGuardado).forEach(id => {
-        const qtyElement = document.getElementById(`qty-${id}`);
-        if (qtyElement) {
-            qtyElement.textContent = carritoGuardado[id];
-        }
-    });
-
-    // Limpiar contadores de productos que ya no están en el carrito
-    document.querySelectorAll('[id^="qty-"]').forEach(el => {
-        const id = el.id.replace('qty-', '');
-        if (!carritoGuardado[id]) {
-            el.textContent = '0';
-        }
-    });
-}
-
-// Escuchar cambios en localStorage (para sincronizar entre pestañas)
 window.addEventListener('storage', (e) => {
     if (e.key === 'carrito') {
         sincronizarCarrito();
-        // Actualizar el objeto carrito en memoria
-        const nuevoCarrito = JSON.parse(e.newValue || '{}');
-        // Limpiar carrito actual
-        for (let key in carrito) delete carrito[key];
-        // Copiar nuevo carrito
-        Object.assign(carrito, nuevoCarrito);
-
-        // Disparar evento de actualización
         document.dispatchEvent(new CustomEvent('carritoActualizado'));
     }
 });
 
-// Escuchar evento personalizado para actualizar la lista de pedidos
 document.addEventListener('carritoActualizado', () => {
     renderizarResumenPedido();
     sincronizarCarrito();
 });
 
-// Modificar la función cambiarCantidad para asegurar que los IDs se manejan como strings
-function cambiarCantidad(productoId, delta) {
-    // Convertimos el ID a String para que coincida siempre
-    const id = String(productoId);
+// --- VIGILANTE DEL BOTÓN CANCELAR (VERSIÓN DEFINITIVA) ---
+document.addEventListener('click', function(e) {
+    // Buscamos tu botón exacto por sus clases
+    const btnCancelar = e.target.closest('.action-btn.cancel');
 
-    // Obtener carrito actual
-    let carritoActual = JSON.parse(localStorage.getItem('carrito') || '{}');
+    if (btnCancelar) {
+        e.preventDefault(); // Frenamos el salto a index.html de golpe
 
-    if (!carritoActual[id]) carritoActual[id] = 0;
-    carritoActual[id] = Math.max(0, carritoActual[id] + delta);
+        const carritoActual = JSON.parse(localStorage.getItem('carrito') || '{}');
 
-    // Si llega a 0, lo eliminamos del carrito
-    if (carritoActual[id] === 0) {
-        delete carritoActual[id];
+        // Si hay cosas en el carrito, preguntamos
+        if (Object.keys(carritoActual).length > 0) {
+            if (confirm('¿Estás seguro de que quieres cancelar el pedido y vaciar el carrito?')) {
+                vaciarCarrito(); // Borramos la memoria
+                // Ahora sí, reanudamos el viaje al href que tenga el botón (index.html)
+                window.location.href = btnCancelar.getAttribute('href');
+            }
+        } else {
+            // Si el carrito ya estaba vacío, nos vamos directos sin preguntar nada
+            window.location.href = btnCancelar.getAttribute('href');
+        }
     }
-
-    // Guardar en localStorage
-    localStorage.setItem('carrito', JSON.stringify(carritoActual));
-
-    // Actualizar el objeto carrito en memoria
-    for (let key in carrito) delete carrito[key];
-    Object.assign(carrito, carritoActual);
-
-    // Actualizar el número en el contador de la tarjeta
-    const el = document.getElementById(`qty-${id}`);
-    if (el) el.textContent = carritoActual[id] || 0;
-
-    // Disparar evento de actualización
-    document.dispatchEvent(new CustomEvent('carritoActualizado'));
-}
+});

@@ -596,37 +596,37 @@
       "id": "gluten",
       "nombre": "Gluten",
       "descripcion": "Presente en nuestros panes de hamburguesa y rebozados crujientes.",
-      "icono": "🌾"
+      "icono": "img/alergenos/gluten.png"
     },
     {
       "id": "lacteos",
       "nombre": "Lácteos",
       "descripcion": "Nuestros quesos fundidos y salsas especiales contienen derivados de la leche.",
-      "icono": "🥛"
+      "icono": "img/alergenos/lacteos.png"
     },
     {
       "id": "frutos_secos",
       "nombre": "Frutos Secos",
       "descripcion": "Puede haber trazas en algunos postres y aceites de preparación.",
-      "icono": "🥜"
+      "icono": "img/alergenos/frutossecos.png"
     },
     {
       "id": "huevo",
       "nombre": "Huevo",
       "descripcion": "Utilizado en la elaboración de nuestra mayonesa casera y panes brioche.",
-      "icono": "🥚"
+      "icono": "img/alergenos/huevo.png"
     },
     {
       "id": "soja",
       "nombre": "Soja",
       "descripcion": "Presente en algunas de nuestras marinadas para carnes y vegetales.",
-      "icono": "🌱"
+      "icono": "img/alergenos/soja.png"
     },
     {
       "id": "pescado",
       "nombre": "Pescado / Crustáceos",
       "descripcion": "Presente en nuestra salsa César y opciones marinas del menú.",
-      "icono": "🐟"
+      "icono": "img/alergenos/pescado.png"
     }
   ],
   "tipos_pedido": [
