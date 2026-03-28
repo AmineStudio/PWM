@@ -67,10 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Añadir los puntos antes de los pedidos
     let pedidosHTML = puntosHTML;
-
-    // Añadir título de historial
-    pedidosHTML += '<h2 style="color:#fff; text-align:center; margin-bottom: 30px;">HISTORIAL DE PEDIDOS</h2>';
-
     // Añadir contenedor para los pedidos
     pedidosHTML += '<div class="pedidos-lista">';
 

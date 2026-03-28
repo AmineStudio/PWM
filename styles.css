@@ -331,7 +331,7 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
    HISTORIAL DE PEDIDOS - BASE (ORDENADOR)
    ============================================== */
 .seccion-historial {
-    background-color: #000000; /* Corregido al tema oscuro Tahm King */
+    background-color: #000000;
     min-height: 80vh;
     padding: 60px 0;
 }
@@ -363,12 +363,12 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
     gap: 15px;
 }
 
-/* LA TARJETA */
+/* LA TARJETA BASE */
 .tarjeta-pedido {
-    background: #141414; /* Tarjeta oscura elegante */
-    border: 2px solid #222; /* Borde sutil */
+    background: #141414;
+    border: 2px solid #222;
     border-radius: 12px;
-    padding: 20px 40px;
+    padding: 20px 30px;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
@@ -378,41 +378,44 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
 
 .tarjeta-pedido:hover {
     transform: translateX(10px);
-    border-color: #ff0000; /* Efecto neón rojo al pasar el ratón */
+    border-color: #ff0000;
     box-shadow: 0 5px 20px rgba(255, 0, 0, 0.15);
 }
 
-/* NÚMERO DE PEDIDO */
+/* NÚMERO DE PEDIDO (Con la barra roja) */
 .numero-pedido {
     font-size: 45px;
     font-weight: 900;
     color: #ff0000;
-    padding-right: 30px;
-    flex: 0 0 120px;
-    transition: 0.3s ease;
+    padding-right: 25px;
+    margin-right: 25px;
+    border-right: 4px solid #ff0000; /* La barra roja vertical */
+    flex: 0 0 auto;
     font-family: 'Oswald', sans-serif;
 }
 
 /* INFORMACIÓN */
 .info-pedido {
-    flex: 2;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     color: #ccc;
     font-size: 16px;
-    align-items: center;
+    gap: 15px;
 }
 
 .info-pedido p {
     margin: 0;
+    display: flex;
+    flex-direction: column; /* Apila el título sobre el valor */
 }
 
 .info-pedido strong {
-    color: #fff; /* Títulos en blanco para que destaquen */
+    color: #fff;
     text-transform: uppercase;
     font-size: 13px;
-    display: block;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     letter-spacing: 1px;
 }
 
@@ -429,8 +432,8 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
 .btn-info-premium {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid #444;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     color: #fff;
     cursor: pointer;
@@ -439,6 +442,8 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
     align-items: center;
     transition: 0.3s;
     font-size: 18px;
+    flex: 0 0 45px;
+    margin-left: 15px;
 }
 
 .btn-info-premium:hover {
@@ -454,76 +459,73 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
 /* --- TABLETS (Hasta 1024px) --- */
 @media (max-width: 1024px) {
     .tarjeta-pedido {
-        padding: 20px 25px;
+        padding: 15px 20px;
     }
-
     .numero-pedido {
         font-size: 35px;
-        flex: 0 0 90px;
         padding-right: 15px;
+        margin-right: 15px;
     }
-
     .info-pedido {
-        gap: 15px;
         font-size: 14px;
     }
 }
 
-/* --- MÓVILES (Hasta 768px) --- */
+/* --- MÓVILES (Hasta 768px) - Diseño súper compacto --- */
 @media (max-width: 768px) {
     .tarjeta-pedido {
-        flex-direction: column;
-        text-align: center;
-        padding: 25px 20px;
-        gap: 20px;
+        padding: 15px; /* Tarjeta más ajustada */
+        gap: 0;
     }
 
-    /* Cambiamos el hover para que no se mueva hacia un lado en móvil */
     .tarjeta-pedido:hover {
-        transform: translateY(-5px);
+        transform: translateY(-3px); /* Hover sutil en móvil */
     }
 
     .numero-pedido {
-        flex: none;
-        font-size: 50px;
-        padding-right: 0;
-        width: 100%;
-        border-bottom: 1px solid #333;
-        padding-bottom: 15px;
+        font-size: 26px; /* Número más pequeño */
+        padding-right: 12px;
+        margin-right: 12px;
+        border-right-width: 3px; /* Barra un poco más fina */
     }
 
     .info-pedido {
-        grid-template-columns: 1fr; /* Todo en una columna */
-        gap: 15px;
-        width: 100%;
+        gap: 5px; /* Juntamos más los elementos */
     }
 
-    /* Hacemos el botón circular alargado y le añadimos texto en móvil para facilitar el tap */
+    .info-pedido p {
+        font-size: 11px; /* Letra pequeña para que quepa en la línea */
+    }
+
+    .info-pedido strong {
+        font-size: 9px; /* Títulos (FECHA, ESTADO) pequeñitos */
+        margin-bottom: 2px;
+    }
+
     .btn-info-premium {
-        width: 100%;
-        border-radius: 8px;
-        height: 45px;
-        gap: 10px;
-    }
-
-    .btn-info-premium::after {
-        content: "Ver Detalles";
-        font-family: 'Oswald', sans-serif;
-        text-transform: uppercase;
+        width: 35px;
+        height: 35px;
+        flex: 0 0 35px; /* Botón más pequeño */
         font-size: 14px;
-        letter-spacing: 1px;
+        margin-left: 5px;
     }
 }
 
-/* --- MÓVILES PEQUEÑOS (Hasta 480px) --- */
-@media (max-width: 480px) {
-    .titulo-seccion-pedidos {
-        font-size: 22px;
-        margin-bottom: 30px;
-    }
-
+/* --- MÓVILES SÚPER PEQUEÑOS (Hasta 380px) --- */
+@media (max-width: 380px) {
     .numero-pedido {
-        font-size: 40px;
+        font-size: 22px;
+        padding-right: 8px;
+        margin-right: 8px;
+    }
+    .info-pedido p {
+        font-size: 10px;
+    }
+    .btn-info-premium {
+        width: 30px;
+        height: 30px;
+        flex: 0 0 30px;
+        font-size: 12px;
     }
 }
 /* ================= PÁGINA LOGIN ================= */
@@ -1011,10 +1013,19 @@ body {
 
 /* --- MÓVILES (Hasta 768px) --- */
 @media (max-width: 768px) {
-    /* El grid de 2 columnas pasa a 1 columna */
+    /* SOLUCIÓN AL TABLERO DE AJEDREZ:
+       Pasamos de Grid a Flexbox en columna para poder reordenar los bloques a nuestro antojo.
+    */
     .about-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
     }
+
+    /* Asignamos el orden visual de los hijos (divs) dentro del contenedor flex */
+    .about-grid > div:nth-child(1) { order: 1; } /* Texto Historia (1º) */
+    .about-grid > div:nth-child(2) { order: 2; } /* Foto Historia (2º) */
+    .about-grid > div:nth-child(4) { order: 3; } /* Texto Cocina (SUBE al 3º) */
+    .about-grid > div:nth-child(3) { order: 4; } /* Foto Cocina (BAJA al 4º) */
 
     .item.imagen {
         min-height: 250px;
