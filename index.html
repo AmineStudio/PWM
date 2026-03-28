@@ -109,22 +109,55 @@
     </div>
 
     <div class="fila fila-4">
-        <div class="columna-3">
-            <span class="titulo-columna">GANA PUNTOS</span>
-            <a href="pages/login.html" class="btn-main">LOGIN / REGISTRO</a>
-        </div>
+        <div class="contenedor-tahmkoins-v3">
 
-        <div class="columna-3">
-            <span class="titulo-columna">DÓNDE ESTAMOS</span>
-            <a href="pages/nosotros.html" class="btn-main">VER MAPA</a>
-        </div>
+            <div class="cabecera-puntos">
+                <h3 class="titulo-principal-puntos">DOMINA EL SABOR, <span>ACUMULA CORONAS</span></h3>
+                <p class="descripcion-puntos">
+                    En <strong>Tahm King</strong>, cada bocado tiene recompensa. Convierte tus pedidos en <strong>Tahmkoins</strong>
+                    y desbloquea niveles exclusivos: desde refrescos helados hasta nuestras hamburguesas y ofertas especiales.
+                </p>
+                <p class="detalle-puntos">
+                    Por cada <strong>1€</strong> que gastas, sumas <strong>10 Tahmkoins</strong>. Regístrate ahora y te regalamos tus primeros
+                    <strong>50 puntos</strong>.
+                </p>
+            </div>
 
-        <div class="columna-3">
-            <span class="titulo-columna">SOBRE NOSOTROS</span>
-            <a href="pages/nosotros.html" class="btn-main">CONÓCENOS</a>
+            <div class="visor-superior">
+                <div class="contenido-recompensa" id="card-visor">
+                    <div class="texto-recompensa">
+                        <h4 id="nombre-nivel">NIVEL 1: BEBIDAS</h4>
+                        <p id="desc-nivel">Desbloquea cualquier refresco o batido de nuestra carta.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="seccion-eje-horizontal">
+                <div class="linea-grafica-pro">
+                    <div class="progreso-relleno" id="barra-color"></div>
+                    <div class="puntos-eje">
+                        <div class="punto-clicable activo" onclick="actualizarGrafica(0, '0%')">
+                            <span class="dot"></span>
+                            <span class="txt">250 Pts</span>
+                        </div>
+                        <div class="punto-clicable" onclick="actualizarGrafica(1, '50%')">
+                            <span class="dot"></span>
+                            <span class="txt">600 Pts</span>
+                        </div>
+                        <div class="punto-clicable" onclick="actualizarGrafica(2, '100%')">
+                            <span class="dot"></span>
+                            <span class="txt">1200 Pts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="botonera-puntos">
+                <a href="pages/login.html" class="btn-main">¡REGÍSTRATE Y GANA 50 PTS!</a>
+            </div>
+
         </div>
     </div>
-
 </main>
 <div data-xlu-include-file="components/footer.html"></div>
 <script src="java/java.js"></script>

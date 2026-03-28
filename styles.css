@@ -1861,48 +1861,185 @@ html{
 .swiper-button-next:after, .swiper-button-prev:after {
     font-size: 18px !important;
 }
+/* ============================================================
+   FILA 4: SISTEMA DE PUNTOS TAHMKOINS (INTERACTIVO)
+   ============================================================ */
 
-/* ==============================================
-   FILA 4: BLOQUES DE INFORMACIÓN
-   ============================================== */
 .fila-4 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
-    background-color: #121212;
-    padding: 40px 20px;
+    padding: 80px 20px;
+    background: transparent;
+    color: #fff;
+    overflow: hidden;
 }
 
-.columna-3 {
-    background-color: #1A1B1D;
-    border: 1px solid #333;
-    padding: 40px;
-    border-radius: 15px;
-    text-align: center;
+.contenedor-tahmkoins-v3 {
+    max-width: 1000px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 15px;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    text-align: center;
 }
 
-.columna-3:hover {
-    border-color: #ff0000;
-    background-color: #1f1f1f;
-    transform: translateY(-5px);
+.cabecera-puntos {
+    margin-bottom: 50px;
+    animation: fadeInDown 0.8s ease-out;
 }
 
-.titulo-columna {
-    color: #fff;
-    font-size: 1.2rem;
+.titulo-principal-puntos {
     font-family: 'Oswald', sans-serif;
-    letter-spacing: 1px;
+    font-size: clamp(32px, 5vw, 48px);
+    margin-bottom: 20px;
     text-transform: uppercase;
-    margin-bottom: 5px;
+    letter-spacing: 2px;
 }
 
+.titulo-principal-puntos span {
+    color: #ff0000;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.descripcion-puntos {
+    color: #eee;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 850px;
+    margin: 0 auto 20px auto;
+}
+
+.detalle-puntos {
+    color: #888;
+    font-size: 1rem;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.detalle-puntos strong { color: #ff0000; }
+
+.visor-superior {
+    width: 100%;
+    min-height: 150px; /* Ajustado al no haber imagen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.contenido-recompensa {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.texto-recompensa {
+    text-align: center; /* Centrado para compensar la falta de imagen */
+    max-width: 600px;
+}
+
+.texto-recompensa h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 32px; /* Un poco más grande para que destaque */
+    color: #ff0000;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.texto-recompensa p {
+    color: #ccc;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.seccion-eje-horizontal {
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+
+.linea-grafica-pro {
+    position: relative;
+    height: 8px;
+    background: #2a2a2a;
+    border-radius: 10px;
+}
+
+.progreso-relleno {
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ff0000, #b30000);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+    border-radius: 10px;
+    transition: width 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.puntos-eje {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.punto-clicable {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+    background: #121212;
+    border: 4px solid #ff0000;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.punto-clicable.activo .dot {
+    background: #ff0000;
+    transform: scale(1.4);
+    box-shadow: 0 0 20px #ff0000;
+}
+
+.txt {
+    margin-top: 20px;
+    color: #666;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.punto-clicable.activo .txt { color: #fff; }
+
+.btn-main {
+    display: inline-block;
+    background: #ff0000;
+    color: #fff;
+    padding: 15px 35px;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.btn-main:hover {
+    background: #fff;
+    color: #ff0000;
+    transform: scale(1.05);
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 /* ================= BOTONES GLOBALES ================= */
 .btn-main {
     display: inline-block;
