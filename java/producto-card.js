@@ -398,13 +398,18 @@ function finalizarPedido() {
     do { nuevoId = Math.floor(Math.random() * 100) + 1; }
     while (datos.pedidos && datos.pedidos.some(p => p.id === nuevoId));
 
+    // Cogemos el tipo de pedido (si no hay, por defecto es domicilio)
+    const tipoPedido = localStorage.getItem('tipo_pedido') || 'domicilio';
+
     const nuevoPedido = {
         id: nuevoId,
         usuario_id: usuario ? usuario.id : "invitado",
         fecha: new Date().toISOString().split('T')[0],
+        timestamp: Date.now(), // <-- NUEVO: Guardamos el milisegundo exacto del pedido
+        tipo: tipoPedido,      // <-- NUEVO: Guardamos qué tipo eligió
         estado: "preparando",
         total: parseFloat(totalPedido.toFixed(2)),
-        pagado_con_puntos: pagadoConPuntos, // Guardamos cómo pagó
+        pagado_con_puntos: pagadoConPuntos,
         productos: productosComprados
     };
 

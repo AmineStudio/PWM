@@ -47,7 +47,7 @@
       "email": "miguel@tahmking.com",
       "password": "123456",
       "puntos": 2000,
-      "pedidos": [67, 137]
+      "pedidos": [67, 37]
     },
     {
       "id": 2,
@@ -519,7 +519,7 @@
       ]
     },
     {
-      "id": 137,
+      "id": 37,
       "usuario_id": 1,
       "fecha": "2026-01-27",
       "estado": "entregado",
