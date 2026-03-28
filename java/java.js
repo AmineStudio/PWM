@@ -244,3 +244,43 @@ document.addEventListener('componentesListos', () => {
         btnUser.href = getRutaLogin();
     }
 });
+
+// FILA 4 - Lógica de Puntos
+const datosNiveles = [
+    {
+        nombre: "NIVEL 1: BEBIDAS",
+        desc: "Desbloquea cualquier refresco o batido de nuestra carta."
+    },
+    {
+        nombre: "NIVEL 2: ENTRANTES",
+        desc: "Cualquier entrante de la carta: Nachos, alitas o patatas."
+    },
+    {
+        nombre: "NIVEL 3: PREMIUM",
+        desc: "Cualquier hamburguesa o perrito caliente totalmente gratis."
+    }
+];
+
+window.actualizarGrafica = function(index, porcentaje) {
+    const puntos = document.querySelectorAll('.punto-clicable');
+    const barra = document.getElementById('barra-color');
+    const visor = document.getElementById('card-visor');
+
+    // Mover barra
+    if(barra) barra.style.width = porcentaje;
+
+    // Cambiar estado activo
+    puntos.forEach((p, i) => {
+        i === index ? p.classList.add('activo') : p.classList.remove('activo');
+    });
+
+    // Transición de texto
+    if(visor) {
+        visor.style.opacity = "0";
+        setTimeout(() => {
+            document.getElementById('nombre-nivel').innerText = datosNiveles[index].nombre;
+            document.getElementById('desc-nivel').innerText = datosNiveles[index].desc;
+            visor.style.opacity = "1";
+        }, 250);
+    }
+}
