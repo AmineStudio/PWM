@@ -137,7 +137,16 @@ function crearPanelItem(producto, mapaAlergenos, categoriaId, productos, datos) 
                style="background:none;border:none;border-bottom:1px solid #444;color:#ccc;font-size:12px;width:100%;margin-bottom:4px;font-family:inherit;">
                
         <input class="panel-input-alergenos" value="${alergenosStr}" placeholder="Alérgenos (ej: gluten, lacteos)"
-               style="background:none;border:none;border-bottom:1px solid #444;color:#ffaa00;font-size:12px;width:100%;margin-bottom:4px;font-family:inherit;">
+               style="background:none;border:none;border-bottom:1px solid #444;color:#ffaa00;font-size:12px;width:100%;margin-bottom:8px;font-family:inherit;">
+
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+            <button class="btn-cambiar-img" style="background:#333; color:#fff; border:1px solid #666; padding:5px 10px; font-size:11px; cursor:pointer; border-radius:4px; transition: 0.2s;">
+                <i class="fa-solid fa-camera"></i> CAMBIAR FOTO
+            </button>
+            <input type="file" class="input-file-img" accept="image/*" style="display:none;">
+            <input type="hidden" class="panel-input-img" value="${producto.imagen || ''}">
+            <span class="nombre-archivo-img" style="color:#aaa; font-size:10px; font-style:italic;"></span>
+        </div>
                
         <div style="display:flex;align-items:center;gap:10px;margin-top:5px;">
             <div>
@@ -152,7 +161,43 @@ function crearPanelItem(producto, mapaAlergenos, categoriaId, productos, datos) 
             </div>
         </div>
     `;
+    // --- LÓGICA DEL BOTÓN CAMBIAR FOTO ---
+    const btnImg = infoDiv.querySelector('.btn-cambiar-img');
+    const fileInput = infoDiv.querySelector('.input-file-img');
+    const hiddenImgInput = infoDiv.querySelector('.panel-input-img');
+    const nombreArchivoSpan = infoDiv.querySelector('.nombre-archivo-img');
 
+    // Efecto visual al pasar el ratón
+    btnImg.onmouseover = () => btnImg.style.background = '#555';
+    btnImg.onmouseout = () => btnImg.style.background = '#333';
+
+    // Al hacer clic en el botón visible, hacemos clic en el input invisible
+    btnImg.addEventListener('click', () => fileInput.click());
+
+    // Cuando el usuario elige una foto de su PC...
+    fileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            nombreArchivoSpan.textContent = "Cargando...";
+
+            // Usamos FileReader para convertir la foto a texto Base64
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const base64String = event.target.result;
+
+                // 1. Cambiamos la previsualización de la tarjeta al momento
+                img.src = base64String;
+
+                // 2. Guardamos el texto largo en el input oculto para que el botón GUARDAR lo coja
+                hiddenImgInput.value = base64String;
+
+                // 3. Avisamos de que está lista
+                nombreArchivoSpan.textContent = file.name;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+    // -------------------------------------
     const priceDiv = card.querySelector('.item-price');
     priceDiv.style.cssText = 'display:flex;flex-direction:column;gap:5px;align-items:flex-end;min-width:140px;';
     priceDiv.innerHTML = `
@@ -166,17 +211,26 @@ function crearPanelItem(producto, mapaAlergenos, categoriaId, productos, datos) 
     // Botón GUARDAR
     priceDiv.querySelector('.btn-guardar').addEventListener('click', () => {
         const prod = productos.find(x => x.id === producto.id);
+
         prod.nombre = infoDiv.querySelector('.panel-input').value.trim();
         prod.descripcion = infoDiv.querySelector('.panel-input-desc').value.trim();
         prod.precio = parseFloat(infoDiv.querySelector('.panel-input-precio').value);
         prod.puntos_requeridos = parseInt(infoDiv.querySelector('.panel-input-puntos').value) || 0;
 
-        // Limpiamos los alérgenos para guardarlos como array
+        // 1. Guardamos la nueva ruta de la imagen
+        prod.imagen = infoDiv.querySelector('.panel-input-img').value.trim();
+
+        // 2. Limpiamos los alérgenos para guardarlos como array
         const alergenosInput = infoDiv.querySelector('.panel-input-alergenos').value;
         prod.alergenos = alergenosInput.split(',').map(s => s.trim().toLowerCase()).filter(s => s !== '');
 
+        // 3. Guardamos en la base de datos local
         localStorage.setItem('productos_panel', JSON.stringify(datos));
-        alert('✅ Cambios guardados correctamente.');
+
+        // 4. ¡Magia! Actualizamos la foto en la pantalla al instante para que el trabajador vea el cambio
+        card.querySelector('img').src = getRuta(prod.imagen || 'img/burger-placeholder.png');
+
+        alert('Cambios guardados correctamente.');
     });
 
     // Botón OCULTAR/MOSTRAR

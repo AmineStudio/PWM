@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="Sistema de puntos implementado en carta, pedido. Perfil con puntos y cerrar sesion al hacer click en él.">
+    <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="Sistema de estados por tiempo listo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/historial.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/historial.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/producto-card.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/producto-card.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -147,7 +146,7 @@
       <workItem from="1774457405176" duration="7929000" />
       <workItem from="1774523880051" duration="671000" />
       <workItem from="1774605094908" duration="7193000" />
-      <workItem from="1774696406398" duration="7229000" />
+      <workItem from="1774696406398" duration="11167000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -261,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774701566453</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Sistema de estados por tiempo listo">
+      <option name="closed" value="true" />
+      <created>1774705019619</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1774705019619</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,6 +312,7 @@
     <MESSAGE value="Footer con documentos reales. Pagina de pago creada (falta implementar el precio real). Pagina a domicilio creada (falta redirecionarla después del botón &quot;a domicilio&quot; en tipo_pedido)." />
     <MESSAGE value="Logica del historial implementada guardando los pedidos en ella. Errores del carrito solucionados." />
     <MESSAGE value="Sistema de puntos implementado en carta, pedido. Perfil con puntos y cerrar sesion al hacer click en él." />
-    <option name="LAST_COMMIT_MESSAGE" value="Sistema de puntos implementado en carta, pedido. Perfil con puntos y cerrar sesion al hacer click en él." />
+    <MESSAGE value="Sistema de estados por tiempo listo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sistema de estados por tiempo listo" />
   </component>
 </project>
