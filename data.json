@@ -46,7 +46,7 @@
       "nombre": "Miguel Corimanya",
       "email": "miguel@tahmking.com",
       "password": "123456",
-      "puntos": 2000,
+      "puntos": 100,
       "pedidos": [67, 37]
     },
     {

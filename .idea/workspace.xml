@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="Responsive mejorado de sobre nosotros e historial.">
-      <change afterPath="$PROJECT_DIR$/img/alergenos/frutossecos.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/alergenos/gluten.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/alergenos/huevo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/alergenos/lacteos.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/alergenos/pescado.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/alergenos/soja.png" afterDir="false" />
+    <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="Implementacion de los alergenos. Correcion de carrito. Correccion de panel de administrador. Mejora de responsive en index y carta.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/panel.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/panel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/producto-card.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/producto-card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/alergenos.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/alergenos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/pedido.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,37 +61,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JavaScript Debug.carta.html.executor": "Run",
-    "JavaScript Debug.carta1.html.executor": "Run",
-    "JavaScript Debug.catalogo.html.executor": "Run",
-    "JavaScript Debug.domicilio.html.executor": "Run",
-    "JavaScript Debug.index.html.executor": "Run",
-    "JavaScript Debug.lista_pedido.html.executor": "Run",
-    "JavaScript Debug.pago.html.executor": "Run",
-    "JavaScript Debug.pedido.html.executor": "Run",
-    "JavaScript Debug.producto-card.html.executor": "Run",
-    "JavaScript Debug.sidebar.html.executor": "Run",
-    "JavaScript Debug.tipo_pedido.html.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "Sprint2",
-    "javascript.preferred.runtime.type.id": "node",
-    "last_opened_file_path": "C:/Users/yenem/OneDrive/Documentos/GitHub/PWM/img/alergenos",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JavaScript Debug.carta.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.carta1.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.catalogo.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.domicilio.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.lista_pedido.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.pago.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.pedido.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.producto-card.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.sidebar.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.tipo_pedido.html.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Sprint2&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/yenem/OneDrive/Documentos/GitHub/PWM/img/alergenos&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\yenem\OneDrive\Documentos\GitHub\PWM\img\alergenos" />
@@ -120,7 +109,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.31033.133" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.30387.83" />
       </set>
     </attachedChunks>
   </component>
@@ -159,6 +148,7 @@
       <workItem from="1774523880051" duration="671000" />
       <workItem from="1774605094908" duration="7193000" />
       <workItem from="1774707157648" duration="2494000" />
+      <workItem from="1774779566917" duration="303000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -272,7 +262,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774712679363</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Implementacion de los alergenos. Correcion de carrito. Correccion de panel de administrador. Mejora de responsive en index y carta.">
+      <option name="closed" value="true" />
+      <created>1774734635891</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1774734635891</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,6 +315,7 @@
     <MESSAGE value="Logica del historial implementada guardando los pedidos en ella. Errores del carrito solucionados." />
     <MESSAGE value="Implementación del sistema de puntos en el index" />
     <MESSAGE value="Responsive mejorado de sobre nosotros e historial." />
-    <option name="LAST_COMMIT_MESSAGE" value="Responsive mejorado de sobre nosotros e historial." />
+    <MESSAGE value="Implementacion de los alergenos. Correcion de carrito. Correccion de panel de administrador. Mejora de responsive en index y carta." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementacion de los alergenos. Correcion de carrito. Correccion de panel de administrador. Mejora de responsive en index y carta." />
   </component>
 </project>
