@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputEmailReg = document.querySelector('.sign-up input[type="email"]');
     const inputPassReg  = document.querySelector('.sign-up input[type="password"]');
 
-    // ── Helpers ──────────────────────────────────────────────────
+    //Helpers
     async function getUsuarios() {
         const local = JSON.parse(localStorage.getItem('usuarios') || 'null');
         if (local) return local;
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem('usuarios', JSON.stringify(usuarios));
     }
 
-    // ── Login ────────────────────────────────────────────────────
+    //Login
     btnIniciar.addEventListener('click', async () => {
         const email = inputEmail.value.trim();
         const pass  = inputPass.value.trim();
@@ -47,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Primero buscar en trabajadores
         const trabajadores = await getTrabajadores();
         const trabajador   = trabajadores.find(t => t.email === email && t.password === pass);
 
@@ -57,7 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Si no, buscar en usuarios
         const usuarios = await getUsuarios();
         const usuario  = usuarios.find(u => u.email === email && u.password === pass);
 
@@ -70,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = '../index.html';
     });
 
-    // ── Registro ─────────────────────────────────────────────────
+    //Registro
     btnRegistrar.addEventListener('click', async () => {
         const nombre = inputNombre.value.trim();
         const email  = inputEmailReg.value.trim();

@@ -1,17 +1,10 @@
-/* ==============================================
-   PRODUCTO-CARD.JS - Componente reutilizable de producto
-   ============================================== */
-
 // Ajusta rutas según si estamos en /pages/ o raíz
 function getRuta(archivo) {
     return window.location.pathname.includes('/pages/')
         ? `../${archivo}`
         : archivo;
 }
-
-/**
- * Carga el componente HTML de plantillas (una sola vez)
- */
+//Carga el componente HTML de plantillas (una sola vez)
 async function cargarComponenteProducto() {
     if (document.getElementById('tpl-carta-item')) return;
 
@@ -25,9 +18,6 @@ async function cargarComponenteProducto() {
     document.documentElement.appendChild(div);
 }
 
-/**
- * Rellena una tarjeta de CARTA clonando la plantilla
- */
 function crearCartaItem(producto, mapaAlergenos) {
     const tpl = document.getElementById('tpl-carta-item');
     const clone = tpl.content.cloneNode(true);
@@ -55,23 +45,19 @@ function crearCartaItem(producto, mapaAlergenos) {
         img.alt = producto.nombre;
     }
 
-    // --- MAGIA: Creación inteligente de alérgenos ---
-    // Si el producto tiene alérgenos, los dibujamos aunque el HTML no tenga el div preparado
     if (producto.alergenos && producto.alergenos.length > 0 && mapaAlergenos) {
         const infoDiv = card.querySelector('.item-info');
         if (infoDiv) {
             let divAlerg = card.querySelector('.iconos-alergenos');
 
-            // Si el hueco no existe en el HTML, lo creamos con JS
             if (!divAlerg) {
                 divAlerg = document.createElement('div');
                 divAlerg.className = 'iconos-alergenos';
                 infoDiv.appendChild(divAlerg);
             } else {
-                infoDiv.appendChild(divAlerg); // Si existe, nos aseguramos de que esté bajo la info
+                infoDiv.appendChild(divAlerg);
             }
 
-            // Forzamos fila horizontal y tamaño
             divAlerg.style.cssText = 'display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; margin-top: 10px; gap: 10px;';
 
             let alergenosHTML = '';
@@ -88,14 +74,9 @@ function crearCartaItem(producto, mapaAlergenos) {
             divAlerg.innerHTML = alergenosHTML;
         }
     }
-    // ------------------------------------------------------------------
-
     return card;
 }
 
-/**
- * Rellena una tarjeta de PEDIDO clonando la plantilla
- */
 function crearPedidoItem(producto, mapaAlergenos) {
     const tpl = document.getElementById('tpl-pedido-item');
     const clone = tpl.content.cloneNode(true);
@@ -116,7 +97,6 @@ function crearPedidoItem(producto, mapaAlergenos) {
     img.src = getRuta(producto.imagen || 'img/burger-placeholder.png');
     img.alt = producto.nombre;
 
-    // --- MAGIA: Creación inteligente de alérgenos ---
     if (producto.alergenos && producto.alergenos.length > 0 && mapaAlergenos) {
         const infoDiv = card.querySelector('.item-info');
         if (infoDiv) {
@@ -503,21 +483,17 @@ document.addEventListener('carritoActualizado', () => {
     sincronizarCarrito();
 });
 
-// --- VIGILANTE DEL BOTÓN CANCELAR (VERSIÓN DEFINITIVA) ---
 document.addEventListener('click', function(e) {
-    // Buscamos tu botón exacto por sus clases
     const btnCancelar = e.target.closest('.action-btn.cancel');
 
     if (btnCancelar) {
-        e.preventDefault(); // Frenamos el salto a index.html de golpe
+        e.preventDefault();
 
         const carritoActual = JSON.parse(localStorage.getItem('carrito') || '{}');
 
-        // Si hay cosas en el carrito, preguntamos
         if (Object.keys(carritoActual).length > 0) {
             if (confirm('¿Estás seguro de que quieres cancelar el pedido y vaciar el carrito?')) {
-                vaciarCarrito(); // Borramos la memoria
-                // Ahora sí, reanudamos el viaje al href que tenga el botón (index.html)
+                vaciarCarrito();
                 window.location.href = btnCancelar.getAttribute('href');
             }
         } else {

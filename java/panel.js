@@ -1,21 +1,21 @@
+//Panel del admin
 document.addEventListener('DOMContentLoaded', async () => {
 
-    // ── Seguridad ────────────────────────────────────────────────
+    //Seguridad
     const trabajador = JSON.parse(localStorage.getItem('trabajador') || 'null');
     if (!trabajador) {
         window.location.href = 'login.html';
         return;
     }
 
-    // ── Logout ───────────────────────────────────────────────────
+    //Logout
     document.getElementById('btn-logout').addEventListener('click', (e) => {
         e.preventDefault();
         localStorage.removeItem('trabajador');
         localStorage.removeItem('usuario');
-        window.location.href = '../index.html';
     });
 
-    // ── Tabs ─────────────────────────────────────────────────────
+    //Tabs
     const tabs = ['tab-productos', 'tab-ofertas', 'tab-nuevo', 'tab-nueva-oferta'];
 
     document.querySelectorAll('[data-tab]').forEach(btn => {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     });
 
-    // ── Helpers datos ─────────────────────────────────────────────
+    //Helpers datos
     function getDatos() {
         return JSON.parse(localStorage.getItem('productos_panel') || 'null');
     }
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
 
-    // ── Formulario nueva oferta ───────────────────────────────────
+    //Formulario nueva oferta
     document.addEventListener('componentesListos', () => {
         document.getElementById('btn-anadir-oferta').addEventListener('click', () => {
             const nombre = document.getElementById('oferta-nombre').value.trim();
@@ -81,7 +81,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             alert(`"${nombre}" añadida correctamente.`);
         });
 
-        // Poblar select y checkboxes del formulario de producto
         const datos = getDatos();
         if (!datos) return;
 
@@ -98,7 +97,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         const divAlergenos = document.getElementById('new-alergenos');
         if (divAlergenos && divAlergenos.children.length === 0) {
             datos.alergenos.forEach(a => {
-                // Ajustamos la ruta por si el panel está en /pages/
                 let rutaImg = a.icono;
                 if (window.location.pathname.includes('/pages/') && rutaImg.startsWith('img/')) {
                     rutaImg = '../' + rutaImg;

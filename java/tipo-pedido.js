@@ -1,12 +1,9 @@
-/* ==============================================
-   TIPO-PEDIDO.JS - Lógica de Selección Premium
-   ============================================== */
+//Lógica de selección premium
 
 document.addEventListener("DOMContentLoaded", async () => {
     const contenedor = document.getElementById('contenedor-opciones');
     if (!contenedor) return;
 
-    // 1. Datos base (Respaldo por si falla el fetch)
     let opciones = [
         {
             "id": "aqui",
@@ -28,7 +25,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     ];
 
-    // 2. Carga dinámica desde data.json
     try {
         const rutaData = window.location.pathname.includes('/pages/') ? '../data.json' : 'data.json';
         const res = await fetch(rutaData);
@@ -40,11 +36,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.warn("Usando datos de respaldo:", e);
     }
 
-    // 3. Renderizado de tarjetas
     contenedor.innerHTML = '';
 
     opciones.forEach(opcion => {
-        // Asignación de rutas locales basadas en el ID
         let rutaBg = "";
         switch (opcion.id) {
             case "aqui": rutaBg = "../img/pedir/comeraqui.jpg"; break;
@@ -54,7 +48,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         const enlace = document.createElement('a');
-        enlace.href = "pedido.html";
+        if (opcion.id === 'domicilio') {
+            enlace.href = "domicilio.html";
+        } else {
+            enlace.href = "pedido.html";
+        }
         enlace.className = 'tarjeta-con-foto';
 
         enlace.innerHTML = `

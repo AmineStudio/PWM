@@ -1,9 +1,18 @@
 /* ================= GLOBAL ================= */
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: "Bauhaus 93", sans-serif; }
-body { background-color: #121212; min-height: 100vh; display: flex; flex-direction: column; }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Bauhaus 93", sans-serif;
+}
+body {
+    background-color: #121212;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
 /* ================= HEADER ================= */
-/* ================= VARIABLES GLOBALES (Añade a las que ya tengas) ================= */
 :root {
     --bg-dark: #1A1B1D;
     --header-black: #000000;
@@ -11,10 +20,9 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
     --text-white: #ffffff;
 }
 
-/* ================= HEADER MINIMALISTA PREMIUM ================= */
 .header-main {
     background-color: var(--header-black);
-    height: 180px; /* Header alto y premium */
+    height: 180px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -40,7 +48,6 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
     gap: 40px;
 }
 
-/* BOTONES DE ICONO (Barras y Usuario) */
 .icon-btn {
     background: none;
     border: none;
@@ -59,10 +66,9 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
 
 .icon-btn:hover {
     transform: scale(1.15);
-    color: var(--tahm-red); /* Efecto hover rojo en los iconos */
+    color: var(--tahm-red);
 }
 
-/* LOGO (Centro) */
 .logo-container {
     width: 300px;
     height: 150px;
@@ -82,7 +88,6 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
     transform: scale(1.05);
 }
 
-/* BOTÓN PEDIR YA */
 .btn-order {
     background-color: transparent;
     color: var(--text-white);
@@ -104,93 +109,53 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
     box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
 }
 
-/* ==============================================
-   RESPONSIVO: TABLETS Y MÓVILES
-   ============================================== */
-
-/* --- TABLETS (Hasta 1024px) --- */
+/*RESPONSIVE*/
+/*TABLETS*/
 @media (max-width: 1024px) {
     .header-main {
-        height: 120px; /* Reducimos la altura */
+        height: 120px;
         padding: 0 30px;
     }
-
     .logo-container {
         width: 200px;
         height: 100px;
     }
-
     .icon-btn i {
-        font-size: 35px; /* Iconos un poco más pequeños */
+        font-size: 35px;
     }
-
     .btn-order {
         font-size: 18px;
         padding: 10px 20px;
     }
-
     .nav-section.right {
         gap: 20px;
     }
 }
 
-/* --- MÓVILES (Hasta 768px) --- */
+/*MÓVILES */
 @media (max-width: 768px) {
     .header-main {
-        height: 80px; /* Header compacto para no comerse la pantalla */
+        height: 80px;
         padding: 0 15px;
     }
-
     .logo-container {
         width: 130px;
         height: 60px;
     }
-
     .icon-btn i {
-        font-size: 26px; /* Iconos adaptados al dedo */
+        font-size: 26px;
     }
-
-    /* En móvil, el botón "PEDIR YA" tiene que ser más pequeño para caber junto al icono */
     .btn-order {
         font-size: 14px;
         padding: 8px 15px;
-        border-width: 1px; /* Borde más fino para que no se vea tosco en móvil */
+        border-width: 1px;
     }
-
     .nav-section.right {
         gap: 15px;
     }
 }
 
-/* --- MÓVILES PEQUEÑOS (Hasta 480px) --- */
-@media (max-width: 480px) {
-    .header-main {
-        height: 70px;
-        padding: 0 10px;
-    }
-
-    .logo-container {
-        width: 110px;
-    }
-
-    .icon-btn i {
-        font-size: 24px;
-    }
-
-    .btn-order {
-        font-size: 12px;
-        padding: 6px 12px;
-    }
-
-    .nav-section.right {
-        gap: 10px;
-    }
-}
 /* ================= FOOTER ================= */
-/* ==============================================
-   FOOTER TAHM KING (CÓDIGO BLINDADO ANTI-ERRORES)
-   ============================================== */
-
 .pie-pagina-tahm {
     background-color: #000000;
     color: #ffffff;
@@ -223,7 +188,7 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
     text-transform: uppercase;
     margin-bottom: 25px;
     letter-spacing: 2px;
-    color: #ff0000; /* Rojo Tahm King */
+    color: #ff0000;
     border-bottom: 2px solid rgba(255, 0, 0, 0.3);
     display: inline-block;
     padding-bottom: 5px;
@@ -310,8 +275,9 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
     margin: 0;
     letter-spacing: 1px;
 }
-
-/* Ajustes para Móviles del Footer */
+/*RESPONSIVE*/
+/*En tablets se ve bien, por lo que solamente lo hemos cambiado para móviles*/
+/*Móviles*/
 @media (max-width: 768px) {
     .pie-pagina-tahm .contenedor-columnas {
         text-align: center;
@@ -324,12 +290,6 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
 }
 
 /* ================= PÁGINA DE HISTORIAL ================= */
-/* ==============================================
-   ESTILO HISTORIAL DE PEDIDOS - TAHM KING
-   ============================================== */
-/* ==============================================
-   HISTORIAL DE PEDIDOS - BASE (ORDENADOR)
-   ============================================== */
 .seccion-historial {
     background-color: #000000;
     min-height: 80vh;
@@ -363,7 +323,6 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
     gap: 15px;
 }
 
-/* LA TARJETA BASE */
 .tarjeta-pedido {
     background: #141414;
     border: 2px solid #222;
@@ -382,19 +341,17 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
     box-shadow: 0 5px 20px rgba(255, 0, 0, 0.15);
 }
 
-/* NÚMERO DE PEDIDO (Con la barra roja) */
 .numero-pedido {
     font-size: 45px;
     font-weight: 900;
     color: #ff0000;
     padding-right: 25px;
     margin-right: 25px;
-    border-right: 4px solid #ff0000; /* La barra roja vertical */
+    border-right: 4px solid #ff0000;
     flex: 0 0 auto;
     font-family: 'Oswald', sans-serif;
 }
 
-/* INFORMACIÓN */
 .info-pedido {
     flex: 1;
     display: flex;
@@ -408,7 +365,7 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
 .info-pedido p {
     margin: 0;
     display: flex;
-    flex-direction: column; /* Apila el título sobre el valor */
+    flex-direction: column;
 }
 
 .info-pedido strong {
@@ -419,7 +376,6 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
     letter-spacing: 1px;
 }
 
-/* ESTADOS (COLORES) */
 .status {
     font-weight: bold;
     text-transform: uppercase;
@@ -428,7 +384,6 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
 .entregado .status { color: #2ecc71; }
 .cancelado .status { color: #ff2a2a; }
 
-/* BOTÓN DE INFO */
 .btn-info-premium {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid #444;
@@ -452,11 +407,9 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
     transform: rotate(15deg) scale(1.1);
 }
 
-/* ==============================================
-   RESPONSIVO: TABLETS Y MÓVILES
-   ============================================== */
+/*RESPONSIVE: TABLETS Y MÓVILES*/
 
-/* --- TABLETS (Hasta 1024px) --- */
+/*TABLETS*/
 @media (max-width: 1024px) {
     .tarjeta-pedido {
         padding: 15px 20px;
@@ -471,70 +424,42 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
     }
 }
 
-/* --- MÓVILES (Hasta 768px) - Diseño súper compacto --- */
+/*MÓVILES*/
 @media (max-width: 768px) {
     .tarjeta-pedido {
-        padding: 15px; /* Tarjeta más ajustada */
+        padding: 15px;
         gap: 0;
     }
-
     .tarjeta-pedido:hover {
-        transform: translateY(-3px); /* Hover sutil en móvil */
+        transform: translateY(-3px);
     }
-
     .numero-pedido {
-        font-size: 26px; /* Número más pequeño */
+        font-size: 26px;
         padding-right: 12px;
         margin-right: 12px;
-        border-right-width: 3px; /* Barra un poco más fina */
+        border-right-width: 3px;
     }
-
     .info-pedido {
-        gap: 5px; /* Juntamos más los elementos */
+        gap: 5px;
     }
-
     .info-pedido p {
-        font-size: 11px; /* Letra pequeña para que quepa en la línea */
+        font-size: 11px;
     }
 
     .info-pedido strong {
-        font-size: 9px; /* Títulos (FECHA, ESTADO) pequeñitos */
+        font-size: 9px;
         margin-bottom: 2px;
     }
-
     .btn-info-premium {
         width: 35px;
         height: 35px;
-        flex: 0 0 35px; /* Botón más pequeño */
+        flex: 0 0 35px;
         font-size: 14px;
         margin-left: 5px;
     }
 }
 
-/* --- MÓVILES SÚPER PEQUEÑOS (Hasta 380px) --- */
-@media (max-width: 380px) {
-    .numero-pedido {
-        font-size: 22px;
-        padding-right: 8px;
-        margin-right: 8px;
-    }
-    .info-pedido p {
-        font-size: 10px;
-    }
-    .btn-info-premium {
-        width: 30px;
-        height: 30px;
-        flex: 0 0 30px;
-        font-size: 12px;
-    }
-}
 /* ================= PÁGINA LOGIN ================= */
-
-/* ================= LOGIN (PÁGINA INDEPENDIENTE) ================= */
-
-/* ==============================================
-   LOGIN - ESTILOS BASE (ORDENADOR)
-   ============================================== */
 .login-body {
     background: #121212;
     min-height: 100vh;
@@ -591,7 +516,6 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
     color: #ff2a2a;
 }
 
-/* BOTONES */
 .container button {
     background-color: #ff2a2a;
     color: white;
@@ -627,7 +551,6 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
     color: black;
 }
 
-/* FORMULARIOS */
 .container form {
     background-color: #1a1a1a;
     display: flex;
@@ -654,7 +577,6 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
     outline: none;
 }
 
-/* POSICIONAMIENTO */
 .form-container {
     position: absolute;
     top: 0;
@@ -685,7 +607,6 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
     z-index: 5;
 }
 
-/* ICONOS SOCIALES */
 .social-icons {
     margin: 20px 0;
 }
@@ -707,7 +628,6 @@ body { background-color: #121212; min-height: 100vh; display: flex; flex-directi
     border-color: #ff2a2a;
 }
 
-/* PANEL DESLIZANTE */
 .toggle-container {
     position: absolute;
     top: 0;

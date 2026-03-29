@@ -10,12 +10,9 @@ async function xLuIncludeFile() {
             let a = z[i].cloneNode(false);
             let file = z[i].getAttribute("data-xlu-include-file");
 
-            // === MAGIA: CORRECCIÓN DE CARGA DE ARCHIVOS ===
-            // Si estamos en la carpeta 'pages' y el archivo a cargar NO tiene '../', se lo ponemos.
             if (window.location.pathname.includes("/pages/") && !file.startsWith("../")) {
                 file = "../" + file;
             }
-            // ====================================================
 
             try {
                 let response = await fetch(file);
@@ -26,12 +23,11 @@ async function xLuIncludeFile() {
                     a.innerHTML = content;
                     z[i].parentNode.replaceChild(a, z[i]);
 
-                    // Si cargamos menús, arreglamos sus enlaces internos
                     if (file.includes("header") || file.includes("sidebar") || file.includes("footer")) {
                         corregirRutas(a);
                     }
 
-                    xLuIncludeFile(); // Seguimos buscando más componentes
+                    xLuIncludeFile();
                 }
             } catch (error) {
                 console.error("Error cargando archivo:", file, error);
@@ -61,8 +57,9 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 /* ==============================================
-   LÓGICA DEL SIDEBAR (Se ejecuta al cargar los componentes)
+                    SIDEBAR
    ============================================== */
+
 document.addEventListener('componentesListos', () => {
     // Buscamos los botones
     const btnMenu = document.getElementById('btn-menu'); // El del header
@@ -70,25 +67,24 @@ document.addEventListener('componentesListos', () => {
     const overlay = document.getElementById('fondo-sidebar');
     const btnCerrar = document.getElementById('btn-cerrar-menu'); // El del sidebar
 
-    // Si todo existe, le damos vida
     if (btnMenu && sidebar && overlay && btnCerrar) {
 
-        // 1. Al hacer clic en las tres rayitas -> ABRIR
+        // click en las tres rayas
         btnMenu.addEventListener('click', () => {
             sidebar.classList.add('activo');
             overlay.classList.add('activo');
         });
 
-        // Función para cerrar todo
+        // Cerrar
         const cerrarSidebar = () => {
             sidebar.classList.remove('activo');
             overlay.classList.remove('activo');
         };
 
-        // 2. Al hacer clic en la X -> CERRAR
+        //clic en la X
         btnCerrar.addEventListener('click', cerrarSidebar);
 
-        // 3. Al hacer clic en el fondo negro fuera del menú -> CERRAR
+        //click en el fondo
         overlay.addEventListener('click', cerrarSidebar);
     }
 });
@@ -133,14 +129,13 @@ document.addEventListener('componentesListos', async () => {
     if (!navCats || !lista) return;
     if (typeof cargarProductos === 'undefined') return;
 
-    // === AQUÍ ESTÁ LA MAGIA QUE DETECTA EL PANEL ===
+    //PANEL
     const esPedido = !!document.querySelector('.pedido-mode');
     const esPanel = !!document.querySelector('.panel-mode');
 
-    let modo = 'carta'; // Por defecto pinta la carta normal
+    let modo = 'carta'; // Muestra la carta normal
     if (esPedido) modo = 'pedido'; // Si es la página de pedidos
     if (esPanel) modo = 'panel';   // Si es el panel del trabajador
-    // ===============================================
 
     const base = window.location.pathname.includes('/pages/') ? '../' : '';
 
@@ -174,28 +169,24 @@ window.addEventListener('pageshow', () => {
     });
 });
 
-// mensaje de bienvenida y el logout en el header
-
+// Logout en el header
 document.addEventListener('componentesListos', () => {
     const usuario = JSON.parse(localStorage.getItem('usuario') || 'null');
     const btnUser = document.getElementById('btn-user');
 
     if (!btnUser) return;
 
-    // Función para obtener la ruta correcta del login
     function getRutaLogin() {
-        // Si estamos en la carpeta pages/, necesitamos subir un nivel
         if (window.location.pathname.includes('/pages/')) {
             return '../pages/login.html';
         }
-        // Si estamos en la raíz, la ruta es directa
         return 'pages/login.html';
     }
 
     if (usuario) {
-        // Cambiar icono de usuario por nombre + logout
+        // Cambiar usuario por nombre y logout
         btnUser.innerHTML = `<span style="color:#fff;font-size:14px;letter-spacing:1px;">${usuario.nombre.split(' ')[0].toUpperCase()}</span>`;
-        // --- MENÚ FLOTANTE DEL PERFIL ANIMADO ---
+
         btnUser.addEventListener('click', function(e) {
             e.preventDefault();
 
@@ -209,7 +200,6 @@ document.addEventListener('componentesListos', () => {
                 const misPuntos = usuario.puntos || 0;
                 const rutaHistorial = window.location.pathname.includes('/pages/') ? 'historial.html' : 'pages/historial.html';
 
-                // LA MAGIA DE LAS ANIMACIONES
                 const estilosAnimacion = '<style>' +
                     '.btn-hist-flotante { background:#ff2a2a; color:#fff; display:block; padding:10px; text-decoration:none; border-radius:5px; margin-bottom:10px; font-weight:bold; transition:all 0.3s ease; }' +
                     '.btn-hist-flotante:hover { background:#cc0000; transform:scale(1.05); box-shadow:0 4px 10px rgba(255,42,42,0.4); }' +
@@ -240,7 +230,6 @@ document.addEventListener('componentesListos', () => {
 
 
     } else {
-        // Usar la ruta corregida según la página actual
         btnUser.href = getRutaLogin();
     }
 });

@@ -21,8 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 3. FILA 3: EL TRUCO DEL RETARDO
-    // Primero creamos el slider SIN autoplay
     const swiper3 = new Swiper('#combos-slider', {
         loop: true,
         speed: 600,

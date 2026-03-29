@@ -42,7 +42,6 @@
   document.addEventListener('DOMContentLoaded', async () => {
     const carritoGuardado = JSON.parse(localStorage.getItem('carrito') || '{}');
 
-    // Carga productos del JSON para obtener nombres y precios
     const res = await fetch('../data.json');
     const data = await res.json();
 
