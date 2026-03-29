@@ -2285,7 +2285,7 @@ body.fondo-oscuro-estetico {
     text-decoration: underline;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
     .lista-opciones-oscuras {
         flex-direction: column;
         align-items: center;
@@ -2372,6 +2372,61 @@ body.fondo-oscuro-estetico {
     filter:brightness(1.1);
 }
 
+/* TABLETS (Hasta 1024px) */
+@media (max-width: 1024px) {
+    .pedido-actions {
+        right: 20px;
+        bottom: 20px;
+        gap: 10px;
+    }
+
+    .action-btn {
+        padding: 12px 16px;
+        font-size: 15px;
+    }
+}
+
+/* MÓVILES (Hasta 768px) */
+@media (max-width: 768px) {
+    .pedido-actions {
+        flex-direction: row;
+        justify-content: space-between;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        padding: 12px 15px;
+        background: rgba(18, 18, 18, 0.95);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid #333;
+        gap: 10px;
+        box-sizing: border-box;
+        margin: 0;
+    }
+
+    .action-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 12px 5px;
+        font-size: 13px;
+        border-radius: 8px;
+        box-shadow: none;
+    }
+
+    .action-btn i {
+        font-size: 16px;
+    }
+
+    .qty-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+    }
+
+    .qty {
+        font-size: 15px;
+    }
+}
 /* ================= Ticket ================= */
 
 .fondo-ticket-elegante {
@@ -2902,7 +2957,7 @@ body.fondo-oscuro-estetico {
 }
 
 /* RESPONSIVE */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .contacto-grid {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -2919,7 +2974,7 @@ body.fondo-oscuro-estetico {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
     .contacto-opciones {
         flex-direction: column;
     }
@@ -3096,7 +3151,7 @@ body.fondo-oscuro-estetico {
 }
 
 /* RESPONSIVE */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .pago-caja {
         padding: 50px 20px 30px 20px;
     }
@@ -3121,7 +3176,7 @@ body.fondo-oscuro-estetico {
     }
 
     .pago-botones {
-        flex-direction: column-reverse; /* El botón PAGAR arriba en móviles */
+        flex-direction: column-reverse;
         gap: 10px;
     }
 }
@@ -3269,64 +3324,5 @@ body.fondo-oscuro-estetico {
     .btn-enviar-domicilio-xl {
         font-size: 18px;
         padding: 18px;
-    }
-}
-/* RESPONSIVE */
-
-@media (max-width: 1024px) {
-    .header-main { padding: 0 30px; height: 140px; }
-    .logo-container { width: 220px; }
-    .btn-order { font-size: 18px; padding: 10px 20px; }
-    .nav-section.right { gap: 20px; }
-
-    .pie-pagina-tahm .contenedor-columnas { gap: 30px; }
-    .pie-pagina-tahm .columna-footer { min-width: 40%; }
-
-}
-
-@media (max-width: 768px) {
-    .header-main {
-        height: auto;
-        padding: 15px 20px;
-        flex-wrap: wrap;
-    }
-    .nav-section.center {
-        order: -1;
-        width: 100%;
-        margin-bottom: 15px;
-        flex: unset;
-    }
-    .logo-container { height: 90px; width: 100%; }
-    .icon-btn i { font-size: 35px; }
-
-    .menu-lateral {
-        width: 100vw;
-        left: -100vw;
-    }
-    .pie-pagina-tahm { padding-top: 40px; margin-top: 30px; }
-    .pie-pagina-tahm .contenedor-columnas {
-        text-align: center;
-        padding: 0 20px 40px 20px;
-        flex-direction: column;
-        align-items: center;
-    }
-    .pie-pagina-tahm .columna-footer { width: 100%; align-items: center; }
-    .pie-pagina-tahm .redes-sociales { justify-content: center; }
-
-    .menu-categories {
-        gap: 12px;
-        padding: 15px 20px;
-        margin-bottom: 30px;
-        flex-wrap: wrap;
-        justify-content: center;
-        overflow-x: visible;
-        border-radius: 12px;
-    }
-
-    .cat-btn {
-        font-size: 13px;
-        padding: 8px 16px;
-        white-space: nowrap;
-        flex-shrink: 0;
     }
 }

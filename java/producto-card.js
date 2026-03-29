@@ -1,9 +1,9 @@
-// Ajusta rutas según si estamos en /pages/ o raíz
 function getRuta(archivo) {
     return window.location.pathname.includes('/pages/')
         ? `../${archivo}`
         : archivo;
 }
+
 //Carga el componente HTML de plantillas (una sola vez)
 async function cargarComponenteProducto() {
     if (document.getElementById('tpl-carta-item')) return;
@@ -264,6 +264,14 @@ async function cargarProductos(contenedorId, modo = 'carta', categoriaId = null)
     try {
         await cargarComponenteProducto();
 
+        const VERSION_ACTUAL = "2.0";
+        const versionGuardada = localStorage.getItem('tahmking_version');
+
+        if (versionGuardada !== VERSION_ACTUAL) {
+            localStorage.removeItem('productos_panel');
+            localStorage.setItem('tahmking_version', VERSION_ACTUAL);
+        }
+
         let datosRaw = localStorage.getItem('productos_panel');
         let datos;
 
@@ -461,7 +469,7 @@ function finalizarPedido() {
     localStorage.setItem('productos_panel', JSON.stringify(datos));
 
     if (pagadoConPuntos) {
-        alert(`¡MAGIA! Has pagado con tus puntos. Tu número de pedido es el #${nuevoPedido.id}`);
+        alert(`Has pagado con tus puntos. Tu número de pedido es el #${nuevoPedido.id}`);
     } else {
         alert(`¡Pedido realizado con éxito! Tu número de pedido es el #${nuevoPedido.id}`);
     }

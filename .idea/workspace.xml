@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="Implementacion de los alergenos. Correcion de carrito. Correccion de panel de administrador. Mejora de responsive en index y carta.">
+    <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="clean code real">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/producto-card.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/producto-card.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +151,8 @@
       <workItem from="1774707157648" duration="2494000" />
       <workItem from="1774779566917" duration="303000" />
       <workItem from="1774780353280" duration="2548000" />
-      <workItem from="1774783175818" duration="3038000" />
+      <workItem from="1774783175818" duration="3069000" />
+      <workItem from="1774795300530" duration="2978000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />
@@ -272,7 +274,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774734635891</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="clean code real">
+      <option name="closed" value="true" />
+      <created>1774786341047</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1774786341047</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,6 +328,7 @@
     <MESSAGE value="Implementación del sistema de puntos en el index" />
     <MESSAGE value="Responsive mejorado de sobre nosotros e historial." />
     <MESSAGE value="Implementacion de los alergenos. Correcion de carrito. Correccion de panel de administrador. Mejora de responsive en index y carta." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementacion de los alergenos. Correcion de carrito. Correccion de panel de administrador. Mejora de responsive en index y carta." />
+    <MESSAGE value="clean code real" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean code real" />
   </component>
 </project>
