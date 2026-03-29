@@ -6,26 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="Implementacion de los alergenos. Correcion de carrito. Correccion de panel de administrador. Mejora de responsive en index y carta.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/historial.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/historial.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/java.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/java.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/pago.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/pago.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/panel.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/panel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/pedidos.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/pedidos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/producto-card.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/producto-card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/slides.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/slides.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/ticket.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/ticket.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/tipo-pedido.js" beforeDir="false" afterPath="$PROJECT_DIR$/java/tipo-pedido.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/alergenos.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/alergenos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/catalogo.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/catalogo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/contacto.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/contacto.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/domicilio.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/domicilio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/historial.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/historial.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/lista_pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/lista_pedido.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/pago.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/pago.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/panel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/pedido.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/tipo_pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/tipo_pedido.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +109,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.31033.133" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.30387.83" />
       </set>
     </attachedChunks>
   </component>
@@ -170,6 +150,7 @@
       <workItem from="1774707157648" duration="2494000" />
       <workItem from="1774779566917" duration="303000" />
       <workItem from="1774780353280" duration="2548000" />
+      <workItem from="1774783175818" duration="3038000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <option name="closed" value="true" />

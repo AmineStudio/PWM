@@ -687,9 +687,8 @@ body {
     transform: translateX(200%);
 }
 
-/* ==============================================
-   RESPONSIVO: TABLETS Y MÓVILES (Hasta 768px)
-   ============================================== */
+/*RESPONSIVO: TABLETS Y MÓVILES*/
+
 @media (max-width: 768px) {
     .container {
         min-height: 650px;
@@ -780,38 +779,12 @@ body {
     }
 }
 
-/* ==============================================
-   MÓVILES PEQUEÑOS (Hasta 480px)
-   ============================================== */
-@media (max-width: 480px) {
-    .container form {
-        padding: 0 15px;
-    }
-
-    .container h1 {
-        font-size: 26px;
-    }
-
-    .social-icons a {
-        width: 38px;
-        height: 38px;
-        margin: 0 5px;
-    }
-
-    .toggle-panel p {
-        font-size: 13px;
-        margin: 10px 0;
-    }
-}
 /* ================= SOBRE NOSOTROS ================= */
-/* ================= NOSOTROS ================= */
-
 body {
     background-color: #0a0a0a;
     color: white;
 }
 
-/* ================= TITULOS ================= */
 .titulo-tahm {
     font-size: 30px;
     text-transform: uppercase;
@@ -822,7 +795,6 @@ body {
     color: #ff0000;
 }
 
-/* ================= GRID SOBRE NOSOTROS ================= */
 .about-section {
     padding: 60px 20px;
 }
@@ -832,7 +804,7 @@ body {
     grid-template-columns: 1fr 1fr;
     max-width: 1100px;
     margin: auto;
-    background: #141414; /* Un toque de contraste oscuro */
+    background: #141414;
     border-radius: 12px;
     overflow: hidden;
 }
@@ -851,7 +823,7 @@ body {
 .texto p {
     color: #bbb;
     font-family: Arial, sans-serif;
-    line-height: 1.6; /* Mejora la lectura del texto */
+    line-height: 1.6;
 }
 
 .imagen img {
@@ -861,7 +833,6 @@ body {
     display: block;
 }
 
-/* ================= UBICACIÓN Y MAPA ================= */
 .ubicacion-section {
     padding: 50px 20px;
 }
@@ -887,7 +858,7 @@ body {
     padding: 15px 0;
     cursor: pointer;
     transition: 0.3s ease;
-    border-bottom: 1px solid #222; /* Línea separadora elegante */
+    border-bottom: 1px solid #222;
     font-weight: bold;
     color: #ddd;
 }
@@ -897,13 +868,12 @@ body {
     transform: translateX(10px);
 }
 
-/* MAPA */
 .mapa-box {
     flex: 1;
     height: 400px;
     border-radius: 12px;
     overflow: hidden;
-    border: 1px solid #333; /* Enmarca el mapa */
+    border: 1px solid #333;
 }
 
 #google-map {
@@ -912,11 +882,9 @@ body {
     border: none;
 }
 
-/* ==============================================
-   RESPONSIVO: TABLETS Y MÓVILES
-   ============================================== */
+/*RESPONSIVO: TABLETS Y MÓVILES*/
 
-/* --- TABLETS (Hasta 1024px) --- */
+/*TABLETS (Hasta 1024px)*/
 @media (max-width: 1024px) {
     .about-section, .ubicacion-section {
         padding: 40px 20px;
@@ -931,21 +899,17 @@ body {
     }
 }
 
-/* --- MÓVILES (Hasta 768px) --- */
+/*MÓVILES (Hasta 768px)*/
 @media (max-width: 768px) {
-    /* SOLUCIÓN AL TABLERO DE AJEDREZ:
-       Pasamos de Grid a Flexbox en columna para poder reordenar los bloques a nuestro antojo.
-    */
     .about-grid {
         display: flex;
         flex-direction: column;
     }
 
-    /* Asignamos el orden visual de los hijos (divs) dentro del contenedor flex */
-    .about-grid > div:nth-child(1) { order: 1; } /* Texto Historia (1º) */
-    .about-grid > div:nth-child(2) { order: 2; } /* Foto Historia (2º) */
-    .about-grid > div:nth-child(4) { order: 3; } /* Texto Cocina (SUBE al 3º) */
-    .about-grid > div:nth-child(3) { order: 4; } /* Foto Cocina (BAJA al 4º) */
+    .about-grid > div:nth-child(1) { order: 1; }
+    .about-grid > div:nth-child(2) { order: 2; }
+    .about-grid > div:nth-child(4) { order: 3; }
+    .about-grid > div:nth-child(3) { order: 4; }
 
     .item.imagen {
         min-height: 250px;
@@ -953,10 +917,9 @@ body {
 
     .texto {
         padding: 30px 20px;
-        text-align: center; /* Centramos el texto para que lea mejor en móvil */
+        text-align: center;
     }
 
-    /* La lista y el mapa se apilan uno encima del otro */
     .ubicacion-container {
         flex-direction: column;
     }
@@ -966,33 +929,17 @@ body {
         width: 100%;
     }
 
-    /* En táctil el movimiento hover debe ser más sutil */
     .lista-restaurantes li:hover {
         transform: translateX(5px);
     }
 }
 
-/* --- MÓVILES PEQUEÑOS (Hasta 480px) --- */
-@media (max-width: 480px) {
-    .titulo-tahm {
-        font-size: 24px;
-    }
-
-    .item.imagen {
-        min-height: 200px;
-    }
-
-    .mapa-box {
-        height: 250px; /* Reducimos el mapa para que no ocupe toda la pantalla */
-    }
-}
 /* ================= SIDEBAR ================= */
 
-/* ================= ESTRUCTURA SIDEBAR ================= */
 .menu-lateral {
     position: fixed;
     top: 0;
-    left: -320px; /* <--- CAMBIO: Lo escondemos fuera de la pantalla por la izquierda */
+    left: -320px;
     width: 300px;
     height: 100vh;
     background-color: var(--header-black);
@@ -1001,41 +948,16 @@ body {
     flex-direction: column;
     box-shadow: 5px 0 25px rgba(0,0,0,0.8);
     z-index: 2000;
-    transition: left 0.4s ease; /* <--- CAMBIO: Animación suave al abrir */
+    transition: left 0.4s ease;
 }
 
-/* <--- CLASE NUEVA: El Javascript añadirá esto para abrir el menú */
 .menu-lateral.activo {
     left: 0;
 }
 
-/* OVERLAY (Fondo oscuro) */
 .sidebar-overlay {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 1500;
-    opacity: 0; /* Empezamos invisible */
-    visibility: hidden;
-    transition: all 0.4s ease; /* Animación suave */
-}
-
-/* <--- CLASE NUEVA: El Javascript añadirá esto para mostrar el fondo */
-.sidebar-overlay.activo {
-    opacity: 1;
-    visibility: visible;
-}
-/* ==============================================
-   DISEÑO DEL SIDEBAR (MENÚ LATERAL)
-   ============================================== */
-
-/* Fondo oscuro que aparece detrás */
-.sidebar-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
     background: rgba(0, 0, 0, 0.7);
     z-index: 1500;
     opacity: 0;
@@ -1048,11 +970,10 @@ body {
     visibility: visible;
 }
 
-/* El menú lateral en sí */
 .menu-lateral {
     position: fixed;
     top: 0;
-    left: -350px; /* Escondido por la izquierda */
+    left: -350px;
     width: 300px;
     height: 100vh;
     background-color: var(--header-black, #000);
@@ -1065,10 +986,9 @@ body {
 }
 
 .menu-lateral.activo {
-    left: 0; /* Aparece en pantalla */
+    left: 0;
 }
 
-/* Cabecera del Sidebar */
 .sidebar-header {
     padding: 25px;
     display: flex;
@@ -1101,7 +1021,6 @@ body {
     transform: scale(1.2);
 }
 
-/* Navegación (Enlaces) */
 .sidebar-nav {
     flex: 1;
     overflow-y: auto;
@@ -1141,10 +1060,9 @@ body {
 .sidebar-nav a:hover {
     background-color: rgba(255, 0, 0, 0.1);
     color: var(--tahm-red, #ff0000);
-    padding-left: 35px; /* Efecto de moverse a la derecha */
+    padding-left: 35px;
 }
 
-/* Footer del Sidebar (Redes sociales) */
 .sidebar-footer {
     padding: 25px;
     border-top: 1px solid rgba(255, 0, 0, 0.2);
@@ -1184,9 +1102,6 @@ body {
     filter: drop-shadow(0 0 5px var(--tahm-red, #ff0000));
 }
 /* ================= ALÉRGENOS ================= */
-/* ==============================================
-   PÁGINA ALÉRGENOS - ESTILO TAHM KING
-   ============================================== */
 
 .seccion-alergenos {
     background-color: #121212;
@@ -1194,7 +1109,6 @@ body {
     padding-bottom: 80px;
 }
 
-/* BANNER SUPERIOR */
 .banner-alergenos {
     position: relative;
     height: 350px;
@@ -1237,7 +1151,6 @@ body {
     margin-top: 10px;
 }
 
-/* CONTENEDOR PRINCIPAL */
 .contenedor-grid {
     max-width: 1200px;
     margin: 0 auto;
@@ -1256,7 +1169,6 @@ body {
 
 .titulo-seccion span { color: #ff0000; }
 
-/* GRID DE TARJETAS */
 .grid-alergenos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1264,7 +1176,7 @@ body {
 }
 
 .card-alergeno {
-    background: #1A1B1D; /* Mismo color que tus cards de productos */
+    background: #1A1B1D;
     border: 1px solid #333;
     border-radius: 15px;
     padding: 25px;
@@ -1280,7 +1192,6 @@ body {
     box-shadow: 0 10px 20px rgba(255, 0, 0, 0.1);
 }
 
-/* ICONO CIRCULAR */
 .icono-wrap {
     width: 70px;
     height: 70px;
@@ -1294,7 +1205,6 @@ body {
     flex-shrink: 0;
 }
 
-/* TEXTOS */
 .texto-wrap h3 {
     color: #fff;
     font-family: 'Oswald', sans-serif;
@@ -1318,18 +1228,12 @@ body {
 }
 
 .icono-alergeno-png {
-    width: 60%; /* Ajusta este porcentaje si los ves muy grandes o pequeños */
+    width: 60%;
     height: auto;
     object-fit: contain;
-    /* Si tus PNG son negros y los quieres blancos, puedes usar este truco: */
-    /* filter: invert(1); */
 }
 /* ================= Carta ================= */
-/* =========================================================
-   CARTA TEMPLATE - BASE (ORDENADOR)
-   ========================================================= */
 
-/* Fondo general del área de carta */
 .menu-page {
     background: radial-gradient(circle at 20% 10%, #1a1a1a 0%, #0e0e0e 60%, #0a0a0a 100%);
     font-family: "Bauhaus 93", sans-serif;
@@ -1337,7 +1241,6 @@ body {
     padding: 40px 0;
 }
 
-/* ================= CATEGORÍAS ================= */
 .menu-categories {
     width: 1100px;
     max-width: 95%;
@@ -1383,7 +1286,6 @@ body {
     border-radius: 2px;
 }
 
-/* ================= LISTA ================= */
 .menu-list {
     width: 1100px;
     max-width: 95%;
@@ -1393,7 +1295,6 @@ body {
     gap: 26px;
 }
 
-/* ================= ITEM ================= */
 .menu-item {
     background: linear-gradient(180deg, #111 0%, #0c0c0c 100%);
     display: flex;
@@ -1417,7 +1318,6 @@ body {
     border-color: #ff2a2a;
 }
 
-/* ================= IMAGEN ================= */
 .item-img {
     width: 150px;
     height: auto;
@@ -1429,7 +1329,6 @@ body {
     transform: scale(1.05);
 }
 
-/* ================= INFO ================= */
 .item-info {
     flex: 1;
 }
@@ -1449,7 +1348,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* ================= TAGS (ALÉRGENOS Y CONTROLES) ================= */
 .item-tags {
     display: flex;
     gap: 12px;
@@ -1465,7 +1363,6 @@ body {
             inset 0 0 6px rgba(0,0,0,.5);
 }
 
-/* Controles de cantidad (Botones + y -) */
 .qty-control {
     display: flex;
     align-items: center;
@@ -1496,7 +1393,6 @@ body {
     text-align: center;
 }
 
-/* ================= PRECIO ================= */
 .item-price {
     text-align: right;
     min-width: 140px;
@@ -1512,11 +1408,9 @@ body {
     display: block;
 }
 
-/* ==============================================
-   RESPONSIVO: TABLETS Y MÓVILES
-   ============================================== */
+/*RESPONSIVE*/
 
-/* --- TABLETS (Hasta 1024px) --- */
+/*TABLETS (Hasta 1024px)*/
 @media (max-width: 1024px) {
     .menu-categories {
         gap: 20px;
@@ -1541,9 +1435,8 @@ body {
     }
 }
 
-/* --- MÓVILES (Hasta 768px) - DISEÑO COMPACTO HORIZONTAL --- */
+/*MÓVILES (Hasta 768px)*/
 @media (max-width: 768px) {
-    /* Barra de categorías deslizable */
     .menu-categories {
         justify-content: flex-start;
         overflow-x: auto;
@@ -1559,43 +1452,38 @@ body {
         display: none;
     }
 
-    /* MANTENEMOS LA TARJETA EN HORIZONTAL PERO LA COMPACTAMOS */
     .menu-item {
-        flex-direction: row; /* Fila, no columna */
+        flex-direction: row;
         align-items: center;
-        padding: 15px; /* Menos padding */
-        gap: 15px; /* Menos hueco entre foto, texto y precio */
+        padding: 15px;
+        gap: 15px;
     }
-
-    /* Foto a la izquierda, pequeña pero visible */
     .item-img {
-        width: 80px; /* Reducimos a la mitad casi */
-        flex: 0 0 80px; /* Evita que la foto se aplaste si el texto es muy largo */
+        width: 80px;
+        flex: 0 0 80px;
         margin: 0;
     }
 
-    /* Información central alineada a la izquierda */
     .item-info {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        flex: 1; /* Ocupa el espacio restante del medio */
+        flex: 1;
     }
 
     .item-title {
-        font-size: 18px; /* Título más pequeño */
+        font-size: 18px;
         margin-bottom: 2px;
         text-align: left;
     }
 
     .item-desc {
-        font-size: 11px; /* Descripción pequeñita pero legible */
+        font-size: 11px;
         line-height: 1.2;
         margin-bottom: 5px;
         text-align: left;
     }
 
-    /* Los alérgenos (inyectados por JS) en móvil los hacemos pequeñitos */
     .iconos-alergenos img {
         width: 20px !important;
         height: 20px !important;
@@ -1606,7 +1494,6 @@ body {
         gap: 5px !important;
     }
 
-    /* Controles de cantidad (+ y -) más pequeños y debajo de los alérgenos */
     .qty-control {
         margin-top: 5px;
         gap: 5px;
@@ -1623,78 +1510,42 @@ body {
         min-width: 15px;
     }
 
-    /* Precio a la derecha, ajustado */
     .item-price {
         text-align: right;
-        min-width: auto; /* Quitamos el ancho fijo enorme que tenía */
+        min-width: auto;
         flex: 0 0 auto;
     }
 
     .price {
-        font-size: 18px; /* Precio más ajustado */
+        font-size: 18px;
     }
 
-    /* El texto de los puntos debajo del precio */
     .item-precio-burbuja span {
         font-size: 10px !important;
     }
 }
 
-/* --- MÓVILES PEQUEÑOS (Hasta 480px) --- */
-@media (max-width: 480px) {
-    .menu-item {
-        padding: 12px 10px;
-        gap: 10px;
-    }
-
-    .item-img {
-        width: 70px;
-        flex: 0 0 70px;
-    }
-
-    .item-title {
-        font-size: 16px;
-    }
-
-    .item-desc {
-        font-size: 10px;
-    }
-
-    .price {
-        font-size: 16px;
-    }
-}
 /* ================= Catalogo ================= */
-/* =========================================================
-   PÁGINA CATÁLOGO (usa header + sidebar + footer + carta)
-   ========================================================= */
 
 .catalogo-main{
     background:
             radial-gradient(circle at 15% 10%, #1a1a1a 0%, #111 55%, #0c0c0c 100%);
     min-height: 100vh;
-    padding: 80px 0 80px; /* espacio para header fijo */
+    padding: 80px 0 80px;
 }
 
-/* Centra el template carta dentro del layout */
 .carta-wrapper{
     width: 1200px;
     max-width: 95%;
     margin: 0 auto;
 }
 
-/* Scroll suave tipo app */
 html{
     scroll-behavior: smooth;
 }
 
-/* ==========================================================================
-   INDEX TAHM KING - DISEÑO PREMIUM (IMAGEN ANCHO COMPLETO)
-   ========================================================================== */
+/* ================= Index =================== */
 
-/* ==============================================
-   CONTENEDOR PRINCIPAL Y FILAS
-   ============================================== */
 .contenedor-principal {
     background-color: #121212;
     padding: 20px 0;
@@ -1711,9 +1562,6 @@ html{
     position: relative;
 }
 
-/* ==============================================
-   FILAS 1 Y 3: HERO SLIDERS (ANCHO COMPLETO)
-   ============================================== */
 .fila-1, .fila-3 {
     height: 500px;
     background-color: #000;
@@ -1744,7 +1592,6 @@ html{
     display: block;
 }
 
-/* Capa de texto fija */
 .overlay-fijo {
     position: absolute;
     top: 0;
@@ -1775,7 +1622,6 @@ html{
     background: linear-gradient(to left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%);
 }
 
-/* TIPOGRAFÍAS HERO */
 .titulo-main {
     font-size: clamp(40px, 8vw, 80px);
     font-family: "Bauhaus 93", sans-serif;
@@ -1804,9 +1650,6 @@ html{
     margin-bottom: 25px;
 }
 
-/* ==============================================
-   FILA 2: MÁS POPULARES
-   ============================================== */
 .mas-populares {
     color: #fff;
     font-family: 'Oswald', sans-serif;
@@ -1865,7 +1708,6 @@ html{
     letter-spacing: 1px;
 }
 
-/* BOTONES SWIPER ELEGANTES */
 .swiper-button-next, .swiper-button-prev {
     background: rgba(255, 255, 255, 0.1) !important;
     backdrop-filter: blur(8px);
@@ -1888,9 +1730,6 @@ html{
     font-size: 18px !important;
 }
 
-/* ============================================================
-   FILA 4: SISTEMA DE PUNTOS TAHMKOINS (INTERACTIVO)
-   ============================================================ */
 .fila-4 {
     padding: 80px 20px;
     background: transparent;
@@ -2048,9 +1887,6 @@ html{
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ============================================================
-   FILA 5: SOBRE NOSOTROS - GALERÍA BENTO
-   ============================================================ */
 .fila-5 {
     padding: 100px 20px;
     background: #0a0a0a;
@@ -2072,7 +1908,6 @@ html{
     text-align: left;
 }
 
-/* --- GRID DE LA GALERÍA --- */
 .galeria-bento {
     flex: 0 0 60%;
     display: grid;
@@ -2099,7 +1934,6 @@ html{
     transform: scale(1.1);
 }
 
-/* --- POSICIONAMIENTO DE LAS PIEZAS --- */
 .img-grande {
     grid-column: 1 / 2;
     grid-row: 1 / 4;
@@ -2125,7 +1959,6 @@ html{
     grid-row: 3 / 4;
 }
 
-/* ================= BOTONES GLOBALES ================= */
 .btn-main {
     display: inline-block;
     background-color: #ff0000;
@@ -2149,11 +1982,9 @@ html{
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
 }
 
-/* ==============================================
-   RESPONSIVO Y ADAPTACIÓN (TABLET Y MÓVIL)
-   ============================================== */
+/* RESPONSIVE */
 
-/* --- TABLETS (Hasta 1024px) --- */
+/*TABLETS (Hasta 1024px)*/
 @media (max-width: 1024px) {
     .fila-1, .fila-3 {
         height: 400px;
@@ -2172,7 +2003,6 @@ html{
         gap: 15px;
     }
 
-    /* SOLUCIÓN AL ORDEN DE LA GALERÍA: Pone el texto arriba y la galería abajo */
     .contenedor-sobre-nosotros {
         flex-direction: column;
         text-align: center;
@@ -2184,7 +2014,7 @@ html{
         width: 100%;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centramos el texto y el botón */
+        align-items: center;
     }
 
     .galeria-bento {
@@ -2194,7 +2024,7 @@ html{
     }
 }
 
-/* --- MÓVILES (Hasta 768px) --- */
+/*MÓVILES (Hasta 768px)*/
 @media (max-width: 768px) {
     .fila {
         width: 100%;
@@ -2258,57 +2088,10 @@ html{
     }
 }
 
-/* --- MÓVILES PEQUEÑOS Y GALERÍA (Hasta 600px / 480px) --- */
-@media (max-width: 600px) {
-    /* SOLUCIÓN AL BUGEO DE LA GALERÍA: Un diseño sólido que no se rompe */
-    .galeria-bento {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto auto;
-        gap: 10px;
-    }
 
-    /* El perrito caliente ocupa todo el ancho y se pone el primero en la galería */
-    .img-grande {
-        grid-column: 1 / -1;
-        grid-row: 1 / 2;
-        height: 250px;
-    }
-
-    /* Las demás fotos se adaptan debajo organizadamente */
-    .img-cuadrada:nth-child(2) { grid-column: 1 / 2; grid-row: 2 / 3; height: 150px; }
-    .img-cuadrada:nth-child(3) { grid-column: 2 / 3; grid-row: 2 / 3; height: 150px; }
-
-    .img-horizontal {
-        grid-column: 1 / -1;
-        grid-row: 3 / 4;
-        height: 150px;
-    }
-
-    /* Ocultamos esta foto pequeña para que no descuadre */
-    .img-pequena { display: none; }
-}
-
-@media (max-width: 480px) {
-    .titulo-main {
-        font-size: 45px;
-    }
-
-    .texto-main {
-        font-size: 26px;
-    }
-
-    .mas-populares {
-        font-size: 18px;
-        margin-left: 10px;
-    }
-}
 /* ================= TIPO DE PEDIDO ================= */
 
-/* ==============================================
-   DISEÑO TIPO PEDIDO - TAHM KING PREMIUM
-   ============================================== */
 body.fondo-oscuro-estetico {
-    /* Fondo general actualizado */
     background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('img/pedir/pediraqui.jpg');
     background-size: cover;
     background-position: center;
@@ -2404,12 +2187,9 @@ body.fondo-oscuro-estetico {
     background-position: center;
     z-index: 1;
     transition: transform 0.5s ease;
-    opacity: 0.6; /* Un poco de opacidad para que el texto sea legible */
+    opacity: 0.6;
 }
 
-/* --- ASIGNACIÓN DE IMÁGENES ESPECÍFICAS --- */
-
-/* Si tus tarjetas en el JS tienen estas clases o IDs: */
 .opcion-comer-aqui .tarjeta-opcion-bg {
     background-image: url("/img/pedir/comeraqui.jpg");
 }
@@ -2512,7 +2292,6 @@ body.fondo-oscuro-estetico {
     }
 }
 /* ==================== Pedido ========================== */
-/* ================= CANTIDAD PRODUCTOS ================= */
 .qty-control{
     display:flex;
     align-items:center;
@@ -2547,7 +2326,7 @@ body.fondo-oscuro-estetico {
 .action-btn{
     text-decoration: none;
 }
-/* ================= ACCIONES PEDIDO ================= */
+
 .pedido-actions{
     position:fixed;
     right:30px;
@@ -2571,7 +2350,6 @@ body.fondo-oscuro-estetico {
     transition:.25s;
 }
 
-/* Colores Tahm */
 .action-btn.cancel{
     background:#2a2a2a;
     color:#fff;
@@ -2595,9 +2373,6 @@ body.fondo-oscuro-estetico {
 }
 
 /* ================= Ticket ================= */
-/* ================================================= */
-/* ESTILO ELEGANTE - CONFIRMACIÓN (TAHM KING)       */
-/* ================================================= */
 
 .fondo-ticket-elegante {
     background-color: #f4f4f4;
@@ -2618,7 +2393,6 @@ body.fondo-oscuro-estetico {
     padding: 20px;
 }
 
-/* Icono Superior Minimalista */
 .tk-header-icon-elegant {
     background-color: #1a1a1a;
     color: #ffffff;
@@ -2634,7 +2408,6 @@ body.fondo-oscuro-estetico {
     z-index: 2;
 }
 
-/* Tarjeta de Confirmación */
 .tk-card-elegant {
     background-color: #ffffff;
     width: 100%;
@@ -2669,7 +2442,6 @@ body.fondo-oscuro-estetico {
     margin-bottom: 5px;
 }
 
-/* El ID del pedido resaltado */
 .tk-order-id-display {
     font-size: 4rem;
     font-weight: 800;
@@ -2685,7 +2457,6 @@ body.fondo-oscuro-estetico {
     margin-top: 10px;
 }
 
-/* Navegación Inferior */
 .tk-footer-nav-elegant {
     display: flex;
     width: 100%;
@@ -2730,30 +2501,24 @@ body.fondo-oscuro-estetico {
     background-color: #333333;
 }
 /* ================= Lista Pedido ================= */
-/* ================================================= */
-/* ESTILO ELEGANTE - LISTA DE COMPRA (TAHM KING)    */
-/* ================================================= */
 
-/* --- Base del sitio --- */
 .fondo-lista-pedido {
-    background-color: #f4f4f4; /* Gris claro de fondo */
+    background-color: #f4f4f4;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
     min-height: 100vh;
 }
 
-/* --- Contenedor Principal --- */
 .tk-page-container {
     max-width: 450px;
     margin: 0 auto;
     padding: 60px 20px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra el icono y la tarjeta */
+    align-items: center;
 }
 
-/* --- Icono Circular Superior --- */
 .tk-header-icon-elegant {
     background-color: #1a1a1a;
     color: #ffffff;
@@ -2764,12 +2529,11 @@ body.fondo-oscuro-estetico {
     justify-content: center;
     align-items: center;
     font-size: 20px;
-    margin-bottom: 30px; /* Separación generosa */
+    margin-bottom: 30px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     z-index: 2;
 }
 
-/* --- Tarjeta Principal (Ticket) --- */
 .tk-card-elegant {
     background-color: #ffffff;
     width: 100%;
@@ -2790,7 +2554,6 @@ body.fondo-oscuro-estetico {
     font-weight: 300;
 }
 
-/* --- Filas de Productos --- */
 .tk-list-content {
     margin-bottom: 30px;
 }
@@ -2821,7 +2584,6 @@ body.fondo-oscuro-estetico {
     margin: 0 10px;
 }
 
-/* --- Sección Total con Puntos --- */
 .tk-divider {
     border-top: 1px solid #eeeeee;
     margin: 25px 0;
@@ -2855,10 +2617,9 @@ body.fondo-oscuro-estetico {
     letter-spacing: -1px;
 }
 
-/* --- Navegación Inferior (Botones) --- */
 .tk-footer-nav-elegant {
     display: flex;
-    width: 100%; /* Misma anchura que la tarjeta */
+    width: 100%;
     gap: 12px;
     margin-top: 25px;
 }
@@ -2900,7 +2661,6 @@ body.fondo-oscuro-estetico {
     color: black;
 }
 
-/* Iconos de acción (Editar/Eliminar) */
 .tk-actions {
     display: flex;
     gap: 10px;
@@ -2921,9 +2681,7 @@ body.fondo-oscuro-estetico {
 .icono-accion.rojo:hover {
     color: #d32f2f;
 }
-/* =========================
-   CONTACTO PAGE - TAHM KING
-========================= */
+/* ================= Contacto =====================*/
 
 .contacto-container {
     background: #0b0b0b;
@@ -2934,10 +2692,8 @@ body.fondo-oscuro-estetico {
     margin: 0 auto;
 }
 
-/* HERO (Adaptado a vuestros banners) */
 .contacto-hero {
     height: 250px;
-    background: url('../img/contacto-bg.jpg') center/cover no-repeat;
     position: relative;
     border-radius: 12px;
     overflow: hidden;
@@ -2967,7 +2723,6 @@ body.fondo-oscuro-estetico {
     font-size: 18px;
 }
 
-/* GRID PRINCIPAL (Dos columnas) */
 .contacto-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -2975,7 +2730,6 @@ body.fondo-oscuro-estetico {
     margin-bottom: 60px;
 }
 
-/* COLUMNA IZQUIERDA */
 .contacto-info-box {
     background: #141414;
     padding: 25px;
@@ -3011,7 +2765,6 @@ body.fondo-oscuro-estetico {
     font-size: 18px;
 }
 
-/* TARJETAS OPCIONES (Estilo "Más Populares") */
 .contacto-opciones {
     display: flex;
     gap: 15px;
@@ -3052,7 +2805,6 @@ body.fondo-oscuro-estetico {
     transition: all 0.3s ease;
 }
 
-/* HOVER Y ACTIVA */
 .card-contacto:hover .card-inner {
     border-color: #555;
 }
@@ -3072,7 +2824,6 @@ body.fondo-oscuro-estetico {
     color: #ff0000;
 }
 
-/* COLUMNA DERECHA: FORMULARIO */
 .contacto-formulario-wrapper {
     background: #141414;
     padding: 30px;
@@ -3127,13 +2878,12 @@ body.fondo-oscuro-estetico {
     border-color: #ff0000;
 }
 
-/* BOTÓN TAHM KING (Reemplaza el verde) */
 .btn-tahm {
     background: #ff0000;
     color: #fff;
     border: none;
     padding: 15px;
-    border-radius: 30px; /* Estilo píldora como en el inicio */
+    border-radius: 30px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
@@ -3175,11 +2925,9 @@ body.fondo-oscuro-estetico {
     }
 }
 
-/* ==============================================
-   PÁGINA DE PAGO (CHECKOUT) - TAHM KING
-   ============================================== */
+/* =================== Pagina de pago ======================*/
 .seccion-pago {
-    background-color: #f5f5f5; /* Fondo claro del carrito */
+    background-color: #f5f5f5;
     min-height: 80vh;
     display: flex;
     justify-content: center;
@@ -3195,7 +2943,6 @@ body.fondo-oscuro-estetico {
     align-items: center;
 }
 
-/* Círculo negro con el carrito */
 .pago-icono-top {
     background-color: #111;
     color: #fff;
@@ -3206,17 +2953,16 @@ body.fondo-oscuro-estetico {
     justify-content: center;
     align-items: center;
     font-size: 28px;
-    margin-bottom: -35px; /* Para que pise la caja blanca */
+    margin-bottom: -35px;
     z-index: 10;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* Caja del formulario */
 .pago-caja {
     background-color: #fff;
     width: 100%;
-    padding: 60px 40px 40px 40px; /* Padding extra arriba por el icono */
-    border-top: 5px solid #111; /* Borde estilo lista de compra */
+    padding: 60px 40px 40px 40px;
+    border-top: 5px solid #111;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
@@ -3226,7 +2972,6 @@ body.fondo-oscuro-estetico {
     gap: 15px;
 }
 
-/* Inputs del formulario */
 .pago-formulario input {
     width: 100%;
     padding: 15px;
@@ -3250,7 +2995,6 @@ body.fondo-oscuro-estetico {
     background-color: #fff;
 }
 
-/* Fila para Caducidad y CVC */
 .pago-fila-doble {
     display: flex;
     gap: 15px;
@@ -3260,7 +3004,6 @@ body.fondo-oscuro-estetico {
     flex: 1;
 }
 
-/* Resumen (Logos y Precio) */
 .pago-resumen {
     display: flex;
     justify-content: space-between;
@@ -3312,7 +3055,6 @@ body.fondo-oscuro-estetico {
     line-height: 1;
 }
 
-/* Botones Cancelar y Pagar */
 .pago-botones {
     display: flex;
     gap: 15px;
@@ -3341,7 +3083,7 @@ body.fondo-oscuro-estetico {
 }
 
 .btn-pagar {
-    background-color: #ff0000; /* El verde lo cambiamos por el rojo Tahm */
+    background-color: #ff0000;
     color: #fff;
     border: 2px solid #ff0000;
 }
@@ -3353,9 +3095,7 @@ body.fondo-oscuro-estetico {
     box-shadow: 0 4px 15px rgba(255,0,0,0.3);
 }
 
-/* ==============================================
-   RESPONSIVO: TABLETS Y MÓVILES
-   ============================================== */
+/* RESPONSIVE */
 @media (max-width: 600px) {
     .pago-caja {
         padding: 50px 20px 30px 20px;
@@ -3385,11 +3125,8 @@ body.fondo-oscuro-estetico {
         gap: 10px;
     }
 }
-/* ==============================================
-   PÁGINA DE DOMICILIO (VERSIÓN XL) - TAHM KING
-   ============================================== */
+/* ================= Domicilio ================ */
 
-/* Centramos todo el contenido en la pantalla */
 .body-domicilio {
     background-color: #f5f5f5;
     margin: 0;
@@ -3408,17 +3145,15 @@ body.fondo-oscuro-estetico {
     align-items: center;
 }
 
-/* Contenedor mucho más ancho */
 .domicilio-container-xl {
     width: 100%;
     max-width: 650px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 35px; /* Separación generosa entre el banner y la caja */
+    gap: 35px;
 }
 
-/* Banner superior estético e independiente */
 .domicilio-banner-top {
     background-color: #111;
     color: #fff;
@@ -3426,17 +3161,17 @@ body.fondo-oscuro-estetico {
     padding: 35px 40px;
     border-radius: 12px;
     font-family: 'Oswald', sans-serif;
-    font-size: 26px; /* Letra grande y legible */
+    font-size: 26px;
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    border: 3px solid #ff0000; /* Borde rojo que grita Tahm King */
+    border: 3px solid #ff0000;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; /* Separación entre el icono y el texto */
+    gap: 15px;
 }
 
 .domicilio-banner-top i {
@@ -3444,12 +3179,11 @@ body.fondo-oscuro-estetico {
     color: #ff0000;
 }
 
-/* Caja del formulario XL */
 .domicilio-caja-xl {
     background-color: #fff;
     width: 100%;
-    padding: 50px 60px; /* Mucho más espacio interior */
-    border-top: 8px solid #111; /* Borde superior ultra grueso */
+    padding: 50px 60px;
+    border-top: 8px solid #111;
     border-radius: 8px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
@@ -3457,17 +3191,16 @@ body.fondo-oscuro-estetico {
 .domicilio-formulario-xl {
     display: flex;
     flex-direction: column;
-    gap: 25px; /* Más aire entre los campos */
+    gap: 25px;
 }
 
-/* Inputs Gigantes */
 .domicilio-formulario-xl input {
     width: 100%;
     padding: 20px 25px;
     border: 2px solid #ddd;
     background-color: #fafafa;
     font-family: 'Oswald', Arial, sans-serif;
-    font-size: 18px; /* Letra más grande al escribir */
+    font-size: 18px;
     text-transform: uppercase;
     color: #111;
     font-weight: bold;
@@ -3486,14 +3219,13 @@ body.fondo-oscuro-estetico {
     box-shadow: 0 0 12px rgba(0,0,0,0.05);
 }
 
-/* Botón de enviar Gigante */
 .btn-enviar-domicilio-xl {
     background-color: #111;
     color: #fff;
     border: 2px solid #111;
     padding: 22px;
     font-family: 'Oswald', sans-serif;
-    font-size: 22px; /* Super visible */
+    font-size: 22px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -3510,9 +3242,7 @@ body.fondo-oscuro-estetico {
     box-shadow: 0 8px 25px rgba(255,0,0,0.3);
 }
 
-/* ==============================================
-   RESPONSIVO: MÓVILES
-   ============================================== */
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .domicilio-container-xl {
         gap: 20px;
@@ -3541,51 +3271,37 @@ body.fondo-oscuro-estetico {
         padding: 18px;
     }
 }
-/* ==========================================================================
-   RWD - SPRINT 2: ADAPTACIÓN A 3 DISPOSITIVOS (DESKTOP, TABLET, MÓVIL)
-   ========================================================================== */
+/* RESPONSIVE */
 
-/* 1. VARIANTE GRANDE (DESKTOP) > 1024px
-   El diseño base que ya tenemos programado arriba funciona como desktop.
-   No hace falta añadir nada extra aquí. */
-
-
-/* 2. VARIANTE MEDIA (TABLET) - Entre 768px y 1024px */
 @media (max-width: 1024px) {
-    /* Header: Reducimos márgenes y el logo para que no choque con los botones */
     .header-main { padding: 0 30px; height: 140px; }
     .logo-container { width: 220px; }
     .btn-order { font-size: 18px; padding: 10px 20px; }
     .nav-section.right { gap: 20px; }
 
-    /* Footer: Pasamos de 3 a 2 columnas arriba y 1 abajo para aprovechar el espacio */
     .pie-pagina-tahm .contenedor-columnas { gap: 30px; }
-    .pie-pagina-tahm .columna-footer { min-width: 40%; } /* Fuerza 2 columnas */
+    .pie-pagina-tahm .columna-footer { min-width: 40%; }
 
 }
 
-
-/* 3. VARIANTE PEQUEÑA (MÓVIL) - Menos de 768px */
 @media (max-width: 768px) {
-    /* Header: Rompemos la fila. El logo arriba, y los botones abajo */
     .header-main {
         height: auto;
         padding: 15px 20px;
         flex-wrap: wrap;
     }
     .nav-section.center {
-        order: -1; /* Mueve el logo arriba del todo */
+        order: -1;
         width: 100%;
         margin-bottom: 15px;
         flex: unset;
     }
     .logo-container { height: 90px; width: 100%; }
-    .icon-btn i { font-size: 35px; } /* Iconos un pelín más pequeños */
+    .icon-btn i { font-size: 35px; }
 
-    /* Sidebar: Ocupa toda la pantalla en móviles para que no se vea el fondo y sea más táctil */
     .menu-lateral {
         width: 100vw;
-        left: -100vw; /* Lo escondemos del todo */
+        left: -100vw;
     }
     .pie-pagina-tahm { padding-top: 40px; margin-top: 30px; }
     .pie-pagina-tahm .contenedor-columnas {
@@ -3597,7 +3313,6 @@ body.fondo-oscuro-estetico {
     .pie-pagina-tahm .columna-footer { width: 100%; align-items: center; }
     .pie-pagina-tahm .redes-sociales { justify-content: center; }
 
-    /* Menu categorias*/
     .menu-categories {
         gap: 12px;
         padding: 15px 20px;
