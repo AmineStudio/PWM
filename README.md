@@ -26,6 +26,7 @@ https://drive.google.com/file/d/17oKcE6HMfED2ey2bkn3Dndxmyq3CbbqA/view?usp=shari
 
 MOCKUPS
 https://www.figma.com/design/kF4ygJn73UdTswuVO40XeT/Tahm-King?node-id=0-1&t=WLQGB3KUbspOmnKs-1
+https://drive.google.com/file/d/1_VnJaTjzwGKEIL5tbNaUB2wcCqMjLUJ5/view?usp=drive_link (en formato pdf)
 
 TECNOLOGÍAS
 - Html
@@ -37,3 +38,16 @@ TECNOLOGÍAS
 
 ENLACE AL VÍDEO
 https://drive.google.com/file/d/1xmVk9jQVXgPxHgPcCkJ-Y5A-_JqhQORn/view?usp=sharing
+
+JSON:
+data.json
+INDEX:
+index.html
+CSS:
+styles.css
+TEMPLATES:
+En el fichero components
+Páginas html:
+Dentro del fichero pages
+Ficheros js:
+Dentro del fichero Java
