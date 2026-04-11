@@ -1,0 +1,11 @@
+<app-header (click)="toggleSidebar()"></app-header>
+
+<app-sidebar
+  [isOpen]="sidebarVisible"
+  (closeSidebar)="toggleSidebar()">
+</app-sidebar>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+<app-footer></app-footer>

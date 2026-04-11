@@ -1,53 +1,59 @@
-TAHM KING
-Nuestro objetivo es diseñar y construir una plataforma digital fuerte para Tahm King, un restaurante de comida rápida que combina una variedad de platos con una experiencia de usuario rápida y actual.
+# TahmKing
 
-Propuesta Gastronómica:
-En nuestro sitio web muestra un catálogo con:
-- Entrantes: para empezar y complementar el plato principal.
-- Hamburguesas: con opciones clásicas y especialidades de la casa.
-- Hot Dogs: Diferentes estilos y complementos para todos los gustos.
-- Complementos y Postres: Opciones dulces y saladas para terminar la experiencia.
-- Bebidas: Desde opciones clásicas hasta refrescos especiales.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.7.
 
-Nuestra plataforma permite a los clientes pedir la comida de tres maneras diferentes:
-- Para comer aquí: menú digital y pedidos desde la mesa.
-- Para llevar: pedido anticipado para recogida rápida.
-- Servicio a domicilio: envío de comida a domicilio.
+## Development server
 
-En el sitio web se priorizará una interfaz intuitiva, un proceso de pago seguro y un diseño visualmente atractivo que invite al usuario a explorar el menú.
+To start a local development server, run:
 
-PARTICIPANTES
-- Miguel Alonso Corimanya Rojas
-- Yenedey Morán Delgado
-- Amine Allah Saidani
+```bash
+ng serve
+```
 
-REQUISITOS
-https://drive.google.com/file/d/17oKcE6HMfED2ey2bkn3Dndxmyq3CbbqA/view?usp=sharing
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-MOCKUPS
-https://www.figma.com/design/kF4ygJn73UdTswuVO40XeT/Tahm-King?node-id=0-1&t=WLQGB3KUbspOmnKs-1
-https://drive.google.com/file/d/1_VnJaTjzwGKEIL5tbNaUB2wcCqMjLUJ5/view?usp=drive_link (en formato pdf)
+## Code scaffolding
 
-TECNOLOGÍAS
-- Html
-- Css
-- JavaScript
-- Trello
-- WebStorm
-- Figma
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-ENLACE AL VÍDEO
-https://drive.google.com/file/d/1xmVk9jQVXgPxHgPcCkJ-Y5A-_JqhQORn/view?usp=sharing
+```bash
+ng generate component component-name
+```
 
-JSON:
-data.json
-INDEX:
-index.html
-CSS:
-styles.css
-TEMPLATES:
-En el fichero components
-Páginas html:
-Dentro del fichero pages
-Ficheros js:
-Dentro del fichero Java
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+
+```bash
+ng generate --help
+```
+
+## Building
+
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
