@@ -1,11 +1,10 @@
 .pie-pagina-tahm {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: black;
+  color: white;
   padding-top: 60px;
   border-top: 3px solid white;
   margin-top: 50px;
 }
-
 .pie-pagina-tahm .contenedor-columnas {
   display: flex;
   justify-content: space-around;
@@ -16,13 +15,11 @@
   flex-wrap: wrap;
   gap: 40px;
 }
-
 .pie-pagina-tahm .columna-footer {
   flex: 1;
   min-width: 250px;
   text-align: left;
 }
-
 .pie-pagina-tahm .titulo-footer {
   font-family: 'Oswald', sans-serif;
   font-size: 20px;
@@ -30,59 +27,50 @@
   text-transform: uppercase;
   margin-bottom: 25px;
   letter-spacing: 2px;
-  color: #ff0000;
+  color: var(--color-primary);
   border-bottom: 2px solid rgba(255, 0, 0, 0.3);
   display: inline-block;
   padding-bottom: 5px;
 }
-
 .pie-pagina-tahm .columna-footer p {
   margin-bottom: 5px;
   font-weight: 600;
   font-size: 15px;
-  color: #ffffff;
+  color: white;
 }
-
 .pie-pagina-tahm .detalle {
   display: block;
   margin-bottom: 15px;
   font-size: 14px;
   color: #bbbbbb;
 }
-
 .pie-pagina-tahm .promo-texto {
   font-weight: normal !important;
   color: #bbbbbb !important;
   margin-bottom: 20px !important;
 }
-
 .pie-pagina-tahm .lista-limpia {
   list-style: none;
   padding: 0;
 }
-
 .pie-pagina-tahm .lista-limpia li {
   margin-bottom: 12px;
 }
-
 .pie-pagina-tahm .lista-limpia a {
   color: #ffffff;
   text-decoration: none;
   font-size: 14px;
   transition: all 0.3s ease;
 }
-
 .pie-pagina-tahm .lista-limpia a:hover {
   color: #ff0000;
   padding-left: 8px;
 }
-
 .pie-pagina-tahm .redes-sociales {
   display: flex;
   gap: 15px;
   margin-top: 10px;
 }
-
 .pie-pagina-tahm .link-social {
   color: #ffffff;
   text-decoration: none;
@@ -98,10 +86,9 @@
 }
 
 .pie-pagina-tahm .link-social:hover {
-  background-color: #ff0000;
-  color: #000000;
-  transform: scale(1.1) translateY(-5px);
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+  background-color: white;
+  color: var(--color-primary);
+  transition: 0.5s ease;
 }
 
 .pie-pagina-tahm .barra-copyright {
@@ -118,7 +105,6 @@
   letter-spacing: 1px;
 }
 /*RESPONSIVE*/
-/*En tablets se ve bien, por lo que solamente lo hemos cambiado para móviles*/
 /*Móviles*/
 @media (max-width: 768px) {
   .pie-pagina-tahm .contenedor-columnas {
