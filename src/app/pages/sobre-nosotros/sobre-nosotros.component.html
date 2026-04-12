@@ -1,0 +1,47 @@
+<section class="about-section">
+  <div class="about-grid">
+    <div class="item texto">
+      <h2 class="titulo-tahm">Nuestra Historia</h2>
+      <p>
+        En Tahm King, la tradición se encuentra con el sabor.
+        Desde 2010 ofrecemos hamburguesas únicas con ingredientes frescos.
+      </p>
+    </div>
+    <div class="item imagen">
+      <img src="assets/img/nosotros/restauranteNosotros.png" alt="Nuestro Restaurante">
+    </div>
+    <div class="item imagen">
+      <img src="assets/img/nosotros/parrillaNosotros.png" alt="Nuestra Parrilla">
+    </div>
+    <div class="item texto">
+      <h2 class="titulo-tahm">Nuestra Cocina</h2>
+      <p>
+        Carne 100% vacuno, pan diario y salsas caseras.
+        Una experiencia que te hará volver.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="ubicacion-section">
+  <div class="ubicacion-container">
+    <div class="lista-restaurantes">
+      <h3 class="titulo-tahm">¿Dónde encontrarnos?</h3>
+      <ul>
+        <li (click)="cambiarMapa('centro')">📍 Tahm King Centro</li>
+        <li (click)="cambiarMapa('puerto')">📍 Tahm King Puerto</li>
+        <li (click)="cambiarMapa('sur')">📍 Tahm King Sur</li>
+      </ul>
+    </div>
+    <div class="mapa-box">
+      <iframe
+        [src]="mapaActual"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
