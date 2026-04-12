@@ -1,1 +1,27 @@
-<p>alergenos works!</p>
+<main class="seccion-alergenos">
+  <div class="banner-alergenos">
+    <div class="overlay-banner">
+      <h2>Tu Salud es <span>lo Primero</span></h2>
+      <p>Información detallada sobre los ingredientes de nuestras hamburguesas para una experiencia segura y deliciosa.</p>
+    </div>
+    <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=1200" alt="Ingredientes" class="img-banner">
+  </div>
+
+  <div class="contenedor-grid">
+    <h1 class="titulo-seccion">NUESTROS <span>ALÉRGENOS</span></h1>
+
+    <div class="grid-alergenos">
+      @for (item of alergenos; track item.nombre) {
+        <div class="card-alergeno">
+          <div class="icono-wrap">
+            <img [src]="item.imagen" [alt]="item.nombre" class="icono-alergeno-png">
+          </div>
+          <div class="texto-wrap">
+            <h3>{{ item.nombre }}</h3>
+            <p>{{ item.descripcion }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</main>
