@@ -1,1 +1,73 @@
-<p>contacto works!</p>
+<main class="contacto-container">
+  <section class="contacto-hero">
+    <div class="overlay-hero">
+      <h1>CONTACTA CON NOSOTROS</h1>
+      <p>¿En qué podemos ayudarte?</p>
+    </div>
+  </section>
+
+  <section class="contacto-grid">
+    <div class="contacto-lateral">
+      <div class="contacto-info-box">
+        <h3>Información de contacto</h3>
+        <p><i class="fa-solid fa-phone"></i> +34 620 68 33 25</p>
+        <p><i class="fa-solid fa-at"></i> contacto@tahmking.com</p>
+        <p><i class="fa-solid fa-location-dot"></i> Calle Blackrider 67, Metropolis</p>
+      </div>
+
+      <h3 class="titulo-opciones">¿Cuál es el motivo de tu mensaje?</h3>
+      <div class="contacto-opciones">
+        <div class="card-contacto"
+             [class.activa]="tipoSeleccionado === 'duda'"
+             (click)="seleccionarTipo('duda')">
+          <div class="card-inner">
+            <img src="assets/img/contacto/dudas.png" alt="Dudas">
+          </div>
+          <p>Duda</p>
+        </div>
+
+        <div class="card-contacto"
+             [class.activa]="tipoSeleccionado === 'reclamacion'"
+             (click)="seleccionarTipo('reclamacion')">
+          <div class="card-inner">
+            <img src="assets/img/contacto/reclamacion.png" alt="Reclamación">
+          </div>
+          <p>Reclamación</p>
+        </div>
+
+        <div class="card-contacto"
+             [class.activa]="tipoSeleccionado === 'sugerencia'"
+             (click)="seleccionarTipo('sugerencia')">
+          <div class="card-inner">
+            <img src="assets/img/contacto/sugerencia.png" alt="Sugerencia">
+          </div>
+          <p>Sugerencia</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="contacto-formulario-wrapper">
+      <h3>Envíanos un mensaje</h3>
+      <form #f="ngForm" class="contacto-form" (ngSubmit)="enviarMensaje(f)">
+        <div class="grupo-input">
+          <label>Nombre completo</label>
+          <input type="text" name="nombre" ngModel placeholder="Ej: Juan Daniel" required>
+        </div>
+
+        <div class="grupo-input">
+          <label>Correo electrónico</label>
+          <input type="email" name="email" ngModel placeholder="Ej: thenijani@gmail.com" required>
+        </div>
+
+        <div class="grupo-input">
+          <label>Tu mensaje</label>
+          <textarea name="mensaje" ngModel placeholder="Escribe tu {{ tipoSeleccionado }}..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-tahm" [disabled]="!f.valid">
+          ENVIAR MENSAJE
+        </button>
+      </form>
+    </div>
+  </section>
+</main>
