@@ -10,9 +10,10 @@ import { RouterModule } from '@angular/router';
   styleUrl: './sidebar.component.css',
 })
 export class SidebarComponent {
-  @Input() isOpen = false; // Recibe el estado del padre
+  @Input() isOpen = false; // Recibe el estado del padre (AppComponent)
   @Output() closeSidebar = new EventEmitter<void>(); // Avisa al padre para cerrar
 
+  // Esta es la función correcta que debes usar
   onClose() {
     this.closeSidebar.emit();
   }
