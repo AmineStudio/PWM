@@ -1,1 +1,41 @@
-<p>historial works!</p>
+<section class="seccion-historial">
+  <div class="contenedor-pedidos">
+    <h2 class="titulo-seccion-pedidos">TUS <span>PEDIDOS ANTERIORES</span></h2>
+
+    <div class="listado-pedidos">
+      @for (pedido of pedidos; track pedido.id) {
+        <div class="tarjeta-pedido" [ngClass]="pedido.estado">
+
+          <div class="numero-pedido">
+            #{{ pedido.id }}
+          </div>
+
+          <div class="info-pedido">
+            <p>
+              <strong>Fecha:</strong>
+              {{ pedido.fecha }}
+            </p>
+            <p>
+              <strong>Total:</strong>
+              {{ pedido.total | currency:'EUR' }}
+            </p>
+            <p>
+              <strong>Items:</strong>
+              {{ pedido.items }} productos
+            </p>
+            <p>
+              <strong>Estado:</strong>
+              <span class="status">{{ pedido.estado }}</span>
+            </p>
+          </div>
+
+          <button class="btn-info-premium" (click)="verDetalle(pedido.id)">
+            <i class="fa-solid fa-eye"></i>
+          </button>
+        </div>
+      } @empty {
+        <p style="color: #666; text-align: center;">No tienes pedidos registrados todavía.</p>
+      }
+    </div>
+  </div>
+</section>
