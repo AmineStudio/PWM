@@ -116,6 +116,8 @@
   flex-direction: column;
   padding: 0 40px;
   height: 100%;
+  overflow: visible;
+
 }
 
 .container input {
@@ -333,5 +335,16 @@
   .container.active .toggle-right {
     opacity: 0;
     pointer-events: none;
+  }
+  .error {
+    color: #ff2a2a;
+    font-size: 13px;
+    margin: 5px 0;
+    width: 100%;
+    text-align: center;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-height: 20px;
   }
 }

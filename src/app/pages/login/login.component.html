@@ -1,52 +1,54 @@
 <div class="login-body">
-  <div class="container" [class.active]="isSignUpActive" id="container">
+  <div class="container" [class.active]="modoRegistro">
 
-    <div class="form-container sign-up">
-      <form>
-        <h1>Créate una cuenta</h1>
-        <div class="social-icons">
-          <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
-          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-        </div>
-        <span>o usa tu correo para registrarte</span>
-        <input type="text" placeholder="Nombre" #nombreReg>
-        <input type="email" placeholder="Email" #emailReg>
-        <input type="password" placeholder="Contraseña" #passReg>
-        <button type="button" (click)="registrar(nombreReg.value, emailReg.value, passReg.value)">Regístrate</button>
-      </form>
-    </div>
-
+    <!-- FORMULARIO LOGIN -->
     <div class="form-container sign-in">
       <form>
-        <h1>Inicia Sesión</h1>
-        <div class="social-icons">
-          <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
-          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-        </div>
-        <span>o usa tu correo y contraseña</span>
-        <input type="email" placeholder="Email" #emailLog>
-        <input type="password" placeholder="Contraseña" #passLog>
-        <a href="#">¿Has olvidado la contraseña?</a>
-        <button type="button" (click)="iniciarSesion(emailLog.value, passLog.value)">Inicia sesión</button>
+        <h1>Bienvenido</h1>
+        <span>Inicia sesión en tu cuenta</span>
+        <input [(ngModel)]="email" name="email" type="email" placeholder="Email" />
+        <input [(ngModel)]="password" name="password" type="password" placeholder="Contraseña" />
+        @if (error()) {
+          <p class="error">{{ error() }}</p>
+        }
+        <a href="#">¿Olvidaste tu contraseña?</a>
+        <button type="button" (click)="enviar()">ENTRAR</button>
       </form>
     </div>
 
+    <!-- FORMULARIO REGISTRO -->
+    <div class="form-container sign-up">
+      <form>
+        <h1>Crear cuenta</h1>
+        <span>Regístrate con tu email</span>
+        <input [(ngModel)]="nombre" name="nombre" type="text" placeholder="Nombre" />
+        <input [(ngModel)]="emailReg" name="emailReg" type="email" placeholder="Email" />
+        <input [(ngModel)]="passwordReg" name="passwordReg" type="password" placeholder="Contraseña" />
+        @if (error()) {
+          <p class="error">{{ error() }}</p>
+        }
+        <button type="button" (click)="enviar()">REGISTRARSE</button>
+      </form>
+    </div>
+
+    <!-- PANEL TOGGLE -->
     <div class="toggle-container">
       <div class="toggle">
+
+        <!-- Panel izquierdo (aparece cuando estás en registro) -->
         <div class="toggle-panel toggle-left">
           <h1>¡Bienvenido!</h1>
-          <p>Introduce tus datos y disfruta de todas las ventajas</p>
-          <button class="hidden" (click)="togglePanel(false)">Inicia Sesión</button>
+          <p>¿Ya tienes cuenta? Inicia sesión aquí</p>
+          <button class="hidden" type="button" (click)="cambiarModo()">INICIAR SESIÓN</button>
         </div>
+
+        <!-- Panel derecho (aparece cuando estás en login) -->
         <div class="toggle-panel toggle-right">
-          <h1>¡Únete a Tahm King!</h1>
-          <p>Regístrate y te regalamos 50 Tahm Coins</p>
-          <button class="hidden" (click)="togglePanel(true)">Regístrate</button>
+          <h1>¡Hola!</h1>
+          <p>¿No tienes cuenta? Regístrate y gana <strong>50 Tahmkoins</strong></p>
+          <button class="hidden" type="button" (click)="cambiarModo()">REGISTRARSE</button>
         </div>
+
       </div>
     </div>
 
