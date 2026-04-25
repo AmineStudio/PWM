@@ -21,10 +21,6 @@ import { FooterComponent } from './components/footer/footer.component';
 })
 //SIDEBAR
 export class AppComponent {
-  sidebarVisible = false;
-  toggleSidebar() {
-    this.sidebarVisible = !this.sidebarVisible;
-  }
 }
 
 

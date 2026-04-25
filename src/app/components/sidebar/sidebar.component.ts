@@ -1,6 +1,8 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+// Importamos el servicio mágico
+import { NavService } from '../../services/nav.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,11 +12,6 @@ import { RouterModule } from '@angular/router';
   styleUrl: './sidebar.component.css',
 })
 export class SidebarComponent {
-  @Input() isOpen = false; // Recibe el estado del padre (AppComponent)
-  @Output() closeSidebar = new EventEmitter<void>(); // Avisa al padre para cerrar
-
-  // Esta es la función correcta que debes usar
-  onClose() {
-    this.closeSidebar.emit();
-  }
+  // Conectamos el sidebar al mismo servicio que usa el header
+  nav = inject(NavService);
 }
