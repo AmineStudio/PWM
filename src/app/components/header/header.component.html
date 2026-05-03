@@ -1,0 +1,54 @@
+<header class="header-main">
+  <div class="nav-section left">
+    <button class="icon-btn" id="btn-menu" (click)="nav.toggle()">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+
+  <div class="nav-section center">
+    <a routerLink="/" class="logo-container">
+      <img src="assets/img/logix.png" alt="Tahm King Logo" class="logo-img">
+    </a>
+  </div>
+
+  <div class="nav-section right">
+    <a routerLink="/tipo-pedido" class="btn-order">PEDIR YA</a>
+
+    <!-- Usuario NO logueado -->
+    @if ((auth.usuarioActual$ | async) === null) {
+      <button class="icon-btn" id="btn-user" (click)="irALogin()">
+        <i class="fa-regular fa-user"></i>
+      </button>
+
+      <!-- Usuario logueado -->
+    } @else {
+      <div class="usuario-wrap">
+        <button class="btn-usuario" (click)="toggleMenuUsuario()">
+          @if (usuarioDatos$ | async; as datos) {
+            <span class="usuario-nombre">{{ datos.nombre ?? (auth.usuarioActual$ | async)?.email }}</span>
+          } @else {
+            <span class="usuario-nombre">{{ (auth.usuarioActual$ | async)?.email }}</span>
+          }
+          <i class="fa-solid fa-chevron-down" [class.rotado]="menuUsuarioAbierto()"></i>
+        </button>
+
+        @if (menuUsuarioAbierto()) {
+          <div class="menu-usuario">
+            @if (usuarioDatos$ | async; as datos) {
+              <div class="menu-puntos">
+                <i class="fa-solid fa-star"></i>
+                <span>{{ datos.puntos ?? 0 }} puntos</span>
+              </div>
+            }
+            <button class="menu-item" (click)="irAHistorial()">
+              <i class="fa-solid fa-clock-rotate-left"></i> Mis pedidos
+            </button>
+            <button class="menu-item menu-logout" (click)="logout()">
+              <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+            </button>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</header>

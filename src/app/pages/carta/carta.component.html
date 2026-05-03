@@ -1,0 +1,81 @@
+<section class="seccion-carta">
+
+  <!-- Filtros por categoría -->
+  @if (categorias$ | async; as categorias) {
+    <nav class="filtros-categoria">
+      <button class="btn-categoria"
+              [class.activo]="categoriaActivaId === null"
+              (click)="filtrarPorCategoria(null)">
+        Todos
+      </button>
+      @for (cat of categorias; track cat.id) {
+        <button class="btn-categoria"
+                [class.activo]="categoriaActivaId === cat.id"
+                (click)="filtrarPorCategoria(cat.id)">
+          {{ cat.nombre }}
+        </button>
+      }
+    </nav>
+  }
+
+  <!-- Grid de productos -->
+  @if (productosFiltrados$ | async; as productos) {
+    @if (productos.length > 0) {
+      <div class="grid-productos">
+        @for (prod of productos; track prod.id) {
+          <div class="card-producto" [class.agregado]="agregados.has(prod.id)">
+            <div class="imagen-wrap">
+              <img [src]="'assets/' + prod.imagen" [alt]="prod.nombre"
+                   onerror="this.src='assets/img/logo.png'">
+              @if (prod.destacado) {
+                <span class="badge-destacado">⭐ Destacado</span>
+              }
+            </div>
+            <div class="info-producto">
+              <h3>{{ prod.nombre }}</h3>
+              <p class="descripcion">{{ prod.descripcion }}</p>
+
+              @if (prod.alergenos && prod.alergenos.length > 0) {
+                <div class="alergenos-lista">
+                  @for (al of prod.alergenos; track al) {
+                    <span class="tag-alergeno">{{ al }}</span>
+                  }
+                </div>
+              }
+
+              <div class="pie-card">
+                <span class="precio">{{ prod.precio | currency:'EUR' }}</span>
+
+                @if (cantidadEnCarrito(prod.id) === 0) {
+                  <button class="btn-agregar" (click)="agregarAlCarrito(prod)">
+                    <i class="fa-solid fa-plus"></i> Añadir
+                  </button>
+                } @else {
+                  <div class="controles-cantidad">
+                    <button class="btn-ctrl" (click)="carrito.restar(prod.id)">−</button>
+                    <span class="cantidad">{{ cantidadEnCarrito(prod.id) }}</span>
+                    <button class="btn-ctrl" (click)="carrito.agregar(prod)">+</button>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    } @else {
+      <p class="sin-resultados">No hay productos en esta categoría.</p>
+    }
+  } @else {
+    <div class="loading">Cargando carta...</div>
+  }
+
+</section>
+
+<!-- Botón flotante carrito -->
+@if (carrito.totalItems() > 0) {
+  <button class="btn-carrito-flotante" (click)="irAlCarrito()">
+    <i class="fa-solid fa-bag-shopping"></i>
+    <span class="carrito-badge">{{ carrito.totalItems() }}</span>
+    <span class="carrito-total">{{ carrito.total() | currency:'EUR' }}</span>
+  </button>
+}

@@ -1,0 +1,30 @@
+<div class="sidebar-overlay" [class.activo]="isOpen" (click)="onClose()"></div>
+
+<aside class="menu-lateral" [class.activo]="isOpen">
+  <div class="sidebar-header">
+    <h2 class="titulo-sidebar">Menú</h2>
+    <button class="boton-cerrar" (click)="onClose()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <nav class="sidebar-nav">
+    <ul>
+      <li><a routerLink="/"><i class="fa-solid fa-house"></i> Inicio</a></li>
+      <li><a routerLink="/carta" (click)="onClose()"><i class="fa-solid fa-utensils"></i> Carta</a></li>
+      <a routerLink="/" fragment="horario-footer" (click)="onClose()"><i class="fa-solid fa-clock"></i> Horario</a>      <li><a routerLink="/contacto"><i class="fa-solid fa-phone"></i> Contacto</a></li>
+      <li><a routerLink="/historial"><i class="fa-solid fa-history"></i> Historial</a></li>
+      <li><a routerLink="/sobre-nosotros"><i class="fa-solid fa-circle-info"></i> Sobre nosotros</a></li>
+      <li><a routerLink="/alergenos"><i class="fa-solid fa-triangle-exclamation"></i> Alérgenos</a></li>
+    </ul>
+  </nav>
+
+  <div class="sidebar-footer">
+    <p>SÍGUENOS EN REDES</p>
+    <div class="sidebar-social-icons">
+      <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+      <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+    </div>
+  </div>
+</aside>

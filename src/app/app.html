@@ -1,0 +1,11 @@
+<app-header></app-header>
+
+<app-sidebar
+  [isOpen]="nav.isOpen()"
+  (closeSidebar)="nav.close()">
+</app-sidebar>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+<app-footer></app-footer>

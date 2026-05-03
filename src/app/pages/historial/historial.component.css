@@ -1,0 +1,226 @@
+.seccion-historial {
+  min-height: 100vh;
+  padding: 40px;
+  background: var(--bg-color);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ── Perfil ── */
+.perfil-usuario {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+}
+
+.perfil-avatar {
+  width: 60px;
+  height: 60px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.perfil-info h2 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.puntos-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(240, 192, 64, 0.1);
+  border: 1px solid rgba(240, 192, 64, 0.3);
+  color: #f0c040;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* ── Título ── */
+.titulo-seccion-pedidos {
+  color: #fff;
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.titulo-seccion-pedidos span {
+  color: var(--color-primary);
+}
+
+/* ── Tarjetas ── */
+.listado-pedidos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tarjeta-pedido {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 16px 20px;
+  border-left: 4px solid #333;
+}
+
+.tarjeta-pedido.estado-pendiente     { border-left-color: #f0c040; }
+.tarjeta-pedido.estado-preparacion   { border-left-color: #4090f0; }
+.tarjeta-pedido.estado-listo         { border-left-color: #40c040; }
+.tarjeta-pedido.estado-entregado     { border-left-color: #888; }
+.tarjeta-pedido.estado-cancelado     { border-left-color: var(--color-primary); }
+
+.numero-pedido {
+  color: #555;
+  font-size: 13px;
+  min-width: 50px;
+}
+
+.info-pedido {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-pedido p {
+  color: #aaa;
+  font-size: 13px;
+}
+
+.info-pedido strong {
+  color: #ddd;
+}
+
+.status {
+  font-size: 11px;
+  padding: 2px 10px;
+  border-radius: 10px;
+  text-transform: capitalize;
+}
+
+.estado-pendiente   .status { background: rgba(240,192,64,0.15); color: #f0c040; }
+.estado-preparacion .status { background: rgba(64,144,240,0.15); color: #4090f0; }
+.estado-listo       .status { background: rgba(64,192,64,0.15);  color: #40c040; }
+.estado-entregado   .status { background: rgba(136,136,136,0.15); color: #888; }
+.estado-cancelado   .status { background: rgba(255,0,0,0.1);     color: var(--color-primary); }
+
+.btn-info-premium {
+  background: #252525;
+  border: 1px solid #333;
+  color: #aaa;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.btn-info-premium:hover {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+/* ── Detalle ── */
+.detalle-pedido {
+  background: #111;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-top: -8px;
+}
+
+.detalle-pedido h4 {
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.detalle-pedido ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.detalle-pedido li {
+  color: #aaa;
+  font-size: 13px;
+  padding: 6px 0;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.detalle-total {
+  color: var(--color-primary);
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.btn-cerrar {
+  background: #252525;
+  border: 1px solid #333;
+  color: #aaa;
+  padding: 6px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  transition: background 0.2s;
+}
+
+.btn-cerrar:hover { background: #333; color: #fff; }
+
+/* ── Sin pedidos ── */
+.sin-pedidos {
+  text-align: center;
+  padding: 60px 0;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.sin-pedidos i { font-size: 40px; }
+
+.btn-pedir {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+/* ── Loading ── */
+.loading {
+  text-align: center;
+  color: #555;
+  padding: 60px 0;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 600px) {
+  .seccion-historial { padding: 20px 16px; }
+  .tarjeta-pedido { flex-wrap: wrap; }
+}

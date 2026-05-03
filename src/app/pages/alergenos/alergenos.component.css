@@ -1,0 +1,132 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.seccion-alergenos {
+  background-color: #121212;
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+.banner-alergenos {
+  position: relative;
+  height: 350px;
+  width: 95%;
+  max-width: 1300px;
+  margin: 20px auto 50px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.img-banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.4);
+}
+
+.overlay-banner {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 8%;
+  z-index: 2;
+}
+
+.overlay-banner h2 {
+  font-family: "Bauhaus 93", sans-serif;
+  font-size: clamp(30px, 5vw, 55px);
+  color: #fff;
+}
+
+.overlay-banner h2 span { color: #ff0000; }
+
+.overlay-banner p {
+  color: #ccc;
+  font-size: 18px;
+  max-width: 600px;
+  margin-top: 10px;
+}
+
+.contenedor-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.titulo-seccion {
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 28px;
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+  border-left: 5px solid #ff0000;
+  padding-left: 15px;
+}
+
+.titulo-seccion span { color: #ff0000; }
+
+.grid-alergenos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card-alergeno {
+  background: #1A1B1D;
+  border: 1px solid #333;
+  border-radius: 15px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s ease;
+}
+
+.card-alergeno:hover {
+  border-color: #ff0000;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(255, 0, 0, 0.1);
+}
+
+.icono-wrap {
+  width: 70px;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+.icono-alergeno-png {
+  width: 60%;
+  height: auto;
+  object-fit: contain;
+}
+
+.texto-wrap h3 {
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.texto-wrap p {
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .banner-alergenos { height: 250px; width: 100%; border-radius: 0; }
+  .overlay-banner { text-align: center; align-items: center; }
+  .overlay-banner p { font-size: 15px; }
+}

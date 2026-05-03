@@ -1,0 +1,124 @@
+<main class="contenedor-principal">
+  <div class="fila fila-1">
+    <div class="swiper swiper-hero" id="hero-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="assets/img/inicio/hamburguesaInicio.png"></div>
+        <div class="swiper-slide"><img src="assets/img/inicio/nachosInicio.png"></div>
+        <div class="swiper-slide"><img src="assets/img/inicio/perritoInicio.png"></div>
+        <div class="swiper-slide"><img src="assets/img/inicio/batidoInicio.png"></div>
+      </div>
+
+      <div class="overlay-fijo">
+        <h2 class="titulo-main">TAHM <span>KING</span></h2>
+        <h3 class="sub-titulo">Disfruta de nuestros mejores sabores</h3>
+        <a routerLink="/tipo-pedido" class="btn-main">PIDE YA</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="fila fila-2">
+    <h3 class="mas-populares">MÁS POPULARES</h3>
+
+    <div class="swiper swiper-productos" id="productos-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="card"><img src="assets/img/hamburguesas/h6.webp"><p>THE CLASSIC</p></div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card"><img src="assets/img/perritos/p2.webp"><p>LOREM IPSUM</p></div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card"><img src="assets/img/bebidas/b3.webp"><p>MEGA SHAKE</p></div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card"><img src="assets/img/entrantes/e1.webp"><p>LOREM IPSUM</p></div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card"><img src="assets/img/hamburguesas/h3.webp"><p>LOREM IPSUM</p></div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card"><img src="assets/img/postres/helado.webp"><p>LOREM IPSUM</p></div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card"><img src="assets/img/hamburguesas/h2.jpeg"><p>LOREM IPSUM</p></div>
+        </div>
+      </div>
+      <div class="swiper-button-next slider-btn"></div>
+      <div class="swiper-button-prev slider-btn"></div>
+    </div>
+  </div>
+
+  <div class="fila fila-3">
+    <div class="swiper swiper-hero" id="combos-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="assets/img/inicio/hamburguesaInicio.png"></div>
+        <div class="swiper-slide"><img src="assets/img/inicio/perritoCarta.png"></div>
+        <div class="swiper-slide"><img src="assets/img/inicio/hamburguesaCarta.png"></div>
+      </div>
+
+      <div class="overlay-fijo">
+        <p class="texto-main">¡NUEVOS <span>COMBOS!</span></p>
+        <a routerLink="/carta" class="btn-main">EXPLORAR CARTA</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="fila fila-4">
+    <div class="contenedor-tahmkoins-v3">
+      <div class="cabecera-puntos">
+        <h3 class="titulo-principal-puntos">DOMINA EL SABOR, <span>ACUMULA CORONAS</span></h3>
+        <p class="descripcion-puntos">
+          En <strong>Tahm King</strong>, cada bocado tiene recompensa. Convierte tus pedidos en <strong>Tahmkoins</strong>...
+        </p>
+      </div>
+
+      <div class="visor-superior">
+        <div class="contenido-recompensa" id="card-visor">
+          <div class="texto-recompensa">
+            <h4 id="nombre-nivel">NIVEL 1: BEBIDAS</h4>
+            <p id="desc-nivel">Desbloquea cualquier refresco o batido de nuestra carta.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="seccion-eje-horizontal">
+        <div class="linea-grafica-pro">
+          <div class="progreso-relleno" id="barra-color"></div>
+          <div class="puntos-eje">
+            <div class="punto-clicable" (click)="actualizarGrafica(0, '0%', 'NIVEL 1: BEBIDAS', 'Desbloquea cualquier refresco...')">
+              <span class="dot"></span><span class="txt">250 Pts</span>
+            </div>
+            <div class="punto-clicable" (click)="actualizarGrafica(1, '50%', 'NIVEL 2: COMBOS', 'Disfruta de un combo gratis...')">
+              <span class="dot"></span><span class="txt">600 Pts</span>
+            </div>
+            <div class="punto-clicable" (click)="actualizarGrafica(2, '100%', 'NIVEL 3: REY', 'Acceso total a la carta...')">
+              <span class="dot"></span><span class="txt">1200 Pts</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="botonera-puntos">
+        <a routerLink="/login" class="btn-main">¡REGÍSTRATE Y GANA 50 PTS!</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="fila fila-5">
+    <div class="contenedor-sobre-nosotros">
+      <div class="info-nosotros">
+        <h3 class="titulo-main">NUESTRO <span>REINO</span></h3>
+        <p class="texto-nosotros">En <strong>Tahm King</strong> no solo servimos comida...</p>
+        <a routerLink="/nosotros" class="btn-main btn-nosotros">CONOCE NUESTRA HISTORIA</a>
+      </div>
+
+      <div class="galeria-bento">
+        <div class="item-galeria img-grande"><img src="assets/img/inicio/hamburguesaInicio.png"></div>
+        <div class="item-galeria img-cuadrada"><img src="assets/img/inicio/nachosInicio.png"></div>
+        <div class="item-galeria img-cuadrada"><img src="assets/img/inicio/perritoInicio.png"></div>
+        <div class="item-galeria img-horizontal"><img src="assets/img/inicio/batidoInicio.png"></div>
+        <div class="item-galeria img-pequena"><img src="assets/img/inicio/hamburguesaCarta.png"></div>
+      </div>
+    </div>
+  </div>
+</main>

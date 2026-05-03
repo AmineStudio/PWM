@@ -1,0 +1,87 @@
+<section class="seccion-historial">
+  <div class="contenedor-pedidos">
+
+    @if ((auth.usuarioActual$ | async) === null) {
+
+      <!-- No logueado -->
+      <div class="sin-pedidos" style="padding-top: 80px;">
+        <i class="fa-solid fa-user"></i>
+        <p>Inicia sesión para ver tu historial de pedidos.</p>
+        <a routerLink="/login" class="btn-pedir">Iniciar sesión</a>
+      </div>
+
+    } @else {
+
+      <!-- Perfil del usuario -->
+      @if (usuarioDatos$ | async; as datos) {
+        <div class="perfil-usuario">
+          <div class="perfil-avatar">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div class="perfil-info">
+            <h2>{{ datos.nombre ?? datos.email ?? 'Mi cuenta' }}</h2>
+            <div class="puntos-badge">
+              <i class="fa-solid fa-star"></i>
+              <span>{{ datos.puntos ?? 0 }} puntos acumulados</span>
+            </div>
+          </div>
+        </div>
+      }
+
+      <h3 class="titulo-seccion-pedidos">MIS <span>PEDIDOS</span></h3>
+
+      @if (pedidos$ | async; as pedidos) {
+        <div class="listado-pedidos">
+          @for (pedido of pedidos; track $index) {
+            <div class="tarjeta-pedido" [ngClass]="getClaseEstado(pedido.estado)">
+              <div class="numero-pedido">#{{ pedido.id ?? '—' }}</div>
+              <div class="info-pedido">
+                <p><strong>Fecha:</strong> {{ pedido.fecha }}</p>
+                <p><strong>Total:</strong> {{ pedido.total | currency:'EUR' }}</p>
+                <p><strong>Artículos:</strong> {{ pedido.productos ? pedido.productos.length : 0 }}</p>
+                @if (pedido.tipo_pedido) {
+                  <p><strong>Tipo:</strong> {{ pedido.tipo_pedido }}</p>
+                }
+                <p><strong>Estado:</strong>
+                  <span class="status" [ngClass]="getClaseEstado(pedido.estado)">
+                    {{ pedido.estado }}
+                  </span>
+                </p>
+              </div>
+              <button class="btn-info-premium" (click)="verDetalle(pedido)">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+
+            @if ((pedidoDetalle | json) === (pedido | json)) {
+              <div class="detalle-pedido">
+                <h4>Detalle del pedido</h4>
+                <ul>
+                  @for (item of pedido.productos; track item.producto_id) {
+                    <li>
+                      Producto #{{ item.producto_id }} ×{{ item.cantidad }}
+                      — {{ item.precio_unitario | currency:'EUR' }}
+                    </li>
+                  }
+                </ul>
+                <p class="detalle-total"><strong>Total: {{ pedido.total | currency:'EUR' }}</strong></p>
+                <button class="btn-cerrar" (click)="cerrarDetalle()">Cerrar</button>
+              </div>
+            }
+
+          } @empty {
+            <div class="sin-pedidos">
+              <i class="fa-solid fa-bag-shopping"></i>
+              <p>Aún no tienes pedidos.</p>
+              <a routerLink="/carta" class="btn-pedir">Ir a la carta</a>
+            </div>
+          }
+        </div>
+      } @else {
+        <div class="loading">Cargando tus pedidos...</div>
+      }
+
+    }
+
+  </div>
+</section>

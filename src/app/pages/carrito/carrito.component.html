@@ -1,0 +1,67 @@
+<section class="seccion-carrito">
+
+  @if (confirmado) {
+    <div class="confirmacion">
+      <div class="icono-ok">✅</div>
+      <h2>¡Pedido confirmado!</h2>
+      <p>Te redirigimos a tu historial...</p>
+    </div>
+
+  } @else {
+    <h1 class="titulo-carrito">TU <span>PEDIDO</span></h1>
+
+    <div class="tipo-pedido-badge">
+      @if (tipoPedido === 'aqui') { 🍽️ Comer aquí }
+      @else if (tipoPedido === 'llevar') { 🛍️ Para llevar }
+      @else { 🛵 A domicilio }
+    </div>
+
+    @if (carrito.items().length === 0) {
+      <div class="carrito-vacio">
+        <p>Tu carrito está vacío.</p>
+        <a routerLink="/carta" class="btn-volver">← Volver a la carta</a>
+      </div>
+
+    } @else {
+      <div class="lista-items">
+        @for (item of carrito.items(); track item.producto.id) {
+          <div class="item-carrito">
+            <img [src]="'assets/' + item.producto.imagen" [alt]="item.producto.nombre"
+                 onerror="this.src='assets/img/logo.png'">
+            <div class="item-info">
+              <h3>{{ item.producto.nombre }}</h3>
+              <p class="item-precio-unit">{{ item.producto.precio | currency:'EUR' }} / ud</p>
+            </div>
+            <div class="item-controles">
+              <button class="btn-ctrl" (click)="carrito.restar(item.producto.id)">−</button>
+              <span class="cantidad">{{ item.cantidad }}</span>
+              <button class="btn-ctrl" (click)="carrito.agregar(item.producto)">+</button>
+            </div>
+            <span class="item-subtotal">
+              {{ item.producto.precio * item.cantidad | currency:'EUR' }}
+            </span>
+            <button class="btn-eliminar" (click)="carrito.eliminar(item.producto.id)">✕</button>
+          </div>
+        }
+      </div>
+
+      <div class="resumen">
+        <div class="resumen-linea">
+          <span>Subtotal ({{ carrito.totalItems() }} artículos)</span>
+          <span>{{ carrito.total() | currency:'EUR' }}</span>
+        </div>
+        <div class="resumen-total">
+          <span>TOTAL</span>
+          <span class="total-precio">{{ carrito.total() | currency:'EUR' }}</span>
+        </div>
+
+        <button class="btn-confirmar" (click)="confirmarPedido()" [disabled]="enviando">
+          @if (enviando) { Enviando... } @else { Confirmar pedido }
+        </button>
+
+        <a routerLink="/carta" class="btn-seguir">← Seguir pidiendo</a>
+      </div>
+    }
+  }
+
+</section>
