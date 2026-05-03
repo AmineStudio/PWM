@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="clean code real" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="tsconfig.json" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Sprint2" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AmineStudio&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/AmineStudio/PWM.git&quot;,
+    &quot;accountId&quot;: &quot;745b01cb-3007-436f-8888-be4c0f0b4281&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/pages/carta.html" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="3A7hIrl6vZTxC0BahC8YZLM55Aj" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.carta.html.executor": "Run",
+    "JavaScript Debug.carta1.html.executor": "Run",
+    "JavaScript Debug.catalogo.html.executor": "Run",
+    "JavaScript Debug.domicilio.html.executor": "Run",
+    "JavaScript Debug.index.html.executor": "Run",
+    "JavaScript Debug.lista_pedido.html.executor": "Run",
+    "JavaScript Debug.pago.html.executor": "Run",
+    "JavaScript Debug.pedido.html.executor": "Run",
+    "JavaScript Debug.producto-card.html.executor": "Run",
+    "JavaScript Debug.sidebar.html.executor": "Run",
+    "JavaScript Debug.tipo_pedido.html.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "#1 on Merging Sprint2",
+    "javascript.preferred.runtime.type.id": "node",
+    "last_opened_file_path": "C:/Users/yenem/OneDrive/Documentos/GitHub/PWM/img/alergenos",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\yenem\OneDrive\Documentos\GitHub\PWM\img\alergenos" />
+      <recent name="C:\Users\yenem\OneDrive\Documentos\GitHub\PWM\img" />
+      <recent name="C:\Users\yenem\OneDrive\Documentos\GitHub\PWM\documents" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\yenem\OneDrive\Documentos\GitHub\PWM\img\alergenos" />
+      <recent name="C:\Users\yenem\OneDrive\Documentos\GitHub\PWM\documents" />
+      <recent name="C:\Users\yenem\OneDrive\Documentos\GitHub\PWM\img\contacto" />
+      <recent name="C:\Users\yenem\OneDrive\Documentos\GitHub\PWM\img" />
+      <recent name="C:\Users\corim\Documents\GitHub\PWM\img\nosotros" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.30387.83" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9b80d7f6-f4a7-486a-b631-7d9fc5322395" name="Changes" comment="" />
+      <created>1771949440119</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1771949440119</updated>
+      <workItem from="1771949441223" duration="1711000" />
+      <workItem from="1771954584296" duration="3850000" />
+      <workItem from="1772118817881" duration="4350000" />
+      <workItem from="1772142261581" duration="6259000" />
+      <workItem from="1772378329168" duration="270000" />
+      <workItem from="1772378615814" duration="39000" />
+      <workItem from="1772379044686" duration="1030000" />
+      <workItem from="1772899175030" duration="2015000" />
+      <workItem from="1773155918061" duration="2054000" />
+      <workItem from="1773247933731" duration="5926000" />
+      <workItem from="1773495075070" duration="14006000" />
+      <workItem from="1773573835081" duration="8361000" />
+      <workItem from="1773703170551" duration="679000" />
+      <workItem from="1773924230752" duration="19583000" />
+      <workItem from="1773954021773" duration="29000" />
+      <workItem from="1773954059502" duration="2063000" />
+      <workItem from="1774006329728" duration="2079000" />
+      <workItem from="1774008444970" duration="2122000" />
+      <workItem from="1774010968114" duration="2095000" />
+      <workItem from="1774023674861" duration="2613000" />
+      <workItem from="1774098146235" duration="7510000" />
+      <workItem from="1774189061278" duration="3646000" />
+      <workItem from="1774196534280" duration="4535000" />
+      <workItem from="1774358086772" duration="8428000" />
+      <workItem from="1774457405176" duration="7929000" />
+      <workItem from="1774523880051" duration="671000" />
+      <workItem from="1774605094908" duration="7193000" />
+      <workItem from="1774707157648" duration="2494000" />
+      <workItem from="1774779566917" duration="303000" />
+      <workItem from="1774780353280" duration="2548000" />
+      <workItem from="1774783175818" duration="3069000" />
+      <workItem from="1774795300530" duration="2978000" />
+    </task>
+    <task id="LOCAL-00001" summary="update">
+      <option name="closed" value="true" />
+      <created>1771949681941</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1771949681941</updated>
+    </task>
+    <task id="LOCAL-00002" summary="update">
+      <option name="closed" value="true" />
+      <created>1772378514034</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1772378514034</updated>
+    </task>
+    <task id="LOCAL-00003" summary="components/producto-card.html — nuevo, contiene los &lt;template&gt; HTML de las tarjetas&#10;java/producto-card.js — nuevo, lee data.json, clona plantillas y gestiona el carrito&#10;java/java.js — añadido dispatchEvent('componentesListos') al terminar de cargar componentes&#10;carta.html y pedido.html — grid vacío + script de producto-card.js + listener componentesListos">
+      <option name="closed" value="true" />
+      <created>1773092660538</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1773092660538</updated>
+    </task>
+    <task id="LOCAL-00004" summary="redesign tipo_pedido using json">
+      <option name="closed" value="true" />
+      <created>1773510496320</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1773510496320</updated>
+    </task>
+    <task id="LOCAL-00005" summary="foto">
+      <option name="closed" value="true" />
+      <created>1773510637643</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1773510637643</updated>
+    </task>
+    <task id="LOCAL-00006" summary="redisign header responsive">
+      <option name="closed" value="true" />
+      <created>1773575739654</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1773575739654</updated>
+    </task>
+    <task id="LOCAL-00007" summary="redisign sidebar responsive">
+      <option name="closed" value="true" />
+      <created>1773577393903</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1773577393903</updated>
+    </task>
+    <task id="LOCAL-00008" summary="template carta.html creada, catalogo.html resideñada">
+      <option name="closed" value="true" />
+      <created>1774009350464</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1774009350464</updated>
+    </task>
+    <task id="LOCAL-00009" summary="responsive login e index">
+      <option name="closed" value="true" />
+      <created>1774192827450</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1774192827450</updated>
+    </task>
+    <task id="LOCAL-00010" summary="header responsive">
+      <option name="closed" value="true" />
+      <created>1774193732967</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1774193732967</updated>
+    </task>
+    <task id="LOCAL-00011" summary="&#10;&#10;formulario de login y registrarse (mas logout)&#10;&#10;anadir el panel de trabajador para poder manegar carta&#10;&#10;logica para guardar nuevos productos y ofertas (falta eliminar)">
+      <option name="closed" value="true" />
+      <created>1774366484677</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1774366484677</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Footer con documentos reales. Pagina de pago creada (falta implementar el precio real). Pagina a domicilio creada (falta redirecionarla después del botón &quot;a domicilio&quot; en tipo_pedido).">
+      <option name="closed" value="true" />
+      <created>1774470295208</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1774470295208</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Logica del historial implementada guardando los pedidos en ella. Errores del carrito solucionados.">
+      <option name="closed" value="true" />
+      <created>1774609123632</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1774609123632</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Responsive mejorado de sobre nosotros e historial.">
+      <option name="closed" value="true" />
+      <created>1774712679363</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1774712679363</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Implementacion de los alergenos. Correcion de carrito. Correccion de panel de administrador. Mejora de responsive en index y carta.">
+      <option name="closed" value="true" />
+      <created>1774734635891</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1774734635891</updated>
+    </task>
+    <task id="LOCAL-00016" summary="clean code real">
+      <option name="closed" value="true" />
+      <created>1774786341047</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1774786341047</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="rama-alonso" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <MESSAGE value="components/producto-card.html — nuevo, contiene los &lt;template&gt; HTML de las tarjetas&#10;java/producto-card.js — nuevo, lee data.json, clona plantillas y gestiona el carrito&#10;java/java.js — añadido dispatchEvent('componentesListos') al terminar de cargar componentes&#10;carta.html y pedido.html — grid vacío + script de producto-card.js + listener componentesListos" />
+    <MESSAGE value="redesign tipo_pedido using json" />
+    <MESSAGE value="foto" />
+    <MESSAGE value="redisign header responsive" />
+    <MESSAGE value="redisign sidebar responsive" />
+    <MESSAGE value="corregir problema de rutas del sidebar" />
+    <MESSAGE value="template carta.html creada, catalogo.html resideñada" />
+    <MESSAGE value="responsive login e index" />
+    <MESSAGE value="header responsive" />
+    <MESSAGE value="&#10;&#10;formulario de login y registrarse (mas logout)&#10;&#10;anadir el panel de trabajador para poder manegar carta&#10;&#10;logica para guardar nuevos productos y ofertas (falta eliminar)" />
+    <MESSAGE value="Footer con documentos reales. Pagina de pago creada (falta implementar el precio real). Pagina a domicilio creada (falta redirecionarla después del botón &quot;a domicilio&quot; en tipo_pedido)." />
+    <MESSAGE value="Logica del historial implementada guardando los pedidos en ella. Errores del carrito solucionados." />
+    <MESSAGE value="Implementación del sistema de puntos en el index" />
+    <MESSAGE value="Responsive mejorado de sobre nosotros e historial." />
+    <MESSAGE value="Implementacion de los alergenos. Correcion de carrito. Correccion de panel de administrador. Mejora de responsive en index y carta." />
+    <MESSAGE value="clean code real" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean code real" />
+  </component>
+</project>

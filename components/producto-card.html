@@ -1,0 +1,35 @@
+<!-- PLANTILLA: Tarjeta para la CARTA -->
+<template id="tpl-carta-item">
+    <article class="menu-item" data-id="">
+        <img src="" alt="" class="item-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3075/3075977.png'">
+        <div class="item-info">
+            <h2 class="item-nombre item-title"></h2>
+            <p class="item-info-desc item-desc"></p>
+            <div class="item-tags"></div>
+        </div>
+        <div class="item-price">
+            <span class="item-precio-burbuja price"></span>
+        </div>
+    </article>
+</template>
+
+<!-- PLANTILLA: Tarjeta para PEDIDO (con contador) -->
+<template id="tpl-pedido-item">
+    <div class="menu-item" data-id="">
+        <img src="" alt="" class="item-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3075/3075977.png'">
+        <div class="item-info">
+            <h2 class="item-nombre item-title"></h2>
+            <p class="item-info-desc item-desc"></p>
+            <div class="item-tags"></div>
+        </div>
+        <div class="item-price">
+            <span class="item-precio-burbuja price"></span>
+            <div class="qty-control">
+                <button class="btn-menos qty-btn">-</button>
+                <span class="numero-cantidad qty">0</span>
+                <button class="btn-mas qty-btn">+</button>
+            </div>
+        </div>
+        <div class="iconos-alergenos"></div>
+    </div>
+</template>

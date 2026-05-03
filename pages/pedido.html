@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos — Tahm King</title>
+
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body class="menu-page">
+<div class="pedido-actions">
+    <a href="../index.html" class="action-btn cancel">
+        <i class="fa-solid fa-xmark"></i> Cancelar
+    </a>
+    <a href="lista_pedido.html" class="action-btn cart">
+        <i class="fa-solid fa-cart-shopping"></i> Carrito
+    </a>
+    <a href="pago.html" class="action-btn finish">
+        <i class="fa-solid fa-check"></i> Finalizar
+    </a>
+</div>
+
+<main class="catalogo-main">
+    <div class="carta-wrapper pedido-mode">
+        <div data-xlu-include-file="../components/carta.html"></div>
+    </div>
+</main>
+
+<template id="qty-template">
+    <div class="qty-control">
+        <button class="qty-btn minus">-</button>
+        <span class="qty">0</span>
+        <button class="qty-btn plus">+</button>
+    </div>
+</template>
+
+<script src="../java/producto-card.js" defer></script>
+<script src="../java/java.js" defer></script>
+</body>
+</html>

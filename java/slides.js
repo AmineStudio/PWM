@@ -1,0 +1,35 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const swiper1 = new Swiper('#hero-slider', {
+        loop: true,
+        speed: 600,
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+    });
+    new Swiper('#productos-slider', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 4 }
+        }
+    });
+
+    const swiper3 = new Swiper('#combos-slider', {
+        loop: true,
+        speed: 600,
+        autoplay: false,
+    });
+    setTimeout(() => {
+        swiper3.params.autoplay.delay = 4000;
+        swiper3.params.autoplay.reverseDirection = true;
+        swiper3.autoplay.start();
+    }, 3000);
+
+});
