@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Crear cuenta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div style="display:flex; flex-direction:column; align-items:center; margin: 16px 0 24px">
+    <ion-avatar style="width:100px; height:100px; margin-bottom:12px; border: 3px solid var(--ion-color-primary)">
+      <img [src]="fotoPreview || 'assets/icon/favicon.png'" alt="Foto" />
+    </ion-avatar>
+    <ion-button fill="outline" size="small" (click)="fileInput.click()">
+      <ion-icon name="camera-outline" slot="start"></ion-icon>
+      Seleccionar foto
+    </ion-button>
+    <input #fileInput type="file" accept="image/*" hidden (change)="onFotoSeleccionada($event)" />
+  </div>
+
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-label position="floating">Nombre *</ion-label>
+      <ion-input formControlName="nombre" type="text"></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched">
+      El nombre es obligatorio.
+    </ion-note>
+
+    <ion-item>
+      <ion-label position="floating">Apellidos *</ion-label>
+      <ion-input formControlName="apellidos" type="text"></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="form.get('apellidos')?.invalid && form.get('apellidos')?.touched">
+      Los apellidos son obligatorios.
+    </ion-note>
+
+    <ion-item>
+      <ion-label position="floating">Email *</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+      Introduce un email válido.
+    </ion-note>
+
+    <ion-item>
+      <ion-label position="floating">Contraseña *</ion-label>
+      <ion-input formControlName="password" type="password"></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
+      Mínimo 6 caracteres.
+    </ion-note>
+  </form>
+
+  <ion-button expand="block" class="ion-margin-top" (click)="onRegister()">
+    Crear cuenta
+  </ion-button>
+
+  <ion-button expand="block" fill="clear" (click)="goToLogin()">
+    ¿Ya tienes cuenta? Inicia sesión
+  </ion-button>
+
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Iniciar sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="logo-container">
+    <ion-icon name="film-outline" style="font-size:72px; color:var(--ion-color-primary)"></ion-icon>
+    <h2>RestauranteApp</h2>
+  </div>
+
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+      Introduce un email válido.
+    </ion-note>
+
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input formControlName="password" type="password"></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
+      Mínimo 6 caracteres.
+    </ion-note>
+  </form>
+
+  <ion-button expand="block" class="ion-margin-top" (click)="onLogin()">
+    Iniciar sesión
+  </ion-button>
+
+  <ion-button expand="block" fill="clear" (click)="goToRegister()">
+    ¿No tienes cuenta? Regístrate
+  </ion-button>
+
+</ion-content>

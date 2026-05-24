@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/favorites"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ restaurante?.nombre || 'Detalle' }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleFavorito()" *ngIf="restaurante">
+        <ion-icon
+          [name]="esFavorito ? 'star' : 'star-outline'"
+          [color]="esFavorito ? 'warning' : 'light'"
+          slot="icon-only"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="isLoading" class="ion-padding ion-text-center">
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <div *ngIf="!isLoading && restaurante">
+
+    <div style="width:100%; height:280px; overflow:hidden">
+      <img [src]="restaurante.imagen" [alt]="restaurante.nombre"
+           style="width:100%; height:100%; object-fit:cover" />
+    </div>
+
+    <div class="ion-padding">
+      <h1 style="font-size:24px; font-weight:700">{{ restaurante.nombre }}</h1>
+
+      <div style="display:flex; gap:8px; margin-bottom:16px">
+        <ion-badge color="primary">{{ restaurante.tipo }}</ion-badge>
+        <ion-badge color="medium">{{ restaurante.ciudad }}</ion-badge>
+      </div>
+
+      <h3>Descripción</h3>
+      <p>{{ restaurante.descripcion }}</p>
+
+      <ion-button
+        expand="block"
+        [color]="esFavorito ? 'warning' : 'primary'"
+        (click)="toggleFavorito()"
+        class="ion-margin-top"
+      >
+        <ion-icon [name]="esFavorito ? 'star' : 'star-outline'" slot="start"></ion-icon>
+        {{ esFavorito ? 'Quitar de favoritos' : 'Añadir a favoritos' }}
+      </ion-button>
+    </div>
+
+  </div>
+
+</ion-content>

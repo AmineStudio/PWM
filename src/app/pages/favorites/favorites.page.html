@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Restaurantes</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="log-out-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="isLoading" class="ion-padding ion-text-center">
+    <ion-spinner></ion-spinner>
+    <p>Cargando restaurantes...</p>
+  </div>
+
+  <ion-list *ngIf="!isLoading">
+    <ion-item
+      *ngFor="let restaurante of restaurantes"
+      button
+      detail
+      (click)="goToDetail(restaurante)"
+      [style.border-left]="isFavorito(restaurante.id) ? '4px solid var(--ion-color-warning)' : ''"
+      [style.background]="isFavorito(restaurante.id) ? '#fffbea' : ''"
+    >
+      <ion-thumbnail slot="start">
+        <img [src]="restaurante.imagen" [alt]="restaurante.nombre" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ restaurante.nombre }}</h2>
+        <p>{{ restaurante.tipo }} · {{ restaurante.ciudad }}</p>
+      </ion-label>
+      <ion-icon
+        *ngIf="isFavorito(restaurante.id)"
+        name="star"
+        color="warning"
+        slot="end"
+      ></ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="!isLoading && restaurantes.length === 0" class="ion-padding ion-text-center">
+    <p>No hay restaurantes disponibles.</p>
+  </div>
+
+</ion-content>

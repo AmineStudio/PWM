@@ -1,18 +1,17 @@
-import { Component, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './components/header/header.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { NavService } from './services/nav.service';
+import { Component, OnInit } from '@angular/core';
+import { SqliteService } from './services/sqlite.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent, SidebarComponent, FooterComponent],
-  templateUrl: './app.html',
-  styleUrl: './app.css',
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss'],
+  standalone: false
 })
-export class AppComponent {
-  nav = inject(NavService);
+export class AppComponent implements OnInit {
+
+  constructor(private sqliteService: SqliteService) {}
+
+  async ngOnInit(): Promise<void> {
+    await this.sqliteService.initDB();
+  }
 }

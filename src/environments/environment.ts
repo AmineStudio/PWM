@@ -1,12 +1,11 @@
 export const environment = {
   production: false,
-  firebaseConfig: {
-    apiKey: 'AIzaSyBJ47XX0hzgc68uTUZi44Kdw9q2_Gi5VAs',
-    authDomain: 'tahmking-9ade5.firebaseapp.com',
-    projectId: 'tahmking-9ade5',
-    storageBucket: 'tahmking-9ade5.firebasestorage.app',
-    messagingSenderId: '303489094590',
-    appId: '1:303489094590:web:5eb797a2e50db489825fef',
-    measurementId: 'G-KP2MR7P5D2',
-  },
+  firebase: {
+    apiKey: "AIzaSyCqNnh3uflgjeUIOYnKCthOTbBcYN5_8dc",
+    authDomain: "sprint4-d47d7.firebaseapp.com",
+    projectId: "sprint4-d47d7",
+    storageBucket: "sprint4-d47d7.firebasestorage.app",
+    messagingSenderId: "202995072073",
+    appId: "1:202995072073:web:f1d79c2f7ef7569d939398"
+  }
 };
